@@ -1,11 +1,11 @@
-<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.phonegap.Cashback_App" version="1.0.0">
-  <name>Cashback_App</name>
-  <description>Cashback_App sample application that responds to the deviceready event.</description>
-  <author href="http://phonegap.com" email="support@phonegap.com">Cashback_App Team</author>
-  <content src="login.html"/>
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.phonegap.Yoneak" version="1.0.0">
+  <name>Yoneak</name>
+  <description>Yoneak sample application that responds to the deviceready event.</description>
+  <author href="http://phonegap.com" email="support@phonegap.com">Yoneak Team</author>
+  <content src="loading.html"/>
   <preference name="phonegap-version" value="cli-6.3.0" />
   <preference name="permissions" value="none"/>
-  <preference name="orientation" value="landscape"/>
+  <preference name="orientation" value="default"/>
   <preference name="target-device" value="universal"/>
   <preference name="fullscreen" value="false"/>
   <preference name="webviewbounce" value="true"/>
