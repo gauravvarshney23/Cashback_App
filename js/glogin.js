@@ -126,9 +126,9 @@
 
   function tsGRegisterOrLogin(Name, Email, GoogleId, GoogleImage) {
 			var id=GoogleId;
-			var name=Name;
-			var email=Email;
-        	 $.post('http://yoneak.com/web_services/google.php?id='+id+'&user_name='+name+'&user_email='+email+'',function(res){
+			var user_name=Name;
+			var user_email=Email;
+        	 $.post('http://yoneak.com/web_services/google.php?id='+id+'&user_name='+user_name+'&user_email='+user_email+'',function(res){
 		    	if(res.user_id!="FAIL")
 		    	{   
 		    		
