@@ -8,7 +8,7 @@
 		<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />		
 		<link rel="stylesheet" href="css/w3.css">
 		<link rel="stylesheet" href="css/w3-theme-black.css">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">	
+		<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">	
 		<style> 
 
    #nav 
@@ -394,9 +394,9 @@
 			.chip img 
 			{
 				padding-top:5px;
-				height: 110px;
+				height: 80px;
 				width: 150px;
-				padding-bottom:10px;
+				padding-bottom:5px;
 			}
 		</style>
 		<script src="js/jquery-1.11.3.min.js"></script>
@@ -405,19 +405,22 @@
 		<script src="js/jssor.slider.min.js"></script>
 		<script src="js/store.js"></script>
 		<script src="js/logout.js"></script>
-		<script src="js/walletdetail.js"></script>
-		<script src="js/totalwallet-amount.js"></script>
-		<script src="js/login.js"></script>
 		<script src="js/account.js"></script>
 		<script src="js/home.js"></script>
+		<script src="js/logout.js"></script>
 		<script src="js/storehome.js"></script>
 		<script src="js/producthome.js"></script>
 		<script src="js/couponcode.js"></script>
+		<script src="js/walletdetail.js"></script>
+		<script src="js/totalwallet-amount.js"></script>
 		<script src="js/deal.js"></script>
+		<script src="js/walletdetail.js"></script>
+		<script src="js/login.js"></script>
+		 <script src="js/external.js"></script>
 		<script src="js/refair-earn.js"></script>
 	</head>
 	<body>
-		<div data-role="panel" id="myPanel1"  style="color:#29b0e2;" data-display="overlay"> 
+			<div data-role="panel" id="myPanel1"  style="color:#29b0e2;" data-display="overlay"> 
 			<h2 style="color:#ff6666;">Cashback</h2>
 			<ul data-role="listview">
 				<li onclick="home()">
@@ -462,23 +465,23 @@
 				</li>
 			</ul>
 		</div>
-		
+
 		<div data-role="header" style="background:#003d8c none repeat scroll 0 0 !important" data-theme="b" data-position="fixed">
 			<a href="#myPanel1" style="width:35px;height:35px;margin-left:10px;margin-top:5px;" class="ui-btn ui-corner-all ui-icon-bars ui-btn-icon-notext" data-transition="slide"></a>
 			<table border="0" align="center">
 				<tr align="Center">								
 					<th width="500px" height="50">
-						<img src="yo.png" onclick="mainPage()" id="logo" class="w3-center" style="cursor:pointer;margin:0 auto;height:45px;display:block;">	
+						<a href="http://yoneak.com/Cashback_App/yoneak.html"><img src="yo.png" id="logo" class="w3-center" style="margin:0 auto;height:45px;display:block;"></a>	
 					</th>					
 					<th width="100px" height="50" style="font-size:15px;">						
 						<a><i class="fa fa-search w3-xlarge" id="searchButton" style="cursor:pointer;"></i></a>
 					</th>
 					<th width="100px" height="50" style="font-size:15px;">
-						<a  onclick="goToCart();"><i class="fa fa-shopping-cart w3-xlarge" style="cursor:pointer;"></i></a>
+						<a><i class="fa fa-shopping-cart w3-xlarge" style="cursor:pointer;"></i></a>
 					</th>
 				</tr>
 			</table>				
-		</div>		
+		</div>	
 		<div class="w3-card-4" id="searchDiv" style="border-radius:15px; display:none;">
 			<div  padding-right:15px;padding-top:5px;">
 			<form class="ui-filterable">
@@ -521,7 +524,8 @@ if(searchKey!="")
 		alert("Search Value should not be blank.");
 	}	
 });
-</script>
+</script>		
+		
 		<header>
    <div class="w3-card-4" style="">
     <div style="text-align: Center; padding-right:15px;padding-top:5px;">
@@ -545,12 +549,12 @@ if(searchKey!="")
        </th>
        <th width="250px" height="50" style="font-size:15px;">
         <div class="dropdown">
-         <div class="tooltip" >
+         <div class="tooltip" onclick="producthome()">
           <a alt="Product" class="dropbtn" href="#">
            <i class="fa fa-archive w3-xxlarge" aria-hidden="true" style="cursor:pointer;"></i>
            <span class="tooltiptext">Product</span>
           </a>
-          <div onclick="producthome()" class="dropdown-content">          
+          <div  class="dropdown-content">          
           <ul id="nav" class="navbar">
           	
           </ul>
@@ -579,19 +583,159 @@ if(searchKey!="")
     </div>
    </div>
   </header>
-		<div class="w3-card-4" id="detail" style="width:100%;border-radius:15px;background-color:white;">
-		<header class="w3-container" style="background-color:#67c5ad;height:50px;">
-		   <h4 style="color:white;margin-right:20px;" align="Center">
-            Cost Per Click	
-	       </h4>							
-	   </header>
+		
+		<div role="main" id="list-shop">
+			<script>
+				jssor_1_slider_init = function() 
+				{
+					var jssor_1_SlideshowTransitions = 
+					[
+						{
+							$Duration:1200,$Opacity:2
+						}
+					];
+					var jssor_1_options = 
+					{
+						$AutoPlay: true,
+						$SlideshowOptions: 
+						{
+							$Class: $JssorSlideshowRunner$,
+							$Transitions: jssor_1_SlideshowTransitions,
+							$TransitionsOrder: 1
+						},
+						$ArrowNavigatorOptions: 
+						{
+							$Class: $JssorArrowNavigator$
+						},
+						$BulletNavigatorOptions: 
+						{
+							$Class: $JssorBulletNavigator$
+						}
+					};
+					var jssor_1_slider = new $JssorSlider$("jssor_1", jssor_1_options);
+					
+					function ScaleSlider() 
+					{
+						var refSize = jssor_1_slider.$Elmt.parentNode.clientWidth;
+						if (refSize) 
+						{
+							refSize = Math.min(refSize, 600);
+							jssor_1_slider.$ScaleWidth(refSize);
+						}
+						else 
+						{
+							window.setTimeout(ScaleSlider, 30);
+						}
+					}
+					ScaleSlider();
+					$Jssor$.$AddEvent(window, "load", ScaleSlider);
+					$Jssor$.$AddEvent(window, "resize", ScaleSlider);
+					$Jssor$.$AddEvent(window, "orientationchange", ScaleSlider);
+                };
+			</script>
+
+			<style>
+                .jssorb05 
+				{
+					position: absolute;
+				}
+				.jssorb05 div, .jssorb05 div:hover, .jssorb05 .av 
+				{
+					position: absolute;
+                    width: 16px;
+					height: 16px;
+					background: url('img/b05.png') no-repeat;
+					overflow: hidden;
+					cursor: pointer;
+				}
+				.jssorb05 div 
+				{ 
+					background-position: -7px -7px; 
+				}
+				.jssorb05 div:hover, .jssorb05 .av:hover 
+				{ 
+					background-position: -37px -7px; 
+				}
+				.jssorb05 .av 
+				{ 
+					background-position: -67px -7px; 
+				}
+				.jssorb05 .dn, .jssorb05 .dn:hover 
+				{ 
+					background-position: -97px -7px; 
+				}
+
+				.jssora12l, .jssora12r 
+				{
+					display: block;
+					position: absolute;
+                    width: 30px;
+					height: 46px;
+					cursor: pointer;
+					background: url('img/a12.png') no-repeat;
+					overflow: hidden;
+				}
+				.jssora12l 
+				{ 
+					background-position: -16px -37px; 
+				}
+				.jssora12r 
+				{ 
+					background-position: -75px -37px; 
+				}
+				.jssora12l:hover 
+				{ 
+					background-position: -136px -37px; 
+				}
+				.jssora12r:hover 
+				{ 
+					background-position: -195px -37px; 
+				}
+				.jssora12l.jssora12ldn 
+				{ 
+					background-position: -256px -37px; 
+				}
+				.jssora12r.jssora12rdn 
+				{
+					background-position: -315px -37px; 
+				}
+			</style>
+
+			<div id="jssor_1" style="position: relative; margin: 0 auto; top: 0px; left: 0px; width: 600px; height: 300px; overflow: hidden; visibility: hidden;">
+               <div data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width: 600px; height: 300px; overflow: hidden;">
+					<div data-p="112.50" style="display: none;">
+						<img data-u="image" src="img/office_chairs.jpg" />
+					</div>
+					<div data-p="112.50" style="display: none;">
+						<img data-u="image" src="img/outdoor_furnitures.jpg" />
+					</div>
+					<div data-p="112.50" style="display: none;">
+						<img data-u="image" src="img/SWS-1013.jpg" />
+					</div>
+					<div data-p="112.50" style="display: none;">
+						<img data-u="image" src="img/Untitled-1_1-11_1_1.jpg" />
+					</div>
+				</div>
+				<div data-u="navigator" class="jssorb05" style="bottom:16px;right:16px;" data-autocenter="1">
+                        <div data-u="prototype" style="width:16px;height:16px;"></div>
+				</div>
+                <span data-u="arrowleft" class="jssora12l" style="top:0px;left:0px;width:30px;height:46px;" data-autocenter="2"></span>
+				<span data-u="arrowright" class="jssora12r" style="top:0px;right:0px;width:30px;height:46px;" data-autocenter="2"></span>
+				<a href="http://www.jssor.com" style="display:none">Slideshow Maker</a>
+			</div>
+			<script>
+				jssor_1_slider_init();
+			</script>
 		</div>
 		
-		<div id="storedetail" class="w3-card-4" >
-
-		</div>
-	<header class="" style="border-radius:0px; background-color: #003d8c !important;">
-		<div class="w3-card-4" style="">
+			<div class="w3-card-4" style="border-radius:15px;">
+				<div id="newdata" style="text-align: Center; padding-right:15px;padding-top:5px;">
+							
+				</div>
+			</div>
+		
+		<header class="w3-container" style="border-radius:15px;">
+		<div class="w3-card-4" style="border-radius:15px;">
 				<div style="text-align: Center; padding-right:15px;padding-top:5px;">
 			<table border="0" align="center">
 				<tr align="Center">								
@@ -639,60 +783,97 @@ if(searchKey!="")
 			</table>				
 		</div>
 		</div>
-		<script>
+		</header>
+	</body>
+</html>
+            <script>
 			$(document).ready(function()
 		    {	
-		    var id=localStorage.id;
-		    $.post('http://yoneak.com/web_services/cpc.php',function(res){
+		    var cat_id=localStorage.cat_id;
+		     $.post('http://yoneak.com/web_services/externalfetch.php?cat_id='+cat_id,function(res)
+		     {
 			    var i=0;
-				var newleads_div_data="";
+			    var urlId="";
+			    var tabcount=2;
+				var newleads_div_data='<table border="0" align="center" style="font-size:12px;'+
+										'font-family:Helvetica;">';
 				$.each(res, function( key, value ) 
 				    {
+
+
 				    switch(i)
 				    	{
+				      case 0:
+
+				      if(tabcount%2==0)
+				    	{
+				    		newleads_div_data+='<tr align="Center">';
+				    	}
+				    	else if(tabcount%2==1)
+				    	{
+				    		newleads_div_data+="";
+				    	}
+				      	newleads_div_data+='<td  onclick="product('+value.cat_id+')"  width="150px"'+
+				      	'height="50" style="font-size:15px;border:2px solid #003d8c;">';
+				      		urlId=value.id;
+
+				       break;
+
 				    	case 1:
-				    		newleads_div_data+='<br><div class="w3-container" style="text-align:center;">'+
-				                                '<img src="../admin/exnl_cat_images/'+value.image+'"  style="max-width:200px;">'+
-			                                   '</div>';
+	 newleads_div_data+='<img src="../admin/product_images/'+value.image+'" '+
+	'style="max-width:150px;">';
+	newleads_div_data+='<div class="w3-container"'+
+	'style="text-align:center;">';
+				    	   
+				    	break;
+				    	case 2:
+				    	newleads_div_data+='<h5 style="padding-top:5px;">'+value.product_name+'</h5>';
 
 				        break;
-			            case 2:
-			            newleads_div_data+='<div class="w3-container" style="text-align:center;">'+
-				                           '<h6 style="padding-top:5px;">'+value.coupon_code+'</h6>';					
-				
-					
+			            case 3:
+			     newleads_div_data+='<h6 style="border-radius:15px;color: #ff6666">'+value.selling_price+'</h6>';
+				 newleads_div_data+=''+
+				 '<a>'+				
+					'<i class="fa fa-shopping-cart w3-xlarge w3-center" style="cursor:pointer;">Add to Carts</i>'+
+
+				          '</a>'+
+
+				          '</br></br></br>'+
+
+				          '<hr>'+
+
+			              '</div> </td>';			
+			                           
 				         break;
-				         case 3:
-				    		newleads_div_data+='<h6 style="border-radius:15px;color: #ff6666">'+value.long_description+'</h6>';
-				          break;
-				          case 4:
-				    	newleads_div_data+='<a href="'+value.url+'">'+
-				    	'<button type="button" style="background-color:#ff6666;color:#fff;border-radius:15px;width:100%;" class="w3-center"><i class="fa fa-thumbs-up">&nbsp;&nbsp;GRAB DEAL NOW</i> </button>'+
-				    	'</a>';
-				          break;
-				          case 5:
-				    		newleads_div_data+='<h6 style="border-radius:15px;color: grey">Offer Validity'+value.offer_validity+'</h6>'+						
-			                 '</div>';	
-				          break;
+
+				        
 				    	  }
+				    	  
 				    	       i=i+1;
 				    	       i%=8;
 				    	       if(i==0)
 				    	       {
 
-				    	   		  $('#storedetail').append(newleads_div_data);
+				    	       		if(tabcount%2==1)
+				    				  {
+				    	  				newleads_div_data+='</tr>';
+				    	 		  	  }
+				    	 		 
+				    	       	tabcount=tabcount+1;
+				    	    		
 				    	       }
 
-                               });
-					
+                              });
+
+					 newleads_div_data+="</table>";
+					 $('#Transactions').append(newleads_div_data);
 				              },"json");
 
 			                  });
 
+
 				           </script>
-				          
-		</header>
-			<script>
+<script>
 			$(document).ready(function()
 		    {	
 		    $.post('http://yoneak.com/web_services/header.php',function(res){
@@ -756,84 +937,7 @@ if(searchKey!="")
                                });
 					
 				              },"json");
-		     $.post('http://yoneak.com/web_services/ExternalProducts.php',function(res){
-			    var i=0;
-				var newleads_div_data="";
-				var sub_menu_data='';
-				var sub_menu_data_1='';
-				
-				$.each(res, function( key, value ) 
-				 {
-				    switch(i)
-				    	{
-				       case 0:
-				    newleads_div_data='<li><a href="webId'+value.webId+'"  onclick="cat('+value.webId+')" style="text-align:left;padding-left:30px;">';
-				                    
-				    	break;
-
-				    	case 1:
-				    	
-				           newleads_div_data+=value.website+'</a>';
-				                        
-				    	break;
-
-				    	case 2:
-				    	if(value.webData!='')
-				    	{
-				    		var webdata=value.webData;
-				    		var j=1;
-				    		sub_menu_data='<ul>';
-				    		$.each(webdata,function(k,v){
-				    			switch(j)
-				    			{
-				    				case 1:
-				    				     sub_menu_data_1+='<li><a href="catId='+v.catId+'"  onclick="subcat('+v.catId+')" >'; 
-				    				break;
-				    				case 2:
-				    				     sub_menu_data_1+=v.catName+'</a></li>';
-                                                                 
-				    				break;
-				    			}
-				    			j%=2;
-				    			j++;
-				    		 
-				    		});
-				    		sub_menu_data+=sub_menu_data_1+'</ul>';
-				    		newleads_div_data+=sub_menu_data+'</li>';
-				    		sub_menu_data_1='';
-				    	}
-                         else
-                         {
-                         	newleads_div_data+='</li>';
-                         }
-				        break;
-				    	  }
-				    	       i=i+1;
-				    	       i%=3;
-				    	       if(i==0)
-				    	       {
-
-				    	     $('.navbar').append(newleads_div_data);
-				    	       }
-
-                               });
-               
-					
-				              },"json");
-				             
-
 
 			                  });
-	function goToCart()
-{
-	location.href="cartDetail.html";
-}
-			
-function mainPage()
-{
-	location.href="http://yoneak.com/Cashback_App/yoneak.html";
-}
 
 				           </script>
-	</body>
-</html>

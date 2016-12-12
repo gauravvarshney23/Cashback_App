@@ -406,8 +406,14 @@
 	    <script src="js/product.js"></script>
 	    <script src="js/logout.js"></script>
 	    <script src="js/account.js"></script>
-	    <script src="js/walletdetail.js"></script>
+	   <script src="js/walletdetail.js"></script>
+		<script src="js/totalwallet-amount.js"></script>
 	    <script src="js/login.js"></script>
+	    <script src="js/home.js"></script>
+		<script src="js/storehome.js"></script>
+		<script src="js/producthome.js"></script>
+		<script src="js/couponcode.js"></script>
+		<script src="js/deal.js"></script>
 	    <script src="js/refair-earn.js"></script>
 	</head>
 	<body>
@@ -463,18 +469,60 @@
 			<table border="0" align="center">
 				<tr align="Center">								
 					<th width="500px" height="50">
-						<a href="http://yoneak.com/"><img src="yo.png" id="logo" class="w3-center" style="margin:0 auto;height:45px;display:block;"></a>	
+						<img src="yo.png" onclick="mainPage()" id="logo" class="w3-center" style="cursor:pointer;margin:0 auto;height:45px;display:block;">	
 					</th>					
 					<th width="100px" height="50" style="font-size:15px;">						
-						<a><i class="fa fa-search w3-xlarge" style="cursor:pointer;"></i></a>
+						<a><i class="fa fa-search w3-xlarge" id="searchButton" style="cursor:pointer;"></i></a>
 					</th>
 					<th width="100px" height="50" style="font-size:15px;">
-						<a><i class="fa fa-shopping-cart w3-xlarge" style="cursor:pointer;"></i></a>
+						<a onclick="goToCart();"><i class="fa fa-shopping-cart w3-xlarge" style="cursor:pointer;"></i></a>
 					</th>
 				</tr>
 			</table>				
 		</div>		
-		<br />
+	<div class="w3-card-4" id="searchDiv" style="border-radius:15px; display:none;">
+			<div  padding-right:15px;padding-top:5px;">
+			<form class="ui-filterable">
+				<h6 align="center">Find product with your requirements & needs.</h6>
+				<div style="padding-bottom:10px;">
+				<input type="search" id="searchKey" onkeyup="searchProject()" autofocus="true" placeholder="Search for Product">
+				</div>
+				 <span>
+                      <button type="button" id="search" onclick="search()" name='search_click'><i class="fa fa-search"></i></button>
+                </span>
+			</form>
+		</div>
+	    </div>		
+		</br>
+<script>
+var toggle=1;
+$("#searchButton").click(function(){
+			
+		if(toggle==1)
+		{
+			$("#searchDiv").show();
+			toggle=2;
+		}
+		else
+		{
+			$("#searchDiv").hide();
+			toggle=1;
+		}
+		
+});
+$('#search').click(function(){
+var searchKey=$('#searchKey').val();
+if(searchKey!="")
+	{
+		localStorage.setItem("searchKey",searchKey);
+		location.href="http://yoneak.com/Cashback_App/search-result.html";
+	}
+	else
+	{
+		alert("Search Value should not be blank.");
+	}	
+});
+</script>
 		<header>
    <div class="w3-card-4" style="">
     <div style="text-align: Center; padding-right:15px;padding-top:5px;">
@@ -498,12 +546,12 @@
        </th>
        <th width="250px" height="50" style="font-size:15px;">
         <div class="dropdown">
-         <div class="tooltip" onclick="producthome()">
+         <div class="tooltip" >
           <a alt="Product" class="dropbtn" href="#">
            <i class="fa fa-archive w3-xxlarge" aria-hidden="true" style="cursor:pointer;"></i>
            <span class="tooltiptext">Product</span>
           </a>
-          <div  class="dropdown-content">          
+          <div onclick="producthome()" class="dropdown-content">          
           <ul id="nav" class="navbar">
           	
           </ul>
@@ -563,8 +611,8 @@
 		<div id="dealday" class="w3-card-4" >	
 		</div>
 	
-		<header class="w3-container" style="border-radius:15px;">
-		<div class="w3-card-4" style="border-radius:15px;">
+		<header class="" style="border-radius:0px; background-color: #003d8c !important;">
+		<div class="w3-card-4">
 				<div style="text-align: Center; padding-right:15px;padding-top:5px;">
 			<table border="0" align="center">
 				<tr align="Center">								
@@ -750,8 +798,80 @@
                                });
 					
 				              },"json");
+		   $.post('http://yoneak.com/web_services/ExternalProducts.php',function(res){
+			    var i=0;
+				var newleads_div_data="";
+				var sub_menu_data='';
+				var sub_menu_data_1='';
+				
+				$.each(res, function( key, value ) 
+				 {
+				    switch(i)
+				    	{
+				       case 0:
+				    newleads_div_data='<li><a href="webId'+value.webId+'"  onclick="cat('+value.webId+')" style="text-align:left;padding-left:30px;">';
+				                    
+				    	break;
 
+				    	case 1:
+				    	
+				           newleads_div_data+=value.website+'</a>';
+				                        
+				    	break;
+
+				    	case 2:
+				    	if(value.webData!='')
+				    	{
+				    		var webdata=value.webData;
+				    		var j=1;
+				    		sub_menu_data='<ul>';
+				    		$.each(webdata,function(k,v){
+				    			switch(j)
+				    			{
+				    				case 1:
+				    				     sub_menu_data_1+='<li><a href="catId='+v.catId+'"  onclick="subcat('+v.catId+')" >'; 
+				    				break;
+				    				case 2:
+				    				     sub_menu_data_1+=v.catName+'</a></li>';
+                                                                 
+				    				break;
+				    			}
+				    			j%=2;
+				    			j++;
+				    		 
+				    		});
+				    		sub_menu_data+=sub_menu_data_1+'</ul>';
+				    		newleads_div_data+=sub_menu_data+'</li>';
+				    		sub_menu_data_1='';
+				    	}
+                         else
+                         {
+                         	newleads_div_data+='</li>';
+                         }
+				        break;
+				    	  }
+				    	       i=i+1;
+				    	       i%=3;
+				    	       if(i==0)
+				    	       {
+
+				    	     $('.navbar').append(newleads_div_data);
+				    	       }
+
+                               });
+               
+					
+				              },"json");
 			                  });
+function goToCart()
+{
+	location.href="cartDetail.html";
+}
+function mainPage()
+{
+	location.href="http://yoneak.com/Cashback_App/yoneak.html";
+}
+			
 
 				           </script>
 	</body>

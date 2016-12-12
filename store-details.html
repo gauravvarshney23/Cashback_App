@@ -473,7 +473,7 @@
 						<a><i class="fa fa-search w3-xlarge" id="searchButton" style="cursor:pointer;"></i></a>
 					</th>
 					<th width="100px" height="50" style="font-size:15px;">
-						<a><i class="fa fa-shopping-cart w3-xlarge" style="cursor:pointer;"></i></a>
+						<a onclick="goToCart();"><i class="fa fa-shopping-cart w3-xlarge" style="cursor:pointer;"></i></a>
 					</th>
 				</tr>
 			</table>				
@@ -586,8 +586,8 @@ if(searchKey!="")
 		<div id="storedetail" class="w3-card-4" >
 
 		</div>
-		<header class="w3-container" style="border-radius:15px;">
-		<div class="w3-card-4" style="border-radius:15px;">
+		<header class="" style="border-radius:0px; background-color: #003d8c !important;">
+		<div class="w3-card-4">
 				<div style="text-align: Center; padding-right:15px;padding-top:5px;">
 			<table border="0" align="center">
 				<tr align="Center">								
@@ -639,40 +639,42 @@ if(searchKey!="")
 			$(document).ready(function()
 		    {	
 		    var id=localStorage.id;
-		    $.post('http://yoneak.com/web_services/get_offer.php?id='+id,function(res){
+		    $.post('http://yoneak.com/web_services/get_offer.php?id='+id,function(res)
+		     {
 			    var i=0;
 				var newleads_div_data="";
 				$.each(res, function( key, value ) 
 				    {
 				    switch(i)
 				    	{
-				    	case 1:
+				    	case 2:
 				    		newleads_div_data='<br><div class="w3-container" style="text-align:center;">'+
 				                                '<img src="../admin/cat_images/'+value.image+'" style="max-width:200px;">'+
-			                                   '</div>';
+			                                         '</div>';
 
 				        break;
-			            case 2:
+
+			            case 3:
 			            newleads_div_data+='<div class="w3-container" style="text-align:center;">'+
 				                           '<h6 style="padding-top:5px;">'+value.cat_name+'</h6>';					
 				
 					
 				         break;
-				         case 3:
+				         case 4:
 				    		newleads_div_data+='<h6 style="border-radius:15px;color: #ff6666">'+value.long_description+'</h6>';
 				          break;
-				          case 4:
+				          case 5:
 				    	newleads_div_data+='<a href="'+value.url+'">'+
 				    	'<button type="button" style="background-color:#ff6666;color:#fff;border-radius:15px;width:100%;" class="w3-center"><i class="fa fa-thumbs-up">&nbsp;&nbsp;GRAB DEAL NOW</i> </button>'+
 				    	'</a>';
 				          break;
-				          case 5:
+				          case 6:
 				    		newleads_div_data+='<h6 style="border-radius:15px;color: grey">Offer Validity'+value.offer_validity+'</h6>'+						
 			                 '</div>';	
 				          break;
 				    	  }
 				    	       i=i+1;
-				    	       i%=9;
+				    	       i%=10;
 				    	       if(i==0)
 				    	       {
 
@@ -789,8 +791,76 @@ if(searchKey!="")
                                });
 					
 				              },"json");
+		    					 $.post('http://yoneak.com/web_services/ExternalProducts.php',function(res){
+			    var i=0;
+				var newleads_div_data="";
+				var sub_menu_data='';
+				var sub_menu_data_1='';
+				
+				$.each(res, function( key, value ) 
+				 {
+				    switch(i)
+				    	{
+				       case 0:
+				    newleads_div_data='<li><a href="webId'+value.webId+'"  onclick="cat('+value.webId+')" style="text-align:left;padding-left:30px;">';
+				                    
+				    	break;
+
+				    	case 1:
+				    	
+				           newleads_div_data+=value.website+'</a>';
+				                        
+				    	break;
+
+				    	case 2:
+				    	if(value.webData!='')
+				    	{
+				    		var webdata=value.webData;
+				    		var j=1;
+				    		sub_menu_data='<ul>';
+				    		$.each(webdata,function(k,v){
+				    			switch(j)
+				    			{
+				    				case 1:
+				    				     sub_menu_data_1+='<li><a href="catId='+v.catId+'"  onclick="subcat('+v.catId+')" >'; 
+				    				break;
+				    				case 2:
+				    				     sub_menu_data_1+=v.catName+'</a></li>';
+                                                                 
+				    				break;
+				    			}
+				    			j%=2;
+				    			j++;
+				    		 
+				    		});
+				    		sub_menu_data+=sub_menu_data_1+'</ul>';
+				    		newleads_div_data+=sub_menu_data+'</li>';
+				    		sub_menu_data_1='';
+				    	}
+                         else
+                         {
+                         	newleads_div_data+='</li>';
+                         }
+				        break;
+				    	  }
+				    	       i=i+1;
+				    	       i%=3;
+				    	       if(i==0)
+				    	       {
+
+				    	     $('.navbar').append(newleads_div_data);
+				    	       }
+
+                               });
+               
+					
+				              },"json");
 
 			                  });
+	function goToCart()
+{
+	location.href="cartDetail.html";
+}
 
 				           </script>
 	</body>

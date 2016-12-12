@@ -292,13 +292,13 @@
 			<table border="0" align="center">
 				<tr align="Center">								
 					<th width="500px" height="50">
-						<a href="http://yoneak.com/Cashback_App/yoneak.html"><img src="yo.png" id="logo" class="w3-center" style="margin:0 auto;height:45px;display:block;"></a>	
+						<img src="yo.png" onclick="mainPage()" id="logo" class="w3-center" style="cursor:pointer;margin:0 auto;height:45px;display:block;">	
 					</th>					
 					<th width="100px" height="50" style="font-size:15px;">						
 						<a><i class="fa fa-search w3-xlarge" id="searchButton" style="cursor:pointer;"></i></a>
 					</th>
 					<th width="100px" height="50" style="font-size:15px;">
-						<a><i class="fa fa-shopping-cart w3-xlarge" style="cursor:pointer;"></i></a>
+						<a onclick="goToCart();"><i class="fa fa-shopping-cart w3-xlarge" style="cursor:pointer;"></i></a>
 					</th>
 				</tr>
 			</table>				
@@ -369,12 +369,12 @@ if(searchKey!="")
        </th>
        <th width="250px" height="50" style="font-size:15px;">
         <div class="dropdown">
-         <div class="tooltip" onclick="producthome()">
+         <div class="tooltip" >
           <a alt="Product" class="dropbtn" href="#">
            <i class="fa fa-archive w3-xxlarge" aria-hidden="true" style="cursor:pointer;"></i>
            <span class="tooltiptext">Product</span>
           </a>
-          <div  class="dropdown-content">          
+          <div onclick="producthome()" class="dropdown-content">          
           <ul id="nav" class="navbar">
           	
           </ul>
@@ -560,7 +560,7 @@ if(searchKey!="")
 								<td width="250px" height="50" style="font-size:15px; padding-left: 8% !important;">
 									<ul class="tab w3-center">
 										<li>
-											<h6 style="color: #ff6666"><strong>Ecommerce</strong></h6>
+											<h6 style="color: #ff6666"><strong>Shopping</strong></h6>
 										</li>
 									</ul>
 								</td>
@@ -570,7 +570,7 @@ if(searchKey!="")
 								<td width="250px" height="50" style="font-size:15px; padding-left: 8% !important;">
 									<ul class="tab w3-center">
 										<li>
-											<h6 style="color: #ff6666"><strong>Cost Per View</h6>
+											<h6 style="color: #ff6666"><strong>View and Earn</h6>
 										</li> 
 									</ul>
 								</td>								
@@ -602,7 +602,7 @@ if(searchKey!="")
 								<td width="250px" height="50" style="font-size:15px;">
 									<ul class="tab w3-center">
 										<li>
-											<a href="#" onclick="costPerClick()" style="color:#ff6666;">
+											<a href="#" onclick="CostPerAppDownload()" style="color:#ff6666;">
 												<img src="img/CPD.png"  style="width:100px;" />
 											</a>
 										</li> 
@@ -616,7 +616,7 @@ if(searchKey!="")
 								<td width="250px" height="50" style="font-size:15px;">
 									<ul class="tab w3-center">
 										<li>
-											<h6 style="color: #ff6666"><strong>Cost Per Click</h6>
+											<h6 style="color: #ff6666"><strong>Click and Earn</h6>
 										</li>
 									</ul>
 								</td>
@@ -626,7 +626,7 @@ if(searchKey!="")
 								<td width="250px" height="50" style="font-size:15px;">
 									<ul class="tab w3-center">
 										<li>
-											<h6 style="color: #ff6666;text"><strong>Cost Per App Download</h6>
+											<h6 style="color: #ff6666;text"><strong>Download and Earn</h6>
 										</li> 
 									</ul>
 								</td>								
@@ -768,8 +768,83 @@ if(searchKey!="")
 					
 				              },"json");
 
-			                  });
 
+
+$.post('http://yoneak.com/web_services/ExternalProducts.php',function(res){
+			    var i=0;
+				var newleads_div_data="";
+				var sub_menu_data='';
+				var sub_menu_data_1='';
+				
+				$.each(res, function( key, value ) 
+				 {
+				    switch(i)
+				    	{
+				       case 0:
+				    newleads_div_data='<li><a href="webId'+value.webId+'"  onclick="cat('+value.webId+')" style="text-align:left;padding-left:30px;">';
+				                    
+				    	break;
+
+				    	case 1:
+				    	
+				           newleads_div_data+=value.website+'</a>';
+				                        
+				    	break;
+
+				    	case 2:
+				    	if(value.webData!='')
+				    	{
+				    		var webdata=value.webData;
+				    		var j=1;
+				    		sub_menu_data='<ul>';
+				    		$.each(webdata,function(k,v){
+				    			switch(j)
+				    			{
+				    				case 1:
+				    				     sub_menu_data_1+='<li><a href="catId='+v.catId+'"  onclick="subcat('+v.catId+')" >'; 
+				    				break;
+				    				case 2:
+				    				     sub_menu_data_1+=v.catName+'</a></li>';
+                                                                 
+				    				break;
+				    			}
+				    			j%=2;
+				    			j++;
+				    		 
+				    		});
+				    		sub_menu_data+=sub_menu_data_1+'</ul>';
+				    		newleads_div_data+=sub_menu_data+'</li>';
+				    		sub_menu_data_1='';
+				    	}
+                         else
+                         {
+                         	newleads_div_data+='</li>';
+                         }
+				        break;
+				    	  }
+				    	       i=i+1;
+				    	       i%=3;
+				    	       if(i==0)
+				    	       {
+
+				    	     $('.navbar').append(newleads_div_data);
+				    	       }
+
+                               });
+               
+					
+				              },"json");
+
+
+			                  });
+function goToCart()
+{
+	location.href="cartDetail.html";
+}
+function mainPage()
+{
+	location.href="http://yoneak.com/Cashback_App/yoneak.html";
+}
 				           </script>
 	</body>
 </html>

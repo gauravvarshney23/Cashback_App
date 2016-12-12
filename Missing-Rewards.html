@@ -470,13 +470,13 @@
 			<table border="0" align="center">
 				<tr align="Center">								
 					<th width="500px" height="50">
-						<a href="http://yoneak.com/"><img src="yo.png" id="logo" class="w3-center" style="margin:0 auto;height:45px;display:block;"></a>	
+						<img src="yo.png" onclick="mainPage()" id="logo" class="w3-center" style="cursor:pointer;margin:0 auto;height:45px;display:block;">	
 					</th>					
 					<th width="100px" height="50" style="font-size:15px;">						
 						<a><i class="fa fa-search w3-xlarge" id="searchButton" style="cursor:pointer;"></i></a>
 					</th>
 					<th width="100px" height="50" style="font-size:15px;">
-						<a><i class="fa fa-shopping-cart w3-xlarge" style="cursor:pointer;"></i></a>
+						<a onclick="goToCart();"><i class="fa fa-shopping-cart w3-xlarge" style="cursor:pointer;"></i></a>
 					</th>
 				</tr>
 			</table>				
@@ -547,12 +547,12 @@ if(searchKey!="")
        </th>
        <th width="250px" height="50" style="font-size:15px;">
         <div class="dropdown">
-         <div class="tooltip" onclick="producthome()">
+         <div class="tooltip" >
           <a alt="Product" class="dropbtn" href="#">
            <i class="fa fa-archive w3-xxlarge" aria-hidden="true" style="cursor:pointer;"></i>
            <span class="tooltiptext">Product</span>
           </a>
-          <div  class="dropdown-content">          
+          <div onclick="producthome()" class="dropdown-content">          
           <ul id="nav" class="navbar">
           	
           </ul>
@@ -580,7 +580,6 @@ if(searchKey!="")
      </table> 
     </div>
    </div>
-  </header>
 		<header class="w3-container" style="border-radius:15px;">
 
 		</header>
@@ -701,25 +700,49 @@ if(searchKey!="")
 
                     </form>                        
   <script>
-  $("#dataSubmit").click(function(){
-  	var date=$("#date").val();
-	var category=$("#cat1").val();
-	var category1=$("#cat2").val();
-	var transactionid=$("#id").val();
-	var amount=$("#amount").val();                                                                                                                                                                        
-	var detail=$("#detail").val();
-	 var cat_image=$("#attachment").prop('files')[0];
-
-	
-	$.post('http://yoneak.com/web_services/insert_rewards.php?date='+date+'&category='+category+'&category1='+category1+'&transactionid='+transactionid+'&amount='+amount+'&detail='+detail+'&cat_image='+cat_image,function(res){
-		if(res.status=="success")
-		    	{
-		    		
-		    		location.href="http://epitychei.co/cashback/Cashback_App/account.html";
-		    	}	
-         },'json');
-          
-  });          
+	$("#dataSubmit").click(function()
+				{
+					var date=$("#date").val();
+					var category=$("#cat1").val();
+					var category1=$("#cat2").val();
+					var transaction_id=$("#id").val();
+					var amount=$("#amount").val();                                                                                                                                                                        
+					var detail=$("#detail").val();
+					 var cat_image=$("#attachment").prop('files')[0];
+					var formData=new FormData();
+					formData.append('date',date);
+					formData.append('category',category);
+					formData.append('category1',category1);
+					formData.append('transaction_id',transaction_id);
+					formData.append('amount',amount);
+					formData.append('detail',detail);
+					formData.append('cat_image',cat_image);
+						
+						$.ajax(
+							{					
+								url:"http://yoneak.com/web_services/insert_rewards.php",
+								type:'POST',
+								crossDomain:true,
+								contentType:false,
+								processData:false,
+								cache:false,
+								dataType:'json',
+								data:formData,
+								
+								success:function(data)
+								{
+									if(data.status=="success")
+									{
+										
+										location.href="http://yoneak.com/Cashback_App/account.html";
+									}
+									else
+									{
+										alert("Fail...");
+									} 
+								}
+							});			
+				});
 </script>                  
                   </div>
                   
@@ -729,8 +752,8 @@ if(searchKey!="")
               <!-- /.modal-dialog --> 
             </div>
 			</div>
-		<header class="w3-container" style="border-radius:15px;">
-		<div class="w3-card-4" style="border-radius:15px;">
+	<header class="" style="border-radius:0px; background-color: #003d8c !important;">
+		<div class="w3-card-4">
 				<div style="text-align: Center; padding-right:15px;padding-top:5px;">
 			<table border="0" align="center">
 				<tr align="Center">								
@@ -844,8 +867,80 @@ if(searchKey!="")
                                });
 					
 				              },"json");
+		     $.post('http://yoneak.com/web_services/ExternalProducts.php',function(res){
+			    var i=0;
+				var newleads_div_data="";
+				var sub_menu_data='';
+				var sub_menu_data_1='';
+				
+				$.each(res, function( key, value ) 
+				 {
+				    switch(i)
+				    	{
+				       case 0:
+				    newleads_div_data='<li><a href="webId'+value.webId+'"  onclick="cat('+value.webId+')" style="text-align:left;padding-left:30px;">';
+				                    
+				    	break;
 
+				    	case 1:
+				    	
+				           newleads_div_data+=value.website+'</a>';
+				                        
+				    	break;
+
+				    	case 2:
+				    	if(value.webData!='')
+				    	{
+				    		var webdata=value.webData;
+				    		var j=1;
+				    		sub_menu_data='<ul>';
+				    		$.each(webdata,function(k,v){
+				    			switch(j)
+				    			{
+				    				case 1:
+				    				     sub_menu_data_1+='<li><a href="catId='+v.catId+'"  onclick="subcat('+v.catId+')" >'; 
+				    				break;
+				    				case 2:
+				    				     sub_menu_data_1+=v.catName+'</a></li>';
+                                                                 
+				    				break;
+				    			}
+				    			j%=2;
+				    			j++;
+				    		 
+				    		});
+				    		sub_menu_data+=sub_menu_data_1+'</ul>';
+				    		newleads_div_data+=sub_menu_data+'</li>';
+				    		sub_menu_data_1='';
+				    	}
+                         else
+                         {
+                         	newleads_div_data+='</li>';
+                         }
+				        break;
+				    	  }
+				    	       i=i+1;
+				    	       i%=3;
+				    	       if(i==0)
+				    	       {
+
+				    	     $('.navbar').append(newleads_div_data);
+				    	       }
+
+                               });
+               
+					
+				              },"json");
 			                  });
+	function goToCart()
+{
+	location.href="cartDetail.html";
+}
+function mainPage()
+{
+	location.href="http://yoneak.com/Cashback_App/yoneak.html";
+}
+			
 
 				           </script>
 		   

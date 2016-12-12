@@ -4,6 +4,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="google-signin-scope" content="profile email">
     	<meta name="google-signin-client_id" content="133970465825-5uae1rsnitfuqfo68m7nh7dqaof1gl2k.apps.googleusercontent.com">
+    	<script src="https://apis.google.com/js/platform.js?onload=onLoadCallback" async defer></script>
 		<title>Cashback Offer,Discount Coupons,Promo Codes - YONEAK</title>
 		<link rel="shortcut icon" type="image/x-icon" href="favicon2.ico" />
 		<link rel="icon" type="image/x-icon" href="favicon2.ico" />
@@ -12,6 +13,7 @@
 		<link rel="stylesheet" href="css/w3-theme-black.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
 		<link href='https://fonts.googleapis.com/css?family=Poppins:300,500,600,700' rel='stylesheet' type='text/css'>	
+		
 		<style> 
 
    #nav 
@@ -385,7 +387,7 @@
 		</style>
 		<script src="js/jquery-1.11.3.min.js"></script>
 		<script src="js/jquery.mobile-1.4.5.min.js"></script>
-		<script src="http://maps.google.com/maps/api/js?libraries=geometry&sensor=false"></script>
+		
 		<script src="js/jssor.slider.min.js"></script>
 		<script src="js/account.js"></script>
 		<script src="js/login.js"></script>
@@ -400,6 +402,7 @@
 		<script src="js/deal.js"></script>
 		<script src="js/glogin.js"></script>
 		<script src="https://apis.google.com/js/platform.js" async defer></script>
+	
 	</head>
 	<body>
 		<div data-role="panel" id="myPanel1"  style="color:#29b0e2;" data-display="overlay"> 
@@ -452,13 +455,13 @@
 			<table border="0" align="center">
 				<tr align="Center">								
 					<th width="500px" height="50">
-						<a href="http://yoneak.com/"><img src="yo.png" id="logo" class="w3-center" style="margin:0 auto;height:45px;display:block;"></a>	
+						<img src="yo.png" onclick="mainPage()" id="logo" class="w3-center" style="cursor:pointer;margin:0 auto;height:45px;display:block;">
 					</th>					
 					<th width="100px" height="50" style="font-size:15px;">						
 						<a><i class="fa fa-search w3-xlarge" id="searchButton" style="cursor:pointer;"></i></a>
 					</th>
 					<th width="100px" height="50" style="font-size:15px;">
-						<a><i class="fa fa-shopping-cart w3-xlarge" style="cursor:pointer;"></i></a>
+						<a onclick="goToCart();"><i class="fa fa-shopping-cart w3-xlarge" style="cursor:pointer;"></i></a>
 					</th>
 				</tr>
 			</table>				
@@ -529,12 +532,12 @@ if(searchKey!="")
        </th>
        <th width="250px" height="50" style="font-size:15px;">
         <div class="dropdown">
-         <div class="tooltip" onclick="producthome()">
+         <div class="tooltip" >
           <a alt="Product" class="dropbtn" href="#">
            <i class="fa fa-archive w3-xxlarge" aria-hidden="true" style="cursor:pointer;"></i>
            <span class="tooltiptext">Product</span>
           </a>
-          <div  class="dropdown-content">          
+          <div onclick="producthome()" class="dropdown-content">          
           <ul id="nav" class="navbar">
           	
           </ul>
@@ -579,7 +582,7 @@ if(searchKey!="")
 				<div class="w3-group" style="text-align: center; position: relative; bottom: 18%;">
 					<!--<img src="facebook.png"  onlogin="checkLoginState();" style="width:200px;height:45px;cursor:pointer;"></img>-->
 				<fb:login-button size="large" scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button>
-				<img src="gplushlogo.png" id="logo" onclick="gSignIn()" style="cursor:pointer;width:65px;height:21px;padding-bottom:0px;margin-bottom:5px"></img>
+				<img src="gplushlogo.png" id="googleSignInButton" class="googleSignInButtonClass"  onclick="gSignIn()" style="cursor:pointer;width:65px;height:21px;padding-bottom:0px;margin-bottom:5px"></img>
 				</div>
 			</form>				
 		</div>
@@ -595,8 +598,8 @@ if(searchKey!="")
 				window.open("forgot-password.html","_self");
 			}
 		</script>
-		<header class="w3-container" style="border-radius:15px;">
-		<div class="w3-card-4" style="border-radius:15px;">
+		<header class="" style="border-radius:0px; background-color: #003d8c !important;">
+		<div class="w3-card-4">
 				<div style="text-align: Center; padding-right:15px;padding-top:5px;">
 			<table border="0" align="center">
 				<tr align="Center">								
@@ -709,8 +712,79 @@ if(searchKey!="")
                                });
 					
 				              },"json");
+		  $.post('http://yoneak.com/web_services/ExternalProducts.php',function(res){
+			    var i=0;
+				var newleads_div_data="";
+				var sub_menu_data='';
+				var sub_menu_data_1='';
+				
+				$.each(res, function( key, value ) 
+				 {
+				    switch(i)
+				    	{
+				       case 0:
+				    newleads_div_data='<li><a href="webId'+value.webId+'"  onclick="cat('+value.webId+')" style="text-align:left;padding-left:30px;">';
+				                    
+				    	break;
 
+				    	case 1:
+				    	
+				           newleads_div_data+=value.website+'</a>';
+				                        
+				    	break;
+
+				    	case 2:
+				    	if(value.webData!='')
+				    	{
+				    		var webdata=value.webData;
+				    		var j=1;
+				    		sub_menu_data='<ul>';
+				    		$.each(webdata,function(k,v){
+				    			switch(j)
+				    			{
+				    				case 1:
+				    				     sub_menu_data_1+='<li><a href="catId='+v.catId+'"  onclick="subcat('+v.catId+')" >'; 
+				    				break;
+				    				case 2:
+				    				     sub_menu_data_1+=v.catName+'</a></li>';
+                                                                 
+				    				break;
+				    			}
+				    			j%=2;
+				    			j++;
+				    		 
+				    		});
+				    		sub_menu_data+=sub_menu_data_1+'</ul>';
+				    		newleads_div_data+=sub_menu_data+'</li>';
+				    		sub_menu_data_1='';
+				    	}
+                         else
+                         {
+                         	newleads_div_data+='</li>';
+                         }
+				        break;
+				    	  }
+				    	       i=i+1;
+				    	       i%=3;
+				    	       if(i==0)
+				    	       {
+
+				    	     $('.navbar').append(newleads_div_data);
+				    	       }
+
+                               });
+               
+					
+				              },"json");
 			                  });
+function goToCart()
+{
+	location.href="cartDetail.html";
+}
+function mainPage()
+{
+	location.href="http://yoneak.com/Cashback_App/yoneak.html";
+}			
 
 				           </script>
 	</body>
