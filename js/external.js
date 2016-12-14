@@ -1,8 +1,7 @@
-function external(data)
+function external_p(data)
 {
     localStorage.setItem("cat_id",data);
-    window.location='external-product.html';
-
+    location.href='external-product.html';
  }
 
 

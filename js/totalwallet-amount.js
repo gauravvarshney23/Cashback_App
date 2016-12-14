@@ -14,7 +14,7 @@ function totalwalletAmount()
 							{
 								amount=res.wallet_data;
 							}
-							newleads_data=newleads_data+'<span class="tooltiptext">&#8377 '+amount+'</span>';
+							newleads_data=newleads_data+'<div style="color:#fff;">&#8377 '+amount+'</div>';
 				    	     $('#walletId').append(newleads_data);
 				    	     
 				              },"json");

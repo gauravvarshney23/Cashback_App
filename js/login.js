@@ -36,8 +36,37 @@ $("#password_error_msg").fadeOut();
         if(res.message == "Login Success")
         {  
             localStorage.setItem("userID",res.user_id);
+            if((localStorage.url===null) || !(localStorage.url))
+            {
+				 window.location='account.html';
+			}
+			else{
+				
+	
+				var userId=localStorage.userID;
+				var affiliateId=localStorage.affiliateId;
+				var url=localStirage.url;
+				var catName=localStirage.catName;
+				var catId=localStirage.catId;
+		$.post('http://yoneak.com/web_services/track_offer.php?userId='+userId+'&affiliateId='+affiliateId+'&referralUrl='+url+'&catName'+catName+'catId'+catId,function(res){
+			
+			if(res.message=="success")
+			{
+				window.location=url;
+			}
+			else{
+				alert("Something Went wrong");
+				window.location="account.html";
+			}
+		localStorage.removeItem("url");
+		localStorage.removeItem("catName");
+		localStorage.removeItem("affiliateId");
+		localStorage.removeItem("catId");
+			
+		},"json");
+			}
            						
-            window.location='account.html';
+           
         }
         if(res.message == "invalid Email Or Password")
         {
