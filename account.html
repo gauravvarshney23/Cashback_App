@@ -10,6 +10,7 @@
 		<link rel="stylesheet" href="css/w3-theme-black.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">	
 		<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">	
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <style> 
 
    #nav 
@@ -502,6 +503,10 @@
 		<script src="js/producthome.js"></script>
 		<script src="js/couponcode.js"></script>
 		<script src="js/deal.js"></script>
+		<script src="js/cat.js"></script>
+		<script src="js/subcat.js"></script>
+		<script src="js/menubar.js"></script>
+		<script src="js/external.js"></script>
 		<script src="js/refair-earn.js"></script>
 		<script>
 		if((localStorage.getItem("userID")===null) || !(localStorage.getItem("userID")))
@@ -515,7 +520,7 @@
 			<h2 style="color:#ff6666;">Cashback</h2>
 			<ul data-role="listview">
 				<li onclick="home()">
-					<a  style="color: #ff6666">Home</a>
+					<a  style="color:grey">Home</a>
 				</li>
 				<li onclick="storehome()">
 					<a style="color: grey">Store</a>
@@ -561,7 +566,7 @@
 			<table border="0" align="center">
 				<tr align="Center">								
 					<th width="500px" height="50">
-						<a href="http://yoneak.com/Cashback_App/yoneak.html"><img src="yo.png" id="logo" class="w3-center" style="margin:0 auto;height:45px;display:block;"></a>	
+						<img src="yo.png"  onclick="mainPage()" id="logo" class="w3-center" style="cursor:pointer;margin:0 auto;height:45px;display:block;"></a>	
 					</th>					
 					<th width="100px" height="50" style="font-size:15px;">						
 						<a><i class="fa fa-search w3-xlarge" id="searchButton" style="cursor:pointer;"></i></a>
@@ -615,62 +620,43 @@ if(searchKey!="")
 	}	
 });
 </script>
-		<header>
-   <div class="w3-card-4" style="">
-    <div style="text-align: Center; padding-right:15px;padding-top:5px;">
-     <table border="0" align="center" style="font-size:12px; font-family:Helvetica;">
-      <tr align="Center">        
-       <th width="250px" height="50">
-        <div class="tooltip"  onclick="home()">
-         <a alt="Home" >
-          <i class="fa fa-home w3-xxlarge" aria-hidden="true" style="cursor:pointer;"></i>
-          <span class="tooltiptext">Home</span>
-         </a>
-        </div>
-       </th>
-       <th width="250px" height="50" style="font-size:15px;">
-        <div class="tooltip" onclick="storehome()">
-         <a alt="Store" href="store.html">
-          <i class="fa fa-shopping-bag w3-xxlarge" aria-hidden="true" style="cursor:pointer;"></i>
-          <span class="tooltiptext">Store</span>
-         </a>
-        </div>
-       </th>
-       <th width="250px" height="50" style="font-size:15px;">
-        <div class="dropdown">
-         <div class="tooltip" onclick="producthome()">
-          <a alt="Product" class="dropbtn" href="#">
-           <i class="fa fa-archive w3-xxlarge" aria-hidden="true" style="cursor:pointer;"></i>
-           <span class="tooltiptext">Product</span>
-          </a>
-          <div  class="dropdown-content">          
-          <ul id="nav" class="navbar">
+	<header>
+   <div class="row" style="margin-bottom:10px;">
+			<div class="col-md-1 col-sm-1 col-xs-1"></div>
+			<div class="col-md-2 col-sm-2 col-xs-2 text-center">
+				<div onclick="home()" > 
+					<img src="img/home.png" style="max-width: 35px;cursor:pointer;" >
+				</div>
+			</div>
+			<div class="col-md-2 col-sm-2 col-xs-2 text-center">
+				<div onclick="storehome()" > 
+					<img src="img/store.png" style="max-width: 35px;cursor:pointer;" >					
+				</div>
+			</div>
+			<div class="col-md-2 col-sm-2 col-xs-2 text-center">
+				<div class="dropdown" > 
+					<a alt="Product" class="dropbtn" href="#">
+						<img src="img/product.png" style="max-width: 35px;cursor:pointer;" >	
+					</a>
+					<div class="dropdown-content">          
+						<ul id="nav" class="navbar">
           	
-          </ul>
-          </div>         
-         </div>
-        </div>
-       </th>
-       <th width="250px" height="50" style="font-size:15px;">
-        <div class="tooltip" onclick="deal()">
-         <a alt="Store" href="deal-of-the-day.html">
-          <i class="fa fa-gift w3-xxlarge" aria-hidden="true" style="cursor:pointer;"></i>
-          <span class="tooltiptext">Deals</span>
-         </a>
-        </div>
-       </th>
-       <th width="250px" height="50" style="font-size:15px;">
-        <div class="tooltip"  onclick="account()">
-         <a alt="My Account" href="account.html">
-          <i class="fa fa-user w3-xxlarge" aria-hidden="true" style="cursor:pointer;"></i>
-          <span class="tooltiptext">My Account</span>
-         </a>
-        </div>
-       </th>
-      </tr>
-     </table> 
-    </div>
-   </div>
+						</ul>
+					</div>   
+				</div>
+			</div>
+			<div class="col-md-2 col-sm-2 col-xs-2 text-center">
+				<div onclick="deal()" > 
+					<img src="img/deal.png" style="max-width: 35px;cursor:pointer;" >					
+				</div>
+			</div>
+			<div class="col-md-2 col-sm-2 col-xs-2 text-center">
+				<div onclick="account()" > 
+					<img src="img/user.png" style="max-width: 35px;cursor:pointer;" >					
+				</div>
+			</div>
+			<div class="col-md-1 col-sm-1 col-xs-1"></div>
+		</div>
   </header>
         <script>
 			function Activity() 
@@ -684,12 +670,14 @@ if(searchKey!="")
 				window.open("Missing-Rewards.html","_self");
 			}
   </script>
+  <script>
+			function ChangePassword() 
+			{
+				window.open("Change-Password.html","_self");
+			}
+  </script>
 			<div class='row'>            
-				<div class='col-md-3'>
-						<header class="w3-container" style="background-color:#003d8c;color:white;">
-							<h4 align="center">Activity (Click History)</h4>					
-						</header>
-						
+				<div class='col-md-12'>
 						<div onclick="Activity()" class="panel sauget-accordion" style="cursor:pointer;">
 							<div aria-labelledby="headingOne" role="tabpanel" class="panel-collapse collapse in" id="checkoutMethod" aria-expanded="true" 	style="">
 								<div class="content-info">
@@ -702,7 +690,11 @@ if(searchKey!="")
 															<div class="form-group">
 																<div style="text-align: center; padding: 10px;">
 																	<div class="w3-container" style="text-align:center;" >
-																		<img src="http://epitychei.co/cashback/img/history-icon-png--21.png" alt="" style="max-width:120px;">
+																		<header class="w3-container" style="background-color:#003d8c;color:white;">
+							<h4 align="center">Activity (Click History)</h4>					
+						</header>
+							
+																	<img src="http://epitychei.co/cashback/img/history-icon-png--21.png" alt="" style="max-width:120px;">
 																	</div>
 																</div>
 															</div>
@@ -715,15 +707,12 @@ if(searchKey!="")
 								</div>
 							</div>
 						</div>
+				     </div>
 				</div>
-
-				<div class='col-md-3'>
-					<header class="w3-container" style="background-color:#003d8c;color:white;">
-						<h4 align="center">Change Password</h4>					
-					</header>
-					<a href="Change-Password.html">
-						<div class="panel sauget-accordion">
-							<div aria-labelledby="headingOne" role="tabpanel" class="panel-collapse collapse in" id="checkoutMethod" aria-expanded="true" style="">
+			<div class='row'>            
+				<div class='col-md-12'>
+						<div onclick="ChangePassword()" class="panel sauget-accordion" style="cursor:pointer;">
+							<div aria-labelledby="headingOne" role="tabpanel" class="panel-collapse collapse in" id="checkoutMethod" aria-expanded="true" 	style="">
 								<div class="content-info">
 									<div class="col-xs-12 col-sm-12 col-md-12">
 										<div class="checkout-reg">
@@ -732,13 +721,17 @@ if(searchKey!="")
 													<div class="row">
 														<div class="col-md-12 col-xs-12 col-sm-12">
 															<div class="form-group">
-																<div style="text-align: center;">
-																	<div class="w3-container" style="text-align:center; padding: 10px;" >
-																		<img src="http://epitychei.co/cashback/img/password-icon-wallpaper-3.jpg" alt="" style="max-width:120px;">			
+																<div style="text-align: center; padding: 10px;">
+																	<div class="w3-container" style="text-align:center;" >
+																		<header class="w3-container" style="background-color:#003d8c;color:white;">
+							<h4 align="center">Change Password</h4>					
+						</header>
+							
+																	<img src="http://epitychei.co/cashback/img/password-icon-wallpaper-3.jpg" alt="" style="max-width:120px;">
 																	</div>
 																</div>
 															</div>
-														</div>	
+														</div>
 													</div>
 												</form>
 											</div>
@@ -747,27 +740,27 @@ if(searchKey!="")
 								</div>
 							</div>
 						</div>
-					</a>
-                </div>
-
-				<div class='col-md-3'>
-						<header class="w3-container" style="background-color:#003d8c;color:white;">
+				     </div>
+				</div>
+             <div class='row'>            
+				<div class='col-md-12'>
+						<div  class="panel sauget-accordion" style="cursor:pointer;">
+							<div aria-labelledby="headingOne" role="tabpanel" class="panel-collapse collapse in" id="checkoutMethod" aria-expanded="true" 	style="">
+								<div class="content-info">
+									<div class="col-xs-12 col-sm-12 col-md-12">
+										<div class="checkout-reg">
+											<div class="checkReg commonChack">
+												<form role="form" action='' method='post' >
+													<div class="row">
+														<div class="col-md-12 col-xs-12 col-sm-12">
+															<div class="form-group">
+																<div style="text-align: center; padding: 10px;">
+																	<div class="w3-container" style="text-align:center;" >
+																		<header class="w3-container" style="background-color:#003d8c;color:white;">
 							<h4 align="center">Promotion Link</h4>					
 						</header>
-						<a href="#">
-						<div class="panel sauget-accordion">
-							<div aria-labelledby="headingOne" role="tabpanel" class="panel-collapse collapse in" id="checkoutMethod" aria-expanded="true" 	style="">
-								<div class="content-info">
-									<div class="col-xs-12 col-sm-12 col-md-12">
-										<div class="checkout-reg">
-											<div class="checkReg commonChack">
-												<form role="form" action='' method='post' >
-													<div class="row">
-														<div class="col-md-12 col-xs-12 col-sm-12">
-															<div class="form-group">
-																<div style="text-align: center;">
-																	<div class="w3-container" style="text-align:center; padding: 10px;" >
-																		<img src="http://epitychei.co/cashback/img/colorful-people-communicating-with-speech-bubbles_23-2147491696.png" alt="" style="max-width:120px;">															
+							
+																	<img src="http://epitychei.co/cashback/img/colorful-people-communicating-with-speech-bubbles_23-2147491696.png" alt="" style="max-width:120px;">
 																	</div>
 																</div>
 															</div>
@@ -780,32 +773,32 @@ if(searchKey!="")
 								</div>
 							</div>
 						</div>
-					</a>
-                </div>				
-								
-			</div>							
-		</div>
+				     </div>
+				</div>			
+			
+
 	
-		<div class="container">
+		
 			<div class='row'>            
-				<div class='col-md-3'>
-					<header class="w3-container" style="background-color:#003d8c;color:white;">
+				<div class='col-md-12'>
+					
+					<a href="#">
+						<div class="panel sauget-accordion">
+							<div aria-labelledby="headingOne" role="tabpanel" class="panel-collapse collapse in" id="checkoutMethod" aria-expanded="true" 	style="">
+								<div class="content-info">
+									<div class="col-xs-12 col-sm-12 col-md-12">
+										<div class="checkout-reg">
+											<div class="checkReg commonChack">
+												<form role="form" action='' method='post' >
+													<div class="row">
+														<div class="col-md-12 col-xs-12 col-sm-12">
+															<div class="form-group">
+																<div style="text-align: center; padding: 10px;">
+																	<div class="w3-container" style="text-align:center;" >
+																		<header class="w3-container" style="background-color:#003d8c;color:white;">
 						<h4 align="center">Request Reward</h4>					
 					</header>
-					<a href="#">
-						<div class="panel sauget-accordion">
-							<div aria-labelledby="headingOne" role="tabpanel" class="panel-collapse collapse in" id="checkoutMethod" aria-expanded="true" 	style="">
-								<div class="content-info">
-									<div class="col-xs-12 col-sm-12 col-md-12">
-										<div class="checkout-reg">
-											<div class="checkReg commonChack">
-												<form role="form" action='' method='post' >
-													<div class="row">
-														<div class="col-md-12 col-xs-12 col-sm-12">
-															<div class="form-group">
-																<div style="text-align: center; padding: 10px;">
-																	<div class="w3-container" style="text-align:center;" >
-																		<img src="http://epitychei.co/cashback/img/wallet_PNG7511.png" alt="" style="max-width:120px;">
+																		<img src="http://epitychei.co/cashback/img/wallet_PNG7511.png"  alt="" style="max-width:120px;">
 																	</div>
 																</div>
 															</div>
@@ -817,14 +810,14 @@ if(searchKey!="")
 									</div>                
 								</div>
 							</div>
+							</div>
 						</div>
+
 					</a>
                 </div>
-
-				<div class='col-md-3'>
-					<header class="w3-container" style="background-color:#003d8c;color:white;">
-						<h4 align="center">My Transaction History</h4>					
-					</header>
+                 <div class='row'>    
+				<div class='col-md-12'>
+					
 					<a href="#">
 						<div class="panel sauget-accordion">
 							<div aria-labelledby="headingOne" role="tabpanel" class="panel-collapse collapse in" id="checkoutMethod" aria-expanded="true" 	style="">
@@ -838,6 +831,9 @@ if(searchKey!="")
 															<div class="form-group">
 																<div style="text-align: center; padding: 10px;">
 																	<div class="w3-container" style="text-align:center;" >
+																		<header class="w3-container" style="background-color:#003d8c;color:white;">
+						<h4 align="center">My Transaction History</h4>					
+					</header>
 																		<img src="http://epitychei.co/cashback/img/transaction.png" alt="" style="max-width:120px;">
 																	</div>
 																</div>
@@ -850,14 +846,13 @@ if(searchKey!="")
 									</div>                
 								</div>
 							</div>
+							</div>
 						</div>
+
 					</a>
                 </div>
-
-				<div class='col-md-3'>
-					<header class="w3-container" style="background-color:#003d8c;color:white;">
-						<h4 align="center">Missing Rewards</h4>					
-					</header>
+                  <div class='row'>    
+				<div class='col-md-12'>
 						<div onclick="Reward()" class="panel sauget-accordion" style="cursor:pointer;">
 							<div aria-labelledby="headingOne" role="tabpanel" class="panel-collapse collapse in" id="checkoutMethod" aria-expanded="true" 	style="">
 								<div class="content-info">
@@ -870,6 +865,9 @@ if(searchKey!="")
 															<div class="form-group">
 																<div style="text-align: center; padding: 10px;">
 																	<div class="w3-container" style="text-align:center;" >
+																		<header class="w3-container" style="background-color:#003d8c;color:white;">
+						<h4 align="center">Missing Rewards</h4>					
+					</header>
 																		<img src="http://epitychei.co/cashback/img/gift-box-icon1.png" alt="" style="max-width:120px;">
 																	</div>
 																</div>
@@ -885,48 +883,57 @@ if(searchKey!="")
 						</div>
                    </div>
                </div>
-		   </div>
+               
+               </div>
+		  						
+		
 		<header class="" style="border-radius:0px; background-color: #003d8c !important;">
-		<div class="w3-card-4" >
-				<div style="text-align: Center; padding-right:15px;padding-top:5px;">
+		<div class="w3-card-4" style="">
+				<div style="text-align: center; padding:5px;">
 			<table border="0" align="center">
 				<tr align="Center">								
-					<th width="100px" height="50">
-						<div class="tooltip" id="walletId"  onclick="walletdetail()">
+					<th width="50" height="50">
+						<div  id="walletId" onclick="walletdetail()">
 							
 						</div>
-					</th>					
-					<th width="500px" height="50" style="font-size:15px;">
-						<h6 style="color:#29b0e2">Copyright &copy; 
-							<a target="_blank" href="http://epitychei.co">
-								<i style="color:#ff6666;">epitychei.co.</i>
+					</th>
+					<div class="col-md-2 col-sm-2 col-xs-2">
+					<th width="550" height="50" style="font-size:15px; text-align: center;">
+						<h6 style="color:#fff;">Copyright &copy; 
+							<a target="_blank" href="http://yoneak.com/">
+								<i style="color:#ff6666;">Yoneak.com</i>
 							</a>
 						</h6>
 					</th>
-					<th width="100px" height="50" style="font-size:15px;">
-						<div class="tooltip" onclick="logout()">
-							<script>
+					</div>
+					<th width="100" height="50" style="font-size:15px;">
+						<div  onclick="logout()">
+					<script>
 						$(document).ready(function(){
-						var login_div_data='';
-						 totalwalletAmount();
+
+							   totalwalletAmount();
+
+							var login_div_data='';
 		              	if((localStorage.userID===null) || !(localStorage.userID))
 		                {
 		                	login_div_data='<a href="login.html"><i class="fa fa-sign-in w3-xxlarge" aria-hidden="true" style="cursor:pointer;"></i>'+
-							'<span class="tooltiptext">Login</span>'+
+							'<div style="color:#fff;">Login</div>'+
 							'</a>';
                              $('#login_div_data').html(login_div_data);
 		                }
 		                else
 		                {
-		                	login_div_data='<a href="login.html"><i class="fa fa-sign-in w3-xxlarge" aria-hidden="true" style="cursor:pointer;"></i>'+
-							'<span class="tooltiptext">Logout</span>'+
+		                	login_div_data='<a href="login.html"><i class="fa fa-sign-out w3-xxlarge" aria-hidden="true" style="cursor:pointer;"></i>'+
+							'<div style="color:#fff;">Logout</div>'+
 							'</a>';
                             $('#login_div_data').html(login_div_data);
 		                }
+		                
+
 						});
-						
-                        </script>
-						<div id="login_div_data"></div>
+					
+                      </script>
+                      <div id="login_div_data"></div>
 						</div>
 					</th>
 				</tr>
@@ -935,137 +942,14 @@ if(searchKey!="")
 		</div>
 		</header>
 <script>
-			$(document).ready(function()
-		    {	
-		    $.post('http://yoneak.com/web_services/header.php',function(res){
-			    var i=0;
-				var newleads_div_data="";
-				var sub_menu_data='';
-				var sub_menu_data_1='';
-				$.each(res, function( key, value ) 
-				 {
-				    switch(i)
-				    	{
-				       case 0:
-				    newleads_div_data='<li><a href="'+value.cat_id+'"  onclick="cat('+value.cat_id+')" style="text-align:left;padding-left:30px;">';
-				                    
-				    	break;
-
-				    	case 1:
-				           newleads_div_data+=value.cat_name+'</a>';
-				                        
-				    	break;
-
-				    	case 2:
-				    	if(value.sub_cat!='')
-				    	{
-				    		var sub_cat_value=value.sub_cat;
-				    		var j=1;
-				    		sub_menu_data='<ul>';
-				    		$.each(sub_cat_value,function(k,v){
-				    			switch(j)
-				    			{
-				    				case 1:
-				    				     sub_menu_data_1+='<li><a href="sub_cat_id='+v.sub_cat_id+'"  onclick="subcat('+v.sub_cat_id+')" >'; 
-				    				break;
-				    				case 2:
-				    				     sub_menu_data_1+=v.sub_cat_name+'</a></li>';
-                                                                 
-				    				break;
-				    			}
-				    			j%=2;
-				    			j++;
-				    		 
-				    		});
-				    		sub_menu_data+=sub_menu_data_1+'</ul>';
-				    		newleads_div_data+=sub_menu_data+'</li>';
-				    		sub_menu_data_1='';
-				    	}
-                         else
-                         {
-                         	newleads_div_data+='</li>';
-                         }
-				        break;
-				    	  }
-				    	       i=i+1;
-				    	       i%=3;
-				    	       if(i==0)
-				    	       {
-
-				    	     $('.navbar').append(newleads_div_data);
-				    	       }
-
-                               });
-					
-				              },"json");
-		     $.post('http://yoneak.com/web_services/ExternalProducts.php',function(res){
-			    var i=0;
-				var newleads_div_data="";
-				var sub_menu_data='';
-				var sub_menu_data_1='';
-				
-				$.each(res, function( key, value ) 
-				 {
-				    switch(i)
-				    	{
-				       case 0:
-				    newleads_div_data='<li><a href="webId'+value.webId+'"  onclick="cat('+value.webId+')" style="text-align:left;padding-left:30px;">';
-				                    
-				    	break;
-
-				    	case 1:
-				    	
-				           newleads_div_data+=value.website+'</a>';
-				                        
-				    	break;
-
-				    	case 2:
-				    	if(value.webData!='')
-				    	{
-				    		var webdata=value.webData;
-				    		var j=1;
-				    		sub_menu_data='<ul>';
-				    		$.each(webdata,function(k,v){
-				    			switch(j)
-				    			{
-				    				case 1:
-				    				     sub_menu_data_1+='<li><a href="catId='+v.catId+'"  onclick="subcat('+v.catId+')" >'; 
-				    				break;
-				    				case 2:
-				    				     sub_menu_data_1+=v.catName+'</a></li>';
-                                                                 
-				    				break;
-				    			}
-				    			j%=2;
-				    			j++;
-				    		 
-				    		});
-				    		sub_menu_data+=sub_menu_data_1+'</ul>';
-				    		newleads_div_data+=sub_menu_data+'</li>';
-				    		sub_menu_data_1='';
-				    	}
-                         else
-                         {
-                         	newleads_div_data+='</li>';
-                         }
-				        break;
-				    	  }
-				    	       i=i+1;
-				    	       i%=3;
-				    	       if(i==0)
-				    	       {
-
-				    	     $('.navbar').append(newleads_div_data);
-				    	       }
-
-                               });
-               
-					
-				              },"json");
-			                  });
+			
 function goToCart()
 {
 	location.href="cartDetail.html";
+}
+function mainPage()
+{
+	location.href="yoneak.html";
 }
 			
 

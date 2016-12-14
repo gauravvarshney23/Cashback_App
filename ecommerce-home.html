@@ -19,496 +19,185 @@
 		<link rel="stylesheet" href="css/w3-theme-black.css">
 
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">		
-
-		<style> 
-
-			#map-page, #map-canvas
-
-			{ 
-
-				width: 100%; 
-
-				height: 100%; 
-
-				padding: 0; 
-
-			}
-
-
-
-			.ui-body-f 
-
-			{
-
-				font-weight: bold;
-
-				padding: 0;
-
-				background-color: white;
-
-			}
-
-			.tr-head 
-
-			{
-
-				border-bottom: 1px solid white;
-
-				background: #ff6666;
-
-				color: white;
-
-			}
-
-			.tr-content 
-
-			{
-
-				border-bottom: 1px solid #ff6666;
-
-				background: white;
-
-				color: #ff6666;
-
-			}
-
-			.has-odd-thumb li a 
-
-			{
-
-				padding-left: 50px !important;
-
-			}
-
-			.thumbContainer 
-
-			{
-
-				position: absolute;
-
-				left: 0; top: 0; bottom: 0;
-
-				width: 50px;
-
-			}
-
-			.tooltip 
-
-			{
-
-				position: relative;
-
-				display: inline-block;
-
-			}
-
-			.tooltip .tooltiptext 
-
-			{
-
-				visibility: hidden;
-
-				width: 120px;
-
-				color: #ff6666;
-
-				text-align: center;
-
-				border-radius: 6px;
-
-				padding: 5px 0;
-
-				position: absolute;
-
-				z-index: 1;
-
-				bottom: 125%;
-
-				left: 50%;
-
-				margin-left: -60px;
-
-				opacity: 0;
-
-			}
-
-			.tooltip .tooltiptext::after 
-
-			{
-
-				content: "";
-
-				position: absolute;
-
-				top: 100%;
-
-				left: 50%;
-
-				margin-left: -5px;
-
-				border-width: 5px;
-
-				border-style: solid;
-
-				border-color: #555 transparent transparent transparent;
-
-			}
-
-			.tooltip:hover .tooltiptext 
-
-			{
-
-				visibility: visible;
-
-				opacity: 1;
-
-			}
-
-			
-
-			.dropdown-content 
-
-			{
-
-				display: none;
-
-				z-index:6;
-
-				position: absolute;
-
-				min-width: 160px;
-
-				box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);		
-
-			}
-
-
-
-			.dropdown-content a 
-
-			{
-
-				color: light-grey;
-
-				padding: 12px;
-
-				text-decoration: none;
-
-				display: block;
-
-			}
-
-
-
-			.dropdown-content a:hover 
-
-			{
-
-				background-color: #ff6666;
-
-			}
-
-
-
-			.dropdown:hover .dropdown-content 
-
-			{
-
-				display: block;
-
-			}
-
-			ul.tab 
-
-			{
-
-				list-style-type: none;
-
-				margin: 0;
-
-				padding: 0;
-
-				overflow: hidden;
-
-				background-color: #f1f1f1;
-
-			}
-
-
-
-			ul.tab li 
-
-			{
-
-				float: left;
-
-			}
-
-
-
-			ul.tab li a 
-
-			{
-
-				display: inline-block;
-
-				color: black;
-
-				text-align: center;
-
-				padding: 14px 16px;
-
-				text-decoration: none;
-
-				transition: 0.3s;
-
-				font-size: 16px;
-
-			}
-
-	
-
-			ul.tab li a:hover 
-
-			{
-
-				background-color: #003d8c;
-
-				border-radius:15px;
-
-				color:#fff!important;
-
-			}
-
-
-
-			ul.tab li a:focus, .active 
-
-			{
-
-				background-color: #003d8c;
-
-				outline:0;
-
-				border-radius:15px;
-
-				color:#fff!important;
-
-			}
-
-
-
-			.tabcontent 
-
-			{
-
-				display: none;
-
-				padding: 6px 12px;
-
-				-webkit-animation: fadeEffect 1s;
-
-				animation: fadeEffect 1s;
-
-			}
-
-			#aa-header .aa-header-bottom .aa-header-bottom-area .aa-search-box {
-
-  float: right;
-
-  margin-right: 5%;
-
-  margin-top: 13px;
-
-  position: relative;
-
-  width: 500px;
-
-}
-
-#aa-header .aa-header-bottom .aa-header-bottom-area .aa-search-box input[type="text"] {
-
-  border: 1px solid #ddd;
-
-  color: #555;
-
-  font-size: 14px;
-
-  font-family: "Raleway", sans-serif;
-
-  height: 40px;
-
-  padding: 10px 55px 10px 10px;
-
-  width: 100%;
-
-}
-
-#aa-header .aa-header-bottom .aa-header-bottom-area .aa-search-box button {
-
-  border: medium none;
-
-  color: #fff;
-
-  height: 100%;
-
-  position: absolute;
-
-  right: 0;
-
-  top: 0;
-
-  width: 50px;
-
-  -webkit-transition: all 0.5s;
-
-  -moz-transition: all 0.5s;
-
-  -ms-transition: all 0.5s;
-
-  -o-transition: all 0.5s;
-
-  transition: all 0.5s;
-
-}
-
-#aa-header .aa-header-bottom .aa-header-bottom-area .aa-search-box button:hover {
-
-  opacity: 0.8;
-
-}
-
-			
-
-			@-webkit-keyframes fadeEffect 
-
-			{
-
-				from {opacity: 0;}
-
-				to {opacity: 1;}
-
-			}
-
-
-
-			@keyframes fadeEffect 
-
-			{
-
-				from {opacity: 0;}
-
-				to {opacity: 1;}
-
-			}
-
-	
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+				<style> 
 
    #nav 
-
    {
-
     list-style:none inside;
-
     margin:0;
-
     padding:0;
-
     text-align:center;
-
    }
-
-
 
    #nav li 
-
    {
-
     display:block;
-
-    position:relative;
-
-    float:left;
-
+  
     background: #f9f9f9; 
-
    }
-
-
 
    #nav li a 
-
    {
-
     display:block;
-
     padding:0;
-
     text-decoration:none;
-
     width:160px; 
-
     line-height:35px; 
-
     color: #38c;
-
    }
-
     
-
    #nav li li a 
-
    {
-
     font-size:80%;
-
     color: #38c;
-
    }
-
     
-
    #nav li:hover 
-
    {
-
     background:#38c;    
-
    }
-
-
 
    #nav ul 
-
    {    
-
     padding:0;
-
     left:0;
-
     display:none; 
-
    }
-
    #nav a:hover
-
    {
-
     color:white;
-
    }
-
    
-
    #nav li:hover ul 
-
    {
-
     display:block;
-
    } 
+ 
+			#map-page, #map-canvas
+			{ 
+				width: 100%; 
+				height: 100%; 
+				padding: 0; 
+			}
 
-  </style>
+			.ui-body-f 
+			{
+				font-weight: bold;
+				padding: 0;
+				background-color: white;
+			}
+			.tr-head 
+			{
+				border-bottom: 1px solid white;
+				background: #ff6666;
+				color: white;
+			}
+			.tr-content 
+			{
+				border-bottom: 1px solid #ff6666;
+				background: white;
+				color: #ff6666;
+			}
+			.has-odd-thumb li a 
+			{
+				padding-left: 50px !important;
+			}
+			.thumbContainer 
+			{
+				position: absolute;
+				left: 0; top: 0; bottom: 0;
+				width: 50px;
+			}
+			
+			
+			.dropdown-content 
+			{
+				display: none;
+				z-index:6;
+				position: absolute;
+				min-width: 160px;
+				box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);		
+			}
+
+			.dropdown-content a 
+			{
+				color: light-grey;
+				padding: 12px;
+				text-decoration: none;
+				display: block;
+			}
+
+			.dropdown-content a:hover 
+			{
+				background-color: #ff6666;
+			}
+
+			.dropdown:hover .dropdown-content 
+			{
+				display: block;
+			}
+			ul.tab 
+			{
+				list-style-type: none;
+				margin: 0;
+				padding: 0;
+				overflow: hidden;
+				background-color: #f1f1f1;
+			}
+
+			ul.tab li 
+			{
+				float: left;
+			}
+
+			ul.tab li a 
+			{
+				display: inline-block;
+				color: black;
+				text-align: center;
+				padding: 14px 16px;
+				text-decoration: none;
+				transition: 0.3s;
+				font-size: 16px;
+			}
+	
+			ul.tab li a:hover 
+			{
+				background-color: #29b0e2;
+				border-radius:15px;
+				height:50px;
+			}
+
+			ul.tab li a:focus, .active 
+			{
+				background-color: #29b0e2;
+				outline:0;
+				border-radius:15px;
+			}
+
+			.tabcontent 
+			{
+				display: none;
+				padding: 6px 12px;
+				-webkit-animation: fadeEffect 1s;
+				animation: fadeEffect 1s;
+			}
+			
+			
+			@-webkit-keyframes fadeEffect 
+			{
+				from {opacity: 0;}
+				to {opacity: 1;}
+			}
+
+			@keyframes fadeEffect 
+			{
+				from {opacity: 0;}
+				to {opacity: 1;}
+			}
+
+		</style>
 
 		<script src="js/jquery-1.11.3.min.js"></script>
 
@@ -531,15 +220,24 @@
 		<script src="js/home.js"></script>
 
 		<script src="js/storehome.js"></script>
-
+		<script src="js/totalwallet-amount.js"></script>
 		<script src="js/producthome.js"></script>
 
 		<script src="js/couponcode.js"></script>
 
 		<script src="js/deal.js"></script>
+		<script src="js/account.js"></script>
+	    <script src="js/refair-earn.js"></script>
+	   
+	    <script src="js/cat.js"></script>
 
-	   <script src="js/refair-earn.js"></script>
+		<script src="js/subcat.js"></script>
 
+		<script src="js/menubar.js"></script>
+
+		<script src="js/external.js"></script>
+
+	    <script src="js/cart.js"></script>
 	   </head>
 
 	<body>
@@ -552,7 +250,7 @@
 
 				<li onclick="home()">
 
-					<a  style="color: #ff6666">Home</a>
+					<a  style="color: grey">Home</a>
 
 				</li>
 
@@ -562,21 +260,16 @@
 
 				</li>
 
-				<li onclick="producthome()">
-
-					<a  style="color: grey">Product</a>
-
-				</li>
-
+				
 				<li onclick="refairEarn()">
 
-					<a style="color: grey">Refair & Earn</a>
+					<a style="color: grey">Refer & Earn</a>
 
 				</li>
 
 				<li onclick="couponcode()">
 
-					<a  style="color: grey">Coupan</a>
+					<a  style="color: grey">Coupons</a>
 
 				</li>
 
@@ -774,121 +467,44 @@ if(searchKey!="")
 
 </script>
 
-		<header class="w3-container" style="border-radius:15px;">
-
-			<div class="w3-card-4" style="border-radius:15px;">
-
-				<div style="text-align: Center; padding-right:15px;padding-top:5px;">
-
-					<table border="0" align="center" style="font-size:12px; font-family:Helvetica;">
-
-						<tr align="Center">								
-
-							<th width="250px" height="50">
-
-								<div class="tooltip" onclick="home()">
-
-									<a alt="Home" >
-
-										<i class="fa fa-home w3-xxlarge" aria-hidden="true" style="cursor:pointer;"></i>
-
-										<span class="tooltiptext">Home</span>
-
-									</a>
-
-								</div>
-
-							</th>
-
-							<th width="250px" height="50" style="font-size:15px;">
-
-								<div class="tooltip" onclick="storehome()">
-
-									<a alt="Store" href="store.html">
-
-										<i class="fa fa-shopping-bag w3-xxlarge" aria-hidden="true" style="cursor:pointer;"></i>
-
-										<span class="tooltiptext">Store</span>
-
-									</a>
-
-								</div>
-
-							</th>
-
-							
-
-		<th width="250px" height="50" style="font-size:15px;">
-
-        <div class="dropdown">
-
-         <div class="tooltip" >
-
-          <a alt="Product" class="dropbtn" href="#">
-
-           <i class="fa fa-archive w3-xxlarge" aria-hidden="true" style="cursor:pointer;"></i>
-
-           <span class="tooltiptext">Product</span>
-
-          </a>
-
-          <div  onclick="producthome()" class="dropdown-content">          
-
-          <ul id="nav" class="navbar">
-
-          	
-
-          </ul>
-
-          </div>         
-
-         </div>
-
-        </div>
-
-       </th>
-
-							<th width="250px" height="50" style="font-size:15px;">
-
-								<div class="tooltip"  onclick="deal()">
-
-									<a alt="Store" href="deal-of-the-day.html">
-
-										<i class="fa fa-gift w3-xxlarge" aria-hidden="true" style="cursor:pointer;"></i>
-
-										<span class="tooltiptext">Deals</span>
-
-									</a>
-
-								</div>
-
-							</th>
-
-							<th width="250px" height="50" style="font-size:15px;">
-
-								<div class="tooltip"  onclick="myaccount()">
-
-									<a alt="Account" href="account.html">
-
-										<i class="fa fa-user w3-xxlarge" aria-hidden="true" style="cursor:pointer;"></i>
-
-										<span class="tooltiptext">My Account</span>
-
-									</a>
-
-								</div>
-
-							</th>
-
-						</tr>
-
-					</table>	
-
+	<header>
+   <div class="row" style="margin-bottom:10px;">
+			<div class="col-md-1 col-sm-1 col-xs-1"></div>
+			<div class="col-md-2 col-sm-2 col-xs-2 text-center">
+				<div onclick="home()" > 
+					<img src="img/home.png" style="max-width: 35px;cursor:pointer;" >
 				</div>
-
 			</div>
-
-		</header>
+			<div class="col-md-2 col-sm-2 col-xs-2 text-center">
+				<div onclick="storehome()" > 
+					<img src="img/store.png" style="max-width: 35px;cursor:pointer;" >					
+				</div>
+			</div>
+			<div class="col-md-2 col-sm-2 col-xs-2 text-center">
+				<div class="dropdown" > 
+					<a alt="Product" class="dropbtn" href="#">
+						<img src="img/product.png" style="max-width: 35px;cursor:pointer;" >	
+					</a>
+					<div class="dropdown-content">          
+						<ul id="nav" class="navbar">
+          	
+						</ul>
+					</div>   
+				</div>
+			</div>
+			<div class="col-md-2 col-sm-2 col-xs-2 text-center">
+				<div onclick="deal()" > 
+					<img src="img/deal.png" style="max-width: 35px;cursor:pointer;" >					
+				</div>
+			</div>
+			<div class="col-md-2 col-sm-2 col-xs-2 text-center">
+				<div onclick="account()" > 
+					<img src="img/user.png" style="max-width: 35px;cursor:pointer;" >					
+				</div>
+			</div>
+			<div class="col-md-1 col-sm-1 col-xs-1"></div>
+		</div>
+  </header>
 
 		<div role="main" id="list-shop">
 
@@ -1211,9 +827,6 @@ if(searchKey!="")
 		$('#tab1').removeClass('active');
 
 	});
-
-	
-
 </script>
 
 			<div id="Balance" class="tabcontent">
@@ -1338,13 +951,13 @@ if(searchKey!="")
 								</script>
 
 		     <script>
-		
 			$(document).ready(function()
 		    {	
 
 		    $.post('http://yoneak.com/web_services/deal_home.php',function(res){
 			    var i=0;
 			    var urlId="";
+			    var id="";
 			    var tabcount=2;
 				var newleads_div_data='<table border="0" align="center" style="font-size:12px;'+
 										'font-family:Helvetica;">';
@@ -1355,7 +968,7 @@ if(searchKey!="")
 				    switch(i)
 				    	{
 				      case 0:
-
+				       id=value.pro_id;
 				      if(tabcount%2==0)
 				    	{
 				    		newleads_div_data+='<tr align="Center">';
@@ -1384,8 +997,8 @@ if(searchKey!="")
 			            case 3:
 			     newleads_div_data+='<h6 style="border-radius:15px;color: #ff6666">'+value.sell_price+'</h6>';
 				 newleads_div_data+=''+
-				 '<a>'+				
-					'<i class="fa fa-shopping-cart w3-xlarge w3-center" style="cursor:pointer;">Add to Carts</i>'+
+				 '<a >'+				
+					'<i  onclick="addToCart('+id+',1);" class="fa fa-shopping-cart w3-xlarge w3-center"  style="cursor:pointer;">Add to Carts</i>'+
 
 				          '</a>'+
 
@@ -1432,101 +1045,78 @@ if(searchKey!="")
 		</div>
 
 	<header class="" style="border-radius:0px; background-color: #003d8c !important;">
-
 		<div class="w3-card-4" style="">
-
-				<div style="text-align: Center; padding-right:15px;padding-top:5px;">
-
+				<div style="text-align: center; padding:5px;">
 			<table border="0" align="center">
-
 				<tr align="Center">								
-
-					<th width="100px" height="50">
-
-						<div class="tooltip" id="walletId"  onclick="walletdetail()" >
-
-				
-
+					<th width="50" height="50">
+						<div  id="walletId" onclick="walletdetail()">
+							
 						</div>
-
-					</th>					
-
-					<th width="500px" height="50" style="font-size:15px;">
-
-						<h6 style="color:#29b0e2">Copyright &copy; 
-
-							<a target="_blank" href="http://epitychei.co">
-
-								<i style="color:#ff6666;">epitychei.co.</i>
-
-							</a>
-
-						</h6>
-
 					</th>
-
-					<th width="100px" height="50" style="font-size:15px;">
-
-						<div class="tooltip"  onclick="logout()">
-
-						<script>
-
+					<div class="col-md-2 col-sm-2 col-xs-2">
+					<th width="550" height="50" style="font-size:15px; text-align: center;">
+						<h6 style="color:#fff;">Copyright &copy; 
+							<a target="_blank" href="http://yoneak.com/">
+								<i style="color:#ff6666;">Yoneak.com</i>
+							</a>
+						</h6>
+					</th>
+					</div>
+					<th width="100" height="50" style="font-size:15px;">
+						<div  onclick="logout()">
+					<script>
 						$(document).ready(function(){
 
-						var login_div_data='';
+							   totalwalletAmount();
 
+							var login_div_data='';
 		              	if((localStorage.userID===null) || !(localStorage.userID))
-
 		                {
-
 		                	login_div_data='<a href="login.html"><i class="fa fa-sign-in w3-xxlarge" aria-hidden="true" style="cursor:pointer;"></i>'+
-
-							'<span class="tooltiptext">Login</span>'+
-
+							'<div style="color:#fff;">Login</div>'+
 							'</a>';
-
                              $('#login_div_data').html(login_div_data);
-
 		                }
-
 		                else
-
 		                {
-
-		                	login_div_data='<a href="login.html"><i class="fa fa-sign-in w3-xxlarge" aria-hidden="true" style="cursor:pointer;"></i>'+
-
-							'<span class="tooltiptext">Logout</span>'+
-
+		                	login_div_data='<a href="login.html"><i class="fa fa-sign-out w3-xxlarge" aria-hidden="true" style="cursor:pointer;"></i>'+
+							'<div style="color:#fff;">Logout</div>'+
 							'</a>';
-
                             $('#login_div_data').html(login_div_data);
-
 		                }
+		                
 
 						});
-
-						
-
-                        </script>
-
-						<div id="login_div_data"></div>
-
+						function costPerView()
+						{
+							location.href="home-CPV.html";
+						}
+						function costPerClick()
+						{
+							location.href="home-CPC.html"; 
+						}
+						function CostPerAppDownload()
+						{
+							location.href="home-CPD.html";
+						}
+						function  bannerImg()
+						{
+							location.href="ecommerce-home.html";
+						}
+                      </script>
+                      <div id="login_div_data"></div>
 						</div>
-
 					</th>
-
 				</tr>
-
 			</table>				
-
 		</div>
-
 		</div>
-
 		</header>
 
-	<script>
 
+	<script>
+/*
 			$(document).ready(function()
 
 		    {	
@@ -1561,214 +1151,13 @@ if(searchKey!="")
 
 				    	     $('#walletId').append(newleads_data);
 
-				    	     
-
 				              },"json");
 
-
-
-
-
 			                  });
-
+*/
 			</script>
 
 			<script>
-
-			$(document).ready(function()
-
-		    {	
-
-		    $.post('http://yoneak.com/web_services/header.php',function(res){
-
-			    var i=0;
-
-				var newleads_div_data="";
-
-				var sub_menu_data='';
-
-				var sub_menu_data_1='';
-
-				$.each(res, function( key, value ) 
-
-				 {
-
-				    switch(i)
-
-				    	{
-
-				       case 0:
-
-				    newleads_div_data='<li><a href="'+value.cat_id+'"  onclick="cat('+value.cat_id+')" style="text-align:left;padding-left:30px;">';
-
-				                    
-
-				    	break;
-
-
-
-				    	case 1:
-
-				           newleads_div_data+=value.cat_name+'</a>';
-
-				                        
-
-				    	break;
-
-
-
-				    	case 2:
-
-				    	if(value.sub_cat!='')
-
-				    	{
-
-				    		var sub_cat_value=value.sub_cat;
-
-				    		var j=1;
-
-				    		sub_menu_data='<ul>';
-
-				    		$.each(sub_cat_value,function(k,v){
-
-				    			switch(j)
-
-				    			{
-
-				    				case 1:
-
-				    				     sub_menu_data_1+='<li><a href="sub_cat_id='+v.sub_cat_id+'"  onclick="subcat('+v.sub_cat_id+')" >'; 
-
-				    				break;
-
-				    				case 2:
-
-				    				     sub_menu_data_1+=v.sub_cat_name+'</a></li>';
-
-                                                                 
-
-				    				break;
-
-				    			}
-
-				    			j%=2;
-
-				    			j++;
-
-				    		 
-
-				    		});
-
-				    		sub_menu_data+=sub_menu_data_1+'</ul>';
-
-				    		newleads_div_data+=sub_menu_data+'</li>';
-
-				    		sub_menu_data_1='';
-
-				    	}
-
-                         else
-
-                         {
-
-                         	newleads_div_data+='</li>';
-
-                         }
-
-				        break;
-
-				    	  }
-
-				    	       i=i+1;
-
-				    	       i%=3;
-
-				    	       if(i==0)
-
-				    	       {
-
-
-
-				    	     $('.navbar').append(newleads_div_data);
-
-				    	       }
-
-
-
-                               });
-
-					
-
-				              },"json");
-
-
-
-				$.post('http://yoneak.com/web_services/ExternalProducts.php',function(res){
-			    var i=0;
-				var newleads_div_data="";
-				var sub_menu_data='';
-				var sub_menu_data_1='';
-				
-				$.each(res, function( key, value ) 
-				 {
-				    switch(i)
-				    	{
-				       case 0:
-				    newleads_div_data='<li><a href="webId'+value.webId+'"  onclick="cat('+value.webId+')" style="text-align:left;padding-left:30px;">';
-				                    
-				    	break;
-
-				    	case 1:
-				    	
-				           newleads_div_data+=value.website+'</a>';
-				                        
-				    	break;
-
-				    	case 2:
-				    	if(value.webData!='')
-				    	{
-				    		var webdata=value.webData;
-				    		var j=1;
-				    		sub_menu_data='<ul>';
-				    		$.each(webdata,function(k,v){
-				    			switch(j)
-				    			{
-				    				case 1:
-				    				     sub_menu_data_1+='<li><a href="catId='+v.catId+'"  onclick="subcat('+v.catId+')" >'; 
-				    				break;
-				    				case 2:
-				    				     sub_menu_data_1+=v.catName+'</a></li>';
-                                                                 
-				    				break;
-				    			}
-				    			j%=2;
-				    			j++;
-				    		 
-				    		});
-				    		sub_menu_data+=sub_menu_data_1+'</ul>';
-				    		newleads_div_data+=sub_menu_data+'</li>';
-				    		sub_menu_data_1='';
-				    	}
-                         else
-                         {
-                         	newleads_div_data+='</li>';
-                         }
-				        break;
-				    	  }
-				    	       i=i+1;
-				    	       i%=3;
-				    	       if(i==0)
-				    	       {
-
-				    	     $('.navbar').append(newleads_div_data);
-				    	       }
-
-                               });
-               
-					
-				              },"json");
-
-			                  });
 function goToCart()
 {
 	location.href="cartDetail.html";
@@ -1776,7 +1165,7 @@ function goToCart()
 			
 function mainPage()
 {
-	location.href="http://yoneak.com/Cashback_App/yoneak.html";
+	location.href="yoneak.html";
 }
 				           </script>
 
