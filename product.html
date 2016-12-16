@@ -211,7 +211,7 @@
 	</head>
 	<body>
 	<div data-role="panel" id="myPanel1"  style="color:#29b0e2;" data-display="overlay"> 
-			<h2 style="color:#ff6666;">Cashback</h2>
+			<img src="logo.png" style="padding-bottom:8%;">
 			<ul data-role="listview">
 				<li onclick="home()">
 					<a  style="color: grey">Home</a>
@@ -307,7 +307,7 @@ var searchKey=$('#searchKey').val();
 if(searchKey!="")
 	{
 		localStorage.setItem("searchKey",searchKey);
-		location.href="http://yoneak.com/Cashback_App/search-result.html";
+		location.href="search-result.html";
 	}
 	else
 	{
@@ -441,7 +441,7 @@ if(searchKey!="")
 				    	break;
 				       case 2:
 				        newleads_div_data+= '<div  style="text-align:center; cursor:pointer;">'+
-				                          '<img src="../admin/product_images/'+value.image_1+'" alt="Person" style="max-width:200px;">'+
+				                          '<img src="http://yoneak.com/admin/product_images/'+value.image_1+'" alt="Person" style="max-width:200px;">'+
 			                                    '</div>';
 				                           
 				    	break;
@@ -502,7 +502,7 @@ if(searchKey!="")
 
 				        case 2:
 				        newleads_div_data+='<div  style="text-align:center; cursor:pointer;">'+
-				                          '<img src="../admin/product_images/'+value.image_1+'" alt="Person" width="300" height="100">'+
+				                          '<img src="http://yoneak.com/admin/product_images/'+value.image_1+'" alt="Person" width="300" height="100">'+
 			                                    '</div>';
 				                           
 				    	break;
@@ -551,7 +551,7 @@ function goToCart()
 }
 function mainPage()
 {
-	location.href="http://yoneak.com/Cashback_App/yoneak.html";
+	location.href="yoneak.html";
 }			
 
 				           </script>
