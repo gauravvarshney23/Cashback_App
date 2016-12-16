@@ -211,7 +211,7 @@
 	</head>
 	<body>
 	<div data-role="panel" id="myPanel1"  style="color:#29b0e2;" data-display="overlay"> 
-			<h2 style="color:#ff6666;">Cashback</h2>
+			<img src="logo.png" style="padding-bottom:8%;">
 			<ul data-role="listview">
 				<li onclick="home()">
 					<a  style="color:grey">Home</a>
@@ -307,7 +307,7 @@ var searchKey=$('#searchKey').val();
 if(searchKey!="")
 	{
 		localStorage.setItem("searchKey",searchKey);
-		location.href="http://yoneak.com/Cashback_App/search-result.html";
+		location.href="search-result.html";
 	}
 	else
 	{
@@ -437,7 +437,7 @@ if(searchKey!="")
 				    		break;
 				    	case 2:
 				    		newleads_div_data='<br><div class="w3-container" style="text-align:center;">'+
-				                                '<img src="../admin/cat_images/'+value.image+'" style="max-width:200px;">'+
+				                                '<img src="http://yoneak.com/admin/cat_images/'+value.image+'" style="max-width:200px;">'+
 			                                         '</div>';
 
 				        break;
@@ -511,7 +511,7 @@ if(searchKey!="")
 	                             '</h4>'+								
 	                              '</header>'+	
 	                             '<div class="w3-center">'+
-                            '<img src="../admin/cat_images/'+value.logo_image+'" style="height:80px;width:150px;">'+
+                            '<img src="http://yoneak.com/admin/cat_images/'+value.logo_image+'" style="height:80px;width:150px;">'+
                              '</div>';
 				        break;
 			           
@@ -540,7 +540,7 @@ if(searchKey!="")
 }
 function mainPage()
 {
-	location.href="http://yoneak.com/Cashback_App/yoneak.html";
+	location.href="yoneak.html";
 }		
 function trackOffer(urlId)
 {
