@@ -213,7 +213,7 @@
 	</head>
 	<body>
 			<div data-role="panel" id="myPanel1"  style="color:#29b0e2;" data-display="overlay"> 
-			<h2 style="color:#ff6666;">Cashback</h2>
+			<img src="logo.png" style="padding-bottom:8%;">
 			<ul data-role="listview">
 				<li onclick="home()">
 					<a  style="color: grey">Home</a>
@@ -307,7 +307,7 @@ var searchKey=$('#searchKey').val();
 if(searchKey!="")
 	{
 		localStorage.setItem("searchKey",searchKey);
-		location.href="http://yoneak.com/Cashback_App/search-result.html";
+		location.href="search-result.html";
 	}
 	else
 	{
@@ -571,8 +571,7 @@ if(searchKey!="")
 			    var i=0;
 			    var urlId="";
 			    var tabcount=2;
-				var newleads_div_data='<table border="0" align="center" style="font-size:12px;'+
-										'font-family:Helvetica;">';
+				var newleads_div_data='';
 				$.each(res, function( key, value ) 
 				    {
 
@@ -583,21 +582,20 @@ if(searchKey!="")
 
 				      if(tabcount%2==0)
 				    	{
-				    		newleads_div_data+='<tr align="Center">';
+				    		newleads_div_data+='<div class="row w3-center">';
 				    	}
 				    	else if(tabcount%2==1)
 				    	{
 				    		newleads_div_data+="";
 				    	}
-				      	newleads_div_data+='<td  onclick="Store('+value.id+')" width="150px"'+
-				      	'height="50" style="cursor:pointer;font-size:15px;border:2px solid #003d8c;">';
+				      	newleads_div_data+='<div class="col-md-6 col-xs-6 col-sm-6" onclick="Store('+value.id+')">';
 				      		urlId=value.id;
 
 				       break;
 
 				    	case 1:
 	newleads_div_data+='<img src="http://yoneak.com/admin/cat_images/'+value.logo_image+'" '+
-	'style="max-width:150px;">';
+	'style="margin: 0 auto; max-width: 150px;" class="img-responsive">';
 	newleads_div_data+='<div class="w3-container"'+
 	'style="text-align:center;">';
 				    	   
@@ -608,7 +606,7 @@ if(searchKey!="")
 				        break;
 			            case 3:
 			     newleads_div_data+='<h6 style="border-radius:15px;color: #ff6666">'+value.description+'</h6>';
-				 newleads_div_data+='</div> </td>';				
+				 newleads_div_data+='</div></div>';				
 			                           
 				         break;
 				    	  }
@@ -620,7 +618,7 @@ if(searchKey!="")
 
 				    	       		if(tabcount%2==1)
 				    				  {
-				    	  				newleads_div_data+='</tr>';
+				    	  				newleads_div_data+='</div><hr>';
 				    	 		  	  }
 				    	 		 
 				    	       	tabcount=tabcount+1;
@@ -629,7 +627,6 @@ if(searchKey!="")
 
                               });
 
-					 newleads_div_data+="</table>";
 					 $('#newdata').append(newleads_div_data);
 				              },"json");
 
@@ -643,7 +640,7 @@ if(searchKey!="")
 }
 function mainPage()
 {
-	location.href="http://yoneak.com/Cashback_App/yoneak.html";
+	location.href="yoneak.html";
 }
 			
 
