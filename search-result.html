@@ -213,7 +213,7 @@
 	<body>
 	
 	<div data-role="panel" id="myPanel1"  style="color:#29b0e2;" data-display="overlay"> 
-			<h2 style="color:#ff6666;">Cashback</h2>
+			<img src="logo.png" style="padding-bottom:8%;">
 			<ul data-role="listview">
 				<li onclick="home()">
 					<a  style="color:grey">Home</a>
@@ -309,7 +309,7 @@ var searchKey=$('#searchKey').val();
 if(searchKey!="")
 	{
 		localStorage.setItem("searchKey",searchKey);
-		location.href="http://yoneak.com/Cashback_App/search-result.html";
+		location.href="search-result.html";
 	}
 	else
 	{
@@ -459,7 +459,7 @@ if(searchKey!="")
 
 				        break;
 				    	case 1:
-				           newleads_div_data+='<img src="../admin/product_images/'+value.image_1+'" alt="Person" width="200" height="300">'+	
+				           newleads_div_data+='<img src="http://yoneak.com/admin/product_images/'+value.image_1+'" alt="Person" width="200" height="300">'+	
 			               '</div>';
 				    	break;
 				    	case 2:
