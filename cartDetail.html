@@ -214,7 +214,7 @@
 	</head>
 	<body>
 			<div data-role="panel" id="myPanel1"  style="color:#29b0e2;" data-display="overlay"> 
-			<h2 style="color:#ff6666;">Cashback</h2>
+			<img src="logo.png" style="padding-bottom:8%;">
 			<ul data-role="listview">
 				<li onclick="home()">
 					<a  style="color:grey">Home</a>
@@ -310,7 +310,7 @@ var searchKey=$('#searchKey').val();
 if(searchKey!="")
 	{
 		localStorage.setItem("searchKey",searchKey);
-		location.href="http://yoneak.com/Cashback_App/search-result.html";
+		location.href="search-result.html";
 	}
 	else
 	{
@@ -555,6 +555,14 @@ if(searchKey!="")
 	});
 	function order(orderIDS,totalPrice,quantities)
 	{
+	if((localStorage.userID===null) || !(localStorage.userID))
+	{
+			localStorage.setItem("cart","enabled");
+			alert("Please Login For Make Order");
+			window.location="login.html";
+	}
+	else
+	{
 		$.getJSON("http://jsonip.com?callback=?", function (data) {
    		    var ipAddress=data.ip;
 		localStorage.setItem("orderIDS",orderIDS);
@@ -573,6 +581,8 @@ $.post('http://yoneak.com/web_services/addOrder.php?ipAdd='+ipAddress+'&orderIds
 			}
 		},"json");
 		});	
+	}
+		
 	}
 	function removeProduct(id)
 	{
