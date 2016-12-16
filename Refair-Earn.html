@@ -210,7 +210,7 @@
 	</head>
 	<body>
 		<div data-role="panel" id="myPanel1"  style="color:#29b0e2;" data-display="overlay"> 
-			<h2 style="color:#ff6666;">Cashback</h2>
+			<img src="logo.png" style="padding-bottom:8%;">
 			<ul data-role="listview">
 				<li onclick="home()">
 					<a  style="color:grey">Home</a>
@@ -264,7 +264,7 @@
 						<a><i class="fa fa-search w3-xlarge" id="searchButton" style="cursor:pointer;"></i></a>
 					</th>
 					<th width="100px" height="50" style="font-size:15px;">
-						<a><i class="fa fa-shopping-cart w3-xlarge" style="cursor:pointer;"></i></a>
+						<a onclick="goToCart();"><i class="fa fa-shopping-cart w3-xlarge" style="cursor:pointer;"></i></a>
 					</th>
 				</tr>
 			</table>				
@@ -304,7 +304,7 @@ var searchKey=$('#searchKey').val();
 if(searchKey!="")
 	{
 		localStorage.setItem("searchKey",searchKey);
-		location.href="http://yoneak.com/Cashback_App/search-result.html";
+		location.href="search-result.html";
 	}
 	else
 	{
@@ -508,7 +508,10 @@ So what are you waiting for? It does not get better than this, Start registering
 			                  });
 		   </script>
 		   <script>
-			
+function goToCart()
+{
+	location.href="cartDetail.html";
+}			
 function mainPage()
 {
 	location.href="yoneak.html";
