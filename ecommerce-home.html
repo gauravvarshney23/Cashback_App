@@ -22,180 +22,492 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 				<style> 
 
-   #nav 
-   {
-    list-style:none inside;
-    margin:0;
-    padding:0;
-    text-align:center;
-   }
+  #map-page, #map-canvas
 
-   #nav li 
-   {
-    display:block;
-  
-    background: #f9f9f9; 
-   }
-
-   #nav li a 
-   {
-    display:block;
-    padding:0;
-    text-decoration:none;
-    width:160px; 
-    line-height:35px; 
-    color: #38c;
-   }
-    
-   #nav li li a 
-   {
-    font-size:80%;
-    color: #38c;
-   }
-    
-   #nav li:hover 
-   {
-    background:#38c;    
-   }
-
-   #nav ul 
-   {    
-    padding:0;
-    left:0;
-    display:none; 
-   }
-   #nav a:hover
-   {
-    color:white;
-   }
-   
-   #nav li:hover ul 
-   {
-    display:block;
-   } 
- 
-			#map-page, #map-canvas
 			{ 
+
 				width: 100%; 
+
 				height: 100%; 
+
 				padding: 0; 
+
 			}
+
+
 
 			.ui-body-f 
+
 			{
+
 				font-weight: bold;
+
 				padding: 0;
+
 				background-color: white;
+
 			}
+
 			.tr-head 
+
 			{
+
 				border-bottom: 1px solid white;
+
 				background: #ff6666;
+
 				color: white;
+
 			}
+
 			.tr-content 
+
 			{
+
 				border-bottom: 1px solid #ff6666;
+
 				background: white;
+
 				color: #ff6666;
+
 			}
+
 			.has-odd-thumb li a 
+
 			{
+
 				padding-left: 50px !important;
+
 			}
+
 			.thumbContainer 
+
 			{
+
 				position: absolute;
+
 				left: 0; top: 0; bottom: 0;
+
 				width: 50px;
+
 			}
-			
-			
-			.dropdown-content 
+
+			.tooltip 
+
 			{
-				display: none;
-				z-index:6;
-				position: absolute;
-				min-width: 160px;
-				box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);		
+
+				position: relative;
+
+				display: inline-block;
+
 			}
+
+			.tooltip .tooltiptext 
+
+			{
+
+				visibility: hidden;
+
+				width: 120px;
+
+				color: #ff6666;
+
+				text-align: center;
+
+				border-radius: 6px;
+
+				padding: 5px 0;
+
+				position: absolute;
+
+				z-index: 1;
+
+				bottom: 125%;
+
+				left: 50%;
+
+				margin-left: -60px;
+
+				opacity: 0;
+
+			}
+
+			.tooltip .tooltiptext::after 
+
+			{
+
+				content: "";
+
+				position: absolute;
+
+				top: 100%;
+
+				left: 50%;
+
+				margin-left: -5px;
+
+				border-width: 5px;
+
+				border-style: solid;
+
+				border-color: #555 transparent transparent transparent;
+
+			}
+
+			.tooltip:hover .tooltiptext 
+
+			{
+
+				visibility: visible;
+
+				opacity: 1;
+
+			}
+
+			
+
+			.dropdown-content 
+
+			{
+
+				display: none;
+
+				z-index:6;
+
+				position: absolute;
+
+				min-width: 160px;
+
+				box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);		
+
+			}
+
+
 
 			.dropdown-content a 
+
 			{
+
 				color: light-grey;
+
 				padding: 12px;
+
 				text-decoration: none;
+
 				display: block;
+
 			}
+
+
 
 			.dropdown-content a:hover 
+
 			{
+
 				background-color: #ff6666;
+
 			}
+
+
 
 			.dropdown:hover .dropdown-content 
+
 			{
+
 				display: block;
+
 			}
+
 			ul.tab 
+
 			{
+
 				list-style-type: none;
+
 				margin: 0;
+
 				padding: 0;
+
 				overflow: hidden;
+
 				background-color: #f1f1f1;
+
 			}
+
+
 
 			ul.tab li 
+
 			{
+
 				float: left;
+
 			}
+
+
 
 			ul.tab li a 
+
 			{
+
 				display: inline-block;
+
 				color: black;
+
 				text-align: center;
+
 				padding: 14px 16px;
+
 				text-decoration: none;
+
 				transition: 0.3s;
+
 				font-size: 16px;
+
 			}
+
 	
+
 			ul.tab li a:hover 
+
 			{
-				background-color: #29b0e2;
+
+				background-color: #003d8c;
+
 				border-radius:15px;
-				height:50px;
+
+				color:#fff!important;
+
 			}
+
+
 
 			ul.tab li a:focus, .active 
+
 			{
-				background-color: #29b0e2;
+
+				background-color: #003d8c;
+
 				outline:0;
+
 				border-radius:15px;
+
+				color:#fff!important;
+
 			}
+
+
 
 			.tabcontent 
+
 			{
+
 				display: none;
+
 				padding: 6px 12px;
+
 				-webkit-animation: fadeEffect 1s;
+
 				animation: fadeEffect 1s;
-			}
-			
-			
-			@-webkit-keyframes fadeEffect 
-			{
-				from {opacity: 0;}
-				to {opacity: 1;}
+
 			}
 
-			@keyframes fadeEffect 
+			#aa-header .aa-header-bottom .aa-header-bottom-area .aa-search-box {
+
+  float: right;
+
+  margin-right: 5%;
+
+  margin-top: 13px;
+
+  position: relative;
+
+  width: 500px;
+
+}
+
+#aa-header .aa-header-bottom .aa-header-bottom-area .aa-search-box input[type="text"] {
+
+  border: 1px solid #ddd;
+
+  color: #555;
+
+  font-size: 14px;
+
+  font-family: "Raleway", sans-serif;
+
+  height: 40px;
+
+  padding: 10px 55px 10px 10px;
+
+  width: 100%;
+
+}
+
+#aa-header .aa-header-bottom .aa-header-bottom-area .aa-search-box button {
+
+  border: medium none;
+
+  color: #fff;
+
+  height: 100%;
+
+  position: absolute;
+
+  right: 0;
+
+  top: 0;
+
+  width: 50px;
+
+  -webkit-transition: all 0.5s;
+
+  -moz-transition: all 0.5s;
+
+  -ms-transition: all 0.5s;
+
+  -o-transition: all 0.5s;
+
+  transition: all 0.5s;
+
+}
+
+#aa-header .aa-header-bottom .aa-header-bottom-area .aa-search-box button:hover {
+
+  opacity: 0.8;
+
+}
+
+			
+
+			@-webkit-keyframes fadeEffect 
+
 			{
+
 				from {opacity: 0;}
+
 				to {opacity: 1;}
+
 			}
+
+
+
+			@keyframes fadeEffect 
+
+			{
+
+				from {opacity: 0;}
+
+				to {opacity: 1;}
+
+			}
+
+	
+
+   #nav 
+
+   {
+
+    list-style:none inside;
+
+    margin:0;
+
+    padding:0;
+
+    text-align:center;
+
+   }
+
+
+
+   #nav li 
+
+   {
+
+    display:block;
+
+    position:relative;
+
+    float:left;
+
+    background: #f9f9f9; 
+
+   }
+
+
+
+   #nav li a 
+
+   {
+
+    display:block;
+
+    padding:0;
+
+    text-decoration:none;
+
+    width:160px; 
+
+    line-height:35px; 
+
+    color: #38c;
+
+   }
+
+    
+
+   #nav li li a 
+
+   {
+
+    font-size:80%;
+
+    color: #38c;
+
+   }
+
+    
+
+   #nav li:hover 
+
+   {
+
+    background:#38c;    
+
+   }
+
+
+
+   #nav ul 
+
+   {    
+
+    padding:0;
+
+    left:0;
+
+    display:none; 
+
+   }
+
+   #nav a:hover
+
+   {
+
+    color:white;
+
+   }
+
+   
+
+   #nav li:hover ul 
+
+   {
+
+    display:block;
+
+   } 
+
 
 		</style>
 
@@ -244,7 +556,7 @@
 
 		<div data-role="panel" id="myPanel1"  style="color:#29b0e2;" data-display="overlay"> 
 
-			<h2 style="color:#ff6666;">Cashback</h2>
+			<img src="logo.png" style="padding-bottom:8%;">
 
 			<ul data-role="listview">
 
@@ -437,7 +749,7 @@ if(searchKey!="")
 
 		localStorage.setItem("searchKey",searchKey);
 
-		location.href="http://yoneak.com/Cashback_App/search-result.html";
+		location.href="search-result.html";
 
 	}
 
@@ -744,25 +1056,25 @@ if(searchKey!="")
 
 					<div data-p="112.50" style="display: none;">
 
-						<img data-u="image" src="img/02.jpg" />
+						<img data-u="image" src="img/office_chairs.jpg" />
 
 					</div>
 
 					<div data-p="112.50" style="display: none;">
 
-						<img data-u="image" src="img/04.jpg" />
+						<img data-u="image" src="img/outdoor_furnitures.jpg" />
 
 					</div>
 
 					<div data-p="112.50" style="display: none;">
 
-						<img data-u="image" src="img/05.jpg" />
+						<img data-u="image" src="img/SWS-1013.jpg" />
 
 					</div>
 
 					<div data-p="112.50" style="display: none;">
 
-						<img data-u="image" src="img/09.jpg" />
+						<img data-u="image" src="img/Untitled-1_1-11_1_1.jpg" />
 
 					</div>
 
@@ -984,7 +1296,7 @@ if(searchKey!="")
 				       break;
 
 				    	case 1:
-	newleads_div_data+='<img src="../admin/product_images/'+value.image_1+'" '+
+	newleads_div_data+='<img src="http://yoneak.com/admin/product_images/'+value.image_1+'" '+
 	'style="max-width:150px;">';
 	newleads_div_data+='<div class="w3-container"'+
 	'style="text-align:center;">';
