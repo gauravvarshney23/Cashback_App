@@ -358,10 +358,20 @@ if(searchKey!="")
 		</header>
 		<div role="main" id="book-shop">
 			<div style="padding-left:10px;padding-right:10px;">
-				<a  class="ui-btn" style="border-radius:15px;color: #ff6666" data-position-to="#af">
-					<i></i> Products
+				<a href="#AdvancedFilter" id="af" data-rel="popup" class="ui-btn" style="border-radius:15px;color: #ff6666" data-position-to="#af">
+					<i aria-hidden="false"></i>Products Category
 				</a>
 			</div>
+			<div data-role="popup" id="AdvancedFilter" class="ui-content" style="min-width:200px;min-height:150px;" data-arrow="t">
+			
+				<a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ui-btn-right">
+					Close
+				</a>
+				<label for="points">Category:</label>
+				<div id="sub_cats">						
+					
+				</div>
+			
 			</div>
 		</div>
 		 <div id="pro1">
@@ -481,10 +491,52 @@ if(searchKey!="")
 			                  });
 
 				           </script>
-			<script>
+			
+				<script>
 			$(document).ready(function()
 		    {	
-		    var sub_id=localStorage.sub_cat_id;
+		    var sub_id=localStorage.cat_id;
+		    $.post('http://yoneak.com/web_services/sub_category.php?cat_id='+sub_id,function(res)
+		    {
+			    var i=0;
+				var newleads_div_data="";
+				$.each(res, function( key, value ) 
+				    {
+				    switch(i)
+				    	{
+				    	 case 1:
+				        newleads_div_data='<ul><li><button class="btn btn-link" value="'+value.sub_cat_id+'" onclick="subCat(this.value)">';
+						               
+				    	 break;
+
+				    	 case 2:
+				        newleads_div_data+=value.sub_cat_name+'</button></li></ul>';
+					       	
+				    	 break;
+
+
+				    	  }
+				    	       i=i+1;
+				    	       i%=3;
+				    	       if(i==0)
+				    	       {
+
+				    	     $('#sub_cats').append(newleads_div_data);
+				    	       }
+
+                               });
+					
+				              },"json");
+
+			                  });
+
+				           </script>
+				       <script>
+			function subCat(sub_id)
+		    {
+		    $('#pro2').html('');
+		    $('#pro1').html('');	
+		    //var sub_id=this.value;//localStorage.sub_cat_id;
 		    $.post('http://yoneak.com/web_services/product_sub.php?sub_cat_id='+sub_id,function(res)
 		    {
 			    var i=0;
@@ -493,18 +545,14 @@ if(searchKey!="")
 				    {
 				    switch(i)
 				    	{
-
 				    	 case 0:
-				        newleads_div_data='<div class="w3-card-4" onclick="product('+value.pro_id+')">';				
-			                                
-				                           
+				        newleads_div_data='<div class="w3-card-4" onclick="product('+value.pro_id+')">';
 				    	 break;
 
 				        case 2:
 				        newleads_div_data+='<div  style="text-align:center; cursor:pointer;">'+
 				                          '<img src="http://yoneak.com/admin/product_images/'+value.image_1+'" alt="Person" width="300" height="100">'+
 			                                    '</div>';
-				                           
 				    	break;
 
 				    	case 3:
@@ -521,7 +569,7 @@ if(searchKey!="")
 			            newleads_div_data+='<a>'+				
 					                     '<i class="fa fa-shopping-cart w3-xlarge w3-center" style="cursor:pointer;"></i>'+
 				                          '</a>'+
-				                            '</br></br></br>'+
+				                         
 			                                 '</div>'+
 		                                      '</div>';		
 			                           
@@ -539,9 +587,10 @@ if(searchKey!="")
 					
 				              },"json");
 
-			                  });
+			                  }//);
 
 				           </script>
+
 
 		<script>
 			
