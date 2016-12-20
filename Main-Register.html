@@ -203,7 +203,6 @@
 		<script src="js/refair-earn.js"></script>
 		<script src="js/cat.js"></script>
 		<script src="js/subcat.js"></script>
-		<script src="js/menubar.js"></script>
 		<script src="js/external.js"></script>
 		<script src="js/totalwallet-amount.js"></script>
 	</head>
@@ -253,6 +252,7 @@
 				</li>
 			</ul>
 		</div>
+
 		
 		<div data-role="header" style="background:#003d8c none repeat scroll 0 0 !important" data-theme="b" data-position="fixed">
 			<a href="#myPanel1" style="width:35px;height:35px;margin-left:10px;margin-top:5px;" class="ui-btn ui-corner-all ui-icon-bars ui-btn-icon-notext" data-transition="slide"></a>
@@ -313,44 +313,13 @@ if(searchKey!="")
 	}	
 });
 </script>
-			<header>
-   <div class="row" style="margin-bottom:10px;">
-			<div class="col-md-1 col-sm-1 col-xs-1"></div>
-			<div class="col-md-2 col-sm-2 col-xs-2 text-center">
-				<div onclick="home()" > 
-					<img src="img/home.png" style="max-width: 35px;cursor:pointer;" >
-				</div>
+<div role="main" id="book-shop">
+<div style="padding-left:46px;padding-right:49px;">
+				<a href="#AdvancedFilter" id="af" data-rel="popup" class="ui-btn" style="border-radius:15px;color: #ff6666" data-position-to="#af">
+					<i aria-hidden="false"></i>Register Form
+				</a>
 			</div>
-			<div class="col-md-2 col-sm-2 col-xs-2 text-center">
-				<div onclick="storehome()" > 
-					<img src="img/store.png" style="max-width: 35px;cursor:pointer;" >					
-				</div>
 			</div>
-			<div class="col-md-2 col-sm-2 col-xs-2 text-center">
-				<div class="dropdown" > 
-					<a alt="Product" class="dropbtn" href="#">
-						<img src="img/product.png" style="max-width: 35px;cursor:pointer;" >	
-					</a>
-					<div class="dropdown-content">          
-						<ul id="nav" class="navbar">
-          	
-						</ul>
-					</div>   
-				</div>
-			</div>
-			<div class="col-md-2 col-sm-2 col-xs-2 text-center">
-				<div onclick="deal()" > 
-					<img src="img/deal.png" style="max-width: 35px;cursor:pointer;" >					
-				</div>
-			</div>
-			<div class="col-md-2 col-sm-2 col-xs-2 text-center">
-				<div onclick="account()" > 
-					<img src="img/user.png" style="max-width: 35px;cursor:pointer;" >					
-				</div>
-			</div>
-			<div class="col-md-1 col-sm-1 col-xs-1"></div>
-		</div>
-  </header>
 		<div class="w3-container" style="text-align:center;padding-bottom:10px;">						
 			<form class="w3-container w3-card-2 w3-padding-16 ">
 				<div class="w3-group">
@@ -383,9 +352,10 @@ if(searchKey!="")
 				<div class="w3-group">
 					<input class="w3-input" id="referral_code" style="width:100%;color: #29b0e2;" type="text" placeholder="Referral code ( Optional )">
 				</div>
-				</br>
 				<div class="w3-group">
 					<button type="button"  id="registerData" onclick="submit_detail();" style="background-color:#ff6666;color:#fff;border-radius:10px;">SUBMIT</button>
+					<button type="button"  id="skipdata" onclick="Refresh();" style="background-color:#003d8c;color:#fff;border-radius:10px;">Skip</button>
+
 				</div>
 			</form>				
 		</div>
@@ -558,7 +528,7 @@ $("#sex_f").click(function(){
                        else if(result.code == '1')
                         {
                        alert("Successfully Resister.."); 
-                        window.location='login.html';     
+                        window.location='Main-login.html';     
                         }
                         
 				});
@@ -579,6 +549,12 @@ function mainPage()
 }
 			
 
-				           </script>
+ </script>
+ <script>
+function Refresh()
+{
+	location.href="yoneak.html";
+}
+ </script>
 	</body>
 </html>
