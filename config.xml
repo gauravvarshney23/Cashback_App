@@ -23,7 +23,7 @@
   <plugin name="cordova-plugin-splashscreen" source="npm"/>
   <plugin name="cordova-plugin-geolocation" source="npm"/>
   <plugin name="cordova-plugin-inappbrowser" source="npm"/>
-  <icon src="yo.png"/>
+  <icon src="logo.png"/>
   <icon src="img/icon.png" gap:platform="android" gap:qualifier="ldpi"/>
   <icon src="img/icon.png" gap:platform="android" gap:qualifier="mdpi"/>
   <icon src="img/icon.png" gap:platform="android" gap:qualifier="hdpi"/>
