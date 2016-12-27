@@ -115,7 +115,6 @@ $("#password_error_msg").fadeOut();
             }
             else if(redirectPage==0)
             {
-                 alert("Successfully Login.."); 
                  window.location='account.html';
             }
                                 
