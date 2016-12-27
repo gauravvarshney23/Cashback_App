@@ -435,72 +435,57 @@ if(searchKey!="")
 			<script>
 			$(document).ready(function()
 		    {	
-     var cat_id=localStorage.cat_id;
+		    var cat_id=localStorage.cat_id;
 		    $.post('http://yoneak.com/web_services/product_fetch.php?cat_id='+cat_id,function(res)
 		    {
 			    var i=0;
-			    var urlId="";
-			    var tabcount=2;
-				var newleads_div_data='';
+				var newleads_div_data="";
 				$.each(res, function( key, value ) 
 				    {
-
-
 				    switch(i)
 				    	{
-				      case 0:
-
-				      if(tabcount%2==0)
-				    	{
-				    		newleads_div_data+='<div class="row w3-center">';
-				    	}
-				    	else if(tabcount%2==1)
-				    	{
-				    		newleads_div_data+="";
-				    	}
-				      	newleads_div_data+='<div style="cursor:pointer;" class="col-md-6 col-xs-6 col-sm-6" onclick="product('+value.pro_id+')" >';
-				      		urlId=value.id;
-
-				       break;
-
-				    	case 2:
-	newleads_div_data+= '<img src="http://yoneak.com/admin/product_images/'+value.image_1+'" alt="Person" style="max-width:200px;">';
-	newleads_div_data+='<div class="w3-container"'+
-	'style="text-align:center;">';
-				    	   
+				    	case 0:
+				        newleads_div_data='<div class="w3-card-4" onclick="product('+value.pro_id+')" >';				
+			                                
+				                           
 				    	break;
+				       case 2:
+				        newleads_div_data+= '<div  style="text-align:center; cursor:pointer;">'+
+				                          '<img src="http://yoneak.com/admin/product_images/'+value.image_1+'" alt="Person" style="max-width:200px;">'+
+			                                    '</div>';
+				                           
+				    	break;
+
 				    	case 3:
-				    	newleads_div_data+='<h5 style="padding-top:5px;">'+value.pro_name+'</h5>';
+				           newleads_div_data+='<div class="w3-container" style="text-align:center;" >'+
+				                                '<h3>'+value.pro_name+'</h3>';	
+				    	break;
+				    	case 4:
+				    		newleads_div_data+='<h5>Selling Price</h5>'+
+				                                      '<h3>&#8377 '+value.sell_price+'</h3>';
+				
 
 				        break;
-			            case 4:
-			     newleads_div_data+='<h6 style="border-radius:15px;color: #ff6666">&#8377 '+value.sell_price+'</h6>';
-				 newleads_div_data+= '<a>'+				
+			            case 5:
+			            newleads_div_data+='<a>'+				
 					                     '<i class="fa fa-shopping-cart w3-xlarge w3-center" style="cursor:pointer;"></i>'+
 				                          '</a>'+
-			                                 	'</div></div>';
-
+				                            '</br></br></br>'+
+			                                 '</div>'+
+		                                      '</div>';		
 			                           
-				         break;
+				        break;
 				    	  }
-				    	  
 				    	       i=i+1;
 				    	       i%=7;
 				    	       if(i==0)
 				    	       {
 
-				    	       		if(tabcount%2==1)
-				    				  {
-				    	  				newleads_div_data+='</div><hr>';
-				    	 		  	  }
-				    	 		 
-				    	       	tabcount=tabcount+1;
-				    	    		
+				    	     $('#pro1').append(newleads_div_data);
 				    	       }
 
-                              });
-
-					 $('#pro1').append(newleads_div_data);
+                               });
+					
 				              },"json");
 
 			                  });
@@ -547,78 +532,62 @@ if(searchKey!="")
 
 				           </script>
 				       <script>
-		
-         function subCat(sub_id)
+			function subCat(sub_id)
 		    {
 		    $('#pro2').html('');
 		    $('#pro1').html('');	
 		    //var sub_id=this.value;//localStorage.sub_cat_id;
-		     $.post('http://yoneak.com/web_services/product_sub.php?sub_cat_id='+sub_id,function(res)
-		      {
+		    $.post('http://yoneak.com/web_services/product_sub.php?sub_cat_id='+sub_id,function(res)
+		    {
 			    var i=0;
-			    var urlId="";
-			    var tabcount=2;
-				var newleads_div_data='';
+				var newleads_div_data="";
 				$.each(res, function( key, value ) 
 				    {
 				    switch(i)
 				    	{
-				      case 0:
+				    	 case 0:
+				        newleads_div_data='<div class="w3-card-4" onclick="product('+value.pro_id+')">';
+				    	 break;
 
-				      if(tabcount%2==0)
-				    	{
-				    		newleads_div_data+='<div class="row w3-center">';
-				    	}
-				    	else if(tabcount%2==1)
-				    	{
-				    		newleads_div_data+="";
-				    	}
-				      	newleads_div_data+='<div class="col-md-6 col-xs-6 col-sm-6" onclick="product('+value.pro_id+')" >';
-				      		urlId=value.pro_id;
-
-				       break;
-
-				    	case 2:
-	                    newleads_div_data+= '<img src="http://yoneak.com/admin/product_images/'+value.image_1+'" alt="Person" style="max-width:200px;"/>';
-			                                    
-				    	   
+				        case 2:
+				        newleads_div_data+='<div  style="text-align:center; cursor:pointer;">'+
+				                          '<img src="http://yoneak.com/admin/product_images/'+value.image_1+'" alt="Person" width="300" height="100">'+
+			                                    '</div>';
 				    	break;
+
 				    	case 3:
-				    	newleads_div_data+='<h5 style="padding-top:5px;">'+value.pro_name+'</h5>';
+				           newleads_div_data+='<div class="w3-container" style="text-align:center;" >'+
+				                                '<h3>'+value.pro_name+'</h3>';	
+				    	break;
+				    	case 4:
+				    		newleads_div_data+='<h5>Selling Price</h5>'+
+				                                      '<h3>&#8377 '+value.sell_price+'</h3>';
+				
 
 				        break;
-			            case 4:
-			     newleads_div_data+='<h6 style="border-radius:15px;color: #ff6666">&#8377 '+value.sell_price+'</h6>';
-				 newleads_div_data+= '<a>'+				
+			            case 5:
+			            newleads_div_data+='<a>'+				
 					                     '<i class="fa fa-shopping-cart w3-xlarge w3-center" style="cursor:pointer;"></i>'+
 				                          '</a>'+
-			                                 	'</div>';
-
+				                         
+			                                 '</div>'+
+		                                      '</div>';		
 			                           
-				         break;
+				        break;
 				    	  }
-				    	  
 				    	       i=i+1;
 				    	       i%=7;
 				    	       if(i==0)
 				    	       {
 
-				    	       		if(tabcount%2==1)
-				    				  {
-				    	  				newleads_div_data+='</div></div><hr>';
-				    	 		  	  }
-				    	 		 
-				    	       	tabcount=tabcount+1;
-				    	    		
+				    	     $('#pro2').append(newleads_div_data);
 				    	       }
 
-                              });
-
-					 $('#pro2').append(newleads_div_data);
+                               });
+					
 				              },"json");
 
-			                  
-						 }//);
+			                  }//);
 
 				           </script>
 

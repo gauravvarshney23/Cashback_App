@@ -1056,25 +1056,25 @@ if(searchKey!="")
 
 					<div data-p="112.50" style="display: none;">
 
-						<img data-u="image" src="img/home 1.png" />
+						<img data-u="image" src="img/office_chairs.jpg" />
 
 					</div>
 
 					<div data-p="112.50" style="display: none;">
 
-						<img data-u="image" src="img/home 2.png" />
+						<img data-u="image" src="img/outdoor_furnitures.jpg" />
 
 					</div>
 
 					<div data-p="112.50" style="display: none;">
 
-						<img data-u="image" src="img/home 3.png" />
+						<img data-u="image" src="img/SWS-1013.jpg" />
 
 					</div>
 
 					<div data-p="112.50" style="display: none;">
 
-						<img data-u="image" src="img/home 4.png" />
+						<img data-u="image" src="img/Untitled-1_1-11_1_1.jpg" />
 
 					</div>
 
@@ -1196,7 +1196,8 @@ if(searchKey!="")
 			    var i=0;
 			    var urlId="";
 			    var tabcount=2;
-				var newleads_div_data='';
+				var newleads_div_data='<table border="0" align="center" style="font-size:12px;'+
+										'font-family:Helvetica;">';
 				$.each(res, function( key, value ) 
 				    {
 
@@ -1207,22 +1208,23 @@ if(searchKey!="")
 
 				      if(tabcount%2==0)
 				    	{
-				    		newleads_div_data+='<div class="row w3-center">';
+				    		newleads_div_data+='<tr align="Center">';
 				    	}
 				    	else if(tabcount%2==1)
 				    	{
 				    		newleads_div_data+="";
 				    	}
-				      	newleads_div_data+='<div style="cursor:pointer;"  class="col-md-6 col-xs-6 col-sm-6" onclick="Store('+value.id+')">';
+				      	newleads_div_data+='<td  onclick="Store('+value.id+')" width="150px"'+
+				      	'height="50" style="font-size:15px;border:2px solid #003d8c;">';
 				      		urlId=value.id;
 
 				       break;
 
 				    	case 1:
-	                  newleads_div_data+='<img src="http://yoneak.com/admin/cat_images/'+value.logo_image+'" '+
-	                   'style="max-width:150px;">';
-	                     newleads_div_data+='<div class="w3-container"'+
-	                        'style="text-align:center;">';
+	newleads_div_data+='<img src="http://yoneak.com/admin/cat_images/'+value.logo_image+'" '+
+	'style="max-width:150px;">';
+	newleads_div_data+='<div class="w3-container"'+
+	'style="text-align:center;">';
 				    	   
 				    	break;
 				    	case 2:
@@ -1231,7 +1233,7 @@ if(searchKey!="")
 				        break;
 			            case 3:
 			     newleads_div_data+='<h6 style="border-radius:15px;color: #ff6666">'+value.description+'</h6>';
-				 newleads_div_data+='</div></div>';				
+				 newleads_div_data+='</div> </td>';				
 			                           
 				         break;
 				    	  }
@@ -1243,7 +1245,7 @@ if(searchKey!="")
 
 				    	       		if(tabcount%2==1)
 				    				  {
-				    	  				newleads_div_data+='</div><hr>';
+				    	  				newleads_div_data+='</tr>';
 				    	 		  	  }
 				    	 		 
 				    	       	tabcount=tabcount+1;
@@ -1269,22 +1271,26 @@ if(searchKey!="")
 			    var urlId="";
 			    var id="";
 			    var tabcount=2;
-				var newleads_div_data='';
+				var newleads_div_data='<table border="0" align="center" style="font-size:12px;'+
+										'font-family:Helvetica;">';
 				$.each(res, function( key, value ) 
 				    {
+
+
 				    switch(i)
 				    	{
 				      case 0:
 				       id=value.pro_id;
 				      if(tabcount%2==0)
 				    	{
-				    		newleads_div_data+='<div class="row w3-center">';
+				    		newleads_div_data+='<tr align="Center">';
 				    	}
 				    	else if(tabcount%2==1)
 				    	{
 				    		newleads_div_data+="";
 				    	}
-				    newleads_div_data+='<div style="cursor:pointer;"  class="col-md-6 col-xs-6 col-sm-6" onclick="product('+value.pro_id+')">';
+				      	newleads_div_data+='<td  onclick="product('+value.pro_id+')"  width="150px"'+
+				      	'height="50" style="font-size:15px;border:2px solid #003d8c;">';
 				      		urlId=value.id;
 
 				       break;
@@ -1307,9 +1313,12 @@ if(searchKey!="")
 					'<i  onclick="addToCart('+id+',1);" class="fa fa-shopping-cart w3-xlarge w3-center"  style="cursor:pointer;">Add to Carts</i>'+
 
 				          '</a>'+
+
+				          '</br></br></br>'+
+
 				          '<hr>'+
 
-			              '</div></div>';			
+			              '</div> </td>';			
 			                           
 				         break;
 
@@ -1323,7 +1332,7 @@ if(searchKey!="")
 
 				    	       		if(tabcount%2==1)
 				    				  {
-				    	  				newleads_div_data+='</div><hr>';
+				    	  				newleads_div_data+='</tr>';
 				    	 		  	  }
 				    	 		 
 				    	       	tabcount=tabcount+1;
@@ -1332,7 +1341,7 @@ if(searchKey!="")
 
                               });
 
-					
+					 newleads_div_data+="</table>";
 					 $('#Transactions').append(newleads_div_data);
 				              },"json");
 
