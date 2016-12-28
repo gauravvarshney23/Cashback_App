@@ -414,54 +414,69 @@ if(searchKey!="")
 		</div>
 		<script>
 			$(document).ready(function()
-		    {	
+		   {
 		    var id=localStorage.id;
 		    $.post('http://yoneak.com/web_services/get_offer.php?id='+id,function(res)
-		     {
-			    var i=0;
-				var newleads_div_data="";
-				var url="";
-				var affiliateId="";
-				var catId="";
-				var catName="";
-				var urlId="";
-				var offerValidity="";
-				$.each(res, function( key, value ) 
+		    {	
+			 var i=0;
+			 var urlId="";
+			 var tabcount=2;
+			 var newleads_div_data='';
+			 var url="";
+		     var affiliateId="";
+			 var catId="";
+			 var catName="";
+			 var urlId="";
+			 var offerValidity="";
+		    $.each(res,function(key,value) 
 				    {
 				    switch(i)
 				    	{
-				    		case 0: affiliateId=value.affiliate_id;
-				    		
-				    				break;
-				    		case 1: urlId=value.id;
-				    		break;
+				      case 0:
+
+				      if(tabcount%2==0)
+				    	{
+				    		newleads_div_data+='<div class="row w3-center">';
+				    	}
+				    	else if(tabcount%2==1)
+				    	{
+				    		newleads_div_data+="";
+				    	}
+				      	newleads_div_data+='<div class="col-md-6 col-xs-6 col-sm-6"><br>';
+				        affiliateId=value.affiliate_id;
+
+				       break;
+				       case 1: urlId=value.id;
+
+				       break;
+
 				    	case 2:
-				    		newleads_div_data='<br><div class="w3-container" style="text-align:center;">'+
-				                                '<img src="http://yoneak.com/admin/cat_images/'+value.image+'" style="max-width:200px;">'+
-			                                         '</div>';
+	                    newleads_div_data+='<img src="http://yoneak.com/admin/cat_images/'+value.image+'"  alt="Person"style="max-width:200px; max-hight:150px;">';
+				    	break;
+
+				    	case 3:
+				    	catName=value.cat_name;
+				    	newleads_div_data+='<h5 style="padding-top:5px;">'+value.cat_name+'</h5>';
+
+				        newleads_div_data+='<input type="hidden" id="catName'+urlId+'" value="'+catName+'">';
 
 				        break;
+			            case 4:
+			     newleads_div_data+='<h6 style="border-radius:15px;color: #ff6666">'+value.long_description+'</h6>';
+			              break;
 
-			            case 3:
-			            catName=value.cat_name;
-			            newleads_div_data+='<div class="w3-container" style="text-align:center;">'+
-				                           '<h6 style="padding-top:5px;">'+value.cat_name+'</h6>';					
-				
-					     newleads_div_data+='<input type="hidden" id="catName'+urlId+'" value="'+catName+'">';
-				         break;
-				         case 4:
-				    		newleads_div_data+='<h6 style="border-radius:15px;color: #ff6666">'+value.long_description+'</h6>';
-				          break;
-				          case 5:
-				          url=value.url;
-				          newleads_div_data+='<input type="hidden" id="url'+urlId+'" value="'+url+'">';
-				           newleads_div_data+='<input type="hidden" id="affiliateId'+urlId+'" value="'+affiliateId+'">';
-				          
-				          break;
-				          case 6:
+			            case 5:
+			           url=value.url;
+			           newleads_div_data+='<input type="hidden" id="url'+urlId+'" value="'+url+'">';
+
+			           newleads_div_data+='<input type="hidden" id="affiliateId'+urlId+'" value="'+affiliateId+'">';
+				  
+				    	  break;
+
+				    	 case 6:
 				    		offerValidity=value.offer_validity;
 				          break;
-				          case 7: catId=value.cat_id;
+				           case 7: catId=value.cat_id;
 				          newleads_div_data+='<input type="hidden" id="catId'+urlId+'" value="'+catId+'">';
 				         /* var length=urls.length;
 				          var count=0;
@@ -476,23 +491,33 @@ if(searchKey!="")
 				    	'</a>';
 				    	newleads_div_data+='<h6 style="border-radius:15px;color: grey">Offer Validity'+offerValidity+'</h6>'+						
 			                 '</div>';	
-				    				break;
+
+				    	break;
+				     
 				    	  }
+				    	  
 				    	       i=i+1;
 				    	       i%=10;
 				    	       if(i==0)
 				    	       {
 
-				    	   		  $('#storedetail').append(newleads_div_data);
+				    	       		if(tabcount%2==1)
+				    				  {
+				    	  				newleads_div_data+='</div></div><hr>';
+				    	 		  	  }
+				    	 		 
+				    	  tabcount=tabcount+1;
+				    	    		
 				    	       }
 
-                               });
-					
-				              },"json");
+                              });
 
-			                  });
+					 $('#storedetail').append(newleads_div_data);
 
-				           </script>
+				       },"json");
+			                  
+					   });
+				  </script>
 				           <script>
 			$(document).ready(function()
 		    {	

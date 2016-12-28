@@ -190,7 +190,6 @@
 		</style>
 		<script src="js/jquery-1.11.3.min.js"></script>
 		<script src="js/jquery.mobile-1.4.5.min.js"></script>
-		<script src="http://maps.google.com/maps/api/js?libraries=geometry&sensor=false"></script>
 		<script src="js/jssor.slider.min.js"></script>
 	    <script src="js/product.js"></script>
 	    <script src="js/logout.js"></script>
@@ -385,6 +384,8 @@ if(searchKey!="")
 		</div>
 		<div id="dealday" class="w3-card-4" >	
 		</div>
+		<div id="externalpro" class="w3-card-4" >	
+		</div>
 	
 	<header class="" style="border-radius:0px; background-color: #003d8c !important;">
 		<div class="w3-card-4" style="">
@@ -441,83 +442,200 @@ if(searchKey!="")
 		</div>
 		</header>
 		<script>
-			$(document).ready(function()
-		    {	
-		    var searchKey=localStorage.searchKey;
-	
-		    $.post('http://yoneak.com/web_services/search_result.php?search_key='+searchKey,function(res){
-			var i=0;
-			var id="";
-			var newleads_div_data='';
-				$.each(res,function(key,value) 
+         $(document).ready(function()
+		   {
+		   var searchKey=localStorage.searchKey;
+
+		    $.post('http://yoneak.com/web_services/search_result.php?search_key='+searchKey,function(res)
+		    {
+			 var i=0;
+			 var id="";
+			 var urlId="";
+			 var tabcount=2;
+			 var newleads_div_data='';
+		    $.each(res,function(key,value) 
 				    {
 				    switch(i)
 				    	{
-				       case 0:
-				       id=value.pro_id;
-				       newleads_div_data='<br><div  style="text-align:center;">';
+				      case 0:
 
-				        break;
+				      if(tabcount%2==0)
+				    	{
+				    		newleads_div_data+='<div class="row w3-center">';
+				    	}
+				    	else if(tabcount%2==1)
+				    	{
+				    		newleads_div_data+="";
+				    	}
+				      	newleads_div_data+='<div class="col-md-6 col-xs-6 col-sm-6">';
+				      	 id=value.pro_id;
+
+				       break;
+
 				    	case 1:
-				           newleads_div_data+='<img src="http://yoneak.com/admin/product_images/'+value.image_1+'" alt="Person" width="" height="" style="max-width:200px;">'+	
-			               '</div>';
+	newleads_div_data+= '<img src="http://yoneak.com/admin/product_images/'+value.image_1+'" alt="Person" width="" height="" style="max-width:200px;">';
+			             
+			                                    
+				    	   
 				    	break;
 				    	case 2:
-				    		newleads_div_data+='<div class="w3-container" style="text-align:center;" >'+
-				                              '<h3>'+value.pro_name+'</h3>';
-				                              
+				    	newleads_div_data+='<h5 style="padding-top:5px;">'+value.pro_name+'</h5>';
+
+				        break;
+			            case 3:
+			     newleads_div_data+='<h6 style="border-radius:15px;color: #ff6666">Selling Price &#8377 '+value.sell_price+'</h6>';
+				 newleads_div_data+= '<a>'+				
+					                     '<i onclick="addToCart('+id+',1);" class="fa fa-shopping-cart w3-xlarge w3-center" style="cursor:pointer;"></i>'+
+				                          '</a>'+
+			                                 	'</div>';
+
+			                           
 				         break;
-				         case 3:
-				         newleads_div_data+='<h5>Selling Price &#8377 '+value.sell_price+'</h5>'+
-				                             '<h3></h3>'+
-				                             
-				         '<a>'+				
-					    '<i onclick="addToCart('+id+',1);" class="fa fa-shopping-cart w3-xlarge w3-center" style="cursor:pointer;">Add to Carts</i>'+
-				          '</a>'+
-				          '</br></br></br>'+
-				          '<hr>'+
-			              '</div>';
-				         break;	
 				    	  }
-				    	       i++;
+				    	  
+				    	       i=i+1;
 				    	       i%=4;
 				    	       if(i==0)
 				    	       {
 
-				    	     $('#dealday').append(newleads_div_data);
+				    	       		if(tabcount%2==1)
+				    				  {
+				    	  				newleads_div_data+='</div></div><hr>';
+				    	 		  	  }
+				    	 		 
+				    	       	tabcount=tabcount+1;
+				    	    		
 				    	       }
 
-                               });
-					
+                              });
+
+					 $('#dealday').append(newleads_div_data);
+
+
 				              },"json");
+			                  
+						 });
 
-			                  });
+				 </script>
+	    <script>
+	        $(document).ready(function()
+		   {
+		   var searchKey=localStorage.searchKey;
 
-				           </script>
-	<script>
-		/*	$(document).ready(function()
-		    {	
-		     var  user_id=localStorage.userID;
-		    $.post('http://yoneak.com/web_services/wallet_detail.php?user_id='+user_id,function(res)
-		    { 
-			var newleads_data="";
-			var amount="0.00";
-			console.log(res);
-				           newleads_data='<a>'+
-							'<i class="fa fa-google-wallet w3-xxlarge" aria-hidden="true" style="cursor:pointer;"></i>'+
-							'</a>';
-							if(res.status==1)
-							{
-								amount=res.wallet_data;
-							}
-							newleads_data=newleads_data+'<span class="tooltiptext">&#8377 '+amount+'</span>';
-				    	     $('#walletId').append(newleads_data);
-				    	     
+		    $.post('http://yoneak.com/web_services/search_externalpro.php?search_key='+searchKey,function(res)
+		    {
+			 var i=0;
+			 var id="";
+			 var proId="";
+			 var urlId="";
+			 var product_name="";
+			 var pro_id="";
+			 var url="";
+			 var tabcount=2;
+			 var newleads_div_data='';
+			 var countid=1;
+		    $.each(res,function(key,value) 
+				    {
+				    switch(i)
+				    	{
+				      case 0:
+
+				      if(tabcount%2==0)
+				    	{
+				    		newleads_div_data+='<div class="row w3-center">';
+				    	}
+				    	else if(tabcount%2==1)
+				    	{
+				    		newleads_div_data+="";
+				    	}
+				      	newleads_div_data+='<div class="col-md-6 col-xs-6 col-sm-6">';
+				      	 id=value.cat_id;
+
+				       break;
+
+				    	case 1:
+	                     newleads_div_data+= '<img src="http://yoneak.com/admin/external_image/'+value.image+'" alt="Person" width="" height="" style="max-width:200px;">';
+
+				    	break;
+				    	case 2:
+				    	newleads_div_data+='<h5 style="padding-top:5px;">'+value.product_name+'</h5>';
+				    	product_name=value.product_name;
+				    	newleads_div_data+='<input type="hidden" id="proName'+countid+'" value="'+product_name+'">';
+
+				        break;
+			            case 3:
+			     newleads_div_data+='<h6 style="border-radius:15px;color: #ff6666">Selling Price &#8377 '+value.selling_price+'</h6>';
+
+			           case 4:
+			             proId=value.pro_id;
+			               newleads_div_data+='<input type="hidden" id="proId'+countid+'" value="'+proId+'">';
+			           break;
+			           case 5:
+			           url=value.url;
+
+			         newleads_div_data+='<input type="hidden" id="url'+countid+'" value="'+url+'">';
+				     newleads_div_data+= '<a onclick="trackOffer('+countid+');" href="javascript:void(0);">'+				
+					                     '<i  class="fa fa-shopping-cart w3-xlarge w3-center" style="cursor:pointer;"></i>'+
+				                          '</a>'+
+			                                 	'</div>';
+			                           
+				         break;
+				    	  }
+				    	  
+				    	       i=i+1;
+				    	       i%=6;
+				    	       if(i==0)
+				    	       {
+
+				    	       		if(tabcount%2==1)
+				    				  {
+				    	  				newleads_div_data+='</div></div><hr>';
+				    	 		  	  }
+				    	 		 
+				    	       	tabcount=tabcount+1;
+				    	    		
+				    	       }
+
+                              });
+
+					 $('#externalpro').append(newleads_div_data);
+
+
 				              },"json");
+			                  
+						 });
+	function trackOffer(urlId)
+{
+	var url=$("#url"+urlId).val();
+	var proName=$("#proName"+urlId).val();
+	var proId=$("#proId"+urlId).val();
+	
 
+	if((localStorage.userID===null) || !(localStorage.userID))
+	{
+		
 
-			                  });*/
-			</script>
+		localStorage.setItem("url",url);
+		localStorage.setItem("proName",proName);
+		localStorage.setItem("proId",proId);
+		window.location="login.html";
+	}
+	else{
+		var userId=localStorage.userID;
+		$.post('http://yoneak.com/web_services/track_offer2.php?userId='+userId+'&affiliateId='+proId+'&referral_url='+url+'&product_name'+proName,function(res){
+			
+			if(res.message=="success")
+			{
+				window.location=url;
+			}
+			else{
+				alert("Something Went wrong");
+			}
+		 
+		},"json");
+	}
+}
+		</script>
 		
 		
 		<script>

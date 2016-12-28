@@ -212,6 +212,12 @@
 		<script src="js/subcat.js"></script>
 		<script src="js/external.js"></script>
 		<script src="https://apis.google.com/js/platform.js" async defer></script>
+		<script>
+		if((localStorage.getItem("userID")!=null) ||(localStorage.getItem("userID")))
+		{
+			location.href="yoneak.html"
+		}
+</script>
 	
 	</head>
 	<body>
@@ -320,15 +326,13 @@ if(searchKey!="")
 });
 </script>
 <div role="main" id="book-shop">
-<div style="padding-left:46px;padding-right:49px;">
-				<a href="#AdvancedFilter" id="af" data-rel="popup" class="ui-btn" style="border-radius:15px;color: #ff6666" data-position-to="#af">
-					<i aria-hidden="false"></i>Login Form
-				</a>
-			</div>
 			</div>
 	
 		<div class="w3-container" style="text-align:center;padding-bottom:10px;">						
 			<form class="w3-container w3-card-2 w3-padding-16 ">
+			<header class="w3-container" style="background-color:#003d8c;color:white;">
+					<h4 align="center">Login Form</h4>					
+				</header>
 				<div class="w3-group">
 					<input class="w3-input" id="email" style="width:100%;color: #29b0e2;" type="email" placeholder="Email Address" required>
 				</div>

@@ -11,59 +11,58 @@
 		<link rel="stylesheet" href="style1.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">	
-					<style> 
+		<style> 
+		   #nav 
+		   {
+			list-style:none inside;
+			margin:0;
+			padding:0;
+			text-align:center;
+		   }
 
-   #nav 
-   {
-    list-style:none inside;
-    margin:0;
-    padding:0;
-    text-align:center;
-   }
+		   #nav li 
+		   {
+			display:block;
+		  
+			background: #f9f9f9; 
+		   }
 
-   #nav li 
-   {
-    display:block;
-  
-    background: #f9f9f9; 
-   }
+		   #nav li a 
+		   {
+			display:block;
+			padding:0;
+			text-decoration:none;
+			width:160px; 
+			line-height:35px; 
+			color: #38c;
+		   }
+			
+		   #nav li li a 
+		   {
+			font-size:80%;
+			color: #38c;
+		   }
+			
+		   #nav li:hover 
+		   {
+			background:#38c;    
+		   }
 
-   #nav li a 
-   {
-    display:block;
-    padding:0;
-    text-decoration:none;
-    width:160px; 
-    line-height:35px; 
-    color: #38c;
-   }
-    
-   #nav li li a 
-   {
-    font-size:80%;
-    color: #38c;
-   }
-    
-   #nav li:hover 
-   {
-    background:#38c;    
-   }
-
-   #nav ul 
-   {    
-    padding:0;
-    left:0;
-    display:none; 
-   }
-   #nav a:hover
-   {
-    color:white;
-   }
-   
-   #nav li:hover ul 
-   {
-    display:block;
-   } 
+		   #nav ul 
+		   {    
+			padding:0;
+			left:0;
+			display:none; 
+		   }
+		   #nav a:hover
+		   {
+			color:white;
+		   }
+		   
+		   #nav li:hover ul 
+		   {
+			display:block;
+		   } 
  
 			#map-page, #map-canvas
 			{ 
@@ -284,37 +283,38 @@
 		</div>
 	    </div>		
 		</br>
-<script>
-var toggle=1;
-$("#searchButton").click(function(){
-			
-		if(toggle==1)
-		{
-			$("#searchDiv").show();
-			toggle=2;
-		}
-		else
-		{
-			$("#searchDiv").hide();
-			toggle=1;
-		}
-		
-});
-$('#search').click(function(){
-var searchKey=$('#searchKey').val();
-if(searchKey!="")
-	{
-		localStorage.setItem("searchKey",searchKey);
-		location.href="search-result.html";
-	}
-	else
-	{
-		alert("Search Value should not be blank.");
-	}	
-});
-</script>
-			<header>
-   <div class="row" style="margin-bottom:10px;">
+		<script>
+		var toggle=1;
+		$("#searchButton").click(function(){
+					
+				if(toggle==1)
+				{
+					$("#searchDiv").show();
+					toggle=2;
+				}
+				else
+				{
+					$("#searchDiv").hide();
+					toggle=1;
+				}
+				
+		});
+		$('#search').click(function(){
+		var searchKey=$('#searchKey').val();
+		if(searchKey!="")
+			{
+				localStorage.setItem("searchKey",searchKey);
+				location.href="search-result.html";
+			}
+			else
+			{
+				alert("Search Value should not be blank.");
+			}	
+		});
+		</script>
+		<header>
+
+		<div class="row" style="margin-bottom:10px;">
 			<div class="col-md-1 col-sm-1 col-xs-1"></div>
 			<div class="col-md-2 col-sm-2 col-xs-2 text-center">
 				<div onclick="home()" > 
@@ -351,44 +351,54 @@ if(searchKey!="")
 			<div class="col-md-1 col-sm-1 col-xs-1"></div>
 		</div>
   </header>
-		<div class="w3-container" style="text-align:center;padding-bottom:10px;">						
+								
 			<form class="w3-container w3-card-2 w3-padding-16 ">
-				<div class="w3-group">
-					<input class="w3-input" id="name" style="width:100%;color: #29b0e2;" type="text" placeholder="Name" required>
+				<header class="w3-container" style="background-color:#003d8c;color:white;">
+					<h4 align="center">Registration Form</h4>					
+				</header>
+				</br>
+				<div class="row">
+					<div class="col-md-6 col-sm-6 col-xs-6 text-center">
+						<input class="w3-input" id="name" style="width:100%;color: #29b0e2;" type="text" placeholder="Name" required>
+						<p style="color:blue;" id="name_error_msg"></p>
+					</div>
+					<div class="col-md-6 col-sm-6 col-xs-6 text-center">
+						<input class="w3-input" id="email" style="width:100%;color: #29b0e2;" type="email" placeholder="Email Address" required>
+						<p style="color:blue;" id="email_error_msg"></p>
+					</div>
 				</div>
-				<p style="color:blue;" id="name_error_msg"></p>
-				<div class="w3-group">
-					<input class="w3-input" id="email" style="width:100%;color: #29b0e2;" type="email" placeholder="Email Address" required>
+				<div class="row">
+					<div class="col-md-6 col-sm-6 col-xs-6 text-center">
+						<input class="w3-input" id="phone" style="width:100%;color: #29b0e2;" type="number" placeholder="Phone Number" required>
+						<p style="color:blue;" id="phone_error_msg"></p>
+					</div>
+					<div class="col-md-6 col-sm-6 col-xs-6 text-center">
+						<input class="w3-input" id="password" style="width:100%;color: #29b0e2;" type="password" placeholder="Password" required>
+						<p style="color:blue;" id="password_error_msg"></p>
+					</div>
 				</div>
-				<p style="color:blue;" id="email_error_msg"></p>
-				<div class="w3-group">
-					<input class="w3-input" id="phone" style="width:100%;color: #29b0e2;" type="number" placeholder="Phone Number" required>
+				<div class="row">
+					<div class="col-md-6 col-sm-6 col-xs-6 text-center">
+						<input class="w3-input" id="dob" style="width:100%;color: #29b0e2;" type="text" placeholder="Date of Birth" required>
+						<p id="dob_error_msg" style="color:blue;"></p>
+					</div>
+					<div class="col-md-6 col-sm-6 col-xs-6 text-center">
+						<input class="w3-input" id="referral_code" style="width:100%;color: #29b0e2;" type="text" placeholder="Referral code(Optional)">
+					</div>
 				</div>
-				<p style="color:blue;" id="phone_error_msg"></p>
-				<div class="w3-group">
-					<input class="w3-input" id="password" style="width:100%;color: #29b0e2;" type="password" placeholder="Password" required>
-				</div>
-				<p style="color:blue;" id="password_error_msg"></p>
-				<div class="w3-group">
-					<input class="w3-input" id="dob" style="width:100%;color: #29b0e2;" type="text" placeholder="Date of Birth" required>
-				</div>
-				<p id="dob_error_msg" style="color:blue;"></p>
+				
 				<div id="gender" class="register-switch">
 					<input type="radio" name="sex" value="Male" id="sex_m" class="register-switch-input">
 					<label for="sex_m" class="register-switch-label" style="height:40px;padding-top:2px;">Male</label>
 					<input type="radio" name="sex" value="Female" id="sex_f" class="register-switch-input">
 					<label for="sex_f" class="register-switch-label" style="height:40px;padding-top:2px;">Female</label>
 				</div>
-				<p id="gender_error_msg" style="color:blue;"></p>
-				<div class="w3-group">
-					<input class="w3-input" id="referral_code" style="width:100%;color: #29b0e2;" type="text" placeholder="Referral code ( Optional )">
-				</div>
-				</br>
+				
 				<div class="w3-group">
 					<button type="button"  id="registerData" onclick="submit_detail();" style="background-color:#ff6666;color:#fff;border-radius:10px;">SUBMIT</button>
 				</div>
 			</form>				
-		</div>
+		
 		
 	<header class="" style="border-radius:0px; background-color: #003d8c !important;">
 		<div class="w3-card-4" style="">
@@ -557,7 +567,7 @@ $("#sex_f").click(function(){
                        }
                        else if(result.code == '1')
                         {
-                       // alert("Successfully Resister.."); 
+                       alert("Successfully Resister.."); 
                         window.location='login.html';     
                         }
                         
