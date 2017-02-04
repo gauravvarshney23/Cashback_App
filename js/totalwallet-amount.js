@@ -12,7 +12,7 @@ function totalwalletAmount()
 							'</a>';
 							if(res.status==1)
 							{
-								amount=res.wallet_data;
+								amount=res.wallet_amount;
 							}
 							newleads_data=newleads_data+'<div style="color:#fff;">&#8377 '+amount+'</div>';
 				    	     $('#walletId').append(newleads_data);
