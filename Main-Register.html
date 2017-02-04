@@ -190,7 +190,6 @@
 		</style>
 		<script src="js/jquery-1.11.3.min.js"></script>
 		<script src="js/jquery.mobile-1.4.5.min.js"></script>
-		<script src="http://maps.google.com/maps/api/js?libraries=geometry&sensor=false"></script>
 		<script src="js/jssor.slider.min.js"></script>
 		<script src="js/getip.js"></script>
 		<script src="js/account.js"></script>
@@ -207,64 +206,13 @@
 		<script src="js/totalwallet-amount.js"></script>
 	</head>
 	<body>
-		<div data-role="panel" id="myPanel1"  style="color:#29b0e2;" data-display="overlay"> 
-			<img src="logo.png" style="padding-bottom:8%;">
-			<ul data-role="listview">
-				<li onclick="home()">
-					<a  style="color:grey">Home</a>
-				</li>
-				<li onclick="storehome()">
-					<a style="color: grey">Store</a>
-				</li>
-			
-				<li onclick="refairEarn()">
-					<a style="color: grey">Refer & Earn</a>
-				</li>
-				<li onclick="couponcode()">
-					<a style="color: grey">Coupons</a>
-				</li>
-				<li onclick="deal()">
-					<a style="color: grey">Deal of The Day</a>
-				</li>
-				<li onclick="logout()">
-					<a style="color: grey">
-						<script>
-						$(document).ready(function()
-						{
-							var login_data='';
-		              	if((localStorage.userID===null) || !(localStorage.userID))
-		                {
-		                	login_data='Login';
-							
-                             $('#login_data').html(login_data);
-		                }
-		                else
-		                {
-		                	login_data='Logout';
-							
-                            $('#login_data').html(login_data);
-		                }
-
-						});
-                      </script>
-                      <div id="login_data"></div>
-					</a>
-				</li>
-			</ul>
-		</div>
 		
 		<div data-role="header" style="background:#003d8c none repeat scroll 0 0 !important" data-theme="b" data-position="fixed">
-			<a href="#myPanel1" style="width:35px;height:35px;margin-left:10px;margin-top:5px;" class="ui-btn ui-corner-all ui-icon-bars ui-btn-icon-notext" data-transition="slide"></a>
+			
 			<table border="0" align="center">
 				<tr align="Center">								
 					<th width="500px" height="50">
 						<img src="yo.png" onclick="mainPage()" id="logo" class="w3-center" style="cursor:pointer;margin:0 auto;height:45px;display:block;">
-					</th>					
-					<th width="100px" height="50" style="font-size:15px;">						
-						<a><i class="fa fa-search w3-xlarge" id="searchButton" style="cursor:pointer;"></i></a>
-					</th>
-					<th width="100px" height="50" style="font-size:15px;">
-						<a onclick="goToCart();"><i class="fa fa-shopping-cart w3-xlarge" style="cursor:pointer;"></i></a>
 					</th>
 				</tr>
 			</table>				
@@ -367,11 +315,7 @@
 				<div style="text-align: center; padding:5px;">
 			<table border="0" align="center">
 				<tr align="Center">								
-					<th width="50" height="50">
-						<div  id="walletId" onclick="walletdetail()">
-							
-						</div>
-					</th>
+					
 					<div class="col-md-2 col-sm-2 col-xs-2">
 					<th width="550" height="50" style="font-size:15px; text-align: center;">
 						<h6 style="color:#fff;">Copyright &copy; 
@@ -381,36 +325,7 @@
 						</h6>
 					</th>
 					</div>
-					<th width="100" height="50" style="font-size:15px;">
-						<div  onclick="logout()">
-					<script>
-						$(document).ready(function(){
-
-							   totalwalletAmount();
-
-							var login_div_data='';
-		              	if((localStorage.userID===null) || !(localStorage.userID))
-		                {
-		                	login_div_data='<a href="login.html"><i class="fa fa-sign-in w3-xxlarge" aria-hidden="true" style="cursor:pointer;"></i>'+
-							'<div style="color:#fff;">Login</div>'+
-							'</a>';
-                             $('#login_div_data').html(login_div_data);
-		                }
-		                else
-		                {
-		                	login_div_data='<a href="login.html"><i class="fa fa-sign-out w3-xxlarge" aria-hidden="true" style="cursor:pointer;"></i>'+
-							'<div style="color:#fff;">Logout</div>'+
-							'</a>';
-                            $('#login_div_data').html(login_div_data);
-		                }
-		                
-
-						});
 					
-                      </script>
-                      <div id="login_div_data"></div>
-						</div>
-					</th>
 				</tr>
 			</table>				
 		</div>

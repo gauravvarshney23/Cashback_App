@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+		<title>Yoneak</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<meta name="google-signin-scope" content="profile email">
+    	<meta name="google-signin-client_id" content="133970465825-5uae1rsnitfuqfo68m7nh7dqaof1gl2k.apps.googleusercontent.com">
+   	<script src="https://apis.google.com/js/platform.js?onload=onLoadCallback" async defer></script>
+		<link rel="shortcut icon" type="image/x-icon" href="favicon2.ico" />
+		<link rel="icon" type="image/x-icon" href="favicon2.ico" />
+			
+		<style>
+			body
+			{
+				background-color: #003d8c ;
+			}
+			.login-box
+			
+			{		
+				width:100%;
+				height: 335px;
+				background-color: #fff;				
+				border-radius: 5px;
+				box-shadow: 0px 5px 5px 5px rgba(0,0,0,0.33);
+			}
+			.lb-header
+			{
+				padding-bottom:10%;
+				line-height: 48px;
+			}
+			.lb-header a
+			{				
+				padding: 0 20px;
+				text-decoration: none;
+				color: #c0c0c0;
+				font-weight: lighter;
+				font-size: 14px;
+				-webkit-transition: all 0.1s linear;
+				-moz-transition: all 0.1s linear;
+				transition: all 0.1s linear;
+			}
+			.lb-header .active
+			{
+				color: #fff;
+				font-size: 15px;
+				outline:none;
+				padding-bottom: 10px;
+				border-bottom: 1px solid red;
+				line-height: 48px;
+			}
+			.social-login
+			{					
+				padding: 15px 0 0 0;
+				
+			}
+			.social-login a
+			{				
+				float: left;
+				width:44%;
+				text-decoration: none;
+				color: #fff;
+				padding: 14px;
+				font-size: 14px;
+				text-transform: uppercase;
+				margin: 1% 3% 8%;
+				box-shadow: 0px 2px 2px 2px rgba(0,0,0,0.33);
+			}
+			.social-login a i
+			{				
+				float: left;				
+			}
+			.social-login a:first-child
+			{
+				background-color: #49639F;
+			}
+			.social-login a:last-child
+			{
+				background-color: #DF4A32;
+			}
+			.email-login,.email-signup
+			{				
+				float: left;
+				width: 100%;				
+				margin-top: 20px;
+				text-align:center;
+			}
+			.u-form-group
+			{
+				width:100%;
+				margin-bottom: 10	px;
+			}
+			.u-form-group input[type="email"],
+			.u-form-group input[type="password"],
+			.u-form-group input[type="text"]
+			{
+				width: calc(80% - 22px);
+				height:50px;
+				outline: none;
+				border-radius: 2px;				
+				font-size: 1.2rem;				
+				background-color: transparent;   
+				border: 0px solid;
+				text-align:left;
+			}
+			
+			.u-form-group input:focus
+			{
+				border-color: #358efb;
+			}
+			.u-form-group button
+			{
+				width:40%;
+				background-color:#029b7c;
+				border: none;
+				outline: none;
+				color: #fff;
+				font-size: 14px;
+				font-weight: normal;
+				padding: 14px 0;
+				border-radius: 4px;
+				text-transform: uppercase;				
+			}
+			.forgot-password
+			{
+				width:50%;
+				text-align: center;
+				text-decoration: none;
+				color: grey;
+				font-size: 1.2rem;
+			}
+			img
+			{
+				width:200px;				
+				padding:2% 0 5% 0;		
+				cursor:pointer;
+			}
+		</style>
+		<script src="js/jquery-1.11.3.min.js"></script>
+		<script src="js/jquery.mobile-1.4.5.min.js"></script>
+		<script src="js/login.js"></script>
+		<script src="js/fblogin.js"></script>
+	</head>
+	<script>
+		if((localStorage.getItem("userID")!=null) || (localStorage.getItem("userID")))
+		{
+			location.href="yoneak.html"
+		}
+</script>
+	<body>
+		<div class="lb-header">	
+			<div class="row">
+				<div class="col-md-12 col-sm-12 col-xs-12">
+					<div class="row">
+						<div class="col-md-4 col-sm-4 col-xs-4" >
+							<a href="#" class="active " id="login-box-link">LOGIN</a>
+						</div>
+						<div class="col-md-4 col-sm-4 col-xs-5" style="padding:0">
+							<a href="#" id="signup-box-link">SIGN UP</a>
+						</div>
+						<div class="col-md-4 col-sm-4 col-xs-3" >
+							<a href="" onclick="Refresh()" style="text-align:right">SKIP</a>
+						</div>
+					</div>
+				</div>
+			</div>						
+		</div>	
+		
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 col-sm-12 col-xs-12">
+					<div class="row">
+						<div class="col-md-12 col-sm-12 col-xs-12" style="text-align:center">
+							<a href="">
+								<img src="http://yoneak.com/Cashback_App/yo.png">
+							</a>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">						
+							<div class="login-box">		
+								<div class="row">
+									<div class="col-md-12 col-sm-12 col-xs-12">
+										<div class="social-login">												
+											<div class="w3-group" style="text-align: center; position: relative; bottom: 18%;">
+					<!--<img src="facebook.png"  onlogin="checkLoginState();" style="width:200px;height:45px;cursor:pointer;"></img>-->
+				<fb:login-button size="large" scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button>
+				<img src="gplushlogo.png" id="googleSignInButton" class="googleSignInButtonClass"  onclick="gSignIn()" style="cursor:pointer;width:71px;padding-bottom:0px;margin-top:13px"></img>
+				</div>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-md-12 col-sm-12 col-xs-12">
+										<form class="email-login">
+											<div class="u-form-group">
+												<input placeholder="Email" required type="email" id="email">
+											</div>
+											<div style="color:red" id="email_error_msg"></div>
+											</br>
+											<div class="u-form-group">
+												<input placeholder="Password" type="password" id="password" required>
+											
+											</div>
+											  <div style="color:red;" id="password_error_msg"></div>
+											</br>
+											<div class="u-form-group">
+												<a href="" onclick="opendata()"  class="forgot-password">Forgot Password?</a>
+											</div>
+											</br>
+											</br>
+											<div class="u-form-group">
+												<button onclick="login()" type="button">LOGIN NOW</button>
+											</div>				
+										</form>
+									</div>
+									
+									<form class="email-signup" style="display: none;">
+										<div class="u-form-group">
+											<input placeholder="Name" type="text" id="name" required="">
+											<p style="color:red;" id="name_error_msg"></p>
+										</div>
+										
+										<div class="u-form-group">
+											<input placeholder="Email" id="email_id" type="email" required="">
+											<p style="color:red;" id="emaill_error_msg"></p>
+										</div>
+										<div class="u-form-group">
+											<input placeholder="Password" id="password_id" type="password" required="">
+											<p style="color:red;" id="passwordd_error_msg"></p>
+										</div>
+									
+										<div class="u-form-group">
+											<input placeholder="Referral Code" id="referral_code" type="text">
+										<p style="color:red;" id="referral_error_msg"></p>
+										</div>
+										<div class="u-form-group" >
+											<button  onclick="submit_detail()"   type="button">SIGN UP</button>
+										</div>
+									</form>
+								</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+		<script>
+			$('.email-signup').hide();
+			$('#signup-box-link').click(function () 
+			{
+				$('.email-login').fadeOut(100);
+				$('.email-signup').delay(100).fadeIn(100);
+				$('#login-box-link').removeClass('active');
+				$('#signup-box-link').addClass('active');
+			});
+			$('#login-box-link').click(function () 
+			{
+				$('.email-login').delay(100).fadeIn(100);
+				;
+				$('.email-signup').fadeOut(100);
+				$('#login-box-link').addClass('active');
+				$('#signup-box-link').removeClass('active');
+			});		
+			setTimeout(function(){ $('.ui-loader').hide(); }, 500);
+		</script>
+
+<script>
+
+function submit_detail()
+{
+$("#name").keypress(function(){
+$("#name_error_msg").fadeOut();
+});
+
+$("#email_id").keypress(function(){
+$("#emaill_error_msg").fadeOut();
+});
+
+$("#password_id").keypress(function(){
+$("#passwordd_error_msg").fadeOut();         
+}); 
+$("#referral_code").keypress(function(){
+$("#referral_error_msg").fadeOut();
+});
+
+			var name=$("#name").val();
+
+            var email=$("#email_id").val();
+              //alert(email);
+            var password=$("#password_id").val();
+             if(name=='')
+               {
+               	 $('#name_error_msg').html('please enter your name');
+               	
+               }
+            
+                if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email))  
+                {  
+                  verify_err=true; 
+                } 
+                else
+                {
+                $('#emaill_error_msg').html('Invalid Email Id.');
+               verify_err=false;
+
+                if(email=='')
+                {
+                    $('#emaill_error_msg').html('please enter your email');
+                }
+                }
+
+               
+                if(password=='')
+                {
+                    $('#passwordd_error_msg').html('please enter your Password');
+                }
+                
+                else
+                {
+
+                $.post('http://yoneak.com/web_services/main_register.php?name='+name+'&email_id='+email+'&password_id='+password+'&referral_code='+referral_code,function(res){
+
+        if(res.code=='0')
+                       {
+                       	$("#emaill_error_msg").html("Email has already been taken").fadeIn(); 
+                        //alert('Email has already been taken');
+                       }
+                       else if(res.code == '1')
+                       {
+                       alert("Successfully Resister.."); 
+                        window.location='main_login.html';     
+                        }
+        
+    }, "json").fail(function(){
+        //alert("invalid Email Or Password");
+    });
+
+   }
+ }
+
+
+function login()
+{
+	$("#email").keypress(function(){
+	$("#email_error_msg").fadeOut();
+	});
+	$("#password").keypress(function(){
+	$("#password_error_msg").fadeOut();         
+	});         
+
+            var email =$("#email").val();
+    
+            var password=$("#password").val();
+            
+                if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email))  
+                {  
+                  verify_err=true; 
+                } 
+                else
+                {
+                $('#email_error_msg').html('Invalid Email Id.');
+               verify_err=false;
+                if(email=='')
+                {
+                    $('#email_error_msg').html('please enter your email');
+                }
+                }
+               
+                if(password=='')
+                {
+                    $('#password_error_msg').html('please enter your Password');
+                }
+                
+                else
+                {
+
+                $.post('http://yoneak.com/web_services/login.php?email='+email+'&password='+password,function(res){
+        if(res.message == "Login Success")
+        {  
+            localStorage.setItem("userID",res.user_id);
+            var redirectPage=0;
+            if((localStorage.url===null) || !(localStorage.url))
+            {
+                 if((localStorage.proName===null) || !(localStorage.proName))
+                {
+                     if((localStorage.cart===null) || !(localStorage.cart))
+                     {
+                           redirectPage=0;
+                     }
+                     else{
+                        redirectPage=3;
+                     }
+                }
+                else
+                {
+                    redirectPage=2;
+                }
+                 
+            }
+            else
+            {
+                redirectPage=1;
+            }
+        }
+        if(res.message == "invalid Email Or Password")
+        {
+            $('#email_error_msg').html('invalid Email Or Password');
+        }
+        
+    }, "json").fail(function(){
+    });
+
+   }
+ }
+
+
+	function opendata() 
+	{
+	window.open("forgot-password.html","_self");
+	}
+
+	function Refresh()
+     {
+	location.href="yoneak.html";
+     }
+
+ </script>	
+	</body>
+</html>

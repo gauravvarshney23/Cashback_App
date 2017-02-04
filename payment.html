@@ -8,12 +8,12 @@
 		<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />		
 		<link rel="stylesheet" href="css/w3.css">
 		<link rel="stylesheet" href="css/w3-theme-black.css">
-		 <link rel="stylesheet" href="css/slider.css" type="text/css">
+		<link rel="stylesheet" href="css/slider.css" type="text/css">
 
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
-			<style> 
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">	
+				<style> 
 
    #nav 
    {
@@ -337,28 +337,33 @@
 				width:110px!important;
 			}
 		</style>
+		
 		<script src="js/jquery-1.11.3.min.js"></script>
 		<script src="js/jquery.mobile-1.4.5.min.js"></script>
-		<script src="http://maps.google.com/maps/api/js?libraries=geometry&sensor=false"></script>
 		<script src="js/jssor.slider.min.js"></script>
 		<script src="js/store.js"></script>
+		<script src="js/owl.carousel.min.js"></script>
 		<script src="js/logout.js"></script>
-			<script src="js/owl.carousel.min.js"></script>
-		<script src="js/walletdetail.js"></script>
-		<script src="js/totalwallet-amount.js"></script>
-		<script src="js/login.js"></script>
 		<script src="js/account.js"></script>
 		<script src="js/home.js"></script>
+		<script src="js/logout.js"></script>
 		<script src="js/storehome.js"></script>
 		<script src="js/producthome.js"></script>
 		<script src="js/couponcode.js"></script>
+		<script src="js/walletdetail.js"></script>
+		<script src="js/totalwallet-amount.js"></script>
 		<script src="js/deal.js"></script>
+		<script src="js/walletdetail.js"></script>
+		<script src="js/login.js"></script>
 		<script src="js/refair-earn.js"></script>
 		<script src="js/cat.js"></script>
 		<script src="js/subcat.js"></script>
 		<script src="js/menubar.js"></script>
 		<script src="js/external.js"></script>
-		 <script>
+		<script src="js/shipping.js"></script>
+		<script src="js/editship.js"></script>
+
+ <script>
 		function refer()
 {
 	location.href="Refer_Earn.html";
@@ -385,9 +390,10 @@ function main()
 }
 
 		</script>
+		
 	</head>
 	<body>
-		<div data-role="panel" id="nmyPanel1"   data-display="overlay"  > 
+			<div data-role="panel" id="nmyPanel1"   data-display="overlay"  > 
 			<div class="col-xs-12" style="height:640px;overflow-y:auto;">
 			<div id="ser_valoue">
 				
@@ -515,8 +521,7 @@ function main()
 				</div>
 			</div>
 		</div>
-		
-		<div data-role="header" style="background:#4169e1 none repeat scroll 0 0 !important" data-theme="b" data-position="fixed">
+				<div data-role="header" style="background:#4169e1 none repeat scroll 0 0 !important" data-theme="b" data-position="fixed">
 			<a href="#nmyPanel1" style="width:40px;height:40px;margin-left:10px;margin-top:5px;background-color: #4169e1;border-color: #4169e1;	color: #fff;
 				text-shadow: 0 1px 0 #111;" class="ui-btn ui-corner-all ui-icon-bars ui-btn-icon-notext" data-transition="slide">
 				
@@ -582,59 +587,56 @@ if(searchKey!="")
 		alert("Search Value should not be blank.");
 	}	
 });
-</script>
+</script>		
 		
-		<div class="w3-card-4" id="detail" style="width:100%;border-radius:15px;background-color:white;">
-		<header class="w3-container" style="background-color:#67c5ad;height:50px;">
-		   <h4 style="color:white;margin-right:20px;" align="Center">
-            Cost Per Click	
-	       </h4>							
-	   </header>
-		</div>
-		
-		<div id="storedetail" class="w3-card-4" >
+  
+					
+	      <form class="w3-container w3-card-2 w3-padding-16 " onsubmit="payment()">
+	      <header class="w3-container" style="background-color:#003d8c;color:white;">
+					<h4 align="center">Orders Summary</h4>                     
+                                   					
+		  </header>
+		  <div id="newdata1" style="text-align: Center; padding-right:15px;padding-top:5px;">
+								
+		  </div>
+				   
+				<div  class="method-input-box">
+             
 
-		</div>
-	<header class="" style="border-radius:0px; background-color:#4169e1 !important;">
+              <table style="width:100%;border:1px solid lightgrey">
+               <thead>
+                  <tr style="border:1px solid lightgrey;padding:1%">
+                        <th style="width:50%; text-align:center;padding-top:15px">Product Name</th>
+                        <th style="width:50%; text-align:center;padding-top:15px">Sub Total</th>
+                 </tr>
+                </thead>
+                   <thead id="newdata">
+
+                   </thead>
+                  
+                             <thead id="cashback">
+                               
+                             </thead>
+
+                              <thead id="submit">
+                             
+                                </thead>
+                                 <tbody>
+                              </tbody>
+                    </table>
+               </div>
+                   </form>
+		
+	<header class="" style="border-radius:0px; background-color: #4169e1 !important;">
 		<div class="w3-card-4" style="">
 				<div style="text-align: center; padding:5px;">
 			<table border="0" align="center">
 				<tr align="Center">								
-					<script>
-
-				$(document).ready(function(){
-
-							var login_data1='';
-
-		              	if((localStorage.userID!=null) || (localStorage.userID))
-
-		                {
-
-		                	login_data1='<div  id="walletId" onclick="walletdetail()">'+
+					<th width="50" height="50">
+						<div  id="walletId" onclick="walletdetail()">
 							
-						       '</div>';
-
-							
-
-                             $('#login_data1').html(login_data1);
-
-		                }
-
-		                else
-
-		                {
-
-		                }
-
-
-
-						});
-
-                     </script>		
-					<th id="login_data1"  width="50" height="50">
-						
+						</div>
 					</th>
-			
 					<div class="col-md-2 col-sm-2 col-xs-2">
 					<th width="550" height="50" style="font-size:15px; text-align: center;">
 						<h6 style="color:#fff;">Copyright &copy; 
@@ -652,39 +654,22 @@ if(searchKey!="")
 							   totalwalletAmount();
 
 							var login_div_data='';
-		              	//if((localStorage.userID===null) || !(localStorage.userID))
-		                //{
-		                	//login_div_data='<a href="login.html"><i class="fa fa-sign-in w3-xxlarge" aria-hidden="true" style="cursor:pointer;"></i>'+
-							//'<div style="color:#fff;">Login</div>'+
-							//'</a>';
-                            // $('#login_div_data').html(login_div_data);
-		                //}
-		                //else
-		                //{
-		                	//login_div_data='<a href="login.html"><i class="fa fa-sign-out w3-xxlarge" aria-hidden="true" style="cursor:pointer;"></i>'+
-							//'<div style="color:#fff;">Logout</div>'+
-							//'</a>';
-                            //$('#login_div_data').html(login_div_data);
-		                //}
-		                
-
+		              	if((localStorage.userID===null) || !(localStorage.userID))
+		                {
+		                	login_div_data='<a href="login.html"><i class="fa fa-sign-in w3-xxlarge" aria-hidden="true" style="cursor:pointer;"></i>'+
+							'<div style="color:#fff;">Login</div>'+
+							'</a>';
+                             $('#login_div_data').html(login_div_data);
+		                }
+		                else
+		                {
+		                	login_div_data='<a href="login.html"><i class="fa fa-sign-out w3-xxlarge" aria-hidden="true" style="cursor:pointer;"></i>'+
+							'<div style="color:#fff;">Logout</div>'+
+							'</a>';
+                            $('#login_div_data').html(login_div_data);
+		                }
 						});
-						function costPerView()
-						{
-							location.href="home-CPV.html";
-						}
-						function costPerClick()
-						{
-							location.href="home-CPC.html"; 
-						}
-						function CostPerAppDownload()
-						{
-							location.href="home-CPD.html";
-						}
-						function  bannerImg()
-						{
-							location.href="ecommerce-home.html";
-						}
+					
                       </script>
                       <div id="login_div_data"></div>
 						</div>
@@ -694,101 +679,203 @@ if(searchKey!="")
 		</div>
 		</div>
 		</header>
-		<script>
+	</body>
+</html>
+            <script>
+	           $(document).ready(function()
+				{
+		$("#newdata").html("");
+		$.getJSON("http://jsonip.com?callback=?", function (data) {
+   		    var ipAddress=data.ip;
+				 $.post('http://yoneak.com/web_services/cartDetails.php?ipAddress='+ipAddress,function(res){
+				 	var i=0;
+				 	var newdatadiv="";
+				 	var image="";
+				 	var id="";
+				 	var name="";
+				 	var qty="";
+				 	var desc="";
+				 	var price="";
+				 	var totalProducts=0;
+				 	var totalPrice=0;
+				 	var productIDS="";
+				 	var quantities="1";
+				 	var cartId="";
+				 	if(res==null || res=="" || res.productId=="fail")
+				 	{
+				 		
+				 		newdatadiv='<div class="w3-card-4" >'+				
+										'<div class="chip w3-center">'+						
+										'</div>'+
+										'<div class="w3-container" style="text-align:center;" >'+
+										'<h4 style="padding-top:5px;">Your Cart is Empty </h4>'+					
+						'<h6 style="border-radius:15px;color: #ff6666"></h6>'+
+										'</br>'+
+										'</div>'+
+										'</div>';
+						$("#newdata1").append(newdatadiv);
+										
+				 	}
+				 	else
+				 	{
+				 		$.each(res, function( key, value ) 
+				 		{	
+				 			id=value.productId;
+				 			qty=value.quantity;
+				 			if(productIDS=="")
+				 			{
+				 				productIDS=id;
+				 				quantities=qty;
+				 			}
+				 			else
+				 			{
+				 				productIDS=productIDS+"-"+id;
+				 				quantities=quantities+"-"+qty;
+				 			}
+				 			
+				 			cartId=value.cartId;
+				 			name=value.productName;
+				 			image=value.productImage;
+				 			qty=value.quantity;
+				 			price=value.sellingPrice;
+				 			totalPrice=totalPrice+parseInt(price);
+				 			totalProducts=totalProducts+parseInt(qty);
+				 			desc=value.longDescription;
+				 			if(id!="fail")
+				 			{
+				 			newdatadiv='<tr>'+
+                               '<td style="width:50%; text-align:center;padding-top:15px"><h5>'+name+'</h5> </td>'+
+                            '<td style="width:50%; text-align:center;padding-top:15px"><h5>Rs.'+price+'</h5> </td>'+
+                            '</tr>';
+
+				 			}
+
+				 			$("#newdata").append(newdatadiv);
+				 		});
+				 		if(totalProducts>0)
+				 		{
+				 			newdatadiv=	
+						 '<td style="width:50%; text-align:center;padding-top:15px"><h5>Total</h5> </td>'+
+                            '<td style="width:50%; text-align:center;padding-top:15px"><h5>Rs.'+totalPrice+'</h5> </td>'+
+                            '</tr>';
+										$("#newdata").append(newdatadiv);
+				 		}
+				 		
+				 	}
+				 		
+				 	
+				 	},"json");
+   		    
+   		       });
+	        });
+		 </script>
+
+		 <script>
 			$(document).ready(function()
-		   {
-		    var id=localStorage.id;
-		    $.post('http://yoneak.com/web_services/cpc.php',function(res)
 		    {	
-			 var i=0;
-			 var urlId="";
-			 var tabcount=2;
-			 var newleads_div_data='';
-		    $.each(res,function(key,value) 
-				    {
-				    switch(i)
-				    	{
-				      case 0:
+		     var  user_id=localStorage.userID;
+		    $.post('http://yoneak.com/web_services/cashback_wallet.php?user_id='+user_id,function(res){
+			    var i=0;
+				var cashAmount="";
+				var pendingAmount="";
+				var referralAmount="";
+				var newleads_div_data="";
+				 console.log(res);
 
-				      if(tabcount%2==0)
-				    	{
-				    		newleads_div_data+='<div class="row w3-center">';
-				    	}
-				    	else if(tabcount%2==1)
-				    	{
-				    		newleads_div_data+="";
-				    	}
-				      	newleads_div_data+='<div class="col-md-6 col-xs-6 col-sm-6"><br>';
-				      	id=value.cpa_id;
+				 	
+				 	cashAmount=res.Cashback_amount;
+				 	referralAmount=res.Referral_amount;
 
-				       break;
+		                if(referralAmount!=0)
+				 	    {
+				 	 	newleads_div_data= '<tr>'+
+                                '<td class="actions" colspan="12">'+
+                                    '<div class="cartPage-btn">'+ 
+                                      
+                                    '<div class="method-input-box">'+
+                                      '<br>'+
+                                  '<div class="w3-center" style="border-top:1px solid lightgrey;padding:1%"><input value="money_order" name="Referral" id="Referral_data" type="checkbox"><span>Use Referral Amount(Rs.'+ referralAmount+')</span>'+
+                                  '<a class="btn btn-primary btn-sm apply ui-link w3-center" style="width:35%;color:#fff" href="">APPLY</a></div></div></div><br></td></tr>';
 
-				    	case 1:
-	                    newleads_div_data+= '<img src="http://yoneak.com/admin/exnl_cat_images/'+value.image+'" alt="Person"style="max-height:150px; max-width:200px;" >';	
-			              
-			                                    
-				    	   
-				    	break;
-				    	case 2:
-				    	newleads_div_data+='<h5 style="padding-top:5px;">'+value.coupon_code+'</h5>';
+                                  $('#cashback').append(newleads_div_data);
+                         }
 
-				        break;
-			            case 3:
-			     newleads_div_data+='<h6 style="border-radius:15px;color: #ff6666">'+value.long_description+'</h6>';
-			              break;
-			            case 4:
-				 newleads_div_data+= '<a href="'+value.url+'">'+
-				    	'<button type="button" style="background-color:#ff6666;color:#fff;border-radius:15px;width:80%;" class="w3-center"><i class="fa fa-thumbs-up">&nbsp;&nbsp;GRAB DEAL NOW</i> </button>'+
-				    	    '</a>';
-				    	  break;
+                          if(cashAmount!=0)
+		                  {
+		                	newleads_div_data='<tr>'+'<td class="actions" colspan="12">'+'<div class="cartPage-btn">'+'<div class="method-input-box">'+'<br>'+'<div class="w3-center" style="border-bottom:1px solid lightgrey;padding:1%"> <input value="money_order" name="Referral" id="wallet" type="checkbox"><span>Use Wallet Amount(Rs.'+cashAmount+') </span>'+
 
-				    	 case 5:
-				    	 newleads_div_data+='<h6 style="border-radius:15px;color: grey">Offer Validity'+value.offer_validity+'</h6>'+
-				    	 '</div>';
-				    	  break;       
-				     
-				    	  }
-				    	  
-				    	       i=i+1;
-				    	       i%=8;
-				    	       if(i==0)
-				    	       {
+                                    '<a class="btn btn-primary btn-sm apply ui-link w3-center" style="width:35%;color:#fff" href="">APPLY</a>'+
+                                     '</div>'+
+                                      '</div>'+
+                                       '</div>'+
+                                     '</td>'+
+                                     '</tr>';
 
-				    	       		if(tabcount%2==1)
-				    				  {
-				    	  				newleads_div_data+='</div></div><hr>';
-				    	 		  	  }
-				    	 		 
-				    	  tabcount=tabcount+1;
-				    	    		
-				    	       }
+				    	     $('#cashback').append(newleads_div_data);
+				    	       
+		                   }
 
-                              });
+		                    if(cashAmount==0 && referralAmount==0)
+		                  {
+		                	newleads_div_data= '<tr>'+
+                                '<td colspan="6" class="actions">'+
+                                    
+                                               '<button type="clear_cart" name="clear_cart" class="btn btn-primary" style="width:100%;border-radius:0">Submit Order</button>'+
+                                   
+                                 '</td>'+
+                                '</tr>';
 
-					 $('#storedetail').append(newleads_div_data);
+				    	     $('#submit').append(newleads_div_data);
+				    	       
+		                   }
 
-				       },"json");
-			                  
-					   });
 
-				           </script>
-				          
-		
-			<script>
-			
-	function goToCart()
-{
-	location.href="cartDetail.html";
-}
-			
+				            },"json");
+
+			                });
+
+		         </script>
+<script>
 function mainPage()
 {
 	location.href="yoneak.html";
 }
+function payment()
+{
+	
+	location.href="payment.html";
+}
 
-				           </script>
+function shipping()
+{
+	location.href="shipping-address.html";
+}	
+</script>
 
-				            <!---user detail -->
+<script>
+        $('.apply').click(function()
+         {
+        if ($('#Referral_data').is(':checked'))
+         {
+
+               //$('.apply').attr("href", "payment.php?wallet=Referral");
+
+            
+        } 
+         if ($('#wallet').is(':checked'))
+         {
+               //$('.apply').attr("href", "payment.php?wallet=wallet");
+            
+        }
+        if($('#Referral_data').is(':checked') && $('#wallet').is(':checked')) 
+        {
+            // $('.apply').attr("href", "payment.php?wallet=both" );
+        }
+    });
+           
+  </script>
+
+   <!---user detail -->
 			<script>
 			$(document).ready(function()
 		    {	
@@ -878,6 +965,3 @@ function mainPage()
 			                  });
 
           </script>
-
-	</body>
-</html>

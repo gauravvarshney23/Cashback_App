@@ -8,12 +8,13 @@
 		<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />		
 		<link rel="stylesheet" href="css/w3.css">
 		<link rel="stylesheet" href="css/w3-theme-black.css">
-		 <link rel="stylesheet" href="css/slider.css" type="text/css">
+		<link rel="stylesheet" href="style1.css">
+		<link rel="stylesheet" href="css/slider.css" type="text/css">
 
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
-			<style> 
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">	
+		<style> 
 
    #nav 
    {
@@ -341,12 +342,8 @@
 		<script src="js/jquery.mobile-1.4.5.min.js"></script>
 		<script src="http://maps.google.com/maps/api/js?libraries=geometry&sensor=false"></script>
 		<script src="js/jssor.slider.min.js"></script>
-		<script src="js/store.js"></script>
-		<script src="js/logout.js"></script>
-			<script src="js/owl.carousel.min.js"></script>
-		<script src="js/walletdetail.js"></script>
-		<script src="js/totalwallet-amount.js"></script>
-		<script src="js/login.js"></script>
+		<script src="js/getip.js"></script>
+		<script src="js/owl.carousel.min.js"></script>
 		<script src="js/account.js"></script>
 		<script src="js/home.js"></script>
 		<script src="js/storehome.js"></script>
@@ -358,7 +355,8 @@
 		<script src="js/subcat.js"></script>
 		<script src="js/menubar.js"></script>
 		<script src="js/external.js"></script>
-		 <script>
+		<script src="js/totalwallet-amount.js"></script>
+	 <script>
 		function refer()
 {
 	location.href="Refer_Earn.html";
@@ -386,8 +384,14 @@ function main()
 
 		</script>
 	</head>
+	 	<script>
+		if((localStorage.getItem("userID")===null) || !(localStorage.getItem("userID")))
+		{
+			location.href="login.html";
+		}
+       </script>
 	<body>
-		<div data-role="panel" id="nmyPanel1"   data-display="overlay"  > 
+	<div data-role="panel" id="nmyPanel1"   data-display="overlay"  > 
 			<div class="col-xs-12" style="height:640px;overflow-y:auto;">
 			<div id="ser_valoue">
 				
@@ -515,7 +519,6 @@ function main()
 				</div>
 			</div>
 		</div>
-		
 		<div data-role="header" style="background:#4169e1 none repeat scroll 0 0 !important" data-theme="b" data-position="fixed">
 			<a href="#nmyPanel1" style="width:40px;height:40px;margin-left:10px;margin-top:5px;background-color: #4169e1;border-color: #4169e1;	color: #fff;
 				text-shadow: 0 1px 0 #111;" class="ui-btn ui-corner-all ui-icon-bars ui-btn-icon-notext" data-transition="slide">
@@ -554,48 +557,74 @@ function main()
 		</div>
 	    </div>		
 		</br>
-<script>
-var toggle=1;
-$("#searchButton").click(function(){
-			
-		if(toggle==1)
-		{
-			$("#searchDiv").show();
-			toggle=2;
-		}
-		else
-		{
-			$("#searchDiv").hide();
-			toggle=1;
-		}
-		
-});
-$('#search').click(function(){
-var searchKey=$('#searchKey').val();
-if(searchKey!="")
-	{
-		localStorage.setItem("searchKey",searchKey);
-		location.href="search-result.html";
-	}
-	else
-	{
-		alert("Search Value should not be blank.");
-	}	
-});
-</script>
-		
-		<div class="w3-card-4" id="detail" style="width:100%;border-radius:15px;background-color:white;">
-		<header class="w3-container" style="background-color:#67c5ad;height:50px;">
-		   <h4 style="color:white;margin-right:20px;" align="Center">
-            Cost Per Click	
-	       </h4>							
-	   </header>
-		</div>
-		
-		<div id="storedetail" class="w3-card-4" >
+		<script>
+		var toggle=1;
+		$("#searchButton").click(function(){
+					
+				if(toggle==1)
+				{
+					$("#searchDiv").show();
+					toggle=2;
+				}
+				else
+				{
+					$("#searchDiv").hide();
+					toggle=1;
+				}
+				
+		});
+		$('#search').click(function(){
+		var searchKey=$('#searchKey').val();
+		if(searchKey!="")
+			{
+				localStorage.setItem("searchKey",searchKey);
+				location.href="search-result.html";
+			}
+			else
+			{
+				alert("Search Value should not be blank.");
+			}	
+		});
+		</script>
+	
+			<form class="w3-container w3-card-2 w3-padding-16 ">
+				<header class="w3-container" style="background-color:#003d8c;color:white;">
+					<h4 align="center">Withdrow Money Form</h4>					
+				</header>
+				</br>
+				<div class="row">
+					<div class="col-md-6 col-sm-6 col-xs-6 text-center">
+						<input class="w3-input" id="account_name" style="width:100%;color: #29b0e2;" type="text" placeholder="Bank Account Number*" required>
+						<p style="color:blue;" id="bankname_error_msg"></p>
+					</div>
+					<div class="col-md-6 col-sm-6 col-xs-6 text-center">
+						<input class="w3-input" id="bank_name" style="width:100%;color: #29b0e2;" type="text" placeholder="Bank Name*" required>
+						<p style="color:blue;" id="bank_error_msg"></p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6 col-sm-6 col-xs-6 text-center">
+						<input class="w3-input" id="name" style="width:100%;color: #29b0e2;" type="text" placeholder="Full Name*" required>
+						<p style="color:blue;" id="name_error_msg"></p>
+					</div>
+					<div class="col-md-6 col-sm-6 col-xs-6 text-center">
+						<input class="w3-input" id="branch_ifsc" style="width:100%;color: #29b0e2;" type="text" placeholder="Branch IFSC Code*" required>
+						<p style="color:blue;" id="branch_error_msg"></p>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-6 col-sm-6 col-xs-6 text-center">
+						<input class="w3-input" id="amount" style="width:100%;color: #29b0e2;" type="text" placeholder="Amount*" required>
+						<p id="amount_error_msg" style="color:blue;"></p>
+					</div>
+					
+				</div>
+				<div class="w3-group">
+					<button type="button"  id="registerData" onclick="submit_detail();" style="background-color:#ff6666;color:#fff;border-radius:10px;">SUBMIT</button>
+				</div>
+			</form>	
 
-		</div>
-	<header class="" style="border-radius:0px; background-color:#4169e1 !important;">
+	<header class="" style="border-radius:0px; background-color: #4169e1 !important;">
 		<div class="w3-card-4" style="">
 				<div style="text-align: center; padding:5px;">
 			<table border="0" align="center">
@@ -627,14 +656,12 @@ if(searchKey!="")
 		                }
 
 
-
 						});
 
                      </script>		
 					<th id="login_data1"  width="50" height="50">
 						
 					</th>
-			
 					<div class="col-md-2 col-sm-2 col-xs-2">
 					<th width="550" height="50" style="font-size:15px; text-align: center;">
 						<h6 style="color:#fff;">Copyright &copy; 
@@ -652,39 +679,24 @@ if(searchKey!="")
 							   totalwalletAmount();
 
 							var login_div_data='';
-		              	//if((localStorage.userID===null) || !(localStorage.userID))
-		                //{
-		                	//login_div_data='<a href="login.html"><i class="fa fa-sign-in w3-xxlarge" aria-hidden="true" style="cursor:pointer;"></i>'+
-							//'<div style="color:#fff;">Login</div>'+
-							//'</a>';
-                            // $('#login_div_data').html(login_div_data);
-		                //}
-		                //else
-		                //{
-		                	//login_div_data='<a href="login.html"><i class="fa fa-sign-out w3-xxlarge" aria-hidden="true" style="cursor:pointer;"></i>'+
-							//'<div style="color:#fff;">Logout</div>'+
-							//'</a>';
-                            //$('#login_div_data').html(login_div_data);
-		                //}
+		              	if((localStorage.userID===null) || !(localStorage.userID))
+		                {
+		                	login_div_data='<a href="login.html"><i class="fa fa-sign-in w3-xxlarge" aria-hidden="true" style="cursor:pointer;"></i>'+
+							'<div style="color:#fff;">Login</div>'+
+							'</a>';
+                             $('#login_div_data').html(login_div_data);
+		                }
+		                else
+		                {
+		                	login_div_data='<a href="login.html"><i class="fa fa-sign-out w3-xxlarge" aria-hidden="true" style="cursor:pointer;"></i>'+
+							'<div style="color:#fff;">Logout</div>'+
+							'</a>';
+                            $('#login_div_data').html(login_div_data);
+		                }
 		                
 
 						});
-						function costPerView()
-						{
-							location.href="home-CPV.html";
-						}
-						function costPerClick()
-						{
-							location.href="home-CPC.html"; 
-						}
-						function CostPerAppDownload()
-						{
-							location.href="home-CPD.html";
-						}
-						function  bannerImg()
-						{
-							location.href="ecommerce-home.html";
-						}
+					
                       </script>
                       <div id="login_div_data"></div>
 						</div>
@@ -694,101 +706,91 @@ if(searchKey!="")
 		</div>
 		</div>
 		</header>
-		<script>
-			$(document).ready(function()
-		   {
-		    var id=localStorage.id;
-		    $.post('http://yoneak.com/web_services/cpc.php',function(res)
-		    {	
-			 var i=0;
-			 var urlId="";
-			 var tabcount=2;
-			 var newleads_div_data='';
-		    $.each(res,function(key,value) 
-				    {
-				    switch(i)
-				    	{
-				      case 0:
+   <script>
+$("#account_name").keypress(function(){
+       $("#bankname_error_msg").fadeOut();	
+});
+$("#bank_name").keypress(function(){
+       $("#bank_error_msg").fadeOut();	
+});
+$("#name").keypress(function(){
+       $("#name_error_msg").fadeOut();	
+});
+$("#branch_ifsc").keypress(function(){
+       $("#branch_error_msg").fadeOut();	
+});
+$("#amount").keypress(function(){
+       $("#amount_error_msg").fadeOut();	
+});
 
-				      if(tabcount%2==0)
-				    	{
-				    		newleads_div_data+='<div class="row w3-center">';
-				    	}
-				    	else if(tabcount%2==1)
-				    	{
-				    		newleads_div_data+="";
-				    	}
-				      	newleads_div_data+='<div class="col-md-6 col-xs-6 col-sm-6"><br>';
-				      	id=value.cpa_id;
+			$("#registerData").click(function()
+			{
+				var  user_id=localStorage.userID;	
+				var account_name=$("#account_name").val();
+				var bank_name =$("#bank_name").val();
+				var name=$("#name").val();
+				var branch_ifsc=$("#branch_ifsc").val();
+				var amount=$("#amount").val();
 
-				       break;
-
-				    	case 1:
-	                    newleads_div_data+= '<img src="http://yoneak.com/admin/exnl_cat_images/'+value.image+'" alt="Person"style="max-height:150px; max-width:200px;" >';	
-			              
-			                                    
-				    	   
-				    	break;
-				    	case 2:
-				    	newleads_div_data+='<h5 style="padding-top:5px;">'+value.coupon_code+'</h5>';
-
-				        break;
-			            case 3:
-			     newleads_div_data+='<h6 style="border-radius:15px;color: #ff6666">'+value.long_description+'</h6>';
-			              break;
-			            case 4:
-				 newleads_div_data+= '<a href="'+value.url+'">'+
-				    	'<button type="button" style="background-color:#ff6666;color:#fff;border-radius:15px;width:80%;" class="w3-center"><i class="fa fa-thumbs-up">&nbsp;&nbsp;GRAB DEAL NOW</i> </button>'+
-				    	    '</a>';
-				    	  break;
-
-				    	 case 5:
-				    	 newleads_div_data+='<h6 style="border-radius:15px;color: grey">Offer Validity'+value.offer_validity+'</h6>'+
-				    	 '</div>';
-				    	  break;       
-				     
-				    	  }
-				    	  
-				    	       i=i+1;
-				    	       i%=8;
-				    	       if(i==0)
-				    	       {
-
-				    	       		if(tabcount%2==1)
-				    				  {
-				    	  				newleads_div_data+='</div></div><hr>';
-				    	 		  	  }
-				    	 		 
-				    	  tabcount=tabcount+1;
-				    	    		
-				    	       }
-
-                              });
-
-					 $('#storedetail').append(newleads_div_data);
-
-				       },"json");
-			                  
-					   });
-
-				           </script>
-				          
-		
-			<script>
-			
-	function goToCart()
-{
-	location.href="cartDetail.html";
-}
-			
-function mainPage()
-{
-	location.href="yoneak.html";
-}
-
-				           </script>
-
-				            <!---user detail -->
+				var checkvalidate=true;
+				
+				 if(account_name=='')
+				{
+					$('#bankname_error_msg').html('*Please enter your Bank Account Number').fadeIn();
+					checkvalidate=false;
+				}
+			    
+				if(bank_name=='')
+				{
+						$('#bank_error_msg').html('*Please enter your Bank Name').fadeIn();
+						checkvalidate=false;				
+				}
+				if(name=='')
+				{
+					$('#name_error_msg').html('*Please enter your Name').fadeIn();
+					checkvalidate=false;
+				}
+				if(branch_ifsc=='')
+				{
+			     	$('#branch_error_msg').html('*Please enter your branch IFSC Code').fadeIn();	
+					checkvalidate=false;
+				}
+				if(amount=='')
+	              {
+					$('#amount_error_msg').html('*Please enter your amount').fadeIn();
+					checkvalidate=false;
+				  }
+          		
+	if(checkvalidate)
+	{
+				$.ajax({
+					url:"http://yoneak.com/web_services/withdrow_money.php",
+					type:"POST",
+					dataType:"json",
+					data:{user_id:user_id,bank_account:account_name,bank_name:bank_name,full_name:name,branch_ifsc:branch_ifsc,amount:amount},
+				    beforeSend: function()
+                   {
+                   // alert("Processing...");
+                   }
+                  }).done(function(result)
+                    	{
+                 	  //  var parsedJson = JSON.parse(result);
+                       // console.log(parsedJson);
+                       if(result.code == '1')
+                        {
+                       alert("Your Money Withdraw successfully."); 
+                        window.location='wallet-details.html';     
+                        }
+                    else
+                   {
+                   alert("Fail...");
+                    }
+                        
+				});
+              }
+              });
+		</script>	
+		 <!---user detail -->
 			<script>
 			$(document).ready(function()
 		    {	
@@ -879,5 +881,16 @@ function mainPage()
 
           </script>
 
+		
+<script>
+function goToCart()
+{
+	location.href="cartDetail.html";
+}
+function mainPage()
+{
+	location.href="yoneak.html";
+}
+</script>
 	</body>
 </html>
