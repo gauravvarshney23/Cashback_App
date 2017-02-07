@@ -363,6 +363,7 @@
 		<script src="js/external.js"></script>
 		<script src="js/cat.js"></script>
 		<script src="js/product.js"></script>
+		<script src="js/external.js"></script>
 	</head>
 	<body>	
 		<div data-role="panel" id="nmyPanel1"   data-display="overlay"  > 
@@ -471,7 +472,7 @@
 					</ul>
 					<hr style="border-bottom:1px solid grey;">
 					<ul style="list-style-type: none;padding-left:10%;">
-						<li style="line-height:3em">
+						<li onclick="contact()" style="line-height:3em">
 							<a  href="" style="color:#000;text-decoration:none;">
 								Feedback
 							</a>
@@ -868,19 +869,38 @@
 			$(document).ready(function()
 		    {	
 		    var  user_id=localStorage.userID;
-		    $.post('http://yoneak.com/web_services/external_website.php',function(res){
+		    $.post('http://yoneak.com/web_services/top_website.php',function(res){
 			    var i=0;
+				var web_id="";
+				var website="";
+				var catid="";
+				var catname="";
 				var newleads_div_data="";
 				$.each(res, function( key, value ) 
 				    {
+				    	web_id=value.webId;
+				    	website=value.website;
+				    	catid=value.catId;
+				    	catname=value.catName;
+
 				    switch(i)
 				    	{
+
+				       case 0:
+				       newleads_div_data='<div onclick="external_p('+catid+')" style=" background-color: #080771;outline:none;border-radius:8px;">';
+
+				    	break;
 				    		
 				       case 1:
+				       newleads_div_data+='<a href="#">'+
+						'<div class="btn" style="color:#fff;font-size:12px;">'+catname
 
-				        newleads_div_data='<div style=" background-color: #080771;outline:none;border-radius:8px;">'+
-					        '<a href="#">'+
-						'<div class="btn" style="color:#fff;font-size:12px;">'+value.website+'</div>'+
+						
+					        
+				    	break;
+
+				    	 case 2:
+				       newleads_div_data+= ' ('+value.website+')</div>'+
 					    '</a>'+
 				       '</div>';
 					        
@@ -888,7 +908,7 @@
 			            
 				    	  }
 				    	       i=i+1;
-				    	       i%=2;
+				    	       i%=5;
 				    	       if(i==0)
 				    	       {
 
@@ -1127,9 +1147,9 @@
 
 				        
 							newlead_div1_data='<div class="row" style="background-color:#4169e1;">'+
-					                      '<div class="col-xs-5" style="padding-top:2%">'+
+					                      '<div class="col-xs-3" style="padding-top:1%">'+
 						                   '<a href="">'+
-							     '<img src="img/menu-user.png" class="img-circle" style="width:60px;height:60px;">'+
+							     '<img src="img/menu-user.png" class="img-circle" style="width:40px;height:65px;">'+
 						         '</a>'+
 					'</div>'+
 					'<div class="col-xs-6" style="padding:5% 0% 0% 0%">'+
@@ -1217,8 +1237,10 @@ function about()
 {
 	location.href="about.html";
 }
-
-
+function contact()
+{
+	location.href="contact.html";
+}
 </script>
 </html>
 

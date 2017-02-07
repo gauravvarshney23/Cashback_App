@@ -53,6 +53,45 @@
    {
     background:#38c;    
    }
+   <style>
+			button.accordion 
+			{ 
+				background-color: #eee;
+				color: #444;
+				cursor: pointer;
+				width: 100%;
+				border: none;
+				text-align: left;
+				outline: none;
+				font-size: 14px;
+				transition: 0.4s;
+			}
+			
+			.panel
+			{
+				margin-bottom:0px!important;
+			}
+
+			button.accordion.active, button.accordion:hover 
+			{
+				background-color: #ddd;
+			}
+
+			div.panel 
+			{
+				background-color: white;
+				max-height: 0;
+				overflow: hidden;
+				transition: 0.6s ease-in-out;
+				opacity: 0;
+			}
+
+			div.panel.show 
+			{
+				opacity: 1;
+				max-height: 500px;  
+			}
+
 
    #nav ul 
    {    
@@ -803,6 +842,10 @@
 		{
 			location.href="main_login.html";
 		}
+		function contact()
+        {
+	      location.href="contact.html";
+        }
 
 		</script>
 		<script>
@@ -917,7 +960,7 @@
 					</ul>
 					<hr style="border-bottom:1px solid grey;">
 					<ul style="list-style-type: none;padding-left:10%;">
-						<li style="line-height:3em">
+						<li onclick="contact()" style="line-height:3em">
 							<a  href="" style="color:#000;text-decoration:none;">
 								Feedback
 							</a>
@@ -1008,10 +1051,6 @@ if(searchKey!="")
 	}	
 });
 </script>
-
-	                      
-  
-
           <h2 align="center">Refer &amp; earn 5% of your friend's Cashback. Forever!</h2>		
 		<div class="row ">					
 			<div class="col-md-1 col-sm-1 col-xs-1"></div>
@@ -1022,7 +1061,11 @@ if(searchKey!="")
 					<button  class="btn btn-link btnc" data-clipboard-action="copy" data-clipboard-target="#dynamic"  id="copy-dynamic" style="text-decoration:none; font-weight:bold; font-size:12px; color:#0a2b3e;">
 						Click the link to copy, Share it &amp; keep getting 5% for every friend who joins &amp; transacts
 					</button>
-				</div>						
+					<div id="referrral_data"><br>
+					
+						
+					</div>
+				</div>
 			</div>					
 		</div>
 		 <div class="row" id="error" style="margin-top:6px">
@@ -1275,14 +1318,38 @@ function myFunction()
 				    	     
 				              },"json");
 
+
+
 			                  });
 
-</script>	
-		<script>
 
-												var clip=new Clipboard('.btnc');	
+         </script>	
+         <!--- referral code ---->
+         <script>
+            $(document).ready(function()
+		    {	
+		    var  user_id=localStorage.userID;
+		   
+		    $.post('http://yoneak.com/web_services/referral_code.php?user_id='+user_id,function(res){
+			    var i=0;
+				var newlead1_div_data="";
+				 console.log(res);
+		  
 
-												</script>
+				           newlead1_div_data="<span style='font-size:16px;padding-left:30%;'>Referral Code <strong style='color:black;'>:"+res.referrl+"</strong></span>";
+				    	     $('#referrral_data').append(newlead1_div_data);
+				    	     
+				              },"json");
+			                  });
+
+
+         </script>	
+         <!---End  referral code ---->
+
+	 <script>
+		 var clip=new Clipboard('.btnc');	
+
+	</script>
 		 <!---user detail -->
 			<script>
 			$(document).ready(function()

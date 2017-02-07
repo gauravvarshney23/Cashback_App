@@ -84,6 +84,10 @@
 				background: #ff6666;
 				color: white;
 			}
+			.panel
+			{
+				margin-bottom:0px!important;
+			}
 			.tr-content 
 			{
 				border-bottom: 1px solid #ff6666;
@@ -100,12 +104,30 @@
 				left: 0; top: 0; bottom: 0;
 				width: 50px;
 			}
+			button.accordion 
+			{ 
+				background-color: #eee;
+				color: #444;
+				cursor: pointer;
+				width: 100%;
+				border: none;
+				text-align: left;
+				outline: none;
+				font-size: 14px;
+				transition: 0.4s;
+			}
 			button.accordion.active, button.accordion:hover 
 			{
 				background-color: #ddd;
 			}
-
-			
+			div.panel 
+			{
+				background-color: white;
+				max-height: 0;
+				overflow: hidden;
+				transition: 0.6s ease-in-out;
+				opacity: 0;
+			}
 
 			div.panel.show 
 			{
@@ -643,6 +665,10 @@ function main()
 {
 	location.href="main_login.html";
 }
+function contact()
+{
+	location.href="contact.html";
+}
 
 		</script>
 	</head>
@@ -751,7 +777,7 @@ function main()
 					</ul>
 					<hr style="border-bottom:1px solid grey;">
 					<ul style="list-style-type: none;padding-left:10%;">
-						<li style="line-height:3em">
+						<li onclick="contact()" style="line-height:3em">
 							<a  href="" style="color:#000;text-decoration:none;">
 								Feedback
 							</a>
@@ -863,7 +889,7 @@ if(searchKey!="")
   </script>
 			<div class='row'>            
 				<div class='col-md-12'>
-						<div onclick="Activity()" class="panel sauget-accordion" style="cursor:pointer;">
+						<div onclick="Activity()"  style="cursor:pointer;">
 							<div aria-labelledby="headingOne" role="tabpanel" class="panel-collapse collapse in" id="checkoutMethod" aria-expanded="true" 	style="">
 								<div class="content-info">
 									<div class="col-xs-12 col-sm-12 col-md-12">
@@ -896,7 +922,7 @@ if(searchKey!="")
 				</div>
 			<div class='row'>            
 				<div class='col-md-12'>
-						<div onclick="ChangePassword()" class="panel sauget-accordion" style="cursor:pointer;">
+						<div onclick="ChangePassword()"  style="cursor:pointer;">
 							<div aria-labelledby="headingOne" role="tabpanel" class="panel-collapse collapse in" id="checkoutMethod" aria-expanded="true" 	style="">
 								<div class="content-info">
 									<div class="col-xs-12 col-sm-12 col-md-12">
@@ -929,7 +955,7 @@ if(searchKey!="")
 				</div>
 			<div class='row'>            
 				<div class='col-md-12'>
-						<div class="panel sauget-accordion" style="cursor:pointer;">
+						<div style="cursor:pointer;">
 							<div aria-labelledby="headingOne" role="tabpanel" class="panel-collapse collapse in" id="checkoutMethod" aria-expanded="true" 	style="">
 								<div class="content-info">
 									<div class="col-xs-12 col-sm-12 col-md-12">
@@ -984,7 +1010,7 @@ if(searchKey!="")
 				<div class='col-md-12'>
 					
 					<a href="#">
-						<div onclick="refer()" class="panel sauget-accordion">
+						<div onclick="refer()" >
 							<div aria-labelledby="headingOne" role="tabpanel" class="panel-collapse collapse in" id="checkoutMethod" aria-expanded="true" 	style="">
 								<div class="content-info">
 									<div class="col-xs-12 col-sm-12 col-md-12">
@@ -1020,7 +1046,7 @@ if(searchKey!="")
 				<div class='col-md-12'>
 					
 					<a href="#">
-						<div onclick="transaction()" class="panel sauget-accordion">
+						<div onclick="transaction()">
 							<div aria-labelledby="headingOne" role="tabpanel" class="panel-collapse collapse in" id="checkoutMethod" aria-expanded="true" 	style="">
 								<div class="content-info">
 									<div class="col-xs-12 col-sm-12 col-md-12">
@@ -1054,7 +1080,7 @@ if(searchKey!="")
                 </div>
                   <div class='row'>    
 				<div class='col-md-12'>
-						<div onclick="Reward()" class="panel sauget-accordion" style="cursor:pointer;">
+						<div onclick="Reward()"  style="cursor:pointer;">
 							<div aria-labelledby="headingOne" role="tabpanel" class="panel-collapse collapse in" id="checkoutMethod" aria-expanded="true" 	style="">
 								<div class="content-info">
 									<div class="col-xs-12 col-sm-12 col-md-12">

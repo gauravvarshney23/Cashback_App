@@ -388,6 +388,10 @@ function main()
 {
 	location.href="main_login.html";
 }
+function contact()
+{
+	location.href="contact.html";
+}
 
 		</script>
 		
@@ -497,7 +501,7 @@ function main()
 					</ul>
 					<hr style="border-bottom:1px solid grey;">
 					<ul style="list-style-type: none;padding-left:10%;">
-						<li style="line-height:3em">
+						<li onclick="contact()" style="line-height:3em">
 							<a  href="" style="color:#000;text-decoration:none;">
 								Feedback
 							</a>
@@ -618,8 +622,15 @@ if(searchKey!="")
                                
                              </thead>
 
-                              <thead id="submit">
-                             
+                              <thead id="submit" style="display: none;">
+                              <input type="hidden" name="total_define_price" id="total_define_price_id">
+                              <input type="hidden" name="used_referrel_amount" id="used_referrel_amount_id">
+                              <input type="hidden" name="used_wallet_amount" id="used_wallet_amount_id">
+                              		<tr>
+                             		<td colspan="6" class="actions">                                    
+                                    <button type="clear_cart" name="clear_cart" class="btn btn-primary" style="width:100%;border-radius:0">Submit Order</button>
+                                   </td>
+                               		</tr>
                                 </thead>
                                  <tbody>
                               </tbody>
@@ -756,8 +767,10 @@ if(searchKey!="")
 				 		{
 				 			newdatadiv=	
 						 '<td style="width:50%; text-align:center;padding-top:15px"><h5>Total</h5> </td>'+
-                            '<td style="width:50%; text-align:center;padding-top:15px"><h5>Rs.'+totalPrice+'</h5> </td>'+
+                            '<td style="width:50%; text-align:center;padding-top:15px"><h5>Rs.'+totalPrice+'</h5><input type="hidden" value="'+totalPrice+'" id="total_price_id" /> </td>'+
                             '</tr>';
+                            $('#total_define_price_id').val(totalPrice);
+                            
 										$("#newdata").append(newdatadiv);
 				 		}
 				 		
@@ -794,17 +807,17 @@ if(searchKey!="")
                                       
                                     '<div class="method-input-box">'+
                                       '<br>'+
-                                  '<div class="w3-center" style="border-top:1px solid lightgrey;padding:1%"><input value="money_order" name="Referral" id="Referral_data" type="checkbox"><span>Use Referral Amount(Rs.'+ referralAmount+')</span>'+
-                                  '<a class="btn btn-primary btn-sm apply ui-link w3-center" style="width:35%;color:#fff" href="">APPLY</a></div></div></div><br></td></tr>';
+                                  '<div class="w3-center" style="border-top:1px solid lightgrey;padding:1%"><span>Use Referral Amount(Rs.'+ referralAmount+')</span>'+
+                                  '<a class="btn btn-primary btn-sm apply ui-link w3-center" style="width:35%;color:#fff" href="" id="referral_apply_id" onclick="referrel_apply('+ referralAmount+')">APPLY</a></div></div></div><br></td></tr>';
 
                                   $('#cashback').append(newleads_div_data);
                          }
 
                           if(cashAmount!=0)
 		                  {
-		                	newleads_div_data='<tr>'+'<td class="actions" colspan="12">'+'<div class="cartPage-btn">'+'<div class="method-input-box">'+'<br>'+'<div class="w3-center" style="border-bottom:1px solid lightgrey;padding:1%"> <input value="money_order" name="Referral" id="wallet" type="checkbox"><span>Use Wallet Amount(Rs.'+cashAmount+') </span>'+
+		                	newleads_div_data='<tr>'+'<td class="actions" colspan="12">'+'<div class="cartPage-btn">'+'<div class="method-input-box">'+'<br>'+'<div class="w3-center" style="border-bottom:1px solid lightgrey;padding:1%"><span>Use Wallet Amount(Rs.'+cashAmount+') </span>'+
 
-                                    '<a class="btn btn-primary btn-sm apply ui-link w3-center" style="width:35%;color:#fff" href="">APPLY</a>'+
+                                    '<a class="btn btn-primary btn-sm apply ui-link w3-center" style="width:35%;color:#fff" href="" id="wallet_apply_id" onclick="wallet_apply('+ cashAmount+')">APPLY</a>'+
                                      '</div>'+
                                       '</div>'+
                                        '</div>'+
@@ -815,19 +828,7 @@ if(searchKey!="")
 				    	       
 		                   }
 
-		                    if(cashAmount==0 && referralAmount==0)
-		                  {
-		                	newleads_div_data= '<tr>'+
-                                '<td colspan="6" class="actions">'+
-                                    
-                                               '<button type="clear_cart" name="clear_cart" class="btn btn-primary" style="width:100%;border-radius:0">Submit Order</button>'+
-                                   
-                                 '</td>'+
-                                '</tr>';
-
-				    	     $('#submit').append(newleads_div_data);
-				    	       
-		                   }
+		                
 
 
 				            },"json");
@@ -853,25 +854,37 @@ function shipping()
 </script>
 
 <script>
-        $('.apply').click(function()
-         {
-        if ($('#Referral_data').is(':checked'))
-         {
+      function referrel_apply(amount){
+      	var referrel_amount = parseFloat(amount);
+      	var totalPrice = parseFloat($('#total_price_id').val());
+      	if(totalPrice<=referrel_amount){
+      		$('#total_price_id').val(0);
+      		$('#submit').show();
+      		var used = referrel_amount-totalPrice;
+      		$('#used_referrel_amount_id').val(used);
+      	}else{
+      		var used = totalPrice - referrel_amount;
+      		$('#used_referrel_amount_id').val(0);
+      		$('#total_price_id').val(used);
+      	}
+      	$('#referral_apply_id').hide();
+      }
 
-               //$('.apply').attr("href", "payment.php?wallet=Referral");
-
-            
-        } 
-         if ($('#wallet').is(':checked'))
-         {
-               //$('.apply').attr("href", "payment.php?wallet=wallet");
-            
-        }
-        if($('#Referral_data').is(':checked') && $('#wallet').is(':checked')) 
-        {
-            // $('.apply').attr("href", "payment.php?wallet=both" );
-        }
-    });
+      function wallet_apply(amount){
+      	var referrel_amount = parseFloat(amount);
+      	var totalPrice = parseFloat($('#total_price_id').val());
+      	if(totalPrice<=referrel_amount){
+      		$('#total_price_id').val(0);
+      		$('#submit').show();
+      		var used = referrel_amount-totalPrice;
+      		$('#used_wallet_amount_id').val(used);
+      	}else{
+      		var used = totalPrice - referrel_amount;
+      		$('#used_wallet_amount_id').val(0);
+      		$('#total_price_id').val(used);
+      	}
+      	$('#wallet_apply_id').hide();
+      }
            
   </script>
 

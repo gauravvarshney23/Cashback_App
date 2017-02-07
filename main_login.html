@@ -14,13 +14,14 @@
 		<style>
 			body
 			{
-				background-color: #003d8c ;
+				background-color: #080771 ;
 			}
 			.login-box
 			
 			{		
 				width:100%;
-				height: 335px;
+				height: 375px;
+				margin-bottom: 50px;
 				background-color: #fff;				
 				border-radius: 5px;
 				box-shadow: 0px 5px 5px 5px rgba(0,0,0,0.33);
@@ -154,13 +155,13 @@
 				<div class="col-md-12 col-sm-12 col-xs-12">
 					<div class="row">
 						<div class="col-md-4 col-sm-4 col-xs-4" >
-							<a href="#" class="active " id="login-box-link">LOGIN</a>
+							<a href="#" class="active " id="login-box-link"><b>LOGIN</b></a>
 						</div>
 						<div class="col-md-4 col-sm-4 col-xs-5" style="padding:0">
-							<a href="#" id="signup-box-link">SIGN UP</a>
+							<a href="#" id="signup-box-link"><b>SIGN UP</b></a>
 						</div>
 						<div class="col-md-4 col-sm-4 col-xs-3" >
-							<a href="" onclick="Refresh()" style="text-align:right">SKIP</a>
+							<a href="" onclick="Refresh()" style="text-align:right"><b>SKIP</b></a>
 						</div>
 					</div>
 				</div>
@@ -184,9 +185,9 @@
 									<div class="col-md-12 col-sm-12 col-xs-12">
 										<div class="social-login">												
 											<div class="w3-group" style="text-align: center; position: relative; bottom: 18%;">
-					<!--<img src="facebook.png"  onlogin="checkLoginState();" style="width:200px;height:45px;cursor:pointer;"></img>-->
+					<!--<img src="facebook.jpg"  onlogin="checkLoginState();" style="width:200px;height:45px;cursor:pointer;"></img>-->
 				<fb:login-button size="large" scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button>
-				<img src="gplushlogo.png" id="googleSignInButton" class="googleSignInButtonClass"  onclick="gSignIn()" style="cursor:pointer;width:71px;padding-bottom:0px;margin-top:13px"></img>
+				<img src="google.jpg" id="googleSignInButton" class="googleSignInButtonClass"  onclick="gSignIn()" style="cursor:pointer;width:100px;padding-bottom:0px;margin-top:13px; height:35px;"></img>
 				</div>
 										</div>
 									</div>
@@ -215,13 +216,14 @@
 											</div>				
 										</form>
 									</div>
-									
+								</div>
+										
+									<div class="col-md-12 col-sm-12 col-xs-12">
 									<form class="email-signup" style="display: none;">
 										<div class="u-form-group">
 											<input placeholder="Name" type="text" id="name" required="">
 											<p style="color:red;" id="name_error_msg"></p>
 										</div>
-										
 										<div class="u-form-group">
 											<input placeholder="Email" id="email_id" type="email" required="">
 											<p style="color:red;" id="emaill_error_msg"></p>
@@ -230,7 +232,6 @@
 											<input placeholder="Password" id="password_id" type="password" required="">
 											<p style="color:red;" id="passwordd_error_msg"></p>
 										</div>
-									
 										<div class="u-form-group">
 											<input placeholder="Referral Code" id="referral_code" type="text">
 										<p style="color:red;" id="referral_error_msg"></p>
@@ -239,7 +240,7 @@
 											<button  onclick="submit_detail()"   type="button">SIGN UP</button>
 										</div>
 									</form>
-								</div>
+									</div>
 						</div>
 					</div>
 				</div>

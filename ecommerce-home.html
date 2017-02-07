@@ -116,6 +116,78 @@
 			{
 				background-color: #ddd;
 			}
+			.tooltip 
+
+			{
+
+				position: relative;
+
+				display: inline-block;
+
+			}
+
+			.tooltip .tooltiptext 
+
+			{
+
+				visibility: hidden;
+
+				width: 120px;
+
+				color: #ff6666;
+
+				text-align: center;
+
+				border-radius: 6px;
+
+				padding: 5px 0;
+
+				position: absolute;
+
+				z-index: 1;
+
+				bottom: 125%;
+
+				left: 50%;
+
+				margin-left: -60px;
+
+				opacity: 0;
+
+			}
+
+			.tooltip .tooltiptext::after 
+
+			{
+
+				content: "";
+
+				position: absolute;
+
+				top: 100%;
+
+				left: 50%;
+
+				margin-left: -5px;
+
+				border-width: 5px;
+
+				border-style: solid;
+
+				border-color: #555 transparent transparent transparent;
+
+			}
+
+			.tooltip:hover .tooltiptext 
+
+			{
+
+				visibility: visible;
+
+				opacity: 1;
+
+			}
+
 
 			div.panel 
 			{
@@ -172,43 +244,84 @@
 				width:50px !important;
 			}
 			ul.tab 
+
 			{
+
 				list-style-type: none;
+
 				margin: 0;
+
 				padding: 0;
+
 				overflow: hidden;
+
 				background-color: #f1f1f1;
+
 			}
+
+
 
 			ul.tab li 
+
 			{
+
 				float: left;
+
 			}
+
+
 
 			ul.tab li a 
+
 			{
+
 				display: inline-block;
+
 				color: black;
+
 				text-align: center;
+
 				padding: 14px 16px;
+
 				text-decoration: none;
+
 				transition: 0.3s;
+
 				font-size: 16px;
-			}
-	
-			ul.tab li a:hover 
-			{
-				background-color: #29b0e2;
-				border-radius:15px;
-				height:120px;
+
 			}
 
-			ul.tab li a:focus, .active 
+	
+
+			ul.tab li a:hover 
+
 			{
-				background-color: #29b0e2;
-				outline:0;
+
+				background-color: #003d8c;
+
 				border-radius:15px;
+
+				color:#fff!important;
+
 			}
+
+
+
+			ul.tab li a:focus, .active 
+
+			{
+
+				background-color: #003d8c;
+
+				outline:0;
+
+				border-radius:15px;
+
+				color:#fff!important;
+
+			}
+
+
 
 			.tabcontent 
 			{
@@ -414,6 +527,10 @@ function main()
 {
 	location.href="main_login.html";
 }
+function contact()
+{
+	location.href="contact.html";
+}
 
 		</script>
 	   </head>
@@ -524,7 +641,7 @@ function main()
 					</ul>
 					<hr style="border-bottom:1px solid grey;">
 					<ul style="list-style-type: none;padding-left:10%;">
-						<li style="line-height:3em">
+						<li onclick="contact()" style="line-height:3em">
 							<a  href="" style="color:#000;text-decoration:none;">
 								Feedback
 							</a>
