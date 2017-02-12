@@ -1,6 +1,6 @@
 $(document).ready(function()
      {	
-		    $.post('http://yoneak.com/web_services/header.php',function(res){
+		    $.post('http://yoneak.com/web_services/menu.php',function(res){
 			    var i=0;
 				var newleads_div_data="";
 				if(status==0)
@@ -30,18 +30,18 @@ $(document).ready(function()
 				    	       if(i==0)
 				    	       {
 
-				    	     $('.navbar').append(newleads_div_data);
+				    	     $('.navdata').append(newleads_div_data);
 				    	       }
 
                                });
 			}
-					callExternalProduct();
+					callExternalProduct1();
 				              },"json");
     });
 
-function callExternalProduct()
+function callExternalProduct1()
 {
-	$.post('http://yoneak.com/web_services/ExternalProducts.php',function(res){
+	$.post('http://yoneak.com/web_services/externalmenu.php',function(res){
 			    var i=0;
 				var newleads_div_data="";
 				var sub_menu_data='';
@@ -98,7 +98,7 @@ function callExternalProduct()
 				    	       if(i==0)
 				    	       {
 
-				    	     $('.navbar').append(newleads_div_data);
+				    	     $('#nav').append(newleads_div_data);
 				    	       }
 
                                });

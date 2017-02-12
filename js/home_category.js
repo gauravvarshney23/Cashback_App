@@ -15,12 +15,13 @@ $(document).ready(function()
 				    switch(i)
 				    {
 				       case 0:
-				    newleads_div_data='<li><a href="javascript:void(0)"  onclick="cat('+value.cat_id+')" style="text-align:left;padding-left:30px;">';
+				    newleads_div_data='<div><a href="javascript:void(0)"  onclick="cat('+value.cat_id+')">';
 				                    
 				    	break;
 
 				    	case 1:
-				           newleads_div_data+=value.cat_name+'</a>';
+				           newleads_div_data+='<h5 style="cursor:pointer;padding-left:20%;" class="accordion"><strong>'+ value.cat_name+'</strong></h5></a>';
+				         
 				                        
 				    	break;
 				     }
@@ -30,7 +31,7 @@ $(document).ready(function()
 				    	       if(i==0)
 				    	       {
 
-				    	     $('.navbar').append(newleads_div_data);
+				    	     $('#navbar').append(newleads_div_data);
 				    	       }
 
                                });
@@ -52,13 +53,13 @@ function callExternalProduct()
 				    switch(i)
 				    	{
 				       case 0:
-				    newleads_div_data='<li><a href="javascript:void(0)" style="text-align:left;padding-left:30px;">';
+				    newleads_div_data='<div><a href="javascript:void(0)">';
 				                    
 				    	break;
 
 				    	case 1:
 				    	
-				           newleads_div_data+=value.website+'</a>';
+				           newleads_div_data+='<h5 style="cursor:pointer;padding-left:20%;" class="accordion">'+value.website+'</h5></a>';
 				                        
 				    	break;
 
@@ -67,15 +68,15 @@ function callExternalProduct()
 				    	{
 				    		var webdata=value.webData;
 				    		var j=1;
-				    		sub_menu_data='<ul>';
+				    		sub_menu_data='';
 				    		$.each(webdata,function(k,v){
 				    			switch(j)
 				    			{
 				    				case 1:
-				    				     sub_menu_data_1+='<li><a href="javascript:void(0)" onclick="external_p('+v.catId+')" >'; 
+				    				     sub_menu_data_1+='<div><a href="javascript:void(0)" onclick="external_p('+v.catId+')" >'; 
 				    				break;
 				    				case 2:
-				    				     sub_menu_data_1+=v.catName+'</a></li>';
+				    				     sub_menu_data_1+='<h6  class="w3-center" style="cursor:pointer;"><strong>'+v.catName+'</strong></h6></a></div>';
                                                                  
 				    				break;
 				    			}
@@ -83,13 +84,13 @@ function callExternalProduct()
 				    			j++;
 				    		 
 				    		});
-				    		sub_menu_data+=sub_menu_data_1+'</ul>';
-				    		newleads_div_data+=sub_menu_data+'</li>';
+				    		sub_menu_data+=sub_menu_data_1;
+				    		newleads_div_data+=sub_menu_data+'</div>';
 				    		sub_menu_data_1='';
 				    	}
                          else
                          {
-                         	newleads_div_data+='</li>';
+                         	newleads_div_data+='</div>';
                          }
 				        break;
 				    	  }
@@ -98,7 +99,7 @@ function callExternalProduct()
 				    	       if(i==0)
 				    	       {
 
-				    	     $('.navbar').append(newleads_div_data);
+				    	     $('#navbar').append(newleads_div_data);
 				    	       }
 
                                });
