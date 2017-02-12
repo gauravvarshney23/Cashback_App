@@ -352,6 +352,7 @@
 		<script src="js/couponcode.js"></script>
 		<script src="js/walletdetail.js"></script>
 		<script src="js/totalwallet-amount.js"></script>
+		<script src="js/home_category.js"></script>
 		<script src="js/deal.js"></script>
 		<script src="js/walletdetail.js"></script>
 		<script src="js/login.js"></script>
@@ -362,46 +363,63 @@
 		<script src="js/external.js"></script>
 		<script src="js/shipping.js"></script>
 		<script src="js/editship.js"></script>
+		<script src="js/user_detail.js"></script>
 
 		 <script>
 		function refer()
-{
-	location.href="Refer_Earn.html";
-}
-function about()
-{
-	location.href="about.html";
-}
-function costPerView()
-	{
-   location.href="home-CPV.html";
-	}
-function costPerClick()
-	{
-	location.href="home-CPC.html"; 
-	}
-function CostPerAppDownload()
-	{
-	location.href="home-CPD.html";
-	}
-function main()
-{
-	location.href="main_login.html";
-}
-function contact()
-{
-	location.href="contact.html";
-}
-
+		{
+			location.href="Refer_Earn.html";
+		}
+		function about()
+		{
+			location.href="about.html";
+		}
+		function costPerView()
+			{
+		   location.href="home-CPV.html";
+			}
+		function costPerClick()
+			{
+			location.href="home-CPC.html"; 
+			}
+		function CostPerAppDownload()
+			{
+			location.href="home-CPD.html";
+			}
+		function main()
+		{
+			location.href="main_login.html";
+		}
+		function contact()
+		{
+			location.href="contact.html";
+		}
+		function term()
+		{
+			location.href="Term&Condition.html";
+		}
+		function faq()
+		{
+			location.href="faq.html";
+		}
+		function privacy()
+		{
+			location.href="privacy_policy.html";
+		}
+		function support()
+		{
+			location.href="support.html";
+		}
 		</script>
 		
 	</head>
 	<body>
-			<div data-role="panel" id="nmyPanel1"   data-display="overlay"  > 
+			<div  data-role="panel" id="nmyPanel1" data-display="overlay" style="width:280px; position: fixed;"> 
 			<div class="col-xs-12" style="height:640px;overflow-y:auto;">
 			<div id="ser_valoue">
 				
-		   </div>
+			</div>
+			
 				
 				<div class="row" >
 					<ul style="list-style-type: none;padding-left:5%;padding-top:5%">
@@ -446,7 +464,7 @@ function contact()
 								<span onclick="refer()"  style="color:#000;padding-top:5%">Refer & Earn</span>								
 							</a>
 						</li>
-						<li style="line-height:3em">
+						<li onclick="support()" style="line-height:3em">
 							<a  href="" style="color:#000;text-decoration:none;">
 								<img src="img/support.png" style="width:25px;height:25px">
 								<span style="color:#000;padding-top:5%">Support</span>									
@@ -461,7 +479,7 @@ function contact()
 								<span  onclick="storehome()" style="color:#000;padding-top:5%">Stores</span>									
 							</a>
 						</li>
-						<li style="line-height:3em">
+						<!--<li style="line-height:3em">
 						 <div class="dropdown" > 
 							<a  style="text-decoration:none;">
 								<img src="img/categoies.png" style="width:25px;height:25px">
@@ -471,11 +489,34 @@ function contact()
 						                 <ul id="nav" class="navbar">
           	
 						                 </ul>
-					           </div> 
-					           </div>  	
+					       </div> 
+					     </div>  	
 							
+						</li>-->
+						<li style="line-height:3em">
+							<a  style="text-decoration:none;">
+								<img src="img/categoies.png" style="width:25px;height:25px">
+								<span style="color:#000;padding-top:5%;cursor:pointer;" class="accordion">Categories</span>
+								<div class="panel" id="navbar" >
+
+							
+							   </div>
+									<!--<h5 style="cursor:pointer;padding-left:20%;" class="accordion">PayTm</h5>							
+									<div class="panel" style="text-align:center">
+										<h6 class="w3-center" style="cursor:pointer;">Mobile</h6>
+										<h6 class="w3-center" style="cursor:pointer;">Furniture</h6>
+										<h6 class="w3-center" style="cursor:pointer;">Electricity</h6>
+									</div>	
+									<h5 style="cursor:pointer;padding-left:20%;" class="accordion">eBay</h5>							
+									<div class="panel" style="text-align:center">
+										<h6 class="w3-center" style="cursor:pointer;">Mobile</h6>
+										<h6 class="w3-center" style="cursor:pointer;">Furniture</h6>
+										<h6 class="w3-center" style="cursor:pointer;">Electricity</h6>
+									</div>-->	
+								</div>		
+							</a>
 						</li>
-						<li style="line-height:3em" >
+						
 							<a  style="text-decoration:none;">
 								<img src="img/vochers.png" style="width:25px;height:25px">
 								<span style="color:#000;cursor:pointer;" class="accordion">Earn More</span>							
@@ -497,7 +538,7 @@ function contact()
 									}
 								}
 							</script>
-						</li>
+						
 					</ul>
 					<hr style="border-bottom:1px solid grey;">
 					<ul style="list-style-type: none;padding-left:10%;">
@@ -506,6 +547,21 @@ function contact()
 								Feedback
 							</a>
 						</li >
+						<li onclick="term()" style="line-height:3em">
+							<a  href="" style="color:#000;text-decoration:none;">
+								Term and condition
+							</a>
+						</li>
+						<li onclick="faq()" style="line-height:3em">
+							<a  href="" style="color:#000;text-decoration:none;">
+								FAQ
+							</a>
+						</li>
+						<li onclick="privacy()" style="line-height:3em">
+							<a  href="" style="color:#000;text-decoration:none;">
+								Privacy Policy.
+							</a>
+						</li>
 						<li style="line-height:3em">
 							<a  href="" style="color:#000;text-decoration:none;">
 								Rate Us
@@ -526,8 +582,8 @@ function contact()
 			</div>
 		</div>
 
-		<div data-role="header" style="background:#4169e1 none repeat scroll 0 0 !important" data-theme="b" data-position="fixed">
-			<a href="#nmyPanel1" style="width:40px;height:40px;margin-left:10px;margin-top:5px;background-color: #4169e1;border-color: #4169e1;	color: #fff;
+		<div data-role="header" style="background:#080771 none repeat scroll 0 0 !important" data-theme="b" data-position="fixed">
+			<a href="#nmyPanel1" style="width:40px;height:40px;margin-left:10px;margin-top:5px;background-color: #080771;border-color: #080771;	color: #fff;
 				text-shadow: 0 1px 0 #111;" class="ui-btn ui-corner-all ui-icon-bars ui-btn-icon-notext" data-transition="slide">
 				
 			</a>
@@ -616,7 +672,7 @@ if(searchKey!="")
                                                                 </div>
                                                             </form>
 		
-	<header class="" style="border-radius:0px; background-color: #4169e1 !important;">
+	<header class="navbar-fixed-bottom" style="border-radius:0px; background-color: #080771 !important;z-index: 1 !important;">
 		<div class="w3-card-4" style="">
 				<div style="text-align: center; padding:5px;">
 			<table border="0" align="center">
@@ -765,65 +821,7 @@ function shipping()
 }				
 </script>
 
- <!---user detail -->
-			<script>
-			$(document).ready(function()
-		    {	
-		     var  user_id=localStorage.userID;
-		      var i=0;
-		    $.post('http://yoneak.com/web_services/user_detail.php?user_id='+user_id,function(res)
-		    { 
-			var newlead_div1_data="";
-			console.log(res);
-			if((localStorage.userID!=null) || (localStorage.userID))
 
-		                {
-
-				        
-							newlead_div1_data='<div class="row" style="background-color:#4169e1;">'+
-					                      '<div class="col-xs-5" style="padding-top:2%">'+
-						                   '<a href="">'+
-							     '<img src="img/menu-user.png" class="img-circle" style="width:60px;height:60px;">'+
-						         '</a>'+
-					'</div>'+
-					'<div class="col-xs-6" style="padding:5% 0% 0% 0%">'+
-						'<a href="">'+
-							'<h5 style="font-size:14px;color:#fff">'+res.user_name+'</h5>'+
-						'</a>';
-						newlead_div1_data+='<a href="" class="ui-link">'+
-							'<h6 style="color:#fff">'+res.user_email+'</h6>'+
-						'</a>'+
-					'</div>';
-				    	     $('#ser_valoue').append(newlead_div1_data);
-				    	 }
-				    	 else
-				    	 {
-				    	newlead_div1_data='<div onclick="main()" class="row" style="background-color:#4169e1;">'+
-					                      '<div class="col-xs-5" style="padding-top:2%">'+
-						                   '<a href="">'+
-							     '<img src="img/menu-user.png" class="img-circle" style="width:60px;height:60px;">'+
-						       '</a>'+
-					'</div>'+
-					'<div class="col-xs-6" style="padding:5% 0% 0% 0%">'+
-						'<a href="">'+
-							'<h5 style="font-size:14px;color:#fff">SIGN IN</h5>'+
-						'</a>'+
-						'<a href="" class="ui-link">'+
-							'<h6 style="color:#fff">Get a personalized experience</h6>'+
-						'</a>'+
-					'</div>';
-
-					       $('#ser_valoue').append(newlead_div1_data);
-
-				    	 }
-				    	     
-				              },"json");
-
-			                  });
-
-          </script>
-
-            <!---End user detail -->
 
             <!---wallet detail -->
 			<script>

@@ -5,7 +5,8 @@
 		<title>Cashback Offer,Discount Coupons,Promo Codes - YONEAK</title>
 		<link rel="shortcut icon" type="image/x-icon" href="favicon2.ico" />
 		<link rel="icon" type="image/x-icon" href="favicon2.ico" />
-		<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />		
+		<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
+		<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">	
 		<link rel="stylesheet" href="css/w3.css">
 		<link rel="stylesheet" href="css/w3-theme-black.css">
 		<link rel="stylesheet" href="css/slider.css" type="text/css">
@@ -84,7 +85,7 @@
 				outline:none;
 				padding-right: 54%;
 				width: 250px !important;
-				height: 85px;
+				height: 130px;
 			}
 			.activeC
 			{
@@ -346,7 +347,39 @@
 			{
 				display: block;
 			}
- 
+			#cat.owl-item
+			 {
+			  width:50px;
+			 
+			 }
+ .img-circle
+{
+    width: 40px !important;
+    height: 40px !important;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+.ui-content
+{
+    display: none;
+}
+
+.owl-stage-outer, .owl-stage
+{
+    width: 1900px !important;
+}
+
+.ui-overlay-a, .ui-page-theme-a
+{
+    background-color: #ffffff !important;
+}
+
+.owl-carousel .owl-stage-outer
+{
+    overflow: visible !important;
+}
+
 		</style>
 		<script src="js/jquery-1.11.2.min.js"></script>
 		<script src="js/jquery.mobile-1.4.5.min.js"></script>
@@ -364,9 +397,38 @@
 		<script src="js/cat.js"></script>
 		<script src="js/product.js"></script>
 		<script src="js/external.js"></script>
+		<script src="js/slider.js"></script>
+		<script src="js/user_detail.js"></script>
+		
+		<script>
+		function yoneak()
+		{
+			location.href="yoneak.html";
+		}
+		function term()
+		{
+			location.href="Term&Condition.html";
+		}
+		function faq()
+		{
+			location.href="faq.html";
+		}
+		function privacy()
+		{
+			location.href="privacy_policy.html";
+		}
+		function support()
+		{
+			location.href="support.html";
+		}
+
+		</script>
 	</head>
 	<body>	
-		<div data-role="panel" id="nmyPanel1"   data-display="overlay"  > 
+	 <div  data-role="main" class="ui-content" data-transition="flow" onload="yoneak()" >
+    
+  </div>
+		<div  data-role="panel" id="nmyPanel1" data-display="overlay" style="width:280px; position: fixed;"> 
 			<div class="col-xs-12" style="height:640px;overflow-y:auto;">
 			<div id="ser_valoue">
 				
@@ -417,7 +479,7 @@
 								<span onclick="refer()"  style="color:#000;padding-top:5%">Refer & Earn</span>								
 							</a>
 						</li>
-						<li style="line-height:3em">
+						<li onclick="support()" style="line-height:3em">
 							<a  href="" style="color:#000;text-decoration:none;">
 								<img src="img/support.png" style="width:25px;height:25px">
 								<span style="color:#000;padding-top:5%">Support</span>									
@@ -432,7 +494,7 @@
 								<span  onclick="storehome()" style="color:#000;padding-top:5%">Stores</span>									
 							</a>
 						</li>
-						<li style="line-height:3em">
+						<!--<li style="line-height:3em">
 						 <div class="dropdown" > 
 							<a  style="text-decoration:none;">
 								<img src="img/categoies.png" style="width:25px;height:25px">
@@ -442,11 +504,34 @@
 						                 <ul id="nav" class="navbar">
           	
 						                 </ul>
-					           </div> 
-					           </div>  	
+					       </div> 
+					     </div>  	
 							
+						</li>-->
+						<li style="line-height:3em">
+							<a  style="text-decoration:none;">
+								<img src="img/categoies.png" style="width:25px;height:25px">
+								<span style="color:#000;padding-top:5%;cursor:pointer;" class="accordion">Categories</span>
+								<div class="panel" id="navbar" >
+
+							
+							   </div>
+									<!--<h5 style="cursor:pointer;padding-left:20%;" class="accordion">PayTm</h5>							
+									<div class="panel" style="text-align:center">
+										<h6 class="w3-center" style="cursor:pointer;">Mobile</h6>
+										<h6 class="w3-center" style="cursor:pointer;">Furniture</h6>
+										<h6 class="w3-center" style="cursor:pointer;">Electricity</h6>
+									</div>	
+									<h5 style="cursor:pointer;padding-left:20%;" class="accordion">eBay</h5>							
+									<div class="panel" style="text-align:center">
+										<h6 class="w3-center" style="cursor:pointer;">Mobile</h6>
+										<h6 class="w3-center" style="cursor:pointer;">Furniture</h6>
+										<h6 class="w3-center" style="cursor:pointer;">Electricity</h6>
+									</div>-->	
+								</div>		
+							</a>
 						</li>
-						<li style="line-height:3em" >
+						
 							<a  style="text-decoration:none;">
 								<img src="img/vochers.png" style="width:25px;height:25px">
 								<span style="color:#000;cursor:pointer;" class="accordion">Earn More</span>							
@@ -468,7 +553,7 @@
 									}
 								}
 							</script>
-						</li>
+						
 					</ul>
 					<hr style="border-bottom:1px solid grey;">
 					<ul style="list-style-type: none;padding-left:10%;">
@@ -477,6 +562,21 @@
 								Feedback
 							</a>
 						</li >
+						<li onclick="term()" style="line-height:3em">
+							<a  href="" style="color:#000;text-decoration:none;">
+								Term and condition
+							</a>
+						</li>
+						<li onclick="faq()" style="line-height:3em">
+							<a  href="" style="color:#000;text-decoration:none;">
+								FAQ
+							</a>
+						</li>
+						<li onclick="privacy()" style="line-height:3em">
+							<a  href="" style="color:#000;text-decoration:none;">
+								Privacy Policy.
+							</a>
+						</li>
 						<li style="line-height:3em">
 							<a  href="" style="color:#000;text-decoration:none;">
 								Rate Us
@@ -497,8 +597,8 @@
 			</div>
 		</div>
 
-		<div data-role="header" style="background:#4169e1 none repeat scroll 0 0 !important" data-theme="b" data-position="fixed">
-			<a href="#nmyPanel1" style="width:40px;height:40px;margin-left:10px;margin-top:5px;background-color: #4169e1;border-color: #4169e1;	color: #fff;
+		<div data-role="header" style="background:#080771 none repeat scroll 0 0 !important" data-theme="b" data-position="fixed">
+			<a href="#nmyPanel1" style="width:40px;height:40px;margin-left:10px;margin-top:5px;background-color: #080771;border-color: #080771;	color: #fff;
 				text-shadow: 0 1px 0 #111;" class="ui-btn ui-corner-all ui-icon-bars ui-btn-icon-notext" data-transition="slide">
 				
 			</a>
@@ -563,6 +663,7 @@
 				}	
 			});
 		</script>
+		
 		<script>
 			function myaccount() 
 			{
@@ -620,11 +721,9 @@
 			</script>
 
 			    <div id="jssor_1" style="position: relative; margin: 0 auto; top: 0px; left: 0px; width: 700px;  height: 300px; overflow: hidden; visibility: hidden;">
-				<div data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width: 700px;  height: 300px; overflow: hidden;">
-					<div data-p="112.50" style="display: none;">
-						<img data-u="image" src="img/home 1.png" />
-					</div>
-					<div data-p="112.50" style="display: none;">
+				<div id="slider_id" data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width: 700px;  height: 300px; overflow: hidden;">
+					
+					<!--<div data-p="112.50" style="display: none;">
 						<img data-u="image" src="img/home 2.png" />
 					</div>
 					<div data-p="112.50" style="display: none;">
@@ -632,7 +731,7 @@
 					</div>
 					<div data-p="112.50" style="display: none;">
 						<img data-u="image" src="img/home 4.png" />
-					</div>
+					</div>-->
 				</div>
 				<div data-u="navigator" class="jssorb05" style="bottom:16px;right:16px;" data-autocenter="1">
                     <div data-u="prototype" style="width:16px;height:16px;"></div>
@@ -642,62 +741,36 @@
 				<a href="http://www.jssor.com" style="display:none">Slideshow Maker</a>
 			</div>
 			<script>
-				jssor_1_slider_init();
+			
 			</script>
 		</div>
-		 <section id="newdiv" class="row owl-carousel sponsor-carousel col-sm-12" style="margin-top: 5px !important; width: 100% !important; margin-left: 1px !important; padding-right: 0px !important; background-color:#f1f1f1; text-align: center; padding: 5px;" id="top-categoies">
-		
-		
-		
-	</section>
-		<!--<div class="container" style="background-color:#f1f1f1;" >
-			<section id="newdiv"  class="row owl-carousel sponsor-carousel col-sm-12" style="margin-top: 8px !important;margin-bottom: 8px !important;text-align:center;width:auto;" id="top-categoies" >-->
+		<div class="container" style="background-color:#f1f1f1;">
+			<section   class="row owl-carousel sponsor-carousel col-sm-12" style="margin-top: 8px !important;margin-bottom: 8px !important;text-align:center;width:auto;" id="top-categoies" >
 
-			    <!--<div class="active" style="background-color: #080771;outline:none;border-radius:8px;">
+			    <div onclick="storehome()" class="active" style="background-color: #080771;outline:none;border-radius:8px;">
 					        <a href="#" style="">
-						<div class="btn" style="color:#fff;font-size:12px;">Store</div>
+						<div class="btn" style="color:#fff;font-size:12px;">STORE</div>
 					    </a>
-				       </div>
-				
-				<div class="active" style="background-color: #080771;outline:none;border-radius:8px;">
+				</div>
+				<!--<div  class="active" style="background-color: #080771;outline:none;border-radius:8px;">
 					<a href="#">
-						<div class="btn" style="color:#fff;font-size:12px;">CATEGORIES</div>
+						<div class="btn" style="color:#fff;font-size:12px;">OFFERS</div>
+					</a>
+				</div>-->
+				<div  onclick="couponcode()"  class="active" style="background-color: #080771;outline:none;border-radius:8px;">
+					<a href="#">
+						<div class="btn" style="color:#fff;font-size:12px;">VOUCHERS</div>
 					</a>
 				</div>
-				<div class="active" style="background-color: #080771;outline:none;border-radius:8px;">
-					<a href="#">
-						<div class="btn" style="color:#fff;font-size:12px;">COUPONS</div>
-					</a>
-				</div>
-				<div class="active" style="background-color: #080771;outline:none;border-radius:8px;">
-					<a href="#">
-						<div class="btn" style="color:#fff;font-size:12px;">EARN MORE</div>
-					</a>
-				</div>
-				<div class="active" style="background-color: #080771;outline:none;border-radius:8px;">
+			
+				<div onclick="refer()" class="active" style="background-color: #080771;outline:none;border-radius:8px;">
 					<a href="#">
 						<div class="btn" style="color:#fff;font-size:12px;">REFER & EARN</div>
 					</a>
-				</div>-->
-			<!--</section>
-		</div>-->
-		<header class="w3-container anchor" style="background-color:#fff;">
-			<div class="row">
-				<div class="col-sm-4 pull-left">					
-					<h5>
-						Deals of the Day
-					</h5>												
 				</div>
-				<div style="cursor:pointer;" class="col-sm-4 pull-right">					
-					<a onclick="deal()">
-						<h6>
-							EXPLORE
-						</h6>												
-					</a>
-				</div>
-			</div> 
-		</header>
-		
+			</section>
+		</div>
+		<div class="container" style="background-color:#ffffff; height: 130px;">
 			<section id="deal_day"  class="row owl-carousel shhponsor-cddarousel col-sm-12" style="margin-top: 8px !important;margin-bottom: 8px !important;text-align:center;" id="top-categoies" >
 			<!--<div class="activeN">
 					<div class="w3-card-4" style="padding:0px;">				
@@ -721,8 +794,8 @@
 							<h6 style="border-radius:15px;color: #ff6666">Get reward upto 0.00%</h6>					
 						</div>		
 					</div>
-				</div>
-				<div class="activeN">
+				</div>-->
+				<!--<div class="activeN">
 					<div class="w3-card-4" style="padding:0px;">				
 						<div class="chip w3-left">
 							<img src="img/snapdeal.jpg" style="height:50px;width:60px;padding-left:5%">							
@@ -732,8 +805,8 @@
 							<h6 style="border-radius:15px;color: #ff6666">Get reward upto 0.00%</h6>					
 						</div>		
 					</div>
-				</div>
-				<div class="activeN">
+				</div>-->
+				<!--<div class="activeN">
 					<div class="w3-card-4" style="padding:0px;">				
 						<div class="chip w3-left">
 							<img src="img/yepme.jpg" style="height:50px;width:60px;padding-left:5%">							
@@ -788,32 +861,69 @@
 			</div>
 		</div>	
 		
-		<header class="w3-container anchor" style="background-color:#fff;" >
-			<div class="row">
-				<div class="col-sm-4 pull-left">					
-					<h5>
-						Hot Offers
-					</h5>												
-				</div>
-				<div class="col-sm-4 pull-right">					
-					<a href="#">
-						<h6>
-							EXPLORE
-						</h6>												
-					</a>
-				</div>
-			</div> 
-		</header>
-		<section class="row" style="">
-			<div class="col-sm-4" style="padding: 25px;background-color:#1ab394">
-				<fieldset style="border: 1px lightgrey solid;background-color:#fff">
-					<legend style="border: medium none;">
-						<img src="img/ebay.jpg" style="margin-left: 20px;box-shadow: 3px 3px 1px rgb(136, 136, 136)" height="50">
-					</legend>
-					<p style="color: #000 !important; padding: 5px; !important;">Text within the box <br /> Etc</p>
-				</fieldset>
-			</div>
-		</section> 
+		<header class="w3-container anchor" style="background-color:#fff;">
+    <div class="row">
+     <div class="col-sm-4 pull-left">     
+      <h5>
+       How It Works
+      </h5>            
+     </div>
+    </div> 
+   </header>
+   <div class="container" style="background-color:#f1f1f1;">
+    <section class="row owl-carousel sponsor-carousel col-sm-12" style="margin-top: 8px !important;margin-bottom: 8px !important;text-align:center;width:auto;">
+     <div class="active">
+      <a href="#" style="">
+       <img src="img/home.jpg" style="height:150px"/>
+      </a>
+     </div>
+     <div class="active">
+      <a href="#"> 
+       <img src="img/homelogin.jpg" style="height:150px"/>
+      </a>
+     </div>
+     <div class="active">
+      <a href="#">
+       <img src="img/login.jpg" style="height:150px"/>
+      </a>
+     </div>
+     <div class="active">
+      <a href="#">
+       <img src="img/gplus.jpg" style="height:150px"/>
+      </a>
+     </div>
+     <div class="active">
+      <a href="#">
+       <img src="img/allow.jpg" style="height:150px"/>
+      </a>
+     </div>
+     <div class="active">
+      <a href="#">
+       <img src="img/cpv.jpg" style="height:150px"/>
+      </a>
+     </div>
+     <div class="active">
+      <a href="#">
+       <img src="img/cpd.jpg" style="height:150px"/>
+      </a>
+     </div>
+     <div class="active">
+      <a href="#">
+       <img src="img/cpc.jpg" style="height:150px"/>
+      </a>
+     </div>
+     <div class="active">
+      <a href="#">
+       <img src="img/product.jpg" style="height:150px"/>
+      </a>
+     </div>
+     <div class="active">
+      <a href="#">
+       <img src="img/productpages.jpg" style="height:150px"/>
+      </a>
+     </div>
+    </section>
+   </div>
 		<header class="w3-container anchor" style="background-color:#fff;">
 			<div class="row">
 				<div class="col-sm-4 pull-left">					
@@ -830,38 +940,21 @@
 				</div>
 			</div> 
 		</header>
-		<div class="container" style="background-color:#f1f1f1;">
-			<section class="row owl-carousel sponsor-carousel col-sm-12" style="width: 100% !important; margin-left: -7px !important; padding-right: 0px !important;">
-				<div class="activeC" style="background-color:#fff;outline:none;border-radius:0px;width: 150px !important;text-align:center">
-					<a href="#">
-						<img src="img/1.png" alt="story" style="width:50px;height:50px;" class="img-circle" /> 
-						<span style="color:black;font-size:10px;">Mobile</span>
-					</a>
-				</div>
-				<div class="activeC" style="background-color:#fff;outline:none;border-radius:0px;width: 150px !important;">
+		<div class="container" style="background-color:#ffffff;" >
+			<section id="footerdata" class="row owl-carousel sponsordata-carousel col-sm-12" style="width: 100% !important; margin-left: -7px !important; padding-right: 0px !important;">
+				
+				<!--<div class="activeC" style="background-color:#fff;outline:none;border-radius:0px;">
 					<a href="#">
 						<img src="img/2.png" alt="story" style="width:50px;height:50px;" class="img-circle" />
 						<span style="color:black;font-size:10px;">Travel</span>
 					</a>
 				</div>
-				<div class="activeC" style="background-color:#fff;outline:none;border-radius:0px;width: 150px !important;">
+				<div class="activeC" style="background-color:#fff;outline:none;border-radius:0px;">
 					<a href="#">
 						<img src="img/3.png" alt="story" style="width:50px;height:50px;" class="img-circle" />
 						<span style="color:black;font-size:10px;">Fashion</span>
 					</a>
-				</div>
-				<div class="activeC" style="background-color:#fff;outline:none;border-radius:0px;width: 150px !important;">
-					<a href="#">
-						<img src="img/4.png" alt="story" style="width:50px;height:50px;"  class="img-circle" />
-						<span style="color:black;font-size:10px;">Flower & Gift</span>
-					</a>
-				</div>
-				<div class="activeC" style="background-color:#fff;outline:none;border-radius:0px;width: 150px !important;">
-					<a href="#">
-						<img src="img/5.png" alt="story" style="width:50px;height:50px;" class="img-circle" />
-						<span style="color:black;font-size:10px;">Baby & Kids</span>
-					</a>
-				</div></br>
+				</div>-->
 			</section>
 			</br>
 		</div>
@@ -939,6 +1032,7 @@
 			                 });
 
 			</script>
+
 			<!---top store- -->
 			<script>
 			$(document).ready(function()
@@ -1025,7 +1119,7 @@
 				       case 0:
 
 				        newleads_div_data='<div class="activeN">'+
-					                        '<div class="w3-card-4" onclick="product('+value.pro_id+')" style="padding:0px;  width:200px;">';
+					                        '<div class="w3-card-4" onclick="product('+value.pro_id+')" style="padding:0px;  width:250px; height: 123px;">';
 					                        urlId=value.id;
 
 				    	break;
@@ -1034,7 +1128,7 @@
 
 				        newleads_div_data+='<div class="chip w3-left">'+
 
-							     '<img src="http://yoneak.com/admin/product_images/'+value.image_1+'" style="height:50px;width:60px;cursor:pointer; padding-left:5% ">'+							
+							     '<img src="http://yoneak.com/admin/product_images/'+value.image_1+'" style="height:120px;width:130px;cursor:pointer; padding-left:5% ">'+							
 						          '</div>';
 						
 					        
@@ -1042,7 +1136,7 @@
 
 				    	 case 2:
 
-				        newleads_div_data+='<div class="w3-container" style="text-align:center;" >'+
+				        newleads_div_data+='<div class="w3-container" style="text-align:center; padding: 2em 0px !important;" >'+
 							                 '<h6 style="padding-top:5px;">'+value.pro_name+'</h6>';
 						
 					        
@@ -1076,13 +1170,13 @@
 						        navText:false,
 						        responsive:{
 						            0:{
-						                items:2
+						                items:1
 						            },
 						            600:{
-						                items:4
+						                items:3
 						            },
 						            1000:{
-						                items:6
+						                items:4
 						            }
 						        }
 						    });
@@ -1097,6 +1191,95 @@
 			
 			</script>
 			<!---End Deal of the day -->
+
+		<!---Footer Category-->
+
+			
+<script>
+$(document).ready(function()
+		    {	
+		    var  user_id=localStorage.userID;
+		    $.post('http://yoneak.com/web_services/footer_category.php',function(res){
+			    var i=0;
+				var web_id="";
+				var website="";
+				var catid="";
+				var catname="";
+				var image="";
+				var newleads_div_data="";
+				$.each(res, function( key, value ) 
+				    {
+				    	web_id=value.webId;
+				    	website=value.website;
+				    	catid=value.catId;
+				    	catname=value.catName;
+				    	image=value.image;
+
+				    switch(i)
+				    	{
+
+				       case 0:
+
+				       newleads_div_data='<div id=""  onclick="external_p('+catid+')" style="background-color:#fff;outline:none;border-radius:0px; text-align:center;">';
+
+				    	break;
+				    		
+				       case 1:
+				       newleads_div_data+='<a href="#">'+
+						'<img src="http://yoneak.com/admin/external_image/'+value.image+'"  alt="story" style="width:50px;height:50px; margin:0px auto" class="img-circle" />'; 
+
+						
+					        
+				    	break;
+				    	 case 2:
+				       newleads_div_data+='<span style="color:black;font-size:10px;">'+catname
+					        
+				    	break;
+
+
+				    	 case 3:
+				       newleads_div_data+= ' ('+value.website+')</span>'+
+					    '</a>'+
+				       '</div>';
+					        
+				    	break;
+			            
+				    	  }
+				    	       i=i+1;
+				    	       i%=6;
+				    	       if(i==0)
+				    	       {
+
+				    	     $('#footerdata').append(newleads_div_data);
+				    	       }
+
+                               });
+						$('.sponsordata-carousel').owlCarousel({
+						        loop:false,
+						        margin:10,
+						        nav:false,
+						        navText:false,
+						        responsive:{
+						            0:{
+						                items:2
+						            },
+						            600:{
+						                items:4
+						            },
+						            1000:{
+						                items:6
+						            }
+						        }
+						    });
+					
+				              },"json");
+
+			                 });
+
+			</script>
+
+			<!---End Footer Category-->
+
 
 			<!---wallet detail -->
 			<script>
@@ -1130,68 +1313,6 @@
           </script>
 
           <!---end wallet detail -->
-
-          <!---user detail -->
-			<script>
-			$(document).ready(function()
-		    {	
-		     var  user_id=localStorage.userID;
-		      var i=0;
-		    $.post('http://yoneak.com/web_services/user_detail.php?user_id='+user_id,function(res)
-		    { 
-			var newlead_div1_data="";
-			console.log(res);
-			if((localStorage.userID!=null) || (localStorage.userID))
-
-		                {
-
-				        
-							newlead_div1_data='<div class="row" style="background-color:#4169e1;">'+
-					                      '<div class="col-xs-3" style="padding-top:1%">'+
-						                   '<a href="">'+
-							     '<img src="img/menu-user.png" class="img-circle" style="width:40px;height:65px;">'+
-						         '</a>'+
-					'</div>'+
-					'<div class="col-xs-6" style="padding:5% 0% 0% 0%">'+
-						'<a href="">'+
-							'<h5 style="font-size:14px;color:#fff">'+res.user_name+'</h5>'+
-						'</a>';
-						newlead_div1_data+='<a href="" class="ui-link">'+
-							'<h6 style="color:#fff">'+res.user_email+'</h6>'+
-						'</a>'+
-					'</div>';
-				    	     $('#ser_valoue').append(newlead_div1_data);
-				    	 }
-				    	 else
-				    	 {
-				    	newlead_div1_data='<div onclick="main()" class="row" style="background-color:#4169e1;">'+
-					                      '<div class="col-xs-5" style="padding-top:2%">'+
-						                   '<a href="">'+
-							     '<img src="img/menu-user.png" class="img-circle" style="width:60px;height:60px;">'+
-						       '</a>'+
-					'</div>'+
-					'<div class="col-xs-6" style="padding:5% 0% 0% 0%">'+
-						'<a href="">'+
-							'<h5 style="font-size:14px;color:#fff">SIGN IN</h5>'+
-						'</a>'+
-						'<a href="" class="ui-link">'+
-							'<h6 style="color:#fff">Get a personalized experience</h6>'+
-						'</a>'+
-					'</div>';
-
-					       $('#ser_valoue').append(newlead_div1_data);
-
-				    	 }
-				    	     
-				              },"json");
-
-			                  });
-
-          </script>
-
-            <!---End user detail -->
-			
-
 
 	</body>
 	<script>

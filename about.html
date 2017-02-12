@@ -14,60 +14,7 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
-				<style> 
-
-   #nav 
-   {
-    list-style:none inside;
-    margin:0;
-    padding:0;
-    text-align:center;
-   }
-
-   #nav li 
-   {
-    display:block;
-  
-    background: #f9f9f9; 
-   }
-
-   #nav li a 
-   {
-    display:block;
-    padding:0;
-    text-decoration:none;
-    width:160px; 
-    line-height:35px; 
-    color: #38c;
-   }
-    
-   #nav li li a 
-   {
-    font-size:80%;
-    color: #38c;
-   }
-    
-   #nav li:hover 
-   {
-    background:#38c;    
-   }
-
-   #nav ul 
-   {    
-    padding:0;
-    left:0;
-    display:none; 
-   }
-   #nav a:hover
-   {
-    color:white;
-   }
-   
-   #nav li:hover ul 
-   {
-    display:block;
-   } 
- 
+			<style> 
 			#map-page, #map-canvas
 			{ 
 				width: 100%; 
@@ -103,65 +50,6 @@
 				left: 0; top: 0; bottom: 0;
 				width: 50px;
 			}
-			button.accordion.active, button.accordion:hover 
-			{
-				background-color: #ddd;
-			}
-
-			div.panel 
-			{
-				background-color: white;
-				max-height: 0;
-				overflow: hidden;
-				transition: 0.6s ease-in-out;
-				opacity: 0;
-			}
-
-			div.panel.show 
-			{
-				opacity: 1;
-				max-height: 500px;  
-			}
-			
-			
-			.dropdown-content 
-			{
-				display: none;
-				z-index:6;
-				position: absolute;
-				min-width: 160px;
-				box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);		
-			}
-
-			.dropdown-content a 
-			{
-				color: light-grey;
-				padding: 12px;
-				text-decoration: none;
-				display: block;
-			}
-
-			.dropdown-content a:hover 
-			{
-				background-color: #ff6666;
-			}
-
-			.dropdown:hover .dropdown-content 
-			{
-				display: block;
-			}
-			.activeN 
-			{
-				background-color: #fff;
-				outline:none;
-				padding-right: 54%;
-				width: 250px !important;
-			}
-			.activeC
-			{
-				background-color: #ffffff!important;
-				width:50px !important;
-			}
 			ul.tab 
 			{
 				list-style-type: none;
@@ -186,21 +74,27 @@
 				transition: 0.3s;
 				font-size: 16px;
 			}
-	
-			ul.tab li a:hover 
-			{
-				background-color: #29b0e2;
-				border-radius:15px;
-				height:120px;
-			}
 
 			ul.tab li a:focus, .active 
 			{
-				background-color: #29b0e2;
-				outline:0;
-				border-radius:15px;
+				
+				
 			}
-
+			
+			.activeN 
+			{
+				background-color: #fff;
+				outline:none;
+				padding-right: 54%;
+				width: 250px !important;
+				height: 85px;
+			}
+			.activeC
+			{
+				background-color: #ffffff!important;
+				width:50px !important;
+			}
+			
 			.tabcontent 
 			{
 				display: none;
@@ -221,7 +115,7 @@
 				from {opacity: 0;}
 				to {opacity: 1;}
 			}
-
+	
 		</style>
 		<style>
 			.owl-controls
@@ -334,9 +228,133 @@
 				font-size: 14px;
 			}
 			
-			#top-categoies .owl-item{
+			#top-categoies .owl-item
+			{
 				width:110px!important;
 			}
+		</style>
+		<style>
+			button.accordion 
+			{ 
+				background-color: #eee;
+				color: #444;
+				cursor: pointer;
+				width: 100%;
+				border: none;
+				text-align: left;
+				outline: none;
+				font-size: 14px;
+				transition: 0.4s;
+			}
+			
+			.panel
+			{
+				margin-bottom:0px!important;
+			}
+
+			button.accordion.active, button.accordion:hover 
+			{
+				background-color: #ddd;
+			}
+
+			div.panel 
+			{
+				background-color: white;
+				max-height: 0;
+				overflow: hidden;
+				transition: 0.6s ease-in-out;
+				opacity: 0;
+			}
+
+			div.panel.show 
+			{
+				opacity: 1;
+				max-height: 500px;  
+			}
+
+   #nav 
+   {
+    list-style:none inside;
+    margin:0;
+    padding:0;
+    text-align:center;
+   }
+
+   #nav li 
+   {
+    display:block;
+  
+    background: #f9f9f9; 
+   }
+
+   #nav li a 
+   {
+    display:block;
+    padding:0;
+    text-decoration:none;
+    width:160px; 
+    line-height:35px; 
+    color: #38c;
+   }
+    
+   #nav li li a 
+   {
+    font-size:80%;
+    color: #38c;
+   }
+    
+   #nav li:hover 
+   {
+    background:#38c;    
+   }
+
+   #nav ul 
+   {    
+    padding:0;
+    left:0;
+    display:none; 
+   }
+   #nav a:hover
+   {
+    color:white;
+   }
+   
+   #nav li:hover ul 
+   {
+    display:block;
+   } 
+   .dropdown-content 
+			{
+				display: none;
+				z-index:6;
+				position: absolute;
+				min-width: 160px;
+				box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);		
+			}
+
+			.dropdown-content a 
+			{
+				color: light-grey;
+				padding: 12px;
+				text-decoration: none;
+				display: block;
+			}
+
+			.dropdown-content a:hover 
+			{
+				background-color: #ff6666;
+			}
+
+			.dropdown:hover .dropdown-content 
+			{
+				display: block;
+			}
+			#cat.owl-item
+			 {
+			  width:50px;
+			 
+			 }
+ 
 		</style>
 		<script src="js/jquery-1.11.3.min.js"></script>
 		<script src="js/jquery.mobile-1.4.5.min.js"></script>
@@ -354,48 +372,72 @@
 		<script src="js/couponcode.js"></script>
 		<script src="js/cat.js"></script>
 		<script src="js/subcat.js"></script>
-		<script src="js/menubar.js"></script>
+		<script src="js/home_category.js"></script>
 		<script src="js/external.js"></script>
 		<script src="js/deal.js"></script>
 		<script src="js/refair-earn.js"></script>
+		<script src="js/user_detail.js"></script>
 	 <script>
 		function refer()
-{
-	location.href="Refer_Earn.html";
-}
-function about()
-{
-	location.href="about.html";
-}
-function costPerView()
-	{
-   location.href="home-CPV.html";
-	}
-function costPerClick()
-	{
-	location.href="home-CPC.html"; 
-	}
-function CostPerAppDownload()
-	{
-	location.href="home-CPD.html";
-	}
-function main()
-{
-	location.href="main_login.html";
-}
-function contact()
-{
-	location.href="contact.html";
-}
+		{
+			location.href="Refer_Earn.html";
+		}
+		function about()
+		{
+		location.href="about.html";
+		}
+       function costPerView()
+	    {
+        location.href="home-CPV.html";
+	    }
+        function costPerClick()
+	   {
+	   location.href="home-CPC.html"; 
+	    }
+       function CostPerAppDownload()
+	   {
+    	location.href="home-CPD.html";
+    	}
+      function main()
+      {
+ 	location.href="main_login.html";
+     }
+      function contact()
+        {
+	    location.href="contact.html";
+       }
+
+		function yoneak()
+		{
+			location.href="yoneak.html";
+		}
+		function term()
+		{
+			location.href="Term&Condition.html";
+		}
+		function faq()
+		{
+			location.href="faq.html";
+		}
+		function privacy()
+		{
+			location.href="privacy_policy.html";
+		}
+		function support()
+		{
+			location.href="support.html";
+		}
+
 
 		</script>
 	</head>
 	<body>
-		<div data-role="panel" id="nmyPanel1"   data-display="overlay"  > 
+		<div  data-role="panel" id="nmyPanel1" data-display="overlay" style="width:280px; position: fixed;"> 
 			<div class="col-xs-12" style="height:640px;overflow-y:auto;">
 			<div id="ser_valoue">
 				
-		   </div>
+			</div>
+			
 				
 				<div class="row" >
 					<ul style="list-style-type: none;padding-left:5%;padding-top:5%">
@@ -440,7 +482,7 @@ function contact()
 								<span onclick="refer()"  style="color:#000;padding-top:5%">Refer & Earn</span>								
 							</a>
 						</li>
-						<li style="line-height:3em">
+						<li onclick="support()" style="line-height:3em">
 							<a  href="" style="color:#000;text-decoration:none;">
 								<img src="img/support.png" style="width:25px;height:25px">
 								<span style="color:#000;padding-top:5%">Support</span>									
@@ -455,7 +497,7 @@ function contact()
 								<span  onclick="storehome()" style="color:#000;padding-top:5%">Stores</span>									
 							</a>
 						</li>
-						<li style="line-height:3em">
+						<!--<li style="line-height:3em">
 						 <div class="dropdown" > 
 							<a  style="text-decoration:none;">
 								<img src="img/categoies.png" style="width:25px;height:25px">
@@ -465,11 +507,34 @@ function contact()
 						                 <ul id="nav" class="navbar">
           	
 						                 </ul>
-					           </div> 
-					           </div>  	
+					       </div> 
+					     </div>  	
 							
+						</li>-->
+						<li style="line-height:3em">
+							<a  style="text-decoration:none;">
+								<img src="img/categoies.png" style="width:25px;height:25px">
+								<span style="color:#000;padding-top:5%;cursor:pointer;" class="accordion">Categories</span>
+								<div class="panel" id="navbar" >
+
+							
+							   </div>
+									<!--<h5 style="cursor:pointer;padding-left:20%;" class="accordion">PayTm</h5>							
+									<div class="panel" style="text-align:center">
+										<h6 class="w3-center" style="cursor:pointer;">Mobile</h6>
+										<h6 class="w3-center" style="cursor:pointer;">Furniture</h6>
+										<h6 class="w3-center" style="cursor:pointer;">Electricity</h6>
+									</div>	
+									<h5 style="cursor:pointer;padding-left:20%;" class="accordion">eBay</h5>							
+									<div class="panel" style="text-align:center">
+										<h6 class="w3-center" style="cursor:pointer;">Mobile</h6>
+										<h6 class="w3-center" style="cursor:pointer;">Furniture</h6>
+										<h6 class="w3-center" style="cursor:pointer;">Electricity</h6>
+									</div>-->	
+								</div>		
+							</a>
 						</li>
-						<li style="line-height:3em" >
+						
 							<a  style="text-decoration:none;">
 								<img src="img/vochers.png" style="width:25px;height:25px">
 								<span style="color:#000;cursor:pointer;" class="accordion">Earn More</span>							
@@ -491,7 +556,7 @@ function contact()
 									}
 								}
 							</script>
-						</li>
+						
 					</ul>
 					<hr style="border-bottom:1px solid grey;">
 					<ul style="list-style-type: none;padding-left:10%;">
@@ -500,6 +565,21 @@ function contact()
 								Feedback
 							</a>
 						</li >
+						<li onclick="term()" style="line-height:3em">
+							<a  href="" style="color:#000;text-decoration:none;">
+								Term and condition
+							</a>
+						</li>
+						<li onclick="faq()" style="line-height:3em">
+							<a  href="" style="color:#000;text-decoration:none;">
+								FAQ
+							</a>
+						</li>
+						<li onclick="privacy()" style="line-height:3em">
+							<a  href="" style="color:#000;text-decoration:none;">
+								Privacy Policy.
+							</a>
+						</li>
 						<li style="line-height:3em">
 							<a  href="" style="color:#000;text-decoration:none;">
 								Rate Us
@@ -519,8 +599,8 @@ function contact()
 				</div>
 			</div>
 		</div>
-		<div data-role="header" style="background:#4169e1 none repeat scroll 0 0 !important" data-theme="b" data-position="fixed">
-			<a href="#nmyPanel1" style="width:40px;height:40px;margin-left:10px;margin-top:5px;background-color: #4169e1;border-color: #4169e1;	color: #fff;
+		<div data-role="header" style="background:#080771 none repeat scroll 0 0 !important" data-theme="b" data-position="fixed">
+			<a href="#nmyPanel1" style="width:40px;height:40px;margin-left:10px;margin-top:5px;background-color: #080771;border-color: #080771;	color: #fff;
 				text-shadow: 0 1px 0 #111;" class="ui-btn ui-corner-all ui-icon-bars ui-btn-icon-notext" data-transition="slide">
 				
 			</a>
@@ -659,7 +739,7 @@ Enter the Yoneak world to shop like unique.
 			
 		</div>	
 			</div>
-	<header class="" style="border-radius:0px; background-color: #4169e1 !important;">
+	<header class="navbar-fixed-bottom" style="border-radius:0px; background-color: #080771 !important;">
 		<div class="w3-card-4" style="">
 				<div style="text-align: center; padding:5px;">
 			<table border="0" align="center">
@@ -806,66 +886,7 @@ Enter the Yoneak world to shop like unique.
 			                  });
 		   </script>
 
-		    <!---user detail -->
-			<script>
-			$(document).ready(function()
-		    {	
-		     var  user_id=localStorage.userID;
-		      var i=0;
-		    $.post('http://yoneak.com/web_services/user_detail.php?user_id='+user_id,function(res)
-		    { 
-			var newlead_div1_data="";
-			console.log(res);
-			if((localStorage.userID!=null) || (localStorage.userID))
-
-		                {
-
-				        
-							newlead_div1_data='<div class="row" style="background-color:#4169e1;">'+
-					                      '<div class="col-xs-5" style="padding-top:2%">'+
-						                   '<a href="">'+
-							     '<img src="img/menu-user.png" class="img-circle" style="width:60px;height:60px;">'+
-						         '</a>'+
-					'</div>'+
-					'<div class="col-xs-6" style="padding:5% 0% 0% 0%">'+
-						'<a href="">'+
-							'<h5 style="font-size:14px;color:#fff">'+res.user_name+'</h5>'+
-						'</a>';
-						newlead_div1_data+='<a href="" class="ui-link">'+
-							'<h6 style="color:#fff">'+res.user_email+'</h6>'+
-						'</a>'+
-					'</div>';
-				    	     $('#ser_valoue').append(newlead_div1_data);
-				    	 }
-				    	 else
-				    	 {
-				    	newlead_div1_data='<div onclick="main()" class="row" style="background-color:#4169e1;">'+
-					                      '<div class="col-xs-5" style="padding-top:2%">'+
-						                   '<a href="">'+
-							     '<img src="img/menu-user.png" class="img-circle" style="width:60px;height:60px;">'+
-						       '</a>'+
-					'</div>'+
-					'<div class="col-xs-6" style="padding:5% 0% 0% 0%">'+
-						'<a href="">'+
-							'<h5 style="font-size:14px;color:#fff">SIGN IN</h5>'+
-						'</a>'+
-						'<a href="" class="ui-link">'+
-							'<h6 style="color:#fff">Get a personalized experience</h6>'+
-						'</a>'+
-					'</div>';
-
-					       $('#ser_valoue').append(newlead_div1_data);
-
-				    	 }
-				    	     
-				              },"json");
-
-			                  });
-
-          </script>
-
-            <!---End user detail -->
-
+		   
             <!---wallet detail -->
 			<script>
 			$(document).ready(function()
