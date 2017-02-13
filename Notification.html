@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Cashback Offer,Discount Coupons,Promo Codes - YONEAK</title>
+		<link rel="shortcut icon" type="image/x-icon" href="favicon2.ico" />
+		<link rel="icon" type="image/x-icon" href="favicon2.ico" />
+		<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />		
+		<link rel="stylesheet" href="css/w3.css">
+		<link rel="stylesheet" href="css/w3-theme-black.css">
+	
+	     <link rel="stylesheet" href="css/slider.css" type="text/css">
+
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
+			<style> 
+			#map-page, #map-canvas
+			{ 
+				width: 100%; 
+				height: 100%; 
+				padding: 0; 
+			}
+
+			.ui-body-f 
+			{
+				font-weight: bold;
+				padding: 0;
+				background-color: white;
+			}
+			.tr-head 
+			{
+				border-bottom: 1px solid white;
+				background: #ff6666;
+				color: white;
+			}
+			.tr-content 
+			{
+				border-bottom: 1px solid #ff6666;
+				background: white;
+				color: #ff6666;
+			}
+			.has-odd-thumb li a 
+			{
+				padding-left: 50px !important;
+			}
+			.thumbContainer 
+			{
+				position: absolute;
+				left: 0; top: 0; bottom: 0;
+				width: 50px;
+			}
+			ul.tab 
+			{
+				list-style-type: none;
+				margin: 0;
+				padding: 0;
+				overflow: hidden;
+				background-color: #f1f1f1;
+			}
+
+			ul.tab li 
+			{
+				float: left;
+			}
+
+			ul.tab li a 
+			{
+				display: inline-block;
+				color: black;
+				text-align: center;
+				padding: 14px 16px;
+				text-decoration: none;
+				transition: 0.3s;
+				font-size: 16px;
+			}
+
+			ul.tab li a:focus, .active 
+			{
+				
+				
+			}
+			
+			.activeN 
+			{
+				background-color: #fff;
+				outline:none;
+				padding-right: 54%;
+				width: 250px !important;
+				height: 85px;
+			}
+			.activeC
+			{
+				background-color: #ffffff!important;
+				width:50px !important;
+			}
+			
+			.tabcontent 
+			{
+				display: none;
+				padding: 6px 12px;
+				-webkit-animation: fadeEffect 1s;
+				animation: fadeEffect 1s;
+			}
+			
+			
+			@-webkit-keyframes fadeEffect 
+			{
+				from {opacity: 0;}
+				to {opacity: 1;}
+			}
+
+			@keyframes fadeEffect 
+			{
+				from {opacity: 0;}
+				to {opacity: 1;}
+			}
+	
+		</style>
+		<style>
+			.owl-controls
+			{
+				display: none !important;
+			}
+			.anchor	a
+			{
+				color:#FF4087;
+				text-decoration:none;
+			}
+			.anchor a:hover
+			{
+				color:#F7741C;
+				text-decoration:none;
+			}
+			span
+			{
+				color:#FF4087;
+				text-decoration:none;
+			}
+			span:hover
+			{
+				color:#F7741C;
+				text-decoration:none;
+			}
+			a
+			{
+				color:#FF4087;
+				text-decoration:none;
+			}
+			a:hover
+			{
+				color:#F7741C;
+				text-decoration:none;
+			}
+		</style>
+		
+		<style>
+            .jssorb05 
+			{
+				position: absolute;
+			}
+			.jssorb05 div, .jssorb05 div:hover, .jssorb05 .av 
+			{
+				position: absolute;
+                width: 16px;
+				height: 16px;
+				background: url('img/b05.png') no-repeat;
+				overflow: hidden;
+				cursor: pointer;
+			}
+			.jssorb05 div 
+			{ 
+				background-position: -7px -7px; 
+			}
+			.jssorb05 div:hover, .jssorb05 .av:hover 
+			{ 
+				background-position: -37px -7px; 
+			}
+			.jssorb05 .av 
+			{ 
+				background-position: -67px -7px; 
+			}
+			.jssorb05 .dn, .jssorb05 .dn:hover 
+			{ 
+				background-position: -97px -7px; 
+			}
+			.jssora12l, .jssora12r 
+			{
+				display: block;
+				position: absolute;
+                width: 30px;
+				height: 46px;
+				cursor: pointer;
+				background: url('img/a12.png') no-repeat;
+				overflow: hidden;
+			}
+			.jssora12l 
+			{ 
+				background-position: -16px -37px; 
+			}
+			.jssora12r 
+			{ 
+				background-position: -75px -37px; 
+			}
+			.jssora12l:hover 
+			{ 
+				background-position: -136px -37px; 
+			}
+			.jssora12r:hover 
+			{ 
+				background-position: -195px -37px; 
+			}
+			.jssora12l.jssora12ldn 
+			{ 
+				background-position: -256px -37px; 
+			}
+			.jssora12r.jssora12rdn 
+			{
+				background-position: -315px -37px; 
+			}
+			.ui-panel-inner
+			{
+				padding:0em;
+			}
+			html,body
+			{
+				font-family: "Open Sans";
+				font-size: 14px;
+			}
+			
+			#top-categoies .owl-item
+			{
+				width:110px!important;
+			}
+		</style>
+		<style>
+			button.accordion 
+			{ 
+				background-color: #eee;
+				color: #444;
+				cursor: pointer;
+				width: 100%;
+				border: none;
+				text-align: left;
+				outline: none;
+				font-size: 14px;
+				transition: 0.4s;
+			}
+			
+			.panel
+			{
+				margin-bottom:0px!important;
+			}
+
+			button.accordion.active, button.accordion:hover 
+			{
+				background-color: #ddd;
+			}
+
+			div.panel 
+			{
+				background-color: white;
+				max-height: 0;
+				overflow: hidden;
+				transition: 0.6s ease-in-out;
+				opacity: 0;
+			}
+
+			div.panel.show 
+			{
+				opacity: 1;
+				max-height: 500px;  
+			}
+
+   #nav 
+   {
+    list-style:none inside;
+    margin:0;
+    padding:0;
+    text-align:center;
+   }
+
+   #nav li 
+   {
+    display:block;
+  
+    background: #f9f9f9; 
+   }
+
+   #nav li a 
+   {
+    display:block;
+    padding:0;
+    text-decoration:none;
+    width:160px; 
+    line-height:35px; 
+    color: #38c;
+   }
+    
+   #nav li li a 
+   {
+    font-size:80%;
+    color: #38c;
+   }
+    
+   #nav li:hover 
+   {
+    background:#38c;    
+   }
+
+   #nav ul 
+   {    
+    padding:0;
+    left:0;
+    display:none; 
+   }
+   #nav a:hover
+   {
+    color:white;
+   }
+   
+   #nav li:hover ul 
+   {
+    display:block;
+   } 
+   .dropdown-content 
+			{
+				display: none;
+				z-index:6;
+				position: absolute;
+				min-width: 160px;
+				box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);		
+			}
+
+			.dropdown-content a 
+			{
+				color: light-grey;
+				padding: 12px;
+				text-decoration: none;
+				display: block;
+			}
+
+			.dropdown-content a:hover 
+			{
+				background-color: #ff6666;
+			}
+
+			.dropdown:hover .dropdown-content 
+			{
+				display: block;
+			}
+			#cat.owl-item
+			 {
+			  width:50px;
+			 
+			 }
+		</style>
+		  <style>
+            button.accordion 
+            {
+                background-color: #eee;
+                color: #444;
+                cursor: pointer;
+                width: 100%;
+                border: none;
+                text-align: left;
+                outline: none;
+                font-size: 15px;
+                transition: 0.4s;
+            }
+
+            button.accordion.active, button.accordion:hover 
+            {
+                background-color: #ddd;
+            }
+
+            button.accordion:after 
+            {
+                content: '\02795';
+                font-size: 13px;
+                color: #777;
+                float: right;
+                margin-left: 5px;
+            }
+
+            button.accordion.active:after 
+            {
+                content: "\2796";
+            }
+
+            div.panel 
+            {
+                padding: 0 18px;
+                background-color: white;
+                max-height: 0;
+                overflow: hidden;
+                transition: 0.6s ease-in-out;
+                opacity: 0;
+            }
+
+            div.panel.show 
+            {
+                opacity: 1;
+                max-height: 500px;  
+            }
+        </style>
+		<script src="js/jquery-1.11.3.min.js"></script>
+		<script src="js/jquery.mobile-1.4.5.min.js"></script>
+		<script src="http://maps.google.com/maps/api/js?libraries=geometry&sensor=false"></script>
+		<script src="js/jssor.slider.min.js"></script>
+		<script src="js/owl.carousel.min.js"></script>
+		<script src="js/login.js"></script>
+	    <script src="js/logout.js"></script>
+	    <script src="js/account.js"></script>
+	    <script src="js/home.js"></script>
+	    <script src="js/walletdetail.js"></script>
+		<script src="js/totalwallet-amount.js"></script>
+		<script src="js/storehome.js"></script>
+		<script src="js/producthome.js"></script>
+		<script src="js/couponcode.js"></script>
+		<script src="js/cat.js"></script>
+		<script src="js/subcat.js"></script>
+		<script src="js/home_category.js"></script>
+		<script src="js/external.js"></script>
+		<script src="js/deal.js"></script>
+		<script src="js/refair-earn.js"></script>
+		<script src="js/user_detail.js"></script>
+	 <script>
+		function refer()
+		{
+			location.href="Refer_Earn.html";
+		}
+		function about()
+		{
+		location.href="about.html";
+		}
+       function costPerView()
+	    {
+        location.href="home-CPV.html";
+	    }
+        function costPerClick()
+	   {
+	   location.href="home-CPC.html"; 
+	    }
+       function CostPerAppDownload()
+	   {
+    	location.href="home-CPD.html";
+    	}
+      function main()
+      {
+ 	location.href="main_login.html";
+     }
+      function contact()
+        {
+	    location.href="contact.html";
+       }
+
+		function yoneak()
+		{
+			location.href="yoneak.html";
+		}
+		function term()
+		{
+			location.href="Term&Condition.html";
+		}
+		function faq()
+		{
+			location.href="faq.html";
+		}
+		function privacy()
+		{
+			location.href="privacy_policy.html";
+		}
+		function support()
+		{
+			location.href="support.html";
+		}
+		</script>
+
+
+	</head>
+	<body>
+		<div  data-role="panel" id="nmyPanel1" data-display="overlay" style="width:280px; position: fixed; z-index: 99999 !important;"> 
+			<div class="col-xs-12" style="height:640px;overflow-y:auto;">
+			<div id="ser_valoue">
+				
+			</div>
+			
+				
+				<div class="row" >
+					<ul style="list-style-type: none;padding-left:5%;padding-top:5%">
+					<div id="login_data2">
+						
+					</div>
+					<script>
+				$(document).ready(function(){
+
+							var login_data2='';
+
+		              	if((localStorage.userID!=null) || (localStorage.userID))
+
+		                {
+
+		                	login_data2='<li id="dataamount" style="line-height:3em">'+
+							
+						    '</li>';
+
+                             $('#login_data2').html(login_data2);
+
+		                }
+
+		                else
+
+		                {
+
+		                }
+
+						});
+
+                     </script>		
+						<li style="line-height:3em">
+							<a  href="" style="color:#000;text-decoration:none;">
+								<img src="img/my_coupons.png" style="width:25px;height:25px">
+								<span onclick="couponcode()" style="color:#000;padding-top:5%">My Coupans</span>								
+							</a>
+						</li>
+						<li style="line-height:3em">
+							<a  href="" style="color:#000;text-decoration:none;">
+								<img src="img/refer & earn.png" style="width:25px;height:25px">
+								<span onclick="refer()"  style="color:#000;padding-top:5%">Refer & Earn</span>								
+							</a>
+						</li>
+						<li onclick="support()" style="line-height:3em">
+							<a  href="" style="color:#000;text-decoration:none;">
+								<img src="img/support.png" style="width:25px;height:25px">
+								<span style="color:#000;padding-top:5%">Support</span>									
+							</a>
+						</li >
+					</ul>
+					<hr style="border-bottom:1px solid grey;">
+					<ul style="list-style-type: none;padding-left:5%;">
+						<li style="line-height:3em">
+							<a  href="" style="color:#000;text-decoration:none;">
+								<img src="img/stores.png" style="width:25px;height:25px">
+								<span  onclick="storehome()" style="color:#000;padding-top:5%">Stores</span>									
+							</a>
+						</li>
+						<!--<li style="line-height:3em">
+						 <div class="dropdown" > 
+							<a  style="text-decoration:none;">
+								<img src="img/categoies.png" style="width:25px;height:25px">
+								<span style="color:#000;padding-top:5%;cursor:pointer;" class="accordion">Categories</span>
+								</a>
+								<div class="dropdown-content">          
+						                 <ul id="nav" class="navbar">
+          	
+						                 </ul>
+					       </div> 
+					     </div>  	
+							
+						</li>-->
+						<li style="line-height:3em">
+							<a  style="text-decoration:none;">
+								<img src="img/categoies.png" style="width:25px;height:25px">
+								<span style="color:#000;padding-top:5%;cursor:pointer;" class="accordion">Categories</span>
+								<div class="panel" id="navbar" >
+
+							
+							   </div>
+									<!--<h5 style="cursor:pointer;padding-left:20%;" class="accordion">PayTm</h5>							
+									<div class="panel" style="text-align:center">
+										<h6 class="w3-center" style="cursor:pointer;">Mobile</h6>
+										<h6 class="w3-center" style="cursor:pointer;">Furniture</h6>
+										<h6 class="w3-center" style="cursor:pointer;">Electricity</h6>
+									</div>	
+									<h5 style="cursor:pointer;padding-left:20%;" class="accordion">eBay</h5>							
+									<div class="panel" style="text-align:center">
+										<h6 class="w3-center" style="cursor:pointer;">Mobile</h6>
+										<h6 class="w3-center" style="cursor:pointer;">Furniture</h6>
+										<h6 class="w3-center" style="cursor:pointer;">Electricity</h6>
+									</div>-->	
+								</div>		
+							</a>
+						</li>
+						
+							<a  style="text-decoration:none;">
+								<img src="img/vochers.png" style="width:25px;height:25px">
+								<span style="color:#000;cursor:pointer;" class="accordion">Earn More</span>							
+								<div class="panel">
+									<h5 onclick="costPerClick()" style="padding-left:20%;cursor:pointer;">PPC</h5>
+									<h5 onclick="CostPerAppDownload()" style="padding-left:20%;cursor:pointer;">PPD</h5>
+									<h5 onclick="costPerView()" style="padding-left:20%;cursor:pointer;">PPS</h5>
+								</div>																
+							</a>
+							<script>
+								var acc = document.getElementsByClassName("accordion");
+								var i;
+								for (i = 0; i < acc.length; i++) 
+								{
+									acc[i].onclick = function()
+									{
+										this.classList.toggle("active");
+										this.nextElementSibling.classList.toggle("show");
+									}
+								}
+							</script>
+						
+					</ul>
+					<hr style="border-bottom:1px solid grey;">
+					<ul style="list-style-type: none;padding-left:10%;">
+						<li onclick="contact()" style="line-height:3em">
+							<a  href="" style="color:#000;text-decoration:none;">
+								Feedback
+							</a>
+						</li >
+						<li onclick="term()" style="line-height:3em">
+							<a  href="" style="color:#000;text-decoration:none;">
+								Term and condition
+							</a>
+						</li>
+						<li onclick="faq()" style="line-height:3em">
+							<a  href="" style="color:#000;text-decoration:none;">
+								FAQ
+							</a>
+						</li>
+						<li onclick="privacy()" style="line-height:3em">
+							<a  href="" style="color:#000;text-decoration:none;">
+								Privacy Policy.
+							</a>
+						</li>
+						<li style="line-height:3em">
+							<a  href="" style="color:#000;text-decoration:none;">
+								Rate Us
+							</a>
+						</li>
+						<li onclick="about()" style="line-height:3em">
+							<a  href="" style="color:#000;text-decoration:none;">
+								About Us
+							</a>
+						</li>
+						<li style="line-height:3em">
+							<a  href="" style="color:#000;text-decoration:none;">
+								Share App
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div data-role="header" style="background:#080771 none repeat scroll 0 0 !important" data-theme="b" data-position="fixed">
+			<a href="#nmyPanel1" style="width:40px;height:40px;margin-left:10px;margin-top:5px;background-color: #080771;border-color: #080771;	color: #fff;
+				text-shadow: 0 1px 0 #111;" class="ui-btn ui-corner-all ui-icon-bars ui-btn-icon-notext" data-transition="slide">
+				
+			</a>
+			<table border="0" align="center">
+				<tr align="Center">								
+					<th width="500px" height="50">
+						<img src="yo.png" id="logo" onclick="mainPage()" class="w3-center" style="cursor:pointer;margin:0 auto;height:45px;display:block;outline:none;">	
+					</th>					
+					<th width="100px" height="50" style="font-size:15px;">						
+						<a>
+							<i class="fa fa-search w3-large" id="searchButton"  style="cursor:pointer;color:#fff"></i>
+						</a>
+					</th>
+					<th width="100px" height="50" style="font-size:15px;">
+						<a>
+							<i  class="fa fa-bell w3-large" style="cursor:pointer;color:#fff"></i>
+						</a>
+					</th>
+					<th width="100px" height="50" style="font-size:15px;">
+						<a onclick="goToCart();">
+							<i  class="fa fa-shopping-cart w3-large" style="cursor:pointer;color:#fff"></i>
+						</a>
+					</th>
+				</tr>
+			</table>			
+		</div>
+   
+		<div class="w3-card-4" id="searchDiv" style="border-radius:15px; display:none;">
+			<div  padding-right:15px;padding-top:5px;">
+			<form class="ui-filterable">
+				<h6 align="center">Find product with your requirements & needs.</h6>
+				<div style="padding-bottom:10px;">
+				<input type="search" id="searchKey" onkeyup="searchProject()" autofocus="true" placeholder="Search for Product">
+				</div>
+				 <span>
+                      <button type="button" id="search" onclick="search()" name='search_click'><i class="fa fa-search"></i></button>
+                </span>
+			</form>
+		</div>
+	    </div>		
+		</br>
+<script>
+var toggle=1;
+$("#searchButton").click(function(){
+			
+		if(toggle==1)
+		{
+			$("#searchDiv").show();
+			toggle=2;
+		}
+		else
+		{
+			$("#searchDiv").hide();
+			toggle=1;
+		}
+		
+});
+$('#search').click(function(){
+var searchKey=$('#searchKey').val();
+if(searchKey!="")
+	{
+		localStorage.setItem("searchKey",searchKey);
+		location.href="search-result.html";
+	}
+	else
+	{
+		alert("Search Value should not be blank.");
+	}	
+});
+</script>
+			
+		<header class="w3-container" style="border-radius:15px;">
+
+		</header>
+		 <div id="external_product1" >
+		 
+		
+        </div>
+      
+			
+		
+	<header class="navbar-fixed-bottom" style="border-radius:0px; background-color: #080771 !important;">
+		<div class="w3-card-4" style="">
+				<div style="text-align: center; padding:5px;">
+			<table border="0" align="center">
+				<tr align="Center">								
+					<script>
+
+				$(document).ready(function(){
+
+							var login_data1='';
+
+		              	if((localStorage.userID!=null) || (localStorage.userID))
+
+		                {
+
+		                	login_data1='<div  id="walletId" onclick="walletdetail()">'+
+							
+						       '</div>';
+
+							
+
+                             $('#login_data1').html(login_data1);
+
+		                }
+
+		                else
+
+		                {
+
+		                }
+
+
+
+						});
+
+                     </script>		
+					<th id="login_data1"  width="50" height="50">
+						
+					</th>
+			
+					<div class="col-md-2 col-sm-2 col-xs-2">
+					<th width="550" height="50" style="font-size:15px; text-align: center;">
+						<h6 style="color:#fff;">Copyright &copy; 
+							<a target="_blank" href="http://yoneak.com/">
+								<i style="color:#ff6666;">Yoneak.com</i>
+							</a>
+						</h6>
+					</th>
+					</div>
+					<th width="100" height="50" style="font-size:15px;">
+						<div  onclick="logout()">
+					<script>
+						$(document).ready(function(){
+
+							   totalwalletAmount();
+
+							var login_div_data='';
+		              	//if((localStorage.userID===null) || !(localStorage.userID))
+		                //{
+		                	//login_div_data='<a href="login.html"><i class="fa fa-sign-in w3-xxlarge" aria-hidden="true" style="cursor:pointer;"></i>'+
+							//'<div style="color:#fff;">Login</div>'+
+							//'</a>';
+                            // $('#login_div_data').html(login_div_data);
+		                //}
+		               // else
+		                //{
+		                	//login_div_data='<a href="login.html"><i class="fa fa-sign-out w3-xxlarge" aria-hidden="true" style="cursor:pointer;"></i>'+
+							//'<div style="color:#fff;">Logout</div>'+
+							//'</a>';
+                            //$('#login_div_data').html(login_div_data);
+		                //}
+		                
+
+						});
+					
+                      </script>
+                      <div id="login_div_data"></div>
+						</div>
+					</th>
+				</tr>
+			</table>				
+		</div>
+		</div>
+		</header>
+		  
+		    <script>
+			$(document).ready(function()
+		    {	
+		    var  user_id=localStorage.userID;
+		    $.post('http://yoneak.com/web_services/username.php?user_id='+user_id,function(res){
+			    var i=0;
+				var newleads_div_data="";
+				 console.log(res);
+				           newleads_div_data='<h5 style="color: #29b0e2;" class="w3-center"> '+res.user_name+ ' Click History</h5>';
+
+				    	     $('#userdata').append(newleads_div_data);
+				    	     
+				              },"json");
+
+			                  });
+		   </script>
+
+		   
+            <!---wallet detail -->
+			<script>
+			$(document).ready(function()
+		    {	
+		     var  user_id=localStorage.userID;
+		     
+		    $.post('http://yoneak.com/web_services/wallet_detail.php?user_id='+user_id,function(res)
+		    { 
+			var newleads_data="";
+			var amount="0.00";
+			console.log(res);
+				           newleads_data='';
+								
+							if(res.status==1)
+							{
+								amount=res.wallet_amount;
+							}
+							newleads_data=newleads_data+'<a  href="" style="color:#000;text-decoration:none;"><img src="img/dashboard.png" style="width:25px;height:25px">'+
+								'<span onclick="account()" style="color:#000;padding-top:5%">Dashboard</span>'+
+								'<span  class="pull-right" style="padding-right:6%">'+
+								'<i class="fa fa-inr" aria-hidden="true"> '+amount+'</i>'+
+								'</span>'+
+							'</a>';
+				    	     $('#dataamount').append(newleads_data);
+				    	     
+				              },"json");
+
+			                  });
+
+          </script>
+          <script>
+            var acc = document.getElementsByClassName("accordion");
+            var i;
+            for (i = 0; i < acc.length; i++) 
+            {
+                acc[i].onclick = function()
+                {
+                    this.classList.toggle("active");
+                    this.nextElementSibling.classList.toggle("show");
+                }
+            }
+        </script>
+   
+      
+        <script>
+			$(document).ready(function()
+		    {	
+		    $.post('http://yoneak.com/web_services/external_product.php',function(res){
+			    var i=0;
+			    var urlId="";
+			    var url="";
+				var newleads_div_data="";
+				$.each(res, function( key, value ) 
+				    {
+				    switch(i)
+				    	{
+
+				   case 0: url=value.url;
+				         newleads_div_data='<div class="row" style="background:lightgrey margin-bottom:2%">';
+
+				    break;	
+				    		
+				       case 1:
+            
+				        newleads_div_data+= ' <div class="col-xs-12">'+
+				                               '<div class="col-xs-4">'+
+
+					                        '<a href="'+url+'"><img src="http://yoneak.com/admin/external_image/'+value.image+'" class="img-circle" target="blank" style="padding:2%;width:70px;height:72px; cursor:pointer;"></a>&nbsp;&nbsp;</div>';
+					               
+
+				    	break;
+
+				    	 case 2:
+				        newleads_div_data+='<div class="col-xs-8">'+
+				                               '<h5>'+value.product_name+'</h5>';
+				    	break;
+
+				    	case 3:
+				        newleads_div_data+='<h6>Selling Price:'+value.selling_price+'</h6>'+
+                                             '</div>'+
+                                              '</div></div><br><br>';
+				    	break;
+			            
+				    	  }
+				    	       i=i+1;
+				    	       i%=8;
+				    	       if(i==0)
+				    	       {
+
+				    	     $('#external_product1').append(newleads_div_data);
+				    	       }
+
+                               });
+					
+				              },"json");
+
+			                 });
+			    </script>
+
+		   <script>
+function goToCart()
+{
+	location.href="cartDetail.html";
+}			
+function mainPage()
+{
+	location.href="yoneak.html";
+}
+	
+				           </script>		   
+	</body>
+</html>
