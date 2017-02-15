@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+		<title>Yoneak</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<style>
+			body
+			{
+				background-color: #003d8c ;
+			}
+			.login-box
+			{		
+				width:100%;				
+				background-color: #fff;
+				box-shadow: 0px 5px 5px 5px rgba(0,0,0,0.33);
+			}
+			.lb-header
+			{
+				padding-bottom:10%;
+				line-height: 48px;
+			}
+			.lb-header a
+			{				
+				padding: 0 20px;
+				text-decoration: none;
+				color: #c0c0c0;
+				font-weight: lighter;
+				font-size: 14px;
+				-webkit-transition: all 0.1s linear;
+				-moz-transition: all 0.1s linear;
+				transition: all 0.1s linear;
+			}
+			.lb-header .active
+			{
+				color: #fff;
+				font-size: 15px;
+				outline:none;
+				padding-bottom: 10px;
+				border-bottom: 1px solid red;
+				line-height: 48px;
+			}
+			.social-login
+			{					
+				padding: 15px 0 0 0;
+				
+			}
+			.social-login a
+			{				
+				float: left;
+				width:44%;
+				text-decoration: none;
+				color: #fff;
+				padding: 14px;
+				font-size: 14px;
+				text-transform: uppercase;
+				margin: 1% 3% 8%;
+				box-shadow: 0px 2px 2px 2px rgba(0,0,0,0.33);
+			}
+			.social-login a i
+			{				
+				float: left;				
+			}
+			.social-login a:first-child
+			{
+				background-color: #49639F;
+			}
+			.social-login a:last-child
+			{
+				background-color: #DF4A32;
+			}
+			.email-login,.email-signup
+			{				
+				float: left;
+				width: 100%;				
+				margin-top: 20px;
+				text-align:center;
+			}
+			.u-form-group
+			{
+				width:100%;
+				margin-bottom: 10	px;
+			}
+			.u-form-group input[type="email"],
+			.u-form-group input[type="password"],
+			.u-form-group input[type="text"]
+			{
+				width: calc(80% - 22px);
+				height:50px;
+				outline: none;
+				border-radius: 2px;				
+				font-size: 1.2rem;				
+				background-color: transparent;   
+				border: 0px solid;
+				text-align:left;
+			}
+			
+			.u-form-group input:focus
+			{
+				border-color: #358efb;
+			}
+			.u-form-group button
+			{
+				width:80%;
+				background-color:#003d8c ;
+				border: none;
+				outline: none;
+				color: #fff;
+				font-size: 14px;
+				font-weight: normal;
+				padding: 8px 0;
+				text-transform: uppercase;				
+			}
+		</style>
+	</head>
+	<body>		
+		<div data-role="header" style="background:#003d8c  none repeat scroll 0 0 !important;color:#fff" data-theme="b" data-position="fixed">
+			<table border="0" align="center">
+				<tr align="Center">
+					<th width="50px" height="50">
+					</th>
+					<th width="100px" height="50">
+						<a href=""><i class="fa fa-arrow-left" style="font-size:22px;color:#fff"></i></a>
+					</th>
+					<th width="500px" height="50">
+						<h3 style="font-size:20px">Edit Profile</h3>
+					</th>
+				</tr>
+			</table>			
+		</div>
+		<div class="row">
+			<div class="col-md-12 col-sm-12 col-xs-12">
+				<div class="row">
+					<div class="col-md-12">						
+						<div class="login-box">	
+							<div class="row">
+								<div class="col-md-12 col-sm-12 col-xs-12">
+									<form class="email-login">
+										<div class="u-form-group">
+											<img class="img-circle" src="img/user.png" style="height:100px;width:100px;cursor:pointer">
+										</div>
+										</br>
+										<div class="u-form-group">
+											<input placeholder="Name" type="text">
+										</div>
+										<div class="u-form-group">
+											<input placeholder="Email" type="email">
+										</div>
+										<div class="u-form-group">
+											<input placeholder="Birth Date (DD-MM-YYYY)" type="text">
+										</div>
+										<div class="u-form-group">
+											<input placeholder="Password" type="password">
+										</div>
+										<div class="u-form-group">
+											<input placeholder="City" type="text">
+										</div>
+										<div class="u-form-group">
+											<input placeholder="State" type="text">
+										</div>
+										<div class="u-form-group">
+											<input placeholder="Enter Mobile Number" type="text">
+										</div>
+										<div class="u-form-group" >
+											<button id="registerData" onclick="submit_detail();">UPDATE PROFILE</button>											
+										</div>											
+									</form>
+								</div>
+							</div>
+							</br>
+						</div>
+					</div>
+				</div>
+			</div>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.js"></script>		
+	</body>
+</html>

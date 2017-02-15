@@ -723,16 +723,16 @@ if(searchKey!="")
 		<header class="w3-container" style="border-radius:15px;">
 
 		</header>
-		 <div id="external_product1" >
+		 <div id="external_product1" style="margin-bottom: 70px;" >
 		 
 		
         </div>
       
 			
 		
-	<header class="navbar-fixed-bottom" style="border-radius:0px; background-color: #080771 !important;">
+	<header class="navbar-fixed-bottom" style="border-radius:0px; background-color: #080771 !important; z-index: 1 !important; margin-top: 30px;">
 		<div class="w3-card-4" style="">
-				<div style="text-align: center; padding:5px;">
+				<div style="text-align: Center; padding-right:15px;padding-top:5px; text-shadow: 0 0px 0 !important;">
 			<table border="0" align="center">
 				<tr align="Center">								
 					<script>
@@ -774,7 +774,7 @@ if(searchKey!="")
 					<th width="550" height="50" style="font-size:15px; text-align: center;">
 						<h6 style="color:#fff;">Copyright &copy; 
 							<a target="_blank" href="http://yoneak.com/">
-								<i style="color:#ff6666;">Yoneak.com</i>
+								<i style="color:#fff;">Yoneak.com</i>
 							</a>
 						</h6>
 					</th>
@@ -881,9 +881,11 @@ if(searchKey!="")
 			$(document).ready(function()
 		    {	
 		    $.post('http://yoneak.com/web_services/external_product.php',function(res){
-			    var i=0;
-			    var urlId="";
+			     var i=0;
+			    var proId="";
+			    var product_name="";
 			    var url="";
+			    var countid=1;
 				var newleads_div_data="";
 				$.each(res, function( key, value ) 
 				    {
@@ -892,6 +894,7 @@ if(searchKey!="")
 
 				   case 0: url=value.url;
 				         newleads_div_data='<div class="row" style="background:lightgrey margin-bottom:2%">';
+				         newleads_div_data+='<input type="hidden" id="url'+countid+'" value="'+url+'">';
 
 				    break;	
 				    		
@@ -900,7 +903,7 @@ if(searchKey!="")
 				        newleads_div_data+= ' <div class="col-xs-12">'+
 				                               '<div class="col-xs-4">'+
 
-					                        '<a href="'+url+'"><img src="http://yoneak.com/admin/external_image/'+value.image+'" class="img-circle" target="blank" style="padding:2%;width:70px;height:72px; cursor:pointer;"></a>&nbsp;&nbsp;</div>';
+					                        '<a onclick="trackOffer('+countid+');" href="javascript:void(0);"><img src="http://yoneak.com/admin/external_image/'+value.image+'" class="img-circle" target="blank" style="padding:2%;width:70px;height:72px; cursor:pointer;"></a>&nbsp;&nbsp;</div>';
 					               
 
 				    	break;
@@ -908,6 +911,9 @@ if(searchKey!="")
 				    	 case 2:
 				        newleads_div_data+='<div class="col-xs-8">'+
 				                               '<h5>'+value.product_name+'</h5>';
+				        product_name=value.product_name;
+
+				        newleads_div_data+='<input type="hidden" id="proName'+countid+'" value="'+product_name+'">';
 				    	break;
 
 				    	case 3:
@@ -915,12 +921,19 @@ if(searchKey!="")
                                              '</div>'+
                                               '</div></div><br><br>';
 				    	break;
+
+				    	case 4: proId=value.pro_id;
+				         newleads_div_data+='<input type="hidden" id="proId'+countid+'" value="'+proId+'">';
+
+				         break;
 			            
 				    	  }
 				    	       i=i+1;
 				    	       i%=8;
 				    	       if(i==0)
 				    	       {
+
+				    	       	countid=countid+1;
 
 				    	     $('#external_product1').append(newleads_div_data);
 				    	       }
@@ -930,6 +943,38 @@ if(searchKey!="")
 				              },"json");
 
 			                 });
+
+function trackOffer(urlId)
+{
+	var url=$("#url"+urlId).val();
+	var proName=$("#proName"+urlId).val();
+	var proId=$("#proId"+urlId).val();
+	
+
+	if((localStorage.userID===null) || !(localStorage.userID))
+	{
+		
+
+		localStorage.setItem("url",url);
+		localStorage.setItem("proName",proName);
+		localStorage.setItem("proId",proId);
+		window.location="login.html";
+	}
+	else{
+		var userId=localStorage.userID;
+		$.post('http://yoneak.com/web_services/track_offer2.php?userId='+userId+'&affiliateId='+proId+'&referral_url='+url+'&product_name'+proName,function(res){
+			
+			if(res.message=="success")
+			{
+				window.location=url;
+			}
+			else{
+				alert("Something Went wrong");
+			}
+		 
+		},"json");
+	}
+}
 			    </script>
 
 		   <script>

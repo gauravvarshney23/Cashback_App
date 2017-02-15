@@ -410,6 +410,8 @@ border-radius: 0% !important;
 		<script src="js/external.js"></script>
 		<script src="js/slider.js"></script>
 		<script src="js/user_detail.js"></script>
+		<script src="js/cart_item.js"></script>
+		<script src="js/cart.js"></script>
 		
 		<script>
 		function yoneak()
@@ -436,17 +438,17 @@ border-radius: 0% !important;
 		{
 			location.href="Notification.html";
 		}
+		function edit()
+		{
+			location.href="edit-profile.html";
 
+		}
 		</script>
 <!-- how its work css and js code start -->
 
 <!-- how its work css and js code end -->	
 	</head>
-	<body>	
-	 <div  data-role="main" class="ui-content" data-transition="flow" onload="yoneak()" >
-    
-  </div>
-  
+	<body>
 		<div  data-role="panel" id="nmyPanel1" data-display="overlay" style="width:280px; position: fixed;"> 
 			<div class="col-xs-12" style="height:640px;overflow-y:auto;">
 			<div id="ser_valoue">
@@ -658,10 +660,7 @@ border-radius: 0% !important;
 							<i  class="fa fa-bell w3-large" style="cursor:pointer;color:#fff"></i>
 						</a>
 					</th>
-					<th width="100px" height="50" style="font-size:15px;">
-						<a onclick="goToCart();">
-							<i  class="fa fa-shopping-cart w3-large" style="cursor:pointer;color:#fff"></i>
-						</a>
+					<th id="cart_data" width="100px" height="50" style="font-size:15px;">
 					</th>
 				</tr>
 			</table>			
@@ -1016,10 +1015,10 @@ border-radius: 0% !important;
 						                items:2
 						            },
 						            600:{
-						                items:4
+						                items:3
 						            },
 						            1000:{
-						                items:6
+						                items:4
 						            }
 						        }
 						    });
@@ -1134,8 +1133,8 @@ border-radius: 0% !important;
 				       case 0:
 
 				        newleads_div_data='<div class="activeN">'+
-					                        '<div class="w3-card-4" onclick="product('+value.pro_id+')" style="padding:0px;  width:320px; height: 123px;">';
-					                        urlId=value.id;
+					                        '<div class="w3-card-4"  style="padding:0px;  width:300px; height: 123px;">';
+					                 urlId=value.pro_id;
 
 				    	break;
 
@@ -1159,7 +1158,7 @@ border-radius: 0% !important;
 
 				    	 case 3:
 
-				      newleads_div_data+='<h6 style="border-radius:15px;color: #ff6666"> Rs.'+value.sell_price+'</h6><button style="width:100%;height:50px;border:0;">ADD TO CART</button>'+					
+				      newleads_div_data+='<h6 style="border-radius:15px;color: #ff6666"> Rs.'+value.sell_price+'</h6><button onclick="addToCart('+urlId+',1);"  style="width:100%;height:50px;border:0;">ADD TO CART</button>'+					
 					'</div>'+	
 					   '</div>'+
 					
@@ -1210,8 +1209,8 @@ border-radius: 0% !important;
 		<!---Footer Category-->
 
 			
-<script>
-$(document).ready(function()
+           <script>
+           $(document).ready(function()
 		    {	
 		    var  user_id=localStorage.userID;
 		    $.post('http://yoneak.com/web_services/footer_category.php',function(res){
@@ -1326,6 +1325,30 @@ $(document).ready(function()
 			                  });
 
           </script>
+    <script>
+    $(document).ready(function()
+    {	
+	$.getJSON("http://jsonip.com?callback=?", function (data)
+	{		
+	  var ipAddress=data.ip;
+		     
+		    $.post('http://yoneak.com/web_services/get_cartitem.php?ipAddress='+ipAddress,function(res)
+		    { 
+			var newleads_data="";
+			var amount="NO";
+			console.log(res);
+				newleads_data='<a onclick="goToCart();">'+
+				'<i class="fa fa-shopping-cart w3-large" style="cursor:pointer;color:#fff"><span>'+res.count+'</span></i>'+
+					'</a>';
+							
+				    	     $('#cart_data').append(newleads_data);
+				    	     
+				              },"json");
+
+		                  });
+	  });
+
+          </script>
 
           <!---end wallet detail -->
 
@@ -1428,7 +1451,7 @@ $(document).ready(function(){
 		  animation: 20s slidy infinite; 
 }
 
-div#slider figure img { width: 200px; height: 150px;}
+div#slider figure img { width: 250px; height: 200px;}
 
 div#slider { width: 100%; max-width: 100%; overflow: hidden }
 
