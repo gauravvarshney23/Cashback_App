@@ -409,6 +409,11 @@
 		{
 			location.href="Notification.html";
 		}
+		function edit()
+		{
+			location.href="edit-profile.html";
+
+		}
 
 		</script>
 	</head>
@@ -726,21 +731,21 @@ if(searchKey!="")
 
 							   totalwalletAmount();
 
-							var login_div_data='';
-		              	if((localStorage.userID===null) || !(localStorage.userID))
-		                {
-		                	login_div_data='<a href="login.html"><i class="fa fa-sign-in w3-xxlarge" aria-hidden="true" style="cursor:pointer;"></i>'+
-							'<div style="color:#fff;">Login</div>'+
-							'</a>';
-                             $('#login_div_data').html(login_div_data);
-		                }
-		                else
-		                {
-		                	login_div_data='<a href="login.html"><i class="fa fa-sign-out w3-xxlarge" aria-hidden="true" style="cursor:pointer;"></i>'+
-							'<div style="color:#fff;">Logout</div>'+
-							'</a>';
-                            $('#login_div_data').html(login_div_data);
-		                }
+							//var login_div_data='';
+		              //	if((localStorage.userID===null) || !(localStorage.userID))
+		              //  {
+		               // 	login_div_data='<a href="login.html"><i class="fa fa-sign-in w3-xxlarge" aria-hidden="true" style="cursor:pointer;"></i>'+
+						//	'<div style="color:#fff;">Login</div>'+
+						//	'</a>';
+                        //     $('#login_div_data').html(login_div_data);
+		               // }
+		              //  else
+		               // {
+		                //	login_div_data='<a href="login.html"><i class="fa fa-sign-out w3-xxlarge" aria-hidden="true" style="cursor:pointer;"></i>'+
+						//	'<div style="color:#fff;">Logout</div>'+
+						//	'</a>';
+                          //  $('#login_div_data').html(login_div_data);
+		              //  }
 		                
 
 						});

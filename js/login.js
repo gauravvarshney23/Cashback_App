@@ -77,7 +77,7 @@ $("#password_error_msg").fadeOut();
             }
             else{
                 alert("Something Went wrong");
-                window.location="account.html";
+                window.location="yoneak.html";
             }
         localStorage.removeItem("url");
         localStorage.removeItem("catName");
@@ -101,7 +101,7 @@ $("#password_error_msg").fadeOut();
             }
             else{
                 alert("Something Went wrong");
-                window.location="account.html";
+                window.location="yoneak.html";
             }
         localStorage.removeItem("url");
         localStorage.removeItem("proName");
@@ -116,7 +116,7 @@ $("#password_error_msg").fadeOut();
             else if(redirectPage==0)
             {
                  alert("Successfully Login.."); 
-                 window.location='account.html';
+                 window.location='yoneak.html';
             }
                                 
            

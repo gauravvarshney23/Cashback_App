@@ -62,6 +62,13 @@
 			{				
 				float: left;				
 			}
+			.img-circle
+{
+    width: 70px !important;
+    height: 60px !important;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
 			.social-login a:first-child
 			{
 				background-color: #49639F;
@@ -112,7 +119,46 @@
 				padding: 8px 0;
 				text-transform: uppercase;				
 			}
+
 		</style>
+		<style>
+        .myfileupload-buttonbar input
+        {
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin: 0;
+            border: solid transparent;
+            border-width: 0 0 100px 200px;
+            opacity: 0.0;
+            filter: alpha(opacity=0);
+            -o-transform: translate(250px, -50px) scale(1);
+            -moz-transform: translate(-300px, 0) scale(4);
+            direction: ltr;
+            cursor: pointer;
+        }
+        .myui-button
+        {
+            position: relative;
+            cursor: pointer;
+            text-align: center;
+            overflow: visible;
+            overflow: hidden;
+        }
+    </style>
+		<script src="js/jquery-1.11.2.min.js"></script>
+		<script src="js/jquery.mobile-1.4.5.min.js"></script>
+		<script src="js/jssor.slider.min.js"></script>
+		<script src="js/store.js"></script>
+
+		<script src="js/logout.js"></script>
+		<script>
+		function yoneak()
+		{
+			location.href="yoneak.html";
+
+		}
+		</script>
 	</head>
 	<body>		
 		<div data-role="header" style="background:#003d8c  none repeat scroll 0 0 !important;color:#fff" data-theme="b" data-position="fixed">
@@ -120,11 +166,14 @@
 				<tr align="Center">
 					<th width="50px" height="50">
 					</th>
-					<th width="100px" height="50">
+					<th onclick="yoneak()" width="100px" height="50">
 						<a href=""><i class="fa fa-arrow-left" style="font-size:22px;color:#fff"></i></a>
 					</th>
 					<th width="500px" height="50">
 						<h3 style="font-size:20px">Edit Profile</h3>
+					</th>
+					<th onclick="logout()" width="50px" height="50" style="cursor:pointer;">
+						<i  class="fa fa-power-off"></i>
 					</th>
 				</tr>
 			</table>			
@@ -136,34 +185,54 @@
 						<div class="login-box">	
 							<div class="row">
 								<div class="col-md-12 col-sm-12 col-xs-12">
-									<form class="email-login">
-										<div class="u-form-group">
-											<img class="img-circle" src="img/user.png" style="height:100px;width:100px;cursor:pointer">
-										</div>
+								<form class="email-login" id="profiledata" enctype="multipart/form-data">
+								<div class="w3-container" style="text-align:center;">
+								 <label class="myui-button">
+								<span style="color:red;">
+								<div class="myfileupload-buttonbar" style="text-align:center;">
+                                                <img id="profile_img" src="img/user.png" style="display:inline;border-radius:50%;width:40px;height:65px;margin-top:10px;cursor:pointer;"   id="profile_pic1" alt="User profile picture" > <input style="text-align:center;"  type="file" name="Profileimg" accept="image/*" id="chooseImg">
+                                                Change Image
+                                                  </div>
+                                 </span>
+                                 </label>
+								
+							 
+							   
+							   </div>
+
 										</br>
 										<div class="u-form-group">
-											<input placeholder="Name" type="text">
+											<input placeholder="Name" id="name" type="text">
+										</div>
+										<p style="color:red;" id="name_error_msg"></p>
+
+										<div class="u-form-group">
+											<input placeholder="Email" id="email" type="email" disabled="readonly">
+										</div>
+
+										<p style="color:blue;" id="email_error_msg"></p>
+										<div class="u-form-group">
+											<input placeholder="Birth Date (DD-MM-YYYY)" id="dob" type="text">
+										</div>
+
+										<p style="color:blue;" id="dob_error_msg"></p>
+										<div class="u-form-group">
+											<input placeholder="Password" id="pass" type="password">
+										</div>
+
+										<p style="color:blue;" id="password_error_msg"></p>
+
+										<div class="u-form-group">
+											<input placeholder="City" type="text" id="city">
 										</div>
 										<div class="u-form-group">
-											<input placeholder="Email" type="email">
+											<input placeholder="State" type="text" id="state">
 										</div>
 										<div class="u-form-group">
-											<input placeholder="Birth Date (DD-MM-YYYY)" type="text">
-										</div>
-										<div class="u-form-group">
-											<input placeholder="Password" type="password">
-										</div>
-										<div class="u-form-group">
-											<input placeholder="City" type="text">
-										</div>
-										<div class="u-form-group">
-											<input placeholder="State" type="text">
-										</div>
-										<div class="u-form-group">
-											<input placeholder="Enter Mobile Number" type="text">
+											<input placeholder="Enter Mobile Number" type="text" id="phone">
 										</div>
 										<div class="u-form-group" >
-											<button id="registerData" onclick="submit_detail();">UPDATE PROFILE</button>											
+											<button>UPDATE PROFILE</button>											
 										</div>											
 									</form>
 								</div>
@@ -173,6 +242,177 @@
 					</div>
 				</div>
 			</div>
+			<script>
+			var checkIcon=true;
+			function readurl(input)
+			{
+				if(input.files && input.files[0])
+				{
+					var reader=new FileReader();
+					reader.onload=function(e)
+					{
+						$('#profile_img').attr('src',e.target.result);
+						$('#image_hidden').val(e.target.result);
+						var image = new Image();
+						image.onload = function (imageEvent) 
+						{
+							// Resize the image
+							var canvas = document.createElement('canvas');
+							max_size = 200;// TODO : pull max size from a site config
+							width = image.width;
+							height = image.height;
+							if (width > height) 
+							{
+								if (width > max_size) 
+								{
+									height *= max_size / width;
+									width = max_size;
+								}
+							} 
+							else 
+							{
+								if (height > max_size) 
+								{
+									width *= max_size / height;
+									height = max_size;
+								}
+							}
+							canvas.width = width;
+							canvas.height = height;
+							canvas.getContext('2d').drawImage(image, 0, 0, width, height);
+							var dataUrl = canvas.toDataURL('image/jpeg');
+							resizedImage= dataUrl;
+							//console.log(resizedImage);
+							localStorage.setItem('resizedImage',resizedImage);
+						}
+						image.src = e.target.result;
+					}
+					reader.readAsDataURL(input.files[0]);
+				}
+			}
+			$("#chooseImg").change(function()
+				{
+					$('#profile_img').attr('src','http://yoneak.com/Cashback_App/img/user.png')
+					var val=$(this).val();
+					var input=document.getElementById('chooseImg');
+					var s=input.files[0];
+					var siz=s.size/1024;
+					var sizeInKb=Math.floor(siz); 
+					if(sizeInKb>5020)
+					{
+						checkIcon=false;
+						$('#img_err').addClass('img_err');
+						$('#img_err').html('*File size invalid!');
+						$(this).val('');
+					}
+					else
+					{
+						switch(val.substring(val.lastIndexOf('.') + 1).toLowerCase())
+						{
+							case 'gif':
+							case 'jpg':
+							case 'jpeg':
+							case 'png':
+							case 'ico':
+							readurl(this)
+							checkIcon=true;
+							$('#img_err').removeClass('img_err');
+							$('#img_err').html('Add image');
+							break;
+							default:
+							$('#img_err').addClass('img_err');
+							$('#img_err').html('*Invalid image type!');
+							$(this).val('');
+							checkIcon=false;
+                                                                   
+							break;
+						}
+					}	
+															 
+				});
+		</script>
+
+		 <script>
+		 $(document).ready(function()
+				{
+					var  user_id=localStorage.userID;
+					$.ajax(
+						{	
+							url:'http://yoneak.com/web_services/profile_detail.php?user_id='+user_id,
+							type:'POST',
+							
+							dataType:'json',
+							success:function(res)
+							{
+								$('#name').val(res.name);
+								if(res.image==null || '')
+								{
+									$('#profile_img').attr('src','http://yoneak.com/Cashback_App/img/user.png');
+
+								}
+								else
+								{
+                                   $('#profile_img').attr('src','http://yoneak.com/Cashback_App/img/'+res.image);
+                                }
+
+								
+								$('#email').val(res.email);
+								$('#dob').val(res.dob);
+								$('#pass').val(res.password);
+								$('#city').val(res.city);
+								$('#state').val(res.state);
+								$('#phone').val(res.phone);
+							}
+						});
+				  });
+               $("#profiledata").submit(function(event)
+				{	
+					var username=$("#name").val();
+					var dob=$("#dob").val();
+					var password=$("#pass").val();
+					var user_id=localStorage.userID;
+					var city=$("#city").val();
+					var state=$("#state").val();
+					var phone=$("#phone").val();
+				    var resizedImage=localStorage.getItem('resizedImage');
+					if(checkIcon)
+					{
+					
+						$.ajax(
+							{
+								url:"http://yoneak.com/web_services/update_profile.php",
+								type:'POST',
+								dataType:'json',
+								data:
+								{
+									user_id:user_id,name:username,dob:dob,password:password,city:city,state:state,phone:phone,image:resizedImage
+								},
+								success:function(data)
+								{
+									if(data.code=="1")
+									{
+										alert('Successfully updated.');
+										location.href="yoneak.html";
+									}
+									else
+									{
+										alert("Fail...");
+									} 
+								}
+							});	
+					}
+					else
+					{
+						alert('Invalid image.');
+					}
+					
+					
+					
+				});
+
+
+		</script>	
+		
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.js"></script>		
 	</body>
 </html>

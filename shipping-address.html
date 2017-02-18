@@ -410,6 +410,15 @@
 		{
 			location.href="Notification.html";
 		}
+		function goToCart()
+        {
+	        location.href="cartDetail.html";
+        }
+        function edit()
+		{
+			location.href="edit-profile.html";
+
+		}
 
 
 		</script>
@@ -777,6 +786,7 @@ if(searchKey!="")
            // alert(localStorage.getItem('shipping_id'));
 			function submit_detail()
 			{	
+				var shipping_id=localStorage.shipping_id;
 				var  user_id=localStorage.id;
 				var address=$("#address").val();
 				var landmark =$("#landmark").val();
@@ -842,7 +852,7 @@ if(searchKey!="")
 					url:"http://yoneak.com/web_services/update_shipping_address.php",
 					type:"POST",
 					dataType:"json",
-					data:{address:address,landmark:landmark,pincode:pincode,city:city,state:state,user_id:user_id},
+					data:{address:address,landmark:landmark,pincode:pincode,city:city,state:state,user_id:user_id,shipping_id:shipping_id},
 				    beforeSend: function()
                    {
                    // alert("Processing...");
@@ -853,7 +863,7 @@ if(searchKey!="")
                        // console.log(parsedJson);
                         if(result.code == "1")
                         {
-                        alert("Successfully Add Your Address"); 
+                        alert("Successfully Update Your Profile"); 
                         window.location='checkout.html';     
                         }
                         else
@@ -877,14 +887,16 @@ if(searchKey!="")
 		     var  user_id=localStorage.userID;
 		     $.ajax(
 						{	
-							url:'http://yoneak.com/web_services/shipping_detail.php?user_id='+user_id+'shipping_id='+shipping_id,
+							url:'http://yoneak.com/web_services/shipping_detail.php?user_id='+user_id+'&shipping_id='+shipping_id,
 							type:'POST',
 							dataType:'json',
 							success:function(res)
 							{
 								$('#address').val(res.address);
-								
-									
+								$('#landmark').val(res.landmark);
+								$('#pincode').val(res.pincode);
+								$('#city').val(res.city);
+								$('#state').val(res.state);
 							}
 						});
 				});

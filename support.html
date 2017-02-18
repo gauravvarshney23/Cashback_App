@@ -196,9 +196,8 @@
 
 			ul.tab li a:focus, .active 
 			{
-				background-color: #29b0e2;
-				outline:0;
-				border-radius:15px;
+				
+				
 			}
 
 			.tabcontent 
@@ -405,7 +404,17 @@
 		{
 			location.href="support.html";
 		}
+		function notification()
+		{
+			location.href="Notification.html";
+		}
 		</script>
+		<script>
+		if((localStorage.getItem("userID")===null) || !(localStorage.getItem("userID")))
+		{
+			location.href="login.html"
+		}
+</script>
 	</head>
 	<body>
 		<div  data-role="panel" id="nmyPanel1" data-display="overlay" style="width:280px; position: fixed;"> 
@@ -535,13 +544,35 @@
 						
 					</ul>
 					<hr style="border-bottom:1px solid grey;">
+					        <a  style="text-decoration:none;">
+								<img src="img/info.png" style="width:25px;height:25px">
+								<span style="color:#000;cursor:pointer;" class="about">Informations</span>							
+								<div class="panel">
+									<h5 onclick="about()" style="padding-left:20%;cursor:pointer;">About Us</h5>
+									<h5 onclick="term()" style="padding-left:20%;cursor:pointer;">Term and condition</h5>
+									<h5 onclick="faq()" style="padding-left:20%;cursor:pointer;">FAQ</h5>
+									<h5 onclick="privacy()" style="padding-left:20%;cursor:pointer;">Privacy Policy</h5>
+								</div>																
+					       </a>
+					       <script>
+								var acc = document.getElementsByClassName("about");
+								var i;
+								for (i = 0; i < acc.length; i++) 
+								{
+									acc[i].onclick = function()
+									{
+										this.classList.toggle("active");
+										this.nextElementSibling.classList.toggle("show");
+									}
+								}
+							</script>
 					<ul style="list-style-type: none;padding-left:10%;">
 						<li onclick="contact()" style="line-height:3em">
 							<a  href="" style="color:#000;text-decoration:none;">
 								Feedback
 							</a>
 						</li >
-						<li onclick="term()" style="line-height:3em">
+						<!--<li onclick="term()" style="line-height:3em">
 							<a  href="" style="color:#000;text-decoration:none;">
 								Term and condition
 							</a>
@@ -555,17 +586,17 @@
 							<a  href="" style="color:#000;text-decoration:none;">
 								Privacy Policy.
 							</a>
-						</li>
+						</li>-->
 						<li style="line-height:3em">
 							<a  href="" style="color:#000;text-decoration:none;">
 								Rate Us
 							</a>
 						</li>
-						<li onclick="about()" style="line-height:3em">
+						<!--<li onclick="about()" style="line-height:3em">
 							<a  href="" style="color:#000;text-decoration:none;">
 								About Us
 							</a>
-						</li>
+						</li>-->
 						<li style="line-height:3em">
 							<a  href="" style="color:#000;text-decoration:none;">
 								Share App
@@ -575,211 +606,64 @@
 				</div>
 			</div>
 		</div>
-		<div data-role="header" style="background:#080771 none repeat scroll 0 0 !important" data-theme="b" data-position="fixed">
-			<a href="#nmyPanel1" style="width:40px;height:40px;margin-left:10px;margin-top:5px;background-color: #080771;border-color: #080771;	color: #fff;
-				text-shadow: 0 1px 0 #111;" class="ui-btn ui-corner-all ui-icon-bars ui-btn-icon-notext" data-transition="slide">
-				
-			</a>
+    
+		<div data-role="header" style="background:#003d8c  none repeat scroll 0 0 !important;color:#fff" data-theme="b" data-position="fixed">
 			<table border="0" align="center">
-				<tr align="Center">								
-					<th width="500px" height="50">
-						<img src="yo.png" id="logo" onclick="mainPage()" class="w3-center" style="cursor:pointer;margin:0 auto;height:45px;display:block;outline:none;">	
-					</th>					
-					<th width="100px" height="50" style="font-size:15px;">						
-						<a>
-							<i class="fa fa-search w3-large" id="searchButton"  style="cursor:pointer;color:#fff"></i>
-						</a>
+				<tr align="Center">
+					<th width="50px" height="50">
 					</th>
-					<th width="100px" height="50" style="font-size:15px;">
-						<a onclick="goToCart();">
-							<i  class="fa fa-shopping-cart w3-large" style="cursor:pointer;color:#fff"></i>
-						</a>
+					<th onclick="yoneak()" width="100px" height="50">
+						<a href=""><i class="fa fa-arrow-left" style="font-size:22px;color:#fff"></i></a>
+					</th>
+					<th width="500px" height="50">
+						<h3 style="font-size:20px">Support</h3>
 					</th>
 				</tr>
 			</table>			
 		</div>
-   
-		<div class="w3-card-4" id="searchDiv" style="border-radius:15px; display:none;">
-			<div  padding-right:15px;padding-top:5px;">
-			<form class="ui-filterable">
-				<h6 align="center">Find product with your requirements & needs.</h6>
-				<div style="padding-bottom:10px;">
-				<input type="search" id="searchKey" onkeyup="searchProject()" autofocus="true" placeholder="Search for Product">
-				</div>
-				 <span>
-                      <button type="button" id="search" onclick="search()" name='search_click'><i class="fa fa-search"></i></button>
-                </span>
-			</form>
-		</div>
-	    </div>		
-		</br>
-<script>
-var toggle=1;
-$("#searchButton").click(function(){
-			
-		if(toggle==1)
-		{
-			$("#searchDiv").show();
-			toggle=2;
-		}
-		else
-		{
-			$("#searchDiv").hide();
-			toggle=1;
-		}
-		
-});
-$('#search').click(function(){
-var searchKey=$('#searchKey').val();
-if(searchKey!="")
-	{
-		localStorage.setItem("searchKey",searchKey);
-		location.href="search-result.html";
-	}
-	else
-	{
-		alert("Search Value should not be blank.");
-	}	
-});
-</script>
-			
+		<script>
+			function yoneak()
+			{
+				location.href="yoneak.html";
+
+			}
+			function Reward() 
+			{
+				window.open("Missing-Rewards.html","_self");
+			}
+			function transaction()
+			{
+				location.href="transaction_history.html";
+			}
+			function wallet()
+			{
+				location.href="wallet-details.html";
+			}
+		</script>	
+
 		<header class="w3-container" style="border-radius:15px;">
-
-		</header>
-       <div style="padding-left:10px;padding-right:10px;">
-				<a  id="af" data-rel="popup" class="ui-btn" style="border-radius:15px;color: #080771" data-position-to="#af">
-					<i  aria-hidden="false"></i>Support
-				</a>
-			</div>
-		<div  class="w3-card-4" style="border-radius:15px;">										
-			<header class="w3-container w3-light-grey" style="border-radius:15px;">
-		     <div class="w3-card-4" >			
-					<div class="chip w3-left">						
-							</div>
-					<div class="w3-container" style="text-align:center;" >
-						<h4 style="padding-top:5px;">Currently No Data Available </h4>				
-						<h6 style="border-radius:15px;color: #ff6666"></h6>
-										</br>
-										</div>
-										</div>
-			</header>
 			
-		</div>	
-			</div>
-	<header class="navbar-fixed-bottom" style="border-radius:0px; background-color: #080771 !important;z-index: 1 !important;">
-		<div class="w3-card-4" style="">
-				<div style="text-align: center; padding:5px;">
-			<table border="0" align="center">
-				<tr align="Center">								
-					<script>
-
-				$(document).ready(function(){
-
-							var login_data1='';
-
-		              	if((localStorage.userID!=null) || (localStorage.userID))
-
-		                {
-
-		                	login_data1='<div  id="walletId" onclick="walletdetail()">'+
-							
-						       '</div>';
-
-							
-
-                             $('#login_data1').html(login_data1);
-
-		                }
-
-		                else
-
-		                {
-
-		                }
-
-
-
-						});
-
-                     </script>		
-					<th id="login_data1"  width="50" height="50">
-						
-					</th>
 			
-					<div class="col-md-2 col-sm-2 col-xs-2">
-					<th width="550" height="50" style="font-size:15px; text-align: center;">
-						<h6 style="color:#fff;">Copyright &copy; 
-							<a target="_blank" href="http://yoneak.com/">
-								<i style="color:#ff6666;">Yoneak.com</i>
-							</a>
-						</h6>
-					</th>
-					</div>
-					<th width="100" height="50" style="font-size:15px;">
-						<div  onclick="logout()">
-					<script>
-						$(document).ready(function(){
-
-							   totalwalletAmount();
-
-							var login_div_data='';
-		              	//if((localStorage.userID===null) || !(localStorage.userID))
-		                //{
-		                	//login_div_data='<a href="login.html"><i class="fa fa-sign-in w3-xxlarge" aria-hidden="true" style="cursor:pointer;"></i>'+
-							//'<div style="color:#fff;">Login</div>'+
-							//'</a>';
-                            // $('#login_div_data').html(login_div_data);
-		                //}
-		               // else
-		                //{
-		                	//login_div_data='<a href="login.html"><i class="fa fa-sign-out w3-xxlarge" aria-hidden="true" style="cursor:pointer;"></i>'+
-							//'<div style="color:#fff;">Logout</div>'+
-							//'</a>';
-                            //$('#login_div_data').html(login_div_data);
-		                //}
-		                
-
-						});
-					
-                      </script>
-                      <div id="login_div_data"></div>
-						</div>
-					</th>
-				</tr>
-			</table>				
-		</div>
-		</div>
 		</header>
-            <!---wallet detail -->
-			<script>
-			$(document).ready(function()
-		    {	
-		     var  user_id=localStorage.userID;
-		     
-		    $.post('http://yoneak.com/web_services/wallet_detail.php?user_id='+user_id,function(res)
-		    { 
-			var newleads_data="";
-			var amount="0.00";
-			console.log(res);
-				           newleads_data='';
-								
-							if(res.status==1)
-							{
-								amount=res.wallet_amount;
-							}
-							newleads_data=newleads_data+'<a  href="" style="color:#000;text-decoration:none;"><img src="img/dashboard.png" style="width:25px;height:25px">'+
-								'<span onclick="account()" style="color:#000;padding-top:5%">Dashboard</span>'+
-								'<span  class="pull-right" style="padding-right:6%">'+
-								'<i class="fa fa-inr" aria-hidden="true"> '+amount+'</i>'+
-								'</span>'+
-							'</a>';
-				    	     $('#dataamount').append(newleads_data);
-				    	     
-				              },"json");
-
-			                  });
-
-          </script>
+		<div class="container">
+			<div class="row " style="text-align:center" >					
+				<div class="col-md-6 col-sm-6 col-xs-6" onclick="transaction()" style="border-top:1px solid lightgrey;border-left:1px solid lightgrey;cursor:pointer;" >
+					<span class="glyphicon glyphicon-piggy-bank" style="font-size:100px;color:#5bc0de;padding-top:5%"></span>											
+					</br>
+					<h5 align="center">Transaction History</h5>	
+				</div>					
+				<div class="col-md-6 col-sm-6 col-xs-6" onclick="refer()" style="border:1px solid lightgrey;cursor:pointer;">
+					<span class="glyphicon glyphicon-gift" style="font-size:100px;color:#5bc0de;padding-top:5%"></span>
+					</br>
+					<h5 align="center">Request Reward</h5>	
+				</div>								
+				<div class="col-md-6 col-sm-6 col-xs-6" onclick="wallet()" style="border:1px solid lightgrey;cursor:pointer;cursor:pointer;">
+					<span class="glyphicon glyphicon-book" style="font-size:100px;color:#5bc0de;padding-top:5%"></span>
+					</br>
+					<h5 align="center">Wallet</h5>	
+				</div>				
+			</div>
+		</div>
 
 		   <script>
 function goToCart()

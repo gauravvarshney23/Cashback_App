@@ -21,6 +21,8 @@ $(document).ready(function()
 
 				    	case 1:
 				           newleads_div_data+='<h5 style="cursor:pointer;padding-left:10%;" class="accordion"><strong>'+ value.cat_name+'</strong></h5></a>';
+				         
+				                        
 				    	break;
 				     }
 				     
@@ -74,7 +76,7 @@ function callExternalProduct()
 				    				     sub_menu_data_1+='<div><a href="javascript:void(0)" onclick="external_p('+v.catId+')" >'; 
 				    				break;
 				    				case 2:
-				    				     sub_menu_data_1+='<h6  style="cursor:pointer; padding-left:30%;"><strong>'+v.catName+'</strong></h6></a></div>';
+				    				     sub_menu_data_1+='<h6  style="cursor:pointer; padding-left:20%;"><strong>'+v.catName+'</strong></h6></a></div>';
                                                                  
 				    				break;
 				    			}
@@ -104,3 +106,7 @@ function callExternalProduct()
 				
 				              },"json");
 }
+
+
+			            
+				     

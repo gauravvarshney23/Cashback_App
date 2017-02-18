@@ -1,9 +1,8 @@
-<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.phonegap.Yoneak" version="1.0.0">
-  <name>Yoneak</name>
-  <description>Yoneak sample application that responds to the deviceready event.</description>
-  <author href="http://phonegap.com" email="support@phonegap.com">Yoneak Team</author>
-  <content src="loading.html"/>
-  <preference name="phonegap-version" value="cli-6.3.0" />
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.phonegap.GaadiGallery" version="1.0.0">
+  <name>GaadiGallery</name>
+  <description>Hello World sample application that responds to the deviceready event.</description>
+  <author href="http://phonegap.com" email="support@phonegap.com">PhoneGap Team</author>
+  <content src="index.html"/>
   <preference name="permissions" value="none"/>
   <preference name="orientation" value="default"/>
   <preference name="target-device" value="universal"/>
@@ -20,50 +19,61 @@
   <preference name="android-minSdkVersion" value="7"/>
   <preference name="android-installLocation" value="auto"/>
   <preference name="loadUrlTimeoutValue" value="700000" />
-  <plugin name="cordova-plugin-splashscreen" source="npm"/>
-  <plugin name="cordova-plugin-geolocation" source="npm"/>
-  <plugin name="cordova-plugin-inappbrowser" source="npm"/>
-  <icon src="yo.png"/>
-  <icon src="img/icon.png" gap:platform="android" gap:qualifier="ldpi"/>
-  <icon src="img/icon.png" gap:platform="android" gap:qualifier="mdpi"/>
-  <icon src="img/icon.png" gap:platform="android" gap:qualifier="hdpi"/>
-  <icon src="img/icon.png" gap:platform="android" gap:qualifier="xhdpi"/>
-  <icon src="img/icon.png" gap:platform="blackberry"/>
-  <icon src="img/icon.png" gap:platform="blackberry" gap:state="hover"/>
-  <icon src="img/icon-57px.png" gap:platform="ios" width="57" height="57"/>
-  <icon src="img/icon-72px.png" gap:platform="ios" width="72" height="72"/>
-  <icon src="img/icon-76px.png" gap:platform="ios" width="76" height="76"/>
-  <icon src="img/icon-114px.png" gap:platform="ios" width="114" height="114"/>
-  <icon src="img/icon-120px.png" gap:platform="ios" width="120" height="120"/>
-  <icon src="img/icon.png" gap:platform="ios" width="144" height="144"/>
-  <icon src="img/icon-152px.png" gap:platform="ios" width="152" height="152"/>
-  <icon src="img/icon.png" gap:platform="webos"/>
-  <icon src="img/icon.png" gap:platform="winphone"/>
-  <icon src="img/icon.png" gap:platform="winphone" gap:role="background"/>
-  <gap:splash src="res/screen/android/screen-ldpi-portrait.png" gap:platform="android" gap:qualifier="port-ldpi"/>
-  <gap:splash src="res/screen/android/screen-mdpi-portrait.png" gap:platform="android" gap:qualifier="port-mdpi"/>
-  <gap:splash src="res/screen/android/screen-hdpi-portrait.png" gap:platform="android" gap:qualifier="port-hdpi"/>
-  <gap:splash src="res/screen/android/screen-xhdpi-portrait.png" gap:platform="android" gap:qualifier="port-xhdpi"/>  
-  <gap:splash src="res/screen/ios/screen-iphone-portrait.png" gap:platform="ios" width="320" height="480" />
-  <gap:splash src="res/screen/ios/screen-iphone-portrait-2x.png" gap:platform="ios" width="640" height="960" />
-  <gap:splash src="res/screen/ios/screen-iphone-landscape.png" gap:platform="ios" width="480" height="320" />
-  <gap:splash src="res/screen/ios/screen-iphone-landscape-2x.png" gap:platform="ios" width="960" height="640" />
-  <gap:splash src="res/screen/ios/screen-ipad-portrait.png" gap:platform="ios" width="768" height="1024" />
-  <gap:splash src="res/screen/ios/screen-ipad-portrait-2x.png" gap:platform="ios" width="1536" height="2008" />
-  <gap:splash src="res/screen/ios/screen-ipad-landscape.png" gap:platform="ios" width="1024" height="768" />
-  <gap:splash src="res/screen/ios/screen-ipad-landscape-2x.png" gap:platform="ios" width="2048" height="1496" />
-  <gap:splash src="res/screen/ios/screen-iphone-portrait-568h-2x.png" gap:platform="ios" width="640"  height="1136" />
-  <gap:splash src="res/screen/windows-phone/screen-portrait.jpg" gap:platform="winphone"/>
+  <gap:plugin name="org.apache.cordova.battery-status"/>
+  <gap:plugin name="org.apache.cordova.camera"/>
+  <gap:plugin name="org.apache.cordova.media-capture"/>
+  <gap:plugin name="org.apache.cordova.console"/>
+  <gap:plugin name="org.apache.cordova.contacts"/>
+  <gap:plugin name="org.apache.cordova.device"/>
+  <gap:plugin name="org.apache.cordova.device-motion"/>
+  <gap:plugin name="org.apache.cordova.device-orientation"/>
+  <gap:plugin name="org.apache.cordova.dialogs"/>
+  <gap:plugin name="org.apache.cordova.file"/>
+  <gap:plugin name="org.apache.cordova.file-transfer"/>
+  <gap:plugin name="org.apache.cordova.geolocation"/>
+  <gap:plugin name="org.apache.cordova.globalization"/>
+  <gap:plugin name="org.apache.cordova.inappbrowser"/>
+  <gap:plugin name="org.apache.cordova.media"/>
+  <gap:plugin name="org.apache.cordova.network-information"/>
+  <gap:plugin name="org.apache.cordova.splashscreen"/>
+  <gap:plugin name="org.apache.cordova.vibration"/>
+  <plugin name="nl.x-services.plugins.socialsharing" spec="4.3.8" source="pgb" />
+  <icon src="GaadiGallery.png"/>
+  <icon src="www/res/icon/android/icon-36-ldpi.png" gap:platform="android" gap:qualifier="ldpi"/>
+  <icon src="www/res/icon/android/icon-48-mdpi.png" gap:platform="android" gap:qualifier="mdpi"/>
+  <icon src="www/res/icon/android/icon-72-hdpi.png" gap:platform="android" gap:qualifier="hdpi"/>
+  <icon src="www/res/icon/android/icon-96-xhdpi.png" gap:platform="android" gap:qualifier="xhdpi"/>
+  <icon src="www/res/icon/blackberry/icon-80.png" gap:platform="blackberry"/>
+  <icon src="www/res/icon/blackberry/icon-80.png" gap:platform="blackberry" gap:state="hover"/>
+  <icon src="www/res/icon/ios/icon-57.png" gap:platform="ios" width="57" height="57"/>
+  <icon src="www/res/icon/ios/icon-72.png" gap:platform="ios" width="72" height="72"/>
+  <icon src="www/res/icon/ios/icon-57-2x.png" gap:platform="ios" width="114" height="114"/>
+  <icon src="www/res/icon/ios/icon-72-2x.png" gap:platform="ios" width="144" height="144"/>
+  <icon src="www/res/icon/webos/icon-64.png" gap:platform="webos"/>
+  <icon src="www/res/icon/windows-phone/icon-48.png" gap:platform="winphone"/>
+  <icon src="www/res/icon/windows-phone/icon-173-tile.png" gap:platform="winphone" gap:role="background"/>
+  <splash src="GaadiGallery_logo.png" />
+  <gap:splash src="GaadiGallery_logo.png" gap:platform="android" gap:qualifier="port-ldpi"/>
+  <gap:splash src="GaadiGallery_logo.png" gap:platform="android" gap:qualifier="port-mdpi"/>
+  <gap:splash src="GaadiGallery_logo.png" gap:platform="android" gap:qualifier="port-hdpi"/>
+  <gap:splash src="GaadiGallery_logo.png" gap:platform="android" gap:qualifier="port-xhdpi"/>
+  <gap:splash src="www/res/screen/blackberry/screen-225.png" gap:platform="blackberry"/>
+  <gap:splash src="www/res/screen/ios/screen-iphone-portrait.png" gap:platform="ios" width="320" height="480"/>
+  <gap:splash src="www/res/screen/ios/screen-iphone-portrait-2x.png" gap:platform="ios" width="640" height="960"/>
+  <gap:splash src="www/res/screen/ios/screen-iphone-portrait-568h-2x.png" gap:platform="ios" width="640" height="1136"/>
+  <gap:splash src="www/res/screen/ios/screen-ipad-portrait.png" gap:platform="ios" width="768" height="1024"/>
+  <gap:splash src="www/res/screen/ios/screen-ipad-landscape.png" gap:platform="ios" width="1024" height="768"/>
+  <gap:splash src="www/res/screen/windows-phone/screen-portrait.jpg" gap:platform="winphone"/>
   <access origin="*"/>
   <access origin="whatsapp:*" launch-external="yes" />
   <plugin name="cordova-plugin-whitelist" version="1"/>
-  <allow-intent href="*"/>
   <allow-intent href="http://*/*"/>
   <allow-intent href="https://*/*"/>
   <allow-intent href="tel:*"/>
   <allow-intent href="sms:*"/>
   <allow-intent href="mailto:*"/>
   <allow-intent href="geo:*"/>
+  <allow-intent href="whatsapp://*"/>
   <platform name="android">
     <allow-intent href="market:*"/>
   </platform>

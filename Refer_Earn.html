@@ -232,12 +232,7 @@
 				font-size: 16px;
 			}
 	
-			ul.tab li a:hover 
-			{
-				background-color: #29b0e2;
-				border-radius:15px;
-				height:120px;
-			}
+			
 
 			ul.tab li a:focus, .active 
 			{
@@ -475,12 +470,7 @@
 				border-radius:15px;
 			}
 
-			ul.tab li a:focus, .active 
-			{
-				background-color: #29b0e2;
-				outline:0;
-				border-radius:15px;
-			}
+			
 
 			.tabcontent 
 			{
@@ -867,8 +857,11 @@
 		{
 			location.href="Notification.html";
 		}
+		function edit()
+		{
+			location.href="edit-profile.html";
 
-
+		}
 
 		</script>
 		<script>
@@ -1212,11 +1205,38 @@ if(searchKey!="")
 					</div>
 				</div>
 
+
 				<div class="col-md-1"></div>
 			</div>
 		</div>
 		</form>	
 		</br>
+		 <div role="main" id="book-shop">
+			<div style="padding-left:10px;padding-right:10px;">
+				<a  id="af" data-rel="popup" class="ui-btn" style="border-radius:15px;color: #ff6666 color:white;" data-position-to="#af">
+					<i  aria-hidden="false"></i>Affiliate Users
+				</a>
+			</div>
+
+          </div>
+		<!--<div id="userdata">
+        <h5 style="color: #29b0e2;" class="w3-center">Affiliate Users</h5>'
+		</div>-->
+		 <header class="w3-container"  style="background-color: #003d8c !important;color:#fff;">
+			<div class="row">			
+				<div class="col-md-6 col-sm-6 col-xs-6" style=" max-width:500px; word-wrap:break-word;">
+					<h5 >User Name</h5>				
+				</div>
+				<div class="col-md-6 col-sm-6 col-xs-6" style=" max-width:500px; word-wrap:break-word;">
+					<h5>Email Id</h5>
+				</div>
+						
+			</div>		
+		</header>
+		<header class="w3-container">
+		<div class="row" id="affiliate_history">
+		</div>
+		</header>
 
 		<header class="" style="border-radius:0px; background-color: #080771 !important;text-shadow: 0 0px 0 !important;">
 		<div class="w3-card-4" style="">
@@ -1413,6 +1433,47 @@ function myFunction()
 
 
          </script>	
+
+          <script>
+			$(document).ready(function()
+				{
+			   var  user_id=localStorage.userID;
+					   $.post('http://yoneak.com/web_services/affiliate_detail.php?user_id='+user_id,function(res)
+					   {
+						var i=0;
+						var newleads_div_data="";
+				    $.each(res, function( key, value ) 
+				    {
+				    	switch(i)
+				    	{
+				    	case 0:
+				    	
+				    	newleads_div_data='<div class="col-md-6 col-sm-6 col-xs-6" style=" max-width:500px; word-wrap:break-word;">'+
+				                  '<h5>'+value.user+
+                                    '</h5>'+				
+			                         '</div>';
+				    	break;
+				    	case 1:
+				    		newleads_div_data+='<div class="col-md-6 col-sm-6 col-xs-6" style=" max-width:500px; word-wrap:break-word;" >'+
+				                         '<h5 >'+value.email+'</h5>'+
+			                                     '</div>';
+                                      
+                                          
+				    	break;
+
+				    	}
+				    	i=i+1;
+				    	i%=5;
+				    	if(i==0)
+				    	{
+				    	$('#affiliate_history').append(newleads_div_data);
+				    	}
+                    });
+					
+				},"json");
+
+			   });
+			</script>
          <!--- referral code ---->
          <script>
             $(document).ready(function()
