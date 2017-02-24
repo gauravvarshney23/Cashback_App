@@ -808,6 +808,8 @@
 		<script src="js/clipboard.js"></script>
 		<script src="js/user_detail.js"></script>
 		<script src="js/home_category.js"></script>
+		<script src="js/cart_item.js"></script>
+		<script src="js/cart.js"></script>
 		<script>
 		function refer()
         {
@@ -831,7 +833,7 @@
 		}
 			function main()
 		{
-			location.href="main_login.html";
+			location.href="login.html";
 		}
 		function contact()
         {
@@ -1081,10 +1083,7 @@
 							<i  class="fa fa-bell w3-large" style="cursor:pointer;color:#fff"></i>
 						</a>
 					</th>
-					<th width="100px" height="50" style="font-size:15px;">
-						<a onclick="goToCart();">
-							<i  class="fa fa-shopping-cart w3-large" style="cursor:pointer;color:#fff"></i>
-						</a>
+					<th id="cart_data" width="100px" height="50" style="font-size:15px;">
 					</th>
 				</tr>
 			</table>			
@@ -1174,7 +1173,7 @@ if(searchKey!="")
 					<p style="font-size:12px">Enter email addresses below</p>					
 					<h4>Email</h4>
 					<textarea name="email" style="resize:none;" id="email" type="email" placeholder="Enter multiple Email addresses separated by comma" id="email" class="input_1" cols="30" rows="6" required="required"></textarea></br>
-					<p style="color:red;" id="email_error_msg"></p>
+					<p style="color:white;" id="email_error_msg"></p>
 					<textarea  rows="6" cols="30" class="input_1" name="custom" class="set_val" id="custom_url" style="resize:none;">
 						
 					</textarea>
@@ -1238,7 +1237,8 @@ if(searchKey!="")
 		</div>
 		</header>
 
-		<header class="" style="border-radius:0px; background-color: #080771 !important;text-shadow: 0 0px 0 !important;">
+			
+		<header class="" style="border-radius:0px; background-color: #080771 !important;">
 		<div class="w3-card-4" style="">
 				<div style="text-align: center; padding:5px;">
 			<table border="0" align="center">
@@ -1301,13 +1301,15 @@ if(searchKey!="")
 							//'</a>';
                             // $('#login_div_data').html(login_div_data);
 		                //}
-		               // else
-		               // {
-		                	//login_div_data='<a href="login.html"><i class="fa fa-sign-out w3-xxlarge" aria-hidden="true" style="cursor:pointer;"></i>'+
+		                //else
+		                //{
+		                //	login_div_data='<a href="login.html"><i class="fa fa-sign-out w3-xxlarge" aria-hidden="true" style="cursor:pointer;"></i>'+
 							//'<div style="color:#fff;">Logout</div>'+
 							//'</a>';
                             //$('#login_div_data').html(login_div_data);
 		                //}
+		                
+
 						});
 					
                       </script>
@@ -1319,6 +1321,7 @@ if(searchKey!="")
 		</div>
 		</div>
 		</header>
+		
 <script>
 			
 function goToCart()
@@ -1356,7 +1359,7 @@ function myFunction()
 
 				if(email=='')
 				{
-					$(email_error_msg).html('please enter Your email');
+					$(email_error_msg).html('*Please Enter Your Email');
 				}
 			   
 				else
@@ -1438,10 +1441,26 @@ function myFunction()
 			$(document).ready(function()
 				{
 			   var  user_id=localStorage.userID;
-					   $.post('http://yoneak.com/web_services/affiliate_detail.php?user_id='+user_id,function(res)
-					   {
-						var i=0;
-						var newleads_div_data="";
+			    $.post('http://yoneak.com/web_services/affiliate_detail.php?user_id='+user_id,function(res)
+				{
+			    var i=0;
+			   var newleads_div_data="";
+			   if(res=='')
+				 {
+				 		newleads_div_data='<div class="w3-card-4" >'+				
+										'<div class="chip w3-left">'+						
+										'</div>'+
+										'<div class="w3-container" style="text-align:center;" >'+
+										'<h4 style="padding-top:5px;">Currently No Record Available </h4>'+					
+						'<h6 style="border-radius:15px;color: #ff6666"></h6>'+
+										'</br>'+
+										'</div>'+
+										'</div>';
+						$("#affiliate_history").append(newleads_div_data);
+											
+				 }
+				 else
+				 {
 				    $.each(res, function( key, value ) 
 				    {
 				    	switch(i)
@@ -1469,6 +1488,7 @@ function myFunction()
 				    	$('#affiliate_history').append(newleads_div_data);
 				    	}
                     });
+				}
 					
 				},"json");
 
@@ -1486,7 +1506,7 @@ function myFunction()
 				 console.log(res);
 		  
 
-				           newlead1_div_data="<span style='font-size:16px;padding-left:30%;'>Referral Code <strong style='color:black;'>:"+res.referrl+"</strong></span>";
+				           newlead1_div_data="<h5 style='font-size:16px;padding-left:30%;'>Referral Code <strong style='color:black;'>:"+res.referrl+"</strong></h5>";
 				    	     $('#referrral_data').append(newlead1_div_data);
 				    	     
 				              },"json");

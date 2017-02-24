@@ -337,12 +337,13 @@
 				width:110px!important;
 			}
 		</style>
-		<script src="js/jquery-1.11.3.min.js"></script>
+	    <script src="js/jquery-1.11.2.min.js"></script>
 		<script src="js/jquery.mobile-1.4.5.min.js"></script>
-		<script src="http://maps.google.com/maps/api/js?libraries=geometry&sensor=false"></script>
 		<script src="js/jssor.slider.min.js"></script>
 		<script src="js/owl.carousel.min.js"></script>
 		<script src="js/login.js"></script>
+		<script src="js/jssor.slider.min.js"></script>
+		<script src="js/store.js"></script>
 	    <script src="js/logout.js"></script>
 	    <script src="js/account.js"></script>
 	    <script src="js/home.js"></script>
@@ -382,7 +383,7 @@
 			}
 		function main()
 		{
-			location.href="login.html";
+			location.href="main_login.html";
 		}
 		function contact()
 		{
@@ -408,6 +409,11 @@
 		{
 			location.href="Notification.html";
 		}
+		function yoneak()
+		{
+			location.href="yoneak.html";
+
+		}
 		</script>
 		<script>
 		if((localStorage.getItem("userID")===null) || !(localStorage.getItem("userID")))
@@ -417,197 +423,7 @@
 </script>
 	</head>
 	<body>
-		<div  data-role="panel" id="nmyPanel1" data-display="overlay" style="width:280px; position: fixed;"> 
-			<div class="col-xs-12" style="height:640px;overflow-y:auto;">
-			<div id="ser_valoue">
-				
-			</div>
-			
-				
-				<div class="row" >
-					<ul style="list-style-type: none;padding-left:5%;padding-top:5%">
-					<div id="login_data2">
-						
-					</div>
-					<script>
-				$(document).ready(function(){
-
-							var login_data2='';
-
-		              	if((localStorage.userID!=null) || (localStorage.userID))
-
-		                {
-
-		                	login_data2='<li id="dataamount" style="line-height:3em">'+
-							
-						    '</li>';
-
-                             $('#login_data2').html(login_data2);
-
-		                }
-
-		                else
-
-		                {
-
-		                }
-
-						});
-
-                     </script>		
-						<li style="line-height:3em">
-							<a  href="" style="color:#000;text-decoration:none;">
-								<img src="img/my_coupons.png" style="width:25px;height:25px">
-								<span onclick="couponcode()" style="color:#000;padding-top:5%">My Coupans</span>								
-							</a>
-						</li>
-						<li style="line-height:3em">
-							<a  href="" style="color:#000;text-decoration:none;">
-								<img src="img/refer & earn.png" style="width:25px;height:25px">
-								<span onclick="refer()"  style="color:#000;padding-top:5%">Refer & Earn</span>								
-							</a>
-						</li>
-						<li onclick="support()" style="line-height:3em">
-							<a  href="" style="color:#000;text-decoration:none;">
-								<img src="img/support.png" style="width:25px;height:25px">
-								<span style="color:#000;padding-top:5%">Support</span>									
-							</a>
-						</li >
-					</ul>
-					<hr style="border-bottom:1px solid grey;">
-					<ul style="list-style-type: none;padding-left:5%;">
-						<li style="line-height:3em">
-							<a  href="" style="color:#000;text-decoration:none;">
-								<img src="img/stores.png" style="width:25px;height:25px">
-								<span  onclick="storehome()" style="color:#000;padding-top:5%">Stores</span>									
-							</a>
-						</li>
-						<!--<li style="line-height:3em">
-						 <div class="dropdown" > 
-							<a  style="text-decoration:none;">
-								<img src="img/categoies.png" style="width:25px;height:25px">
-								<span style="color:#000;padding-top:5%;cursor:pointer;" class="accordion">Categories</span>
-								</a>
-								<div class="dropdown-content">          
-						                 <ul id="nav" class="navbar">
-          	
-						                 </ul>
-					       </div> 
-					     </div>  	
-							
-						</li>-->
-						<li style="line-height:3em">
-							<a  style="text-decoration:none;">
-								<img src="img/categoies.png" style="width:25px;height:25px">
-								<span style="color:#000;padding-top:5%;cursor:pointer;" class="accordion">Categories</span>
-								<div class="panel" id="navbar" >
-
-							
-							   </div>
-									<!--<h5 style="cursor:pointer;padding-left:20%;" class="accordion">PayTm</h5>							
-									<div class="panel" style="text-align:center">
-										<h6 class="w3-center" style="cursor:pointer;">Mobile</h6>
-										<h6 class="w3-center" style="cursor:pointer;">Furniture</h6>
-										<h6 class="w3-center" style="cursor:pointer;">Electricity</h6>
-									</div>	
-									<h5 style="cursor:pointer;padding-left:20%;" class="accordion">eBay</h5>							
-									<div class="panel" style="text-align:center">
-										<h6 class="w3-center" style="cursor:pointer;">Mobile</h6>
-										<h6 class="w3-center" style="cursor:pointer;">Furniture</h6>
-										<h6 class="w3-center" style="cursor:pointer;">Electricity</h6>
-									</div>-->	
-								</div>		
-							</a>
-						</li>
-						
-							<a  style="text-decoration:none;">
-								<img src="img/vochers.png" style="width:25px;height:25px">
-								<span style="color:#000;cursor:pointer;" class="accordion">Earn More</span>							
-								<div class="panel">
-									<h5 onclick="costPerClick()" style="padding-left:20%;cursor:pointer;">PPC</h5>
-									<h5 onclick="CostPerAppDownload()" style="padding-left:20%;cursor:pointer;">PPD</h5>
-									<h5 onclick="costPerView()" style="padding-left:20%;cursor:pointer;">PPS</h5>
-								</div>																
-							</a>
-							<script>
-								var acc = document.getElementsByClassName("accordion");
-								var i;
-								for (i = 0; i < acc.length; i++) 
-								{
-									acc[i].onclick = function()
-									{
-										this.classList.toggle("active");
-										this.nextElementSibling.classList.toggle("show");
-									}
-								}
-							</script>
-						
-					</ul>
-					<hr style="border-bottom:1px solid grey;">
-					        <a  style="text-decoration:none;">
-								<img src="img/info.png" style="width:25px;height:25px">
-								<span style="color:#000;cursor:pointer;" class="about">Informations</span>							
-								<div class="panel">
-									<h5 onclick="about()" style="padding-left:20%;cursor:pointer;">About Us</h5>
-									<h5 onclick="term()" style="padding-left:20%;cursor:pointer;">Term and condition</h5>
-									<h5 onclick="faq()" style="padding-left:20%;cursor:pointer;">FAQ</h5>
-									<h5 onclick="privacy()" style="padding-left:20%;cursor:pointer;">Privacy Policy</h5>
-								</div>																
-					       </a>
-					       <script>
-								var acc = document.getElementsByClassName("about");
-								var i;
-								for (i = 0; i < acc.length; i++) 
-								{
-									acc[i].onclick = function()
-									{
-										this.classList.toggle("active");
-										this.nextElementSibling.classList.toggle("show");
-									}
-								}
-							</script>
-					<ul style="list-style-type: none;padding-left:10%;">
-						<li onclick="contact()" style="line-height:3em">
-							<a  href="" style="color:#000;text-decoration:none;">
-								Feedback
-							</a>
-						</li >
-						<!--<li onclick="term()" style="line-height:3em">
-							<a  href="" style="color:#000;text-decoration:none;">
-								Term and condition
-							</a>
-						</li>
-						<li onclick="faq()" style="line-height:3em">
-							<a  href="" style="color:#000;text-decoration:none;">
-								FAQ
-							</a>
-						</li>
-						<li onclick="privacy()" style="line-height:3em">
-							<a  href="" style="color:#000;text-decoration:none;">
-								Privacy Policy.
-							</a>
-						</li>-->
-						<li style="line-height:3em">
-							<a  href="" style="color:#000;text-decoration:none;">
-								Rate Us
-							</a>
-						</li>
-						<!--<li onclick="about()" style="line-height:3em">
-							<a  href="" style="color:#000;text-decoration:none;">
-								About Us
-							</a>
-						</li>-->
-						<li style="line-height:3em">
-							<a  href="" style="color:#000;text-decoration:none;">
-								Share App
-							</a>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</div>
-    
-		<div data-role="header" style="background:#080771  none repeat scroll 0 0 !important;color:#fff" data-theme="b" data-position="fixed">
+		<div data-role="header" style="background:#003d8c  none repeat scroll 0 0 !important;color:#fff" data-theme="b" data-position="fixed">
 			<table border="0" align="center">
 				<tr align="Center">
 					<th width="50px" height="50">
@@ -616,11 +432,15 @@
 						<a href=""><i class="fa fa-arrow-left" style="font-size:22px;color:#fff"></i></a>
 					</th>
 					<th width="500px" height="50">
-						<h3 style="font-size:20px">Support</h3>
+						<h3 style="font-size:20px">Edit Profile</h3>
+					</th>
+					<th onclick="logout()" width="50px" height="50" style="cursor:pointer;">
+						<i  class="fa fa-power-off"></i>
 					</th>
 				</tr>
 			</table>			
 		</div>
+		
 		<script>
 			function yoneak()
 			{
@@ -646,35 +466,240 @@
 			
 		</header>
 		<div class="container">
-			<div class="row " style="text-align:center" >					
-				<div class="col-md-6 col-sm-6 col-xs-6" onclick="transaction()" style="border-top:1px solid lightgrey;border-left:1px solid lightgrey;cursor:pointer;" >
-					<span class="glyphicon glyphicon-piggy-bank" style="font-size:100px;color:#5bc0de;padding-top:5%"></span>											
-					</br>
-					<h5 align="center">Transaction History</h5>	
-				</div>					
-				<div class="col-md-6 col-sm-6 col-xs-6" onclick="refer()" style="border:1px solid lightgrey;cursor:pointer;">
-					<span class="glyphicon glyphicon-gift" style="font-size:100px;color:#5bc0de;padding-top:5%"></span>
-					</br>
-					<h5 align="center">Request Reward</h5>	
-				</div>								
-				<div class="col-md-6 col-sm-6 col-xs-6" onclick="wallet()" style="border:1px solid lightgrey;cursor:pointer;cursor:pointer;">
-					<span class="glyphicon glyphicon-book" style="font-size:100px;color:#5bc0de;padding-top:5%"></span>
-					</br>
-					<h5 align="center">Wallet</h5>	
-				</div>				
+			<div class="row">
+			<div class="col-md-12 col-sm-12 col-xs-12">
+				<div class="row">
+					<div class="col-md-12">						
+						<div class="login-box">	
+							<div class="row">
+								<div class="col-md-12 col-sm-12 col-xs-12">
+								<form class="email-login" id="profiledata" enctype="multipart/form-data">
+								<div class="w3-container" style="text-align:center;">
+								 <label class="myui-button">
+								<span style="color:red;">
+								<div class="myfileupload-buttonbar" style="text-align:center;">
+                                      <img id="profile_img" src="img/user.png" style="display:inline;border-radius:50%;width:40px;height:65px;margin-top:10px;cursor:pointer;"   id="profile_pic1" alt="User profile picture" > <input style="text-align:center;"  type="file" name="Profileimg" accept="image/*" id="chooseImg">
+                                      Change Image
+                                </div>
+                                 </span>
+                                 </label>
+							   </div>
+										</br>
+										<div class="u-form-group">
+											<input placeholder="Name" id="name" type="text">
+										</div>
+										<p style="color:red;" id="name_error_msg"></p>
+
+										<div class="u-form-group">
+											<input placeholder="Email" id="email" type="email" disabled="readonly">
+										</div>
+
+										<p style="color:blue;" id="email_error_msg"></p>
+										<div class="u-form-group">
+											<input placeholder="Birth Date (DD-MM-YYYY)" id="dob" type="text">
+										</div>
+
+										<p style="color:blue;" id="dob_error_msg"></p>
+										<div class="u-form-group">
+											<input placeholder="Password" id="pass" type="password">
+										</div>
+
+										<p style="color:blue;" id="password_error_msg"></p>
+
+										<div class="u-form-group">
+											<input placeholder="City" type="text" id="city">
+										</div>
+										<div class="u-form-group">
+											<input placeholder="State" type="text" id="state">
+										</div>
+										<div class="u-form-group">
+											<input placeholder="Enter Mobile Number" type="text" id="phone">
+										</div>
+										<div class="u-form-group" >
+											<button>UPDATE PROFILE</button>											
+										</div>											
+									</form>
+								</div>
+							</div>
+							</br>
+						</div>
+					</div>
+				</div>
 			</div>
+			
 		</div>
 
 		   <script>
-function goToCart()
-{
-	location.href="cartDetail.html";
-}			
-function mainPage()
-{
-	location.href="yoneak.html";
-}
-	
-				           </script>		   
+			var checkIcon=true;
+			function readurl(input)
+			{
+				if(input.files && input.files[0])
+				{
+					var reader=new FileReader();
+					reader.onload=function(e)
+					{
+						$('#profile_img').attr('src',e.target.result);
+						$('#image_hidden').val(e.target.result);
+						var image = new Image();
+						image.onload = function (imageEvent) 
+						{
+							// Resize the image
+							var canvas = document.createElement('canvas');
+							max_size = 200;// TODO : pull max size from a site config
+							width = image.width;
+							height = image.height;
+							if (width > height) 
+							{
+								if (width > max_size) 
+								{
+									height *= max_size / width;
+									width = max_size;
+								}
+							} 
+							else 
+							{
+								if (height > max_size) 
+								{
+									width *= max_size / height;
+									height = max_size;
+								}
+							}
+							canvas.width = width;
+							canvas.height = height;
+							canvas.getContext('2d').drawImage(image, 0, 0, width, height);
+							var dataUrl = canvas.toDataURL('image/jpeg');
+							resizedImage= dataUrl;
+							//console.log(resizedImage);
+							localStorage.setItem('resizedImage',resizedImage);
+						}
+						image.src = e.target.result;
+					}
+					reader.readAsDataURL(input.files[0]);
+				}
+			}
+			$("#chooseImg").change(function()
+				{
+					$('#profile_img').attr('src','http://yoneak.com/Cashback_App/img/user.png')
+					var val=$(this).val();
+					var input=document.getElementById('chooseImg');
+					var s=input.files[0];
+					var siz=s.size/1024;
+					var sizeInKb=Math.floor(siz); 
+					if(sizeInKb>5020)
+					{
+						checkIcon=false;
+						$('#img_err').addClass('img_err');
+						$('#img_err').html('*File size invalid!');
+						$(this).val('');
+					}
+					else
+					{
+						switch(val.substring(val.lastIndexOf('.') + 1).toLowerCase())
+						{
+							case 'gif':
+							case 'jpg':
+							case 'jpeg':
+							case 'png':
+							case 'ico':
+							readurl(this)
+							checkIcon=true;
+							$('#img_err').removeClass('img_err');
+							$('#img_err').html('Add image');
+							break;
+							default:
+							$('#img_err').addClass('img_err');
+							$('#img_err').html('*Invalid image type!');
+							$(this).val('');
+							checkIcon=false;
+                                                                   
+							break;
+						}
+					}	
+															 
+				});
+		</script>
+
+		 <script>
+		 $(document).ready(function()
+				{
+					var  user_id=localStorage.userID;
+					$.ajax(
+						{	
+							url:'http://yoneak.com/web_services/profile_detail.php?user_id='+user_id,
+							type:'POST',
+							
+							dataType:'json',
+							success:function(res)
+							{
+								$('#name').val(res.name);
+								if(res.image==null || '')
+								{
+									$('#profile_img').attr('src','http://yoneak.com/Cashback_App/img/user.png');
+
+								}
+								else
+								{
+                                   $('#profile_img').attr('src','http://yoneak.com/web_services/uploadimage/'+res.image);
+                                }
+
+								
+								$('#email').val(res.email);
+								$('#dob').val(res.dob);
+								$('#pass').val(res.password);
+								$('#city').val(res.city);
+								$('#state').val(res.state);
+								$('#phone').val(res.phone);
+							}
+						});
+				  });
+               $("#profiledata").submit(function(event)
+				{	
+					var username=$("#name").val();
+					var dob=$("#dob").val();
+					var password=$("#pass").val();
+					var user_id=localStorage.userID;
+					var city=$("#city").val();
+					var state=$("#state").val();
+					var phone=$("#phone").val();
+				    var resizedImage=localStorage.getItem('resizedImage');
+					if(checkIcon)
+					{
+					
+						$.ajax(
+							{
+								url:"http://yoneak.com/web_services/update_profile.php",
+								type:'POST',
+								dataType:'json',
+								data:
+								{
+									user_id:user_id,name:username,dob:dob,password:password,city:city,state:state,phone:phone,image:resizedImage
+								},
+								success:function(data)
+								{
+									if(data.code=="1")
+									{
+										alert('Successfully updated.');
+										location.href="yoneak.html";
+									}
+									else
+									{
+										alert("Fail...");
+									} 
+								}
+							});	
+					}
+					else
+					{
+						alert('Invalid image.');
+					}
+					
+					
+					
+				});
+
+
+		</script>	
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.js"></script>		   
 	</body>
 </html>

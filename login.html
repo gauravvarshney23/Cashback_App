@@ -238,7 +238,7 @@
 										<p style="color:red;" id="referral_error_msg"></p>
 										</div>
 										<div class="u-form-group" >
-											<button  onclick="submit_detail()"   type="button">SIGN UP</button>
+											<button  id="registerData"  type="button">SIGN UP</button>
 										</div>
 									</form>
 									</div>
@@ -269,80 +269,94 @@
 		</script>
 
 <script>
-
-function submit_detail()
+function validateEmail(email)
 {
-$("#name").keypress(function(){
-$("#name_error_msg").fadeOut();
-});
+	var filter = /^[\w\-\.\+]+\@[a-zA-Z0-9\.\-]+\.[a-zA-z0-9]{2,4}$/;
+	if (filter.test(email)) {
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
 
+$("#name").keypress(function(){
+       $("#name_error_msg").fadeOut();	
+});
 $("#email_id").keypress(function(){
-$("#emaill_error_msg").fadeOut();
+       $("#emaill_error_msg").fadeOut();	
 });
 
 $("#password_id").keypress(function(){
-$("#passwordd_error_msg").fadeOut();         
-}); 
-$("#referral_code").keypress(function(){
-$("#referral_error_msg").fadeOut();
+       $("#passwordd_error_msg").fadeOut();	
 });
 
-			var name=$("#name").val();
-
-            var email=$("#email_id").val();
-              //alert(email);
-            var password=$("#password_id").val();
-             if(name=='')
-               {
-               	 $('#name_error_msg').html('please enter your name');
-               	
-               }
-            
-                if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email))  
-                {  
-                  verify_err=true; 
-                } 
-                else
-                {
-                $('#emaill_error_msg').html('Invalid Email Id.');
-               verify_err=false;
-
-                if(email=='')
-                {
-                    $('#emaill_error_msg').html('please enter your email');
-                }
-                }
-
-               
-                if(password=='')
-                {
-                    $('#passwordd_error_msg').html('please enter your Password');
-                }
-                
-                else
-                {
-
-                $.post('http://yoneak.com/web_services/main_register.php?name='+name+'&email_id='+email+'&password_id='+password+'&referral_code='+referral_code,function(res){
-
-        if(res.code=='0')
+			$("#registerData").click(function(){
+				var name=$("#name").val();
+				var email =$("#email_id").val();
+				var password=$("#password_id").val();
+				var referral_code=$("#referral_code").val();
+				
+				
+				var checkvalidate=true;
+				
+				 if(name=='')
+				{
+					$('#name_error_msg').html('*Please enter your Name').fadeIn();
+					checkvalidate=false;
+				}
+			    
+				
+				if(password=='')
+				{
+					$('#passwordd_error_msg').html('*Please enter your Password').fadeIn();
+					checkvalidate=false;
+				}
+				
+				if(email=='')
+	              {
+					$('#emaill_error_msg').html('*Please enter Email Id').fadeIn();
+					checkvalidate=false;
+				  }
+	
+				else if (validateEmail(email)) 
+				{
+         
+    			}
+     			else {
+           		$('#emaill_error_msg').html('*Invalid Email Id').fadeIn(); 
+            	checkvalidate=false; 
+          		} 
+          		
+	if(checkvalidate)
+	{
+				$.ajax({
+					url:"http://yoneak.com/web_services/main_register.php",
+					type:"POST",
+					dataType:"json",
+					data:{email_id:email,name:name,password_id:password,referral_code:referral_code},
+				    beforeSend: function()
+                   {
+                   // alert("Processing...");
+                   }
+                  }).done(function(result)
+                    	{
+                 	  //  var parsedJson = JSON.parse(result);
+                       // console.log(parsedJson);
+                       if(result.code=='0')
                        {
-                       	$("#emaill_error_msg").html("Email has already been taken").fadeIn(); 
-                        //alert('Email has already been taken');
+                       	$("#emaill_error_msg").html("You have already Register this Email..").fadeIn(); 
                        }
-                       else if(res.code == '1')
-                       {
-                       alert("Successfully Resister.."); 
+                       else if(result.code == '1')
+                        {
+                       alert("Successfully Register.."); 
                         window.location='login.html';     
                         }
-        
-    }, "json").fail(function(){
-        //alert("invalid Email Or Password");
-    });
-
-   }
- }
-
-
+                        
+				});
+              }
+              });
 
 
 

@@ -357,6 +357,8 @@
 		<script src="js/home_category.js"></script>
 		<script src="js/external.js"></script>
 		<script src="js/user_detail.js"></script>
+		<script src="js/cart_item.js"></script>
+		<script src="js/cart.js"></script>
 
 		<script>
 		if((localStorage.getItem("userID")===null) || !(localStorage.getItem("userID")))
@@ -387,7 +389,7 @@
 			}
 		function main()
 		{
-			location.href="main_login.html";
+			location.href="login.html";
 		}
 		function contact()
 		{
@@ -631,10 +633,7 @@
 							<i  class="fa fa-bell w3-large" style="cursor:pointer;color:#fff"></i>
 						</a>
 					</th>
-					<th width="100px" height="50" style="font-size:15px;">
-						<a onclick="goToCart();">
-							<i  class="fa fa-shopping-cart w3-large" style="cursor:pointer;color:#fff"></i>
-						</a>
+					<th id="cart_data" width="100px" height="50" style="font-size:15px;">
 					</th>
 				</tr>
 			</table>			
@@ -871,7 +870,7 @@ if(searchKey!="")
 				 			if(id!="fail")
 				 			{
 				 				newdatadiv='<div class="w3-card-4" >'+
-				 				'<h6 align="right"  style="padding-right:25px;">Remove Product</h6>'+	
+				 				'<h6 align="right"  style="padding-right:50px;">Remove Product</h6>'+	
 				 				     '<a><i onclick="removeProduct('+cartId+');"  class="fa fa-trash w3-xxlarge" align="Center"  style="font-size:15px; cursor:pointer;"   padding-right:15px;padding-top:5px;"></i></a>'+			
 										'<div class="chip w3-left">'+
 										'<img src="http://yoneak.com/admin/product_images/'+image+'" style="max-width:150px;">'+							
@@ -897,7 +896,7 @@ if(searchKey!="")
 						'<a onclick="checkout();"><button style="padding-top:5px;color:#29b0e2;">Proceed to Checkout</button></a>'+
 										'</br>'+
 										'</div>'+
-										'</div>';
+										'</div><br><br><br><br><br>';
 										$("#newdata").append(newdatadiv);
 				 		}
 				 	}

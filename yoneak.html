@@ -449,8 +449,8 @@ border-radius: 0% !important;
 <!-- how its work css and js code end -->	
 	</head>
 	<body>
-		<div  data-role="panel" id="nmyPanel1" data-display="overlay" style="width:280px; position: fixed;"> 
-			<div class="col-xs-12" style="height:640px;overflow-y:auto;">
+		<div  data-role="panel" id="nmyPanel1" data-display="overlay" style="width:280px; position:fixed;"> 
+			<div class="col-xs-12" style="height:640px;overflow-y:scroll;">
 			<div id="ser_valoue">
 				
 			</div>
@@ -638,7 +638,6 @@ border-radius: 0% !important;
 					</ul>
 				</div>
 			</div>
-		</div>
     
 		<div data-role="header" style="background:#080771 none repeat scroll 0 0 !important" data-theme="b" data-position="fixed">
 			<a href="#nmyPanel1" style="width:40px;height:40px;margin-left:10px;margin-top:5px;background-color: #080771;border-color: #080771;	color: #fff;
@@ -834,14 +833,14 @@ border-radius: 0% !important;
 			</div>
 		</div>	
 		
-		<header class="w3-container anchor" style="background-color:#fff;">
+		<header class="anchor" style="background-color:#fff;padding-left:5%">
     <div class="row">
      <div class="col-sm-4 pull-left">     
       <h5>
        How It Works
       </h5>            
      </div>
-     <div class="col-sm-4 pull-right">					
+     <div class="col-sm-6" style="margin-right:8%">					
 		<select>
             <option value="red">Overview</option>
             <option value="green">Activity</option>
@@ -1325,30 +1324,7 @@ border-radius: 0% !important;
 			                  });
 
           </script>
-    <script>
-    $(document).ready(function()
-    {	
-	$.getJSON("http://jsonip.com?callback=?", function (data)
-	{		
-	  var ipAddress=data.ip;
-		     
-		    $.post('http://yoneak.com/web_services/get_cartitem.php?ipAddress='+ipAddress,function(res)
-		    { 
-			var newleads_data="";
-			var amount="NO";
-			console.log(res);
-				newleads_data='<a onclick="goToCart();">'+
-				'<i class="fa fa-shopping-cart w3-large" style="cursor:pointer;color:#fff"><span>'+res.count+'</span></i>'+
-					'</a>';
-							
-				    	     $('#cart_data').append(newleads_data);
-				    	     
-				              },"json");
-
-		                  });
-	  });
-
-          </script>
+    
 
           <!---end wallet detail -->
 
@@ -1390,7 +1366,7 @@ function CostPerAppDownload()
 	}
 function main()
 {
-	location.href="main_login.html";
+	location.href="login.html";
 }
 function about()
 {

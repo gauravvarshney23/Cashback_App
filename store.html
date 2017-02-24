@@ -361,6 +361,8 @@
 		<script src="js/refair-earn.js"></script>
 		<script src="js/user_detail.js"></script>
 		<script src="js/home_category.js"></script>
+		<script src="js/cart_item.js"></script>
+		<script src="js/cart.js"></script>
 
 		  <script>
 		function refer()
@@ -385,7 +387,7 @@
 			}
 		function main()
 		{
-			location.href="main_login.html";
+			location.href="login.html";
 		}
 		function contact()
 		{
@@ -628,10 +630,7 @@
 							<i  class="fa fa-bell w3-large" style="cursor:pointer;color:#fff"></i>
 						</a>
 					</th>
-					<th width="100px" height="50" style="font-size:15px;">
-						<a onclick="goToCart();">
-							<i  class="fa fa-shopping-cart w3-large" style="cursor:pointer;color:#fff"></i>
-						</a>
+					<th id="cart_data" width="100px" height="50" style="font-size:15px;">
 					</th>
 				</tr>
 			</table>			
@@ -830,9 +829,10 @@ if(searchKey!="")
 				</div>
 			</div>
 		
-		<header class="navbar-fixed-bottom" style="border-radius:0px; background-color: #080771 !important;z-index: 1 !important;margin-top: 100px;">
+			
+		<header class="" style="border-radius:0px; background-color: #080771 !important;">
 		<div class="w3-card-4" style="">
-				<div style="text-align: center; padding:5px;text-shadow: 0 0px 0 !important;">
+				<div style="text-align: center; padding:5px;">
 			<table border="0" align="center">
 				<tr align="Center">								
 					<script>
@@ -869,7 +869,6 @@ if(searchKey!="")
 					<th id="login_data1"  width="50" height="50">
 						
 					</th>
-			
 					<div class="col-md-2 col-sm-2 col-xs-2">
 					<th width="550" height="50" style="font-size:15px; text-align: center;">
 						<h6 style="color:#fff;">Copyright &copy; 
@@ -893,14 +892,14 @@ if(searchKey!="")
 							//'<div style="color:#fff;">Login</div>'+
 							//'</a>';
                             // $('#login_div_data').html(login_div_data);
-		               // }
+		                //}
 		                //else
-		               // {
-		                	//login_div_data='<a href="login.html"><i class="fa fa-sign-out w3-xxlarge" aria-hidden="true" style="cursor:pointer;"></i>'+
+		                //{
+		                //	login_div_data='<a href="login.html"><i class="fa fa-sign-out w3-xxlarge" aria-hidden="true" style="cursor:pointer;"></i>'+
 							//'<div style="color:#fff;">Logout</div>'+
 							//'</a>';
                             //$('#login_div_data').html(login_div_data);
-		               // }
+		                //}
 		                
 
 						});
@@ -914,6 +913,7 @@ if(searchKey!="")
 		</div>
 		</div>
 		</header>
+		
 	</body>
 </html>
 

@@ -14,60 +14,7 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
-				<style> 
-
-   #nav 
-   {
-    list-style:none inside;
-    margin:0;
-    padding:0;
-    text-align:center;
-   }
-
-   #nav li 
-   {
-    display:block;
-  
-    background: #f9f9f9; 
-   }
-
-   #nav li a 
-   {
-    display:block;
-    padding:0;
-    text-decoration:none;
-    width:160px; 
-    line-height:35px; 
-    color: #38c;
-   }
-    
-   #nav li li a 
-   {
-    font-size:80%;
-    color: #38c;
-   }
-    
-   #nav li:hover 
-   {
-    background:#38c;    
-   }
-
-   #nav ul 
-   {    
-    padding:0;
-    left:0;
-    display:none; 
-   }
-   #nav a:hover
-   {
-    color:white;
-   }
-   
-   #nav li:hover ul 
-   {
-    display:block;
-   } 
- 
+	<style> 
 			#map-page, #map-canvas
 			{ 
 				width: 100%; 
@@ -103,65 +50,6 @@
 				left: 0; top: 0; bottom: 0;
 				width: 50px;
 			}
-			button.accordion.active, button.accordion:hover 
-			{
-				background-color: #ddd;
-			}
-
-			div.panel 
-			{
-				background-color: white;
-				max-height: 0;
-				overflow: hidden;
-				transition: 0.6s ease-in-out;
-				opacity: 0;
-			}
-
-			div.panel.show 
-			{
-				opacity: 1;
-				max-height: 500px;  
-			}
-			
-			
-			.dropdown-content 
-			{
-				display: none;
-				z-index:6;
-				position: absolute;
-				min-width: 160px;
-				box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);		
-			}
-
-			.dropdown-content a 
-			{
-				color: light-grey;
-				padding: 12px;
-				text-decoration: none;
-				display: block;
-			}
-
-			.dropdown-content a:hover 
-			{
-				background-color: #ff6666;
-			}
-
-			.dropdown:hover .dropdown-content 
-			{
-				display: block;
-			}
-			.activeN 
-			{
-				background-color: #fff;
-				outline:none;
-				padding-right: 54%;
-				width: 250px !important;
-			}
-			.activeC
-			{
-				background-color: #ffffff!important;
-				width:50px !important;
-			}
 			ul.tab 
 			{
 				list-style-type: none;
@@ -186,20 +74,27 @@
 				transition: 0.3s;
 				font-size: 16px;
 			}
-	
-			ul.tab li a:hover 
-			{
-				background-color: #29b0e2;
-				border-radius:15px;
-				height:120px;
-			}
 
 			ul.tab li a:focus, .active 
 			{
 				
 				
 			}
-
+			
+			.activeN 
+			{
+				background-color: #fff;
+				outline:none;
+				padding-right: 54%;
+				width: 250px !important;
+				height: 85px;
+			}
+			.activeC
+			{
+				background-color: #ffffff!important;
+				width:50px !important;
+			}
+			
 			.tabcontent 
 			{
 				display: none;
@@ -220,7 +115,7 @@
 				from {opacity: 0;}
 				to {opacity: 1;}
 			}
-
+	
 		</style>
 		<style>
 			.owl-controls
@@ -333,9 +228,133 @@
 				font-size: 14px;
 			}
 			
-			#top-categoies .owl-item{
+			#top-categoies .owl-item
+			{
 				width:110px!important;
 			}
+		</style>
+		<style>
+			button.accordion 
+			{ 
+				background-color: #eee;
+				color: #444;
+				cursor: pointer;
+				width: 100%;
+				border: none;
+				text-align: left;
+				outline: none;
+				font-size: 14px;
+				transition: 0.4s;
+			}
+			
+			.panel
+			{
+				margin-bottom:0px!important;
+			}
+
+			button.accordion.active, button.accordion:hover 
+			{
+				background-color: #ddd;
+			}
+
+			div.panel 
+			{
+				background-color: white;
+				max-height: 0;
+				overflow: hidden;
+				transition: 0.6s ease-in-out;
+				opacity: 0;
+			}
+
+			div.panel.show 
+			{
+				opacity: 1;
+				max-height: 500px;  
+			}
+
+   #nav 
+   {
+    list-style:none inside;
+    margin:0;
+    padding:0;
+    text-align:center;
+   }
+
+   #nav li 
+   {
+    display:block;
+  
+    background: #f9f9f9; 
+   }
+
+   #nav li a 
+   {
+    display:block;
+    padding:0;
+    text-decoration:none;
+    width:160px; 
+    line-height:35px; 
+    color: #38c;
+   }
+    
+   #nav li li a 
+   {
+    font-size:80%;
+    color: #38c;
+   }
+    
+   #nav li:hover 
+   {
+    background:#38c;    
+   }
+
+   #nav ul 
+   {    
+    padding:0;
+    left:0;
+    display:none; 
+   }
+   #nav a:hover
+   {
+    color:white;
+   }
+   
+   #nav li:hover ul 
+   {
+    display:block;
+   } 
+   .dropdown-content 
+			{
+				display: none;
+				z-index:6;
+				position: absolute;
+				min-width: 160px;
+				box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);		
+			}
+
+			.dropdown-content a 
+			{
+				color: light-grey;
+				padding: 12px;
+				text-decoration: none;
+				display: block;
+			}
+
+			.dropdown-content a:hover 
+			{
+				background-color: #ff6666;
+			}
+
+			.dropdown:hover .dropdown-content 
+			{
+				display: block;
+			}
+			#cat.owl-item
+			 {
+			  width:50px;
+			 
+			 }
+ 
 		</style>
 		<script src="js/jquery-1.11.3.min.js"></script>
 		<script src="js/jquery.mobile-1.4.5.min.js"></script>
@@ -359,6 +378,8 @@
 		<script src="js/refair-earn.js"></script>
 		<script src="js/user_detail.js"></script>
 		<script src="js/home_category.js"></script>
+		<script src="js/cart_item.js"></script>
+		<script src="js/cart.js"></script>
 	 <script>
 		function refer()
 		{
@@ -382,7 +403,7 @@
 			}
 		function main()
 		{
-			location.href="main_login.html";
+			location.href="login.html";
 		}
 		function contact()
 		{
@@ -625,10 +646,7 @@
 							<i  class="fa fa-bell w3-large" style="cursor:pointer;color:#fff"></i>
 						</a>
 					</th>
-					<th width="100px" height="50" style="font-size:15px;">
-						<a onclick="goToCart();">
-							<i  class="fa fa-shopping-cart w3-large" style="cursor:pointer;color:#fff"></i>
-						</a>
+					<th id="cart_data" width="100px" height="50" style="font-size:15px;">
 					</th>
 				</tr>
 			</table>			
@@ -921,7 +939,7 @@ Ltd. a commission.</p>
 						
 					</th>
 			
-					<div class="col-md-2 col-sm-2 col-xs-2">
+						<div class="col-md-2 col-sm-2 col-xs-2">
 					<th width="550" height="50" style="font-size:15px; text-align: center;">
 						<h6 style="color:#fff;">Copyright &copy; 
 							<a target="_blank" href="http://yoneak.com/">

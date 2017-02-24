@@ -14,7 +14,7 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
-			<style> 
+	<style> 
 			#map-page, #map-canvas
 			{ 
 				width: 100%; 
@@ -372,11 +372,14 @@
 		<script src="js/couponcode.js"></script>
 		<script src="js/cat.js"></script>
 		<script src="js/subcat.js"></script>
-		<script src="js/home_category.js"></script>
+		<script src="js/menubar.js"></script>
 		<script src="js/external.js"></script>
 		<script src="js/deal.js"></script>
 		<script src="js/refair-earn.js"></script>
 		<script src="js/user_detail.js"></script>
+		<script src="js/home_category.js"></script>
+		<script src="js/cart_item.js"></script>
+		<script src="js/cart.js"></script>
 	 <script>
 		function refer()
 		{
@@ -384,32 +387,27 @@
 		}
 		function about()
 		{
-		location.href="about.html";
+			location.href="about.html";
 		}
-       function costPerView()
-	    {
-        location.href="home-CPV.html";
-	    }
-        function costPerClick()
-	   {
-	   location.href="home-CPC.html"; 
-	    }
-       function CostPerAppDownload()
-	   {
-    	location.href="home-CPD.html";
-    	}
-      function main()
-      {
- 	location.href="main_login.html";
-     }
-      function contact()
-        {
-	    location.href="contact.html";
-       }
-
-		function yoneak()
+		function costPerView()
+			{
+		   location.href="home-CPV.html";
+			}
+		function costPerClick()
+			{
+			location.href="home-CPC.html"; 
+			}
+		function CostPerAppDownload()
+			{
+			location.href="home-CPD.html";
+			}
+		function main()
 		{
-			location.href="yoneak.html";
+			location.href="login.html";
+		}
+		function contact()
+		{
+			location.href="contact.html";
 		}
 		function term()
 		{
@@ -436,12 +434,10 @@
 			location.href="edit-profile.html";
 
 		}
-
-
 		</script>
 	</head>
 	<body>
-			<div  data-role="panel" id="nmyPanel1" data-display="overlay" style="width:280px; position: fixed;"> 
+		<div  data-role="panel" id="nmyPanel1" data-display="overlay" style="width:280px; position: fixed;"> 
 			<div class="col-xs-12" style="height:640px;overflow-y:auto;">
 			<div id="ser_valoue">
 				
@@ -645,15 +641,12 @@
 							<i class="fa fa-search w3-large" id="searchButton"  style="cursor:pointer;color:#fff"></i>
 						</a>
 					</th>
-					<th width="100px" height="50" style="font-size:15px;">
+						<th width="100px" height="50" style="font-size:15px;">
 						<a onclick="notification();">
 							<i  class="fa fa-bell w3-large" style="cursor:pointer;color:#fff"></i>
 						</a>
 					</th>
-					<th width="100px" height="50" style="font-size:15px;">
-						<a onclick="goToCart();">
-							<i  class="fa fa-shopping-cart w3-large" style="cursor:pointer;color:#fff"></i>
-						</a>
+					<th id="cart_data" width="100px" height="50" style="font-size:15px;">
 					</th>
 				</tr>
 			</table>			
@@ -770,12 +763,17 @@ Enter the Yoneak world to shop like unique.
 </p>
 </div>
 </div>
- 
-			</header>
+</header>
+			
+</div>	
+</div>		
+<br>
+			
+
 			
 		</div>	
 			</div>
-	<header class="navbar-fixed-bottom" style="border-radius:0px; background-color: #080771 !important;">
+	<header class="" style="border-radius:0px; background-color: #080771 !important;">
 		<div class="w3-card-4" style="">
 				<div style="text-align: center; padding:5px;">
 			<table border="0" align="center">
@@ -815,11 +813,11 @@ Enter the Yoneak world to shop like unique.
 						
 					</th>
 			
-					<div class="col-md-2 col-sm-2 col-xs-2">
+						<div class="col-md-2 col-sm-2 col-xs-2">
 					<th width="550" height="50" style="font-size:15px; text-align: center;">
 						<h6 style="color:#fff;">Copyright &copy; 
 							<a target="_blank" href="http://yoneak.com/">
-								<i style="color:#ff6666;">Yoneak.com</i>
+								<i style="color:#fff;">Yoneak.com</i>
 							</a>
 						</h6>
 					</th>
@@ -859,70 +857,6 @@ Enter the Yoneak world to shop like unique.
 		</div>
 		</div>
 		</header>
-		   <script>
-			$(document).ready(function()
-		    {	
-		    var  user_id=localStorage.userID;
-		    $.post('http://yoneak.com/web_services/activity.php?user_id='+user_id,function(res){
-			    var i=0;
-				var newleads_div_data="";
-				$.each(res, function( key, value ) 
-				    {
-				    switch(i)
-				    	{
-				    		
-				       case 0:
-				        newleads_div_data='<table border="0" align="center" style="font-size:12px; font-family:Helvetica;">'+
-					        '<tr align="center">'+
-						'<td width="500px" height="50" style="font-size:16px;color: grey;text-align:center;">'+value.tracking_url+'</td>';
-				    	break;
-
-				    	case 1:
-				           newleads_div_data+='<td width="500px" height="50" style="font-size:16px;color: grey;text-align:center;">'+value.Network_id+'</td>';
-				    	break;
-
-				    	case 2:
-				    		newleads_div_data+='<td width="500px" height="50" style="font-size:16px;color: grey;text-align:center;">'+value.date+
-				    		'</td>'+
-				             '</tr>'+							
-				            '</table>';
-
-				        break;
-			            
-				    	  }
-				    	       i=i+1;
-				    	       i%=5;
-				    	       if(i==0)
-				    	       {
-
-				    	     $('#wallet_history').append(newleads_div_data);
-				    	       }
-
-                               });
-					
-				              },"json");
-
-			                  });
-
-				           </script>
-		    <script>
-			$(document).ready(function()
-		    {	
-		    var  user_id=localStorage.userID;
-		    $.post('http://yoneak.com/web_services/username.php?user_id='+user_id,function(res){
-			    var i=0;
-				var newleads_div_data="";
-				 console.log(res);
-				           newleads_div_data='<h5 style="color: #29b0e2;" class="w3-center"> '+res.user_name+ ' Click History</h5>';
-
-				    	     $('#userdata').append(newleads_div_data);
-				    	     
-				              },"json");
-
-			                  });
-		   </script>
-
-		   
             <!---wallet detail -->
 			<script>
 			$(document).ready(function()

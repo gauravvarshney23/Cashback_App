@@ -360,6 +360,8 @@
 		<script src="js/external.js"></script>
 		<script src="js/user_detail.js"></script>
 		<script src="js/home_category.js"></script>
+		<script src="js/cart_item.js"></script>
+		<script src="js/cart.js"></script>
  <script>
 			function refer()
 			{
@@ -383,7 +385,7 @@
 				}
 			function main()
 			{
-				location.href="main_login.html";
+				location.href="login.html";
 			}
 			function contact()
 			{
@@ -610,7 +612,7 @@
 			</div>
 		</div>
 		<div data-role="header" style="background:#080771 none repeat scroll 0 0 !important" data-theme="b" data-position="fixed">
-			<a href="#nmyPanel1" style="width:40px;height:40px;margin-left:10px;margin-top:5px;background-color: #4169e1;border-color: #4169e1;	color: #fff;
+			<a href="#nmyPanel1" style="width:40px;height:40px;margin-left:10px;margin-top:5px;background-color: #080771;border-color: #080771;	color: #fff;
 				text-shadow: 0 1px 0 #111;" class="ui-btn ui-corner-all ui-icon-bars ui-btn-icon-notext" data-transition="slide">
 				
 			</a>
@@ -629,10 +631,7 @@
 							<i  class="fa fa-bell w3-large" style="cursor:pointer;color:#fff"></i>
 						</a>
 					</th>
-					<th width="100px" height="50" style="font-size:15px;">
-						<a onclick="goToCart();">
-							<i  class="fa fa-shopping-cart w3-large" style="cursor:pointer;color:#fff"></i>
-						</a>
+					<th id="cart_data" width="100px" height="50" style="font-size:15px;">
 					</th>
 				</tr>
 			</table>			
@@ -714,9 +713,10 @@ if(searchKey!="")
 		<div id="externalpro" class="w3-card-4" >	
 		</div>
 	
-	<header class="navbar-fixed-bottom" style="border-radius:0px; background-color: #080771 !important;z-index: 1 !important; margin-top: 30px;">
+		
+		<header class="" style="border-radius:0px; background-color: #080771 !important;">
 		<div class="w3-card-4" style="">
-				<div style="text-align: center; padding:5px;text-shadow: 0 0px 0 !important;">
+				<div style="text-align: center; padding:5px;">
 			<table border="0" align="center">
 				<tr align="Center">								
 					<script>
@@ -744,6 +744,7 @@ if(searchKey!="")
 		                {
 
 		                }
+
 
 
 						});
@@ -775,13 +776,13 @@ if(searchKey!="")
 							//'<div style="color:#fff;">Login</div>'+
 							//'</a>';
                             // $('#login_div_data').html(login_div_data);
-		               // }
-		               // else
+		                //}
+		                //else
 		                //{
 		                //	login_div_data='<a href="login.html"><i class="fa fa-sign-out w3-xxlarge" aria-hidden="true" style="cursor:pointer;"></i>'+
-						//	'<div style="color:#fff;">Logout</div>'+
+							//'<div style="color:#fff;">Logout</div>'+
 							//'</a>';
-                           // $('#login_div_data').html(login_div_data);
+                            //$('#login_div_data').html(login_div_data);
 		                //}
 		                
 
@@ -796,6 +797,7 @@ if(searchKey!="")
 		</div>
 		</div>
 		</header>
+		
 		<script>
          $(document).ready(function()
 		   {
@@ -879,6 +881,7 @@ if(searchKey!="")
 
 		    $.post('http://yoneak.com/web_services/search_externalpro.php?search_key='+searchKey,function(res)
 		    {
+
 			 var i=0;
 			 var id="";
 			 var proId="";
@@ -889,6 +892,22 @@ if(searchKey!="")
 			 var tabcount=2;
 			 var newleads_div_data='';
 			 var countid=1;
+			  if(res=='')
+				 {
+				 		newleads_div_data='<div class="w3-card-4" >'+				
+										'<div class="chip w3-left">'+						
+										'</div>'+
+										'<div class="w3-container" style="text-align:center;" >'+
+										'<h4 style="padding-top:5px;">Currently No Data Available </h4>'+					
+						'<h6 style="border-radius:15px;color: #ff6666"></h6>'+
+										'</br>'+
+										'</div>'+
+										'</div>';
+						$("#affiliate_history").append(newleads_div_data);
+											
+				 }
+				 else
+				 {
 		    $.each(res,function(key,value) 
 				    {
 				    switch(i)
@@ -952,6 +971,7 @@ if(searchKey!="")
 				    	       }
 
                               });
+		                     }
 
 					 $('#externalpro').append(newleads_div_data);
 

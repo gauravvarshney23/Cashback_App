@@ -363,6 +363,8 @@
 		<script src="js/shipping.js"></script>
 		<script src="js/editship.js"></script>
 		<script src="js/user_detail.js"></script>
+		<script src="js/cart_item.js"></script>
+		<script src="js/cart.js"></script>
 
 		 <script>
 		function refer()
@@ -387,7 +389,7 @@
 			}
 		function main()
 		{
-			location.href="main_login.html";
+			location.href="login.html";
 		}
 		function contact()
 		{
@@ -631,10 +633,7 @@
 							<i  class="fa fa-bell w3-large" style="cursor:pointer;color:#fff"></i>
 						</a>
 					</th>
-					<th width="100px" height="50" style="font-size:15px;">
-						<a onclick="goToCart();">
-							<i  class="fa fa-shopping-cart w3-large" style="cursor:pointer;color:#fff"></i>
-						</a>
+					<th id="cart_data" width="100px" height="50" style="font-size:15px;">
 					</th>
 				</tr>
 			</table>			
@@ -703,7 +702,7 @@ if(searchKey!="")
                                                                 
                                                                 <div class="block-area-button">
                                                                     <button  name="shipp_to_this" style="float:right" id="choise" class="btn btn-default add-tag-btn" type="submit"> Continue</button>
-                                                                </div>
+                                                                </div><br><br><br><br><br><br>
                                                             </form>
 		
 	<header class="navbar-fixed-bottom" style="border-radius:0px; background-color: #080771 !important;z-index: 1 !important;">

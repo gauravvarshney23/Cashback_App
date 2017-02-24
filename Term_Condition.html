@@ -1,0 +1,1384 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Cashback Offer,Discount Coupons,Promo Codes - YONEAK</title>
+		<link rel="shortcut icon" type="image/x-icon" href="favicon2.ico" />
+		<link rel="icon" type="image/x-icon" href="favicon2.ico" />
+		<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />		
+		<link rel="stylesheet" href="css/w3.css">
+		<link rel="stylesheet" href="css/w3-theme-black.css">
+	
+	     <link rel="stylesheet" href="css/slider.css" type="text/css">
+
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
+				<style> 
+
+   #nav 
+   {
+    list-style:none inside;
+    margin:0;
+    padding:0;
+    text-align:center;
+   }
+
+   #nav li 
+   {
+    display:block;
+  
+    background: #f9f9f9; 
+   }
+
+   #nav li a 
+   {
+    display:block;
+    padding:0;
+    text-decoration:none;
+    width:160px; 
+    line-height:35px; 
+    color: #38c;
+   }
+    
+   #nav li li a 
+   {
+    font-size:80%;
+    color: #38c;
+   }
+    
+   #nav li:hover 
+   {
+    background:#38c;    
+   }
+
+   #nav ul 
+   {    
+    padding:0;
+    left:0;
+    display:none; 
+   }
+   #nav a:hover
+   {
+    color:white;
+   }
+   
+   #nav li:hover ul 
+   {
+    display:block;
+   } 
+ 
+			#map-page, #map-canvas
+			{ 
+				width: 100%; 
+				height: 100%; 
+				padding: 0; 
+			}
+
+			.ui-body-f 
+			{
+				font-weight: bold;
+				padding: 0;
+				background-color: white;
+			}
+			.tr-head 
+			{
+				border-bottom: 1px solid white;
+				background: #ff6666;
+				color: white;
+			}
+			.tr-content 
+			{
+				border-bottom: 1px solid #ff6666;
+				background: white;
+				color: #ff6666;
+			}
+			.has-odd-thumb li a 
+			{
+				padding-left: 50px !important;
+			}
+			.thumbContainer 
+			{
+				position: absolute;
+				left: 0; top: 0; bottom: 0;
+				width: 50px;
+			}
+			button.accordion.active, button.accordion:hover 
+			{
+				background-color: #ddd;
+			}
+
+			div.panel 
+			{
+				background-color: white;
+				max-height: 0;
+				overflow: hidden;
+				transition: 0.6s ease-in-out;
+				opacity: 0;
+			}
+
+			div.panel.show 
+			{
+				opacity: 1;
+				max-height: 500px;  
+			}
+			
+			
+			.dropdown-content 
+			{
+				display: none;
+				z-index:6;
+				position: absolute;
+				min-width: 160px;
+				box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);		
+			}
+
+			.dropdown-content a 
+			{
+				color: light-grey;
+				padding: 12px;
+				text-decoration: none;
+				display: block;
+			}
+
+			.dropdown-content a:hover 
+			{
+				background-color: #ff6666;
+			}
+
+			.dropdown:hover .dropdown-content 
+			{
+				display: block;
+			}
+			.activeN 
+			{
+				background-color: #fff;
+				outline:none;
+				padding-right: 54%;
+				width: 250px !important;
+			}
+			.activeC
+			{
+				background-color: #ffffff!important;
+				width:50px !important;
+			}
+			ul.tab 
+			{
+				list-style-type: none;
+				margin: 0;
+				padding: 0;
+				overflow: hidden;
+				background-color: #f1f1f1;
+			}
+
+			ul.tab li 
+			{
+				float: left;
+			}
+
+			ul.tab li a 
+			{
+				display: inline-block;
+				color: black;
+				text-align: center;
+				padding: 14px 16px;
+				text-decoration: none;
+				transition: 0.3s;
+				font-size: 16px;
+			}
+	
+			ul.tab li a:hover 
+			{
+				background-color: #29b0e2;
+				border-radius:15px;
+				height:120px;
+			}
+
+			ul.tab li a:focus, .active 
+			{
+				
+				
+			}
+
+
+			.tabcontent 
+			{
+				display: none;
+				padding: 6px 12px;
+				-webkit-animation: fadeEffect 1s;
+				animation: fadeEffect 1s;
+			}
+			
+			
+			@-webkit-keyframes fadeEffect 
+			{
+				from {opacity: 0;}
+				to {opacity: 1;}
+			}
+
+			@keyframes fadeEffect 
+			{
+				from {opacity: 0;}
+				to {opacity: 1;}
+			}
+
+		</style>
+		<style>
+			.owl-controls
+			{
+				display: none !important;
+			}
+			.anchor	a
+			{
+				color:#FF4087;
+				text-decoration:none;
+			}
+			.anchor a:hover
+			{
+				color:#F7741C;
+				text-decoration:none;
+			}
+			span
+			{
+				color:#FF4087;
+				text-decoration:none;
+			}
+			span:hover
+			{
+				color:#F7741C;
+				text-decoration:none;
+			}
+			a
+			{
+				color:#FF4087;
+				text-decoration:none;
+			}
+			a:hover
+			{
+				color:#F7741C;
+				text-decoration:none;
+			}
+		</style>
+		
+		<style>
+            .jssorb05 
+			{
+				position: absolute;
+			}
+			.jssorb05 div, .jssorb05 div:hover, .jssorb05 .av 
+			{
+				position: absolute;
+                width: 16px;
+				height: 16px;
+				background: url('img/b05.png') no-repeat;
+				overflow: hidden;
+				cursor: pointer;
+			}
+			.jssorb05 div 
+			{ 
+				background-position: -7px -7px; 
+			}
+			.jssorb05 div:hover, .jssorb05 .av:hover 
+			{ 
+				background-position: -37px -7px; 
+			}
+			.jssorb05 .av 
+			{ 
+				background-position: -67px -7px; 
+			}
+			.jssorb05 .dn, .jssorb05 .dn:hover 
+			{ 
+				background-position: -97px -7px; 
+			}
+			.jssora12l, .jssora12r 
+			{
+				display: block;
+				position: absolute;
+                width: 30px;
+				height: 46px;
+				cursor: pointer;
+				background: url('img/a12.png') no-repeat;
+				overflow: hidden;
+			}
+			.jssora12l 
+			{ 
+				background-position: -16px -37px; 
+			}
+			.jssora12r 
+			{ 
+				background-position: -75px -37px; 
+			}
+			.jssora12l:hover 
+			{ 
+				background-position: -136px -37px; 
+			}
+			.jssora12r:hover 
+			{ 
+				background-position: -195px -37px; 
+			}
+			.jssora12l.jssora12ldn 
+			{ 
+				background-position: -256px -37px; 
+			}
+			.jssora12r.jssora12rdn 
+			{
+				background-position: -315px -37px; 
+			}
+			.ui-panel-inner
+			{
+				padding:0em;
+			}
+			html,body
+			{
+				font-family: "Open Sans";
+				font-size: 14px;
+			}
+			
+			#top-categoies .owl-item{
+				width:110px!important;
+			}
+		</style>
+		<script src="js/jquery-1.11.3.min.js"></script>
+		<script src="js/jquery.mobile-1.4.5.min.js"></script>
+		<script src="http://maps.google.com/maps/api/js?libraries=geometry&sensor=false"></script>
+		<script src="js/jssor.slider.min.js"></script>
+		<script src="js/owl.carousel.min.js"></script>
+		<script src="js/login.js"></script>
+	    <script src="js/logout.js"></script>
+	    <script src="js/account.js"></script>
+	    <script src="js/home.js"></script>
+	    <script src="js/walletdetail.js"></script>
+		<script src="js/totalwallet-amount.js"></script>
+		<script src="js/storehome.js"></script>
+		<script src="js/producthome.js"></script>
+		<script src="js/couponcode.js"></script>
+		<script src="js/cat.js"></script>
+		<script src="js/subcat.js"></script>
+		<script src="js/menubar.js"></script>
+		<script src="js/external.js"></script>
+		<script src="js/deal.js"></script>
+		<script src="js/refair-earn.js"></script>
+		<script src="js/user_detail.js"></script>
+		<script src="js/home_category.js"></script>
+		<script src="js/cart_item.js"></script>
+		<script src="js/cart.js"></script>
+	 <script>
+		function refer()
+		{
+			location.href="Refer_Earn.html";
+		}
+		function about()
+		{
+			location.href="about.html";
+		}
+		function costPerView()
+			{
+		   location.href="home-CPV.html";
+			}
+		function costPerClick()
+			{
+			location.href="home-CPC.html"; 
+			}
+		function CostPerAppDownload()
+			{
+			location.href="home-CPD.html";
+			}
+		function main()
+		{
+			location.href="login.html";
+		}
+		function contact()
+		{
+			location.href="contact.html";
+		}
+		function term()
+		{
+			location.href="Term&Condition.html";
+		}
+		function faq()
+		{
+			location.href="faq.html";
+		}
+		function privacy()
+		{
+			location.href="privacy_policy.html";
+		}
+		function support()
+		{
+			location.href="support.html";
+		}
+		function notification()
+		{
+			location.href="Notification.html";
+		}
+		function edit()
+		{
+			location.href="edit-profile.html";
+
+		}
+
+
+		</script>
+	</head>
+	<body>
+		<div  data-role="panel" id="nmyPanel1" data-display="overlay" style="width:280px; position: fixed;"> 
+			<div class="col-xs-12" style="height:640px;overflow-y:auto;">
+			<div id="ser_valoue">
+				
+			</div>
+			
+				
+				<div class="row" >
+					<ul style="list-style-type: none;padding-left:5%;padding-top:5%">
+					<div id="login_data2">
+						
+					</div>
+					<script>
+				$(document).ready(function(){
+
+							var login_data2='';
+
+		              	if((localStorage.userID!=null) || (localStorage.userID))
+
+		                {
+
+		                	login_data2='<li id="dataamount" style="line-height:3em">'+
+							
+						    '</li>';
+
+                             $('#login_data2').html(login_data2);
+
+		                }
+
+		                else
+
+		                {
+
+		                }
+
+						});
+
+                     </script>		
+						<li style="line-height:3em">
+							<a  href="" style="color:#000;text-decoration:none;">
+								<img src="img/my_coupons.png" style="width:25px;height:25px">
+								<span onclick="couponcode()" style="color:#000;padding-top:5%">My Coupans</span>								
+							</a>
+						</li>
+						<li style="line-height:3em">
+							<a  href="" style="color:#000;text-decoration:none;">
+								<img src="img/refer & earn.png" style="width:25px;height:25px">
+								<span onclick="refer()"  style="color:#000;padding-top:5%">Refer & Earn</span>								
+							</a>
+						</li>
+						<li onclick="support()" style="line-height:3em">
+							<a  href="" style="color:#000;text-decoration:none;">
+								<img src="img/support.png" style="width:25px;height:25px">
+								<span style="color:#000;padding-top:5%">Support</span>									
+							</a>
+						</li >
+					</ul>
+					<hr style="border-bottom:1px solid grey;">
+					<ul style="list-style-type: none;padding-left:5%;">
+						<li style="line-height:3em">
+							<a  href="" style="color:#000;text-decoration:none;">
+								<img src="img/stores.png" style="width:25px;height:25px">
+								<span  onclick="storehome()" style="color:#000;padding-top:5%">Stores</span>									
+							</a>
+						</li>
+						<!--<li style="line-height:3em">
+						 <div class="dropdown" > 
+							<a  style="text-decoration:none;">
+								<img src="img/categoies.png" style="width:25px;height:25px">
+								<span style="color:#000;padding-top:5%;cursor:pointer;" class="accordion">Categories</span>
+								</a>
+								<div class="dropdown-content">          
+						                 <ul id="nav" class="navbar">
+          	
+						                 </ul>
+					       </div> 
+					     </div>  	
+							
+						</li>-->
+						<li style="line-height:3em">
+							<a  style="text-decoration:none;">
+								<img src="img/categoies.png" style="width:25px;height:25px">
+								<span style="color:#000;padding-top:5%;cursor:pointer;" class="accordion">Categories</span>
+								<div class="panel" id="navbar" >
+
+							
+							   </div>
+									<!--<h5 style="cursor:pointer;padding-left:20%;" class="accordion">PayTm</h5>							
+									<div class="panel" style="text-align:center">
+										<h6 class="w3-center" style="cursor:pointer;">Mobile</h6>
+										<h6 class="w3-center" style="cursor:pointer;">Furniture</h6>
+										<h6 class="w3-center" style="cursor:pointer;">Electricity</h6>
+									</div>	
+									<h5 style="cursor:pointer;padding-left:20%;" class="accordion">eBay</h5>							
+									<div class="panel" style="text-align:center">
+										<h6 class="w3-center" style="cursor:pointer;">Mobile</h6>
+										<h6 class="w3-center" style="cursor:pointer;">Furniture</h6>
+										<h6 class="w3-center" style="cursor:pointer;">Electricity</h6>
+									</div>-->	
+								</div>		
+							</a>
+						</li>
+						
+							<a  style="text-decoration:none;">
+								<img src="img/vochers.png" style="width:25px;height:25px">
+								<span style="color:#000;cursor:pointer;" class="accordion">Earn More</span>							
+								<div class="panel">
+									<h5 onclick="costPerClick()" style="padding-left:20%;cursor:pointer;">PPC</h5>
+									<h5 onclick="CostPerAppDownload()" style="padding-left:20%;cursor:pointer;">PPD</h5>
+									<h5 onclick="costPerView()" style="padding-left:20%;cursor:pointer;">PPS</h5>
+								</div>																
+							</a>
+							<script>
+								var acc = document.getElementsByClassName("accordion");
+								var i;
+								for (i = 0; i < acc.length; i++) 
+								{
+									acc[i].onclick = function()
+									{
+										this.classList.toggle("active");
+										this.nextElementSibling.classList.toggle("show");
+									}
+								}
+							</script>
+						
+					</ul>
+					<hr style="border-bottom:1px solid grey;">
+					        <a  style="text-decoration:none;">
+								<img src="img/info.png" style="width:25px;height:25px">
+								<span style="color:#000;cursor:pointer;" class="about">Informations</span>							
+								<div class="panel">
+									<h5 onclick="about()" style="padding-left:20%;cursor:pointer;">About Us</h5>
+									<h5 onclick="term()" style="padding-left:20%;cursor:pointer;">Term and condition</h5>
+									<h5 onclick="faq()" style="padding-left:20%;cursor:pointer;">FAQ</h5>
+									<h5 onclick="privacy()" style="padding-left:20%;cursor:pointer;">Privacy Policy</h5>
+								</div>																
+					       </a>
+					       <script>
+								var acc = document.getElementsByClassName("about");
+								var i;
+								for (i = 0; i < acc.length; i++) 
+								{
+									acc[i].onclick = function()
+									{
+										this.classList.toggle("active");
+										this.nextElementSibling.classList.toggle("show");
+									}
+								}
+							</script>
+					<ul style="list-style-type: none;padding-left:10%;">
+						<li onclick="contact()" style="line-height:3em">
+							<a  href="" style="color:#000;text-decoration:none;">
+								Feedback
+							</a>
+						</li >
+						<!--<li onclick="term()" style="line-height:3em">
+							<a  href="" style="color:#000;text-decoration:none;">
+								Term and condition
+							</a>
+						</li>
+						<li onclick="faq()" style="line-height:3em">
+							<a  href="" style="color:#000;text-decoration:none;">
+								FAQ
+							</a>
+						</li>
+						<li onclick="privacy()" style="line-height:3em">
+							<a  href="" style="color:#000;text-decoration:none;">
+								Privacy Policy.
+							</a>
+						</li>-->
+						<li style="line-height:3em">
+							<a  href="" style="color:#000;text-decoration:none;">
+								Rate Us
+							</a>
+						</li>
+						<!--<li onclick="about()" style="line-height:3em">
+							<a  href="" style="color:#000;text-decoration:none;">
+								About Us
+							</a>
+						</li>-->
+						<li style="line-height:3em">
+							<a  href="" style="color:#000;text-decoration:none;">
+								Share App
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div data-role="header" style="background:#080771 none repeat scroll 0 0 !important" data-theme="b" data-position="fixed">
+			<a href="#nmyPanel1" style="width:40px;height:40px;margin-left:10px;margin-top:5px;background-color: #080771;border-color: #080771;	color: #fff;
+				text-shadow: 0 1px 0 #111;" class="ui-btn ui-corner-all ui-icon-bars ui-btn-icon-notext" data-transition="slide">
+				
+			</a>
+			<table border="0" align="center">
+				<tr align="Center">								
+					<th width="500px" height="50">
+						<img src="yo.png" id="logo" onclick="mainPage()" class="w3-center" style="cursor:pointer;margin:0 auto;height:45px;display:block;outline:none;">	
+					</th>					
+					<th width="100px" height="50" style="font-size:15px;">						
+						<a>
+							<i class="fa fa-search w3-large" id="searchButton"  style="cursor:pointer;color:#fff"></i>
+						</a>
+					</th>
+					<th width="100px" height="50" style="font-size:15px;">
+						<a onclick="notification();">
+							<i  class="fa fa-bell w3-large" style="cursor:pointer;color:#fff"></i>
+						</a>
+					</th>
+					<th id="cart_data" width="100px" height="50" style="font-size:15px;">
+					</th>
+				</tr>
+			</table>			
+		</div>
+   
+		<div class="w3-card-4" id="searchDiv" style="border-radius:15px; display:none;">
+			<div  padding-right:15px;padding-top:5px;">
+			<form class="ui-filterable">
+				<h6 align="center">Find product with your requirements & needs.</h6>
+				<div style="padding-bottom:10px;">
+				<input type="search" id="searchKey" onkeyup="searchProject()" autofocus="true" placeholder="Search for Product">
+				</div>
+				 <span>
+                      <button type="button" id="search" onclick="search()" name='search_click'><i class="fa fa-search"></i></button>
+                </span>
+			</form>
+		</div>
+	    </div>		
+		</br>
+<script>
+var toggle=1;
+$("#searchButton").click(function(){
+			
+		if(toggle==1)
+		{
+			$("#searchDiv").show();
+			toggle=2;
+		}
+		else
+		{
+			$("#searchDiv").hide();
+			toggle=1;
+		}
+		
+});
+$('#search').click(function(){
+var searchKey=$('#searchKey').val();
+if(searchKey!="")
+	{
+		localStorage.setItem("searchKey",searchKey);
+		location.href="search-result.html";
+	}
+	else
+	{
+		alert("Search Value should not be blank.");
+	}	
+});
+</script>
+			
+		<header class="w3-container" style="border-radius:15px;">
+
+		</header>
+       <div style="padding-left:10px;padding-right:10px;">
+				<a  id="af" data-rel="popup" class="ui-btn" style="border-radius:15px;color: #080771" data-position-to="#af">
+					<i  aria-hidden="false"></i>Term and Condition
+				</a>
+			</div>
+		<div  class="w3-card-4" style="border-radius:15px;">										
+			<header class="w3-container w3-light-grey" style="border-radius:15px;">
+			<p style="text-align: justify;">
+This Agreement was last modified on July 20, 2014.
+</p>
+<strong>INTRODUCTION</strong>
+<p style="text-align: justify;">
+Yoneak Services Pvt. Ltd. offers a service that allows members to earn cashback
+
+on purchases made at over several stores. You only need a valid email address
+
+and password to join Yoneak Services Pvt. Ltd.. Yoneak Services Pvt. Ltd. does
+
+not sell or rent your personal information to third parties, and does not ‘spam’ its
+
+members. Yoneak Services Pvt. Ltd. receives a fee for referring its members to
+
+affiliated merchant stores and uses that fee to pay members cashback on their
+
+purchases. Please read this complete member agreement (&quot;Agreement&quot;) for full
+
+details on the Yoneak Services Pvt. Ltd. Cashback Shopping Programme
+
+(Programme). Yoneak Services Pvt. Ltd. maintains the right to change this
+
+Agreement in whole or in part, at any time, with or without notice.
+</p>
+<strong>MEMBER ELIGIBILITY</strong>
+<p style="text-align: justify;">
+Membership in the Programme is free of charge. By signing up as a member
+
+(“Member”), you agree to be bound by this Agreement. A valid email address
+
+must be provided to join Yoneak Services Pvt. Ltd. so that we can send you email
+
+relating to your account information. Members must be at least (16) years old and
+
+agree not to use the Programme for any illegal or fraudulent activities.
+
+Note that your Cashback Receipt Method (such as NEFT or Cheque) may have
+
+rules about the maximum or minimum payment that you can receive through that
+
+Cashback Receipt Method.
+
+Important: You must ensure that the email address we hold for you is kept up-to-
+
+date and that you have full access to it - we will be sending you important
+
+messages there. If you change email address, then you must change the address
+
+we hold for you on your Account.
+</p>
+<strong>MEMBERSHIP</strong>
+<p style="text-align: justify;">
+Yoneak Services Pvt. Ltd. membership is available through registration process
+
+after you submit certain requested information to Yoneak Services Pvt. Ltd..
+
+Before registration we ask whether or not you agree to current Terms of Service.
+
+If you don&#39;t agree to our Terms of Service you will not be permitted to use the
+
+Yoneak Services Pvt. Ltd. service. Please be aware that a member of Yoneak
+
+Services Pvt. Ltd. is not allowed to run any paid ads on Google, Facebook or any
+
+other platform pointing to Yoneak Services Pvt. Ltd.. If the member does not
+
+comply with this then it would result in immediate termination of his/her account.
+</p>
+<strong>OUR SERVICE</strong>
+<p style="text-align: justify;">
+Our Cash back Service allows users who register on the Site (&quot;Members&quot;) and
+
+therefore create an account with us (&quot;Account&quot;) to earn cashback on tracked
+
+purchases from retailers on the Site (&quot;Retailers&quot;). To qualify for cashback, the
+
+Retailer must confirm that the Member&#39;s purchase is tracked, genuine and
+
+successful (constituting a &quot;Qualifying Transaction&quot;), and your resulting cashback
+
+must be received by us (becoming &quot;Cashback&quot; as a result).
+</p>
+<strong>EARNING CASHBACK</strong>
+<p style="text-align: justify;">
+Earning cashback is simple: Choose a store, product, or other offer displayed on
+
+Yoneak Services Pvt. Ltd., click the accompanying shopping link to be directed to
+
+an affiliated store’s website (“Affiliate Store”), and complete a purchase to earn
+
+cashback on your net purchase amount. Please note that the net purchase
+
+amount excludes taxes, fees, shipping, gift-wrapping, discounts or credits, returns
+
+or cancellation, and extended warranties.
+</p>
+<p style="text-align: justify;">
+Certain Affiliate Stores exclude a limited number of products and purchases from
+
+the Programme. Yoneak Services Pvt. Ltd. does its best to minimize and
+
+maintain an up-to- date list of exclusions on Yoneak Services Pvt. Ltd.. To start
+
+earning cashback, you must complete your purchase during the same shopping
+
+session you start after clicking on the Yoneak Services Pvt. Ltd. link. If you visit
+
+other sites before completing your purchases or use coupons not provided by
+
+Yoneak Services Pvt. Ltd., your purchases might be associated with a service
+
+other than Yoneak Services Pvt. Ltd. and you might not earn cashback on your
+
+purchase. If you disable ‘cookies’ on your computer, you will not be able to earn
+
+cashback as cookies are used to authenticate the user and be certain cashback
+
+is assigned to the Member account.
+</p>
+<p style="text-align: justify;">
+After a Member successfully completes a Qualifying Transaction, and once we
+
+have received the resulting Cashback for that Qualifying Transaction, we pass
+
+that Cashback to the Member through his/her Cashback Receipt Method.
+
+Please note that there are various circumstances in which a transaction with a
+
+Retailer may not constitute a Qualifying Transaction, or Cashback may not result
+
+from it. The Member understands that all transactions made by him/her are not
+
+with us, but with the individual Retailer. Our help pages provide further
+
+information about these circumstances. Further, from time to time Retailers may
+
+increase or decrease the commission paid – in which case the cashback offer
+
+illustrated on our Site may be incorrect. By default, your applicable transactions
+
+will be credited in line with the commission reported to us by the Retailer, which
+
+may be more or less than the advertised rate. We shall not be liable for any
+
+difference in the expected cashback by the Member and the actual Cashback
+
+received by the Member.
+</p>
+<p style="text-align: justify;">
+When we have traced a paying, Qualifying Transaction to your Account, we will
+
+credit your Account with a &#39;pending payment&#39;. Once the Retailer confirms the
+
+transaction, the payment will be marked as &#39;validated&#39; – this can take 90 days or
+
+more from the date of the purchase. If the goods are returned or the sale
+
+reversed or amended by any means then the cashback payment will not be
+
+made. Further, in the event that the Retailer feels that the purchase is not
+
+genuine for any reason whatsoever and we do not receive any Cashback for the
+
+transaction, the Member will not receive any Cashback.
+</p>
+<p style="text-align: justify;">
+Whether a transaction shall qualify as a Qualifying for cashback Transaction shall
+
+be at the sole discretion of the Retailer or us and the Member understands and
+
+agrees to the same. We shall not be held responsible if the Retailer fails to report
+
+a sale to us or does not qualify a transaction as Qualifying Transaction. Further,
+
+we shall not be responsible in the event due to some technical or other error we
+
+cannot trace a sale back to the Member and does not qualify the transaction as a
+
+Qualifying Transaction for any reason whatsoever. Whilst we will endeavour to
+
+recuperate non-payments from the Retailer, the decision of ourselves, the
+
+Retailer or Retailer&#39;s tracking agent is final. Whilst we will try and recuperate
+
+missing commissions, at any point we reserve the right not to chase missing
+
+commission claims, particularly where no purchase has been made.
+</p>
+<p style="text-align: justify;">
+When a Member sends us an enquiry on missing cashback, our system would
+
+check if the user had an exit click from our site for that store on the date
+
+mentioned by the user. If no exit clicks can be tracked then we will show a
+
+message to the Member indicating that they did not click via our website to earn
+
+cashback prior to the sale. All exit clicks to stores are saved in the database for
+
+cross reference on adding cashback values. Where a commission enquiry has
+
+been successfully paid by a Retailer, you may receive a lower amount than
+
+expected; this is due to the amounts received by ourselves possibly being lower
+
+than the original claim. We do allow you to query this with us. If a Retailer still
+
+hasn&#39;t paid a manual commission claim after a period of six months then we
+
+reserve the right to close the enquiry claim.
+</p>
+<p style="text-align: justify;">
+We reserve the right to reclaim or make balance adjustments accordingly where it
+
+has been established that any credit has been applied in error. This will include
+
+but is not limited to transactions where the credit is not genuinely due or payment
+
+for any credited transaction has not been received from a Retailer or its agencies
+
+and/or misuse or fraud. This can include transactions which are already marked
+
+as payable or validated in your Account, or for transactions which have already
+
+been paid over to you by [Cheque] or any other means.
+</p>
+<p style="text-align: justify;">
+There are various circumstances in which Cashback will not be payable to the
+
+Member, and will be forfeited to us, these could be, without limitation:
+
+where the cashback payment that we receive is not attributed to a Qualifying
+
+Transaction or associated with an Account (such as where the Member is not
+
+logged-in to the our site when making the relevant purchase)the transaction to
+
+which the Cashback relates is cancelled after it has been entered into (whether
+
+under the right of cancellation that applies to some sales made at a distance, or
+
+otherwise) the Cashback is attributed to a Member or Account that has been:
+
+Suspended by us or for any other reason;
+
+associated with any fraudulent activity or any breach of this Agreement;
+
+Our help pages provide further information about these circumstances.
+</p>
+<strong>UPDATING &amp; MAINTAINING YOUR ACCOUNT</strong>
+<p style="text-align: justify;">
+You must be logged into Yoneak Services Pvt. Ltd. and enter your password to
+
+change your account information and payment preferences. You may check your
+
+account status and recent earning history at any time via the “ACCOUNT” tab on
+
+the left sidebar. You are responsible for keeping your password and other
+
+account information confidential. Yoneak Services Pvt. Ltd. is entitled to act on
+
+instructions received under your password and is not responsible for any credits
+
+or debits made to your account by someone else who uses your password.
+</p>
+<strong>INACTIVE MEMBER ACCOUNTS &amp; TERMINATION OF MEMBERSHIP</strong>
+<p style="text-align: justify;">
+Yoneak Services Pvt. Ltd. reserves the right to terminate your account if it is
+
+inactive for more than twelve (12) consecutive months. Your account may be
+
+reactivated by starting a shopping session via Yoneak Services Pvt. Ltd. and
+
+completing a qualifying purchase or updating your account information. Yoneak
+
+Services Pvt. Ltd. may also suspend or terminate the rights of your account if
+
+there is evidence of any suspected fraudulent activities. Any failure to comply
+
+with this Programme Agreement, any fraud or abuse relating to the accrual or
+
+receipt of cashback rewards, or any misrepresentation of any information
+
+furnished to Yoneak Services Pvt. Ltd. or its affiliates by you or anyone acting on
+
+your behalf may result in the termination of your membership in the Program and
+
+forfeiture of your accrued cashback rewards.
+</p>
+<strong>INTELLECTUAL PROPERTY:</strong>
+<p style="text-align: justify;">
+No-one may copy, distribute, show in public or create any derivative work from
+
+the Site, or any of the material which is found on the Site unless properly licensed
+
+to do so by us. By uploading or including any material on the Site, a Member
+
+expressly grants to us a non-exclusive license (including the right to grant sub-
+
+licenses) to use, reproduce and distribute that material through our Cashback
+
+Service and any other interactive services through which we or our sub-licensee
+
+make the Cashback Service (or a service based on our service) available; and to
+
+other Members (through us, under the license referred to in a. above), the non-
+
+exclusive, personal, non-transferable right to view the relevant material.
+</p>
+<strong>PRIVACY &amp; COOKIE POLICY</strong>
+<p style="text-align: justify;">
+Our Privacy &amp; Cookie Policy forms part of this Agreement, and by entering into
+
+this Agreement you also give your consent to the way we handle your personal
+
+data under that policy. Given the global nature of the World Wide Web, please
+
+note that a posting on the Site may be accessible to internet users around the
+
+world.
+</p>
+<strong>OUR ROLE</strong>
+<p style="text-align: justify;">
+We are not a party to any transactions with Retailers, and are not the seller or
+
+supplier of any of the goods or services that they make available. Thus we do not
+
+have any of the legal obligations that apply to the sellers of those goods or
+
+services.
+</p>
+<p style="text-align: justify;">
+Accordingly, we have no control over or responsibility for:
+
+The quality, safety, or legality of those goods or services available from Retailers;
+
+or
+
+Whether the Retailer can or will supply and pass good title to any goods or
+
+services.
+
+Members should exercise no lesser degree of caution in entering into
+
+transactions with Retailers than they would when entering into a similar
+
+transaction offline. To the extent that the Applicable Law permits, you release us,
+
+our agents and employees from all liability arising out of or in connection with any
+
+transactions with Retailers, including (without limitation) all claims and demands
+
+relating to uncompleted or completed transactions with Retailers, or goods or
+
+services offered for sale or supply, or actually sold or supplied, through or in
+
+connection with any transactions with Retailers.
+</p>
+
+<strong>MISUSE</strong>
+<p style="text-align: justify;">
+We reserve the right to suspend or terminate any Members access to our service,
+
+or parts of it, if in our reasonable view the relevant Member or Account appears
+
+to be in breach of any provision of this Agreement.
+
+Members must not enter into, or attempt to enter into, any transaction with a
+
+Retailer or to gain Cashback (a) by providing personal information of someone
+
+else, or a payment method which they are not entitled to use, (b) by deceptively
+
+or unfairly exploiting a Retailers offering including but not limited to creating fake
+
+or unauthorized referral links, or (c) in breach of any terms and conditions applied
+
+by us or the Retailer to that transaction. We reserve the right to forfeit any
+
+pending payments or validated payments in the Member&#39;s Account in case of
+
+such misuse of our service by the Member.
+
+It is each Member&#39;s obligation to ensure that any material posted by him/her or
+
+associated with his/her Account:
+
+is not defamatory, offensive, or abusive or of an obscene, indecent or menacing
+
+nature;
+
+is not intended or likely to cause needless annoyance, inconvenience or distress
+
+to any person;
+
+does not contain any computer virus, macro virus, Trojan horse, worm, or
+
+anything else designed to interfere with, interrupt, or disrupt the normal operating
+
+procedures of a computer or to surreptitiously intercept, access without authority,
+
+or expropriate any system, data or personal information;
+
+does not contravene the Applicable Law or regulation (including, but not limited
+
+to, laws governing consumer protection, distance selling, unfair competition, anti-
+
+discrimination, false advertising, copyright, trademark and privacy);
+
+does not breach the rights of any person or entity (including any rights or
+
+expectations of privacy);where it constitutes feedback on a Retailer, is accurate
+
+and fair; and does not advertise any goods or services.
+</p>
+<p style="text-align: justify;">
+Notwithstanding anything contained elsewhere in this Agreement and the Privacy
+
+Policy, we reserve the right to investigate complaints or reported violations of this
+
+Agreement and to take any action we deem appropriate, including but not limited
+
+to reporting any suspected unlawful activity to law enforcement officials,
+
+regulators, or other third parties and disclosing any information necessary or
+
+appropriate to such persons or entities relating to your Account, email addresses,
+
+usage history, posted materials, IP addresses and traffic information. Any
+
+Member, who in the sole discretion of the Retailer or us, has committed fraud in
+
+use of the Site or our Cashback Service or misused the Site or the Cashback
+
+Service, their Account will be closed, email and IP address will be blacklisted so
+
+they cannot use it again, and cannot register from the same PC.
+
+If you see or experience anything on our Site that appears to infringe any of the
+
+above requirements, we would like you to inform us by using our contact form.
+
+Each Member acknowledges that we are entitled, but not obliged, to withdraw
+
+any material, which appears - based on information received from third parties or
+
+other Members - to be in breach of this Agreement.
+</p>
+
+<strong>OPERATION OF OUR CASHBACK SERVICE:</strong>
+<p style="text-align: justify;">
+We reserve the right to withdraw, modify or suspend aspects of the Cashback
+
+Service, or the entirety of it, where we have legal, security, technical or
+
+commercial reasons to do so. We will endeavour to give you 30 days advance
+
+notice before taking such action, except where it is necessary to take earlier
+
+action for security reasons or because of technical difficulties which would
+
+otherwise adversely affect the our service. There may also be times when the
+
+Cashback Service becomes inaccessible as a result of technical difficulties
+
+experienced by us or on the Internet; we will, however, use reasonable skill and
+
+care to overcome these difficulties where they are within our control. Please note,
+
+however, that we cannot guarantee continuous access to the Cashback Service
+
+or any of the content that appears on it.
+
+Nevertheless, we will strive to ensure that any periods of planned unavailability,
+
+which you will be informed of when you access the Cashback Service at the
+
+relevant time, are kept to a minimum.
+</p>
+<p style="text-align: justify;">
+For security or other reasons, we may require you to change password or other
+
+information which facilitates access to the Cashback Service; however, we will
+
+never ask you for your password via email, telephone, or any other means other
+
+than through the Site. You are solely responsible for maintaining the
+
+confidentiality of your password and any additional identifying information.
+
+SUSPENSION, CANCELLATION AND/OR
+
+TERMINATION OF YONEAK SERVICES PVT.
+
+LTD.
+</p>
+<p style="text-align: justify;">
+1. We may suspend your Yoneak Services Pvt. Ltd. account meaning that you
+
+will not earn Rewards on qualifying purchases if you break any of the terms and
+
+conditions which apply to your personal current account and/or the Terms and
+
+General Conditions which apply to your Yoneak Services Pvt. Ltd. payment
+
+account.
+
+2. We can close your Yoneak Services Pvt. Ltd. account and cancel any Rewards
+
+balance if you have not used your Yoneak Services Pvt. Ltd. account for a period
+
+of 12 months. Using your Yoneak Services Pvt. Ltd. account means you either:
+
+log into your Yoneak Services Pvt. Ltd. account via the Yoneak Services Pvt. Ltd.
+
+website; or
+
+for customers who are unable to access the Yoneak Services Pvt. Ltd. website,
+
+contact the Customer Service team in respect of your Yoneak Services Pvt. Ltd.
+
+account; or
+
+3. We can close your Yoneak Services Pvt. Ltd. account immediately if you use
+
+your personal current account or Yoneak Services Pvt. Ltd. Credit Card account
+
+for business or commercial purposes. Any Rewards balance which has not been
+
+redeemed will be cancelled.
+
+4. We can also close your Yoneak Services Pvt. Ltd. account at any time for any
+
+other reason by giving you not less than 30 days’ notice.
+
+5. You may discard of Yoneak Services Pvt. Ltd. and cancel your Yoneak
+
+Services Pvt. Ltd. account at any time. Any Rewards balance which has not been
+
+redeemed will be cancelled.
+</p>
+<strong>LIMITATION OF LIABILITY</strong>
+<p style="text-align: justify;">
+1. You must keep your security details (which include any identifying words,
+
+codes and numbers agreed between us) secret and take all reasonable
+
+precautions to prevent unauthorised or fraudulent use of them. We will not be
+
+responsible for any unauthorised use of Yoneak Services Pvt. Ltd. caused by any
+
+unauthorised disclosure.
+
+2. We have no responsibility in respect of any tax liability that may arise from your
+
+participation in the Yoneak Services Pvt. Ltd. scheme.</p>
+
+
+ 
+			</header>
+			
+		</div>	
+			</div>
+	<header class="" style="border-radius:0px; background-color: #080771 !important;">
+		<div class="w3-card-4" style="">
+				<div style="text-align: center; padding:5px;">
+			<table border="0" align="center">
+				<tr align="Center">								
+					<script>
+
+				$(document).ready(function(){
+
+							var login_data1='';
+
+		              	if((localStorage.userID!=null) || (localStorage.userID))
+
+		                {
+
+		                	login_data1='<div  id="walletId" onclick="walletdetail()">'+
+							
+						       '</div>';
+
+							
+
+                             $('#login_data1').html(login_data1);
+
+		                }
+
+		                else
+
+		                {
+
+		                }
+
+
+
+						});
+
+                     </script>		
+					<th id="login_data1"  width="50" height="50">
+						
+					</th>
+			
+					<div class="col-md-2 col-sm-2 col-xs-2">
+					<th width="550" height="50" style="font-size:15px; text-align: center;">
+						<h6 style="color:#fff;">Copyright &copy; 
+							<a target="_blank" href="http://yoneak.com/">
+								<i style="color:#fff;">Yoneak.com</i>
+							</a>
+						</h6>
+					</th>
+					</div>
+					<th width="100" height="50" style="font-size:15px;">
+						<div  onclick="logout()">
+					<script>
+						$(document).ready(function(){
+
+							   totalwalletAmount();
+
+							var login_div_data='';
+		              	//if((localStorage.userID===null) || !(localStorage.userID))
+		                //{
+		                	//login_div_data='<a href="login.html"><i class="fa fa-sign-in w3-xxlarge" aria-hidden="true" style="cursor:pointer;"></i>'+
+							//'<div style="color:#fff;">Login</div>'+
+							//'</a>';
+                            // $('#login_div_data').html(login_div_data);
+		                //}
+		               // else
+		                //{
+		                	//login_div_data='<a href="login.html"><i class="fa fa-sign-out w3-xxlarge" aria-hidden="true" style="cursor:pointer;"></i>'+
+							//'<div style="color:#fff;">Logout</div>'+
+							//'</a>';
+                            //$('#login_div_data').html(login_div_data);
+		                //}
+		                
+
+						});
+					
+                      </script>
+                      <div id="login_div_data"></div>
+						</div>
+					</th>
+				</tr>
+			</table>				
+		</div>
+		</div>
+		</header>
+            <!---wallet detail -->
+			<script>
+			$(document).ready(function()
+		    {	
+		     var  user_id=localStorage.userID;
+		     
+		    $.post('http://yoneak.com/web_services/wallet_detail.php?user_id='+user_id,function(res)
+		    { 
+			var newleads_data="";
+			var amount="0.00";
+			console.log(res);
+				           newleads_data='';
+								
+							if(res.status==1)
+							{
+								amount=res.wallet_amount;
+							}
+							newleads_data=newleads_data+'<a  href="" style="color:#000;text-decoration:none;"><img src="img/dashboard.png" style="width:25px;height:25px">'+
+								'<span onclick="account()" style="color:#000;padding-top:5%">Dashboard</span>'+
+								'<span  class="pull-right" style="padding-right:6%">'+
+								'<i class="fa fa-inr" aria-hidden="true"> '+amount+'</i>'+
+								'</span>'+
+							'</a>';
+				    	     $('#dataamount').append(newleads_data);
+				    	     
+				              },"json");
+
+			                  });
+
+          </script>
+
+		   <script>
+function goToCart()
+{
+	location.href="cartDetail.html";
+}			
+function mainPage()
+{
+	location.href="yoneak.html";
+}
+	
+				           </script>		   
+	</body>
+</html>

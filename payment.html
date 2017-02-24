@@ -363,6 +363,8 @@
 		<script src="js/editship.js"></script>
 		<script src="js/user_detail.js"></script>
 		<script src="js/home_category.js"></script>
+		<script src="js/cart_item.js"></script>
+		<script src="js/cart.js"></script>
 
  <script>
 		function refer()
@@ -387,7 +389,7 @@
 			}
 		function main()
 		{
-			location.href="main_login.html";
+			location.href="login.html";
 		}
 		function contact()
 		{
@@ -613,8 +615,8 @@
 			</div>
 		</div>
 				<div data-role="header" style="background:#080771 none repeat scroll 0 0 !important" data-theme="b" data-position="fixed">
-			<a href="#nmyPanel1" style="width:40px;height:40px;margin-left:10px;margin-top:5px;background-color: #4169e1;border-color: #4169e1;	color: #fff;
-				text-shadow: 0 1px 0 #111;" class="ui-btn ui-corner-all ui-icon-bars ui-btn-icon-notext" data-transition="slide">
+			<a data-transition="slide" class="ui-btn-left ui-btn ui-icon-bars ui-btn-icon-notext ui-corner-all" style="width:40px;height:40px;margin-left:10px;margin-top:5px;background-color: #080771;border-color: #080771;	color: #fff;
+				text-shadow: 0 1px 0 #111;" href="#nmyPanel1" data-role="button" role="button">
 				
 			</a>
 			<table border="0" align="center">
@@ -632,10 +634,7 @@
 							<i  class="fa fa-bell w3-large" style="cursor:pointer;color:#fff"></i>
 						</a>
 					</th>
-					<th width="100px" height="50" style="font-size:15px;">
-						<a onclick="goToCart();">
-							<i  class="fa fa-shopping-cart w3-large" style="cursor:pointer;color:#fff"></i>
-						</a>
+					<th id="cart_data" width="100px" height="50" style="font-size:15px;">
 					</th>
 				</tr>
 			</table>			
@@ -715,12 +714,12 @@ if(searchKey!="")
                              </thead>
 
                               <thead id="submit" style="display: none;">
-                              <input type="hidden" name="total_define_price" id="total_define_price_id">
-                              <input type="hidden" name="used_referrel_amount" id="used_referrel_amount_id">
-                              <input type="hidden" name="used_wallet_amount" id="used_wallet_amount_id">
+                              <input type="hidden" name="total_define_price" id="total_define_price_id" value="0">
+                              <input type="hidden" name="used_referrel_amount" id="used_referrel_amount_id" value="0">
+                              <input type="hidden" name="used_wallet_amount" id="used_wallet_amount_id" value="0">
                               		<tr>
                              		<td colspan="6" class="actions">                                    
-                                    <button type="clear_cart" name="clear_cart" class="btn btn-primary" style="width:100%;border-radius:0">Submit Order</button>
+                                    <button type="button" name="clear_cart" class="btn btn-primary" style="width:100%;border-radius:0" onclick="submitOrder()">Submit Order</button>
                                    </td>
                                		</tr>
                                 </thead>
@@ -730,15 +729,45 @@ if(searchKey!="")
                </div>
                    </form>
 		
-	<header class="navbar-fixed-bottom" style="border-radius:0px; background-color: #080771 !important; z-index: 1 !important; margin-top: 30px;">
+		
+		<header class="" style="border-radius:0px; background-color: #080771 !important;">
 		<div class="w3-card-4" style="">
-				<div style="text-align: Center; padding-right:15px;padding-top:5px; text-shadow: 0 0px 0 !important;">
+				<div style="text-align: center; padding:5px;">
 			<table border="0" align="center">
 				<tr align="Center">								
-					<th width="50" height="50">
-						<div  id="walletId" onclick="walletdetail()">
+					<script>
+
+				$(document).ready(function(){
+
+							var login_data1='';
+
+		              	if((localStorage.userID!=null) || (localStorage.userID))
+
+		                {
+
+		                	login_data1='<div  id="walletId" onclick="walletdetail()">'+
 							
-						</div>
+						       '</div>';
+
+							
+
+                             $('#login_data1').html(login_data1);
+
+		                }
+
+		                else
+
+		                {
+
+		                }
+
+
+
+						});
+
+                     </script>		
+					<th id="login_data1"  width="50" height="50">
+						
 					</th>
 					<div class="col-md-2 col-sm-2 col-xs-2">
 					<th width="550" height="50" style="font-size:15px; text-align: center;">
@@ -756,21 +785,23 @@ if(searchKey!="")
 
 							   totalwalletAmount();
 
-							//var login_div_data='';
+							var login_div_data='';
 		              	//if((localStorage.userID===null) || !(localStorage.userID))
 		                //{
-		                //	login_div_data='<a href="login.html"><i class="fa fa-sign-in w3-xxlarge" aria-hidden="true" style="cursor:pointer;"></i>'+
-						//	'<div style="color:#fff;">Login</div>'+
-						//	'</a>';
-                        //     $('#login_div_data').html(login_div_data);
-		               // }
-		              //  else
-		               // {
-		               // 	login_div_data='<a href="login.html"><i class="fa fa-sign-out w3-xxlarge" aria-hidden="true" style="cursor:pointer;"></i>'+
-						//	'<div style="color:#fff;">Logout</div>'+
-						//	'</a>';
-                         //   $('#login_div_data').html(login_div_data);
-		               // }
+		                	//login_div_data='<a href="login.html"><i class="fa fa-sign-in w3-xxlarge" aria-hidden="true" style="cursor:pointer;"></i>'+
+							//'<div style="color:#fff;">Login</div>'+
+							//'</a>';
+                            // $('#login_div_data').html(login_div_data);
+		                //}
+		                //else
+		                //{
+		                //	login_div_data='<a href="login.html"><i class="fa fa-sign-out w3-xxlarge" aria-hidden="true" style="cursor:pointer;"></i>'+
+							//'<div style="color:#fff;">Logout</div>'+
+							//'</a>';
+                            //$('#login_div_data').html(login_div_data);
+		                //}
+		                
+
 						});
 					
                       </script>
@@ -782,6 +813,7 @@ if(searchKey!="")
 		</div>
 		</div>
 		</header>
+		
 	</body>
 </html>
             <script>
@@ -952,11 +984,11 @@ function shipping()
       	if(totalPrice<=referrel_amount){
       		$('#total_price_id').val(0);
       		$('#submit').show();
-      		var used = referrel_amount-totalPrice;
+      		var used = totalPrice;
       		$('#used_referrel_amount_id').val(used);
       	}else{
-      		var used = totalPrice - referrel_amount;
-      		$('#used_referrel_amount_id').val(0);
+      		var used = referrel_amount;
+      		$('#used_referrel_amount_id').val(referrel_amount);
       		$('#total_price_id').val(used);
       	}
       	$('#referral_apply_id').hide();
@@ -968,11 +1000,11 @@ function shipping()
       	if(totalPrice<=referrel_amount){
       		$('#total_price_id').val(0);
       		$('#submit').show();
-      		var used = referrel_amount-totalPrice;
+      		var used = totalPrice;
       		$('#used_wallet_amount_id').val(used);
       	}else{
-      		var used = totalPrice - referrel_amount;
-      		$('#used_wallet_amount_id').val(0);
+      		var used = referrel_amount;
+      		$('#used_wallet_amount_id').val(referrel_amount);
       		$('#total_price_id').val(used);
       	}
       	$('#wallet_apply_id').hide();
@@ -984,8 +1016,8 @@ function shipping()
 
             <!---wallet detail -->
 			<script>
-			$(document).ready(function()
-		    {	
+	$(document).ready(function()
+	{	
 		     var  user_id=localStorage.userID;
 		     
 		    $.post('http://yoneak.com/web_services/wallet_detail.php?user_id='+user_id,function(res)
@@ -1009,6 +1041,26 @@ function shipping()
 				    	     
 				              },"json");
 
-			                  });
-
+		});
+		function submitOrder()
+		{
+			var userID=localStorage.userID;
+			var totalPrice=$("#total_define_price_id").val();
+			var refferal=$("#used_referrel_amount_id").val();
+			var wallet=$("#used_wallet_amount_id").val();
+			$.getJSON("http://jsonip.com?callback=?", function (data) {
+   		    var ipAddress=data.ip;
+		 $.post('http://yoneak.com/web_services/addOrder.php?userID='+userID+"&ipAddress="+ipAddress+"&totalPrice="+totalPrice+"&refferal="+refferal+"&wallet="+wallet,function(res)
+		    	{ 
+		    		if(res.response=="success")
+		    		{
+		    			alert("Order Placed Successfully");
+		    		}
+		    		else{
+		    				alert("Something Went Wrong in Placing Order");
+		    		}
+		    		location.href="yoneak.html";
+			      },"json");
+			});
+		}
           </script>

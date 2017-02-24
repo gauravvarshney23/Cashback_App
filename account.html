@@ -372,6 +372,8 @@
 		<script src="js/external.js"></script>
 		<script src="js/refair-earn.js"></script>
 		<script src="js/user_detail.js"></script>
+		<script src="js/cart_item.js"></script>
+		<script src="js/cart.js"></script>
 		<script>
 		if((localStorage.getItem("userID")===null) || !(localStorage.getItem("userID")))
 		{
@@ -401,7 +403,7 @@
 			}
 		function main()
 		{
-			location.href="main_login.html";
+			location.href="login.html";
 		}
 		function contact()
 		{
@@ -645,10 +647,7 @@
 							<i  class="fa fa-bell w3-large" style="cursor:pointer;color:#fff"></i>
 						</a>
 					</th>
-					<th width="100px" height="50" style="font-size:15px;">
-						<a onclick="goToCart();">
-							<i  class="fa fa-shopping-cart w3-large" style="cursor:pointer;color:#fff"></i>
-						</a>
+					<th id="cart_data" width="100px" height="50" style="font-size:15px;">
 					</th>
 				</tr>
 			</table>			
