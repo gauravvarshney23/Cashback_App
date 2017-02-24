@@ -27,7 +27,7 @@
 				            	newlead_div1_data='<div  onclick="edit()" class="row" style="background-color:#080771;">'+
 					                      '<div class="col-xs-3" style="padding-top:1%">'+
 						                   '<a href="">'+
-							     '<img src="http://yoneak.com/Cashback_App/img/'+res.image+'" class="img-circle" style="width:40px;height:65px;">'+
+							     '<img src="http://yoneak.com/web_services/uploadimage/'+res.image+'" class="img-circle" style="width:40px;height:65px;">'+
 						         '</a>'+
 				            	'</div>';
 				            	

@@ -1,5 +1,4 @@
-
-	$(document).ready(function()
+function cart_item()
   {	
 
 	$.getJSON("http://jsonip.com?callback=?", function (data) 
@@ -22,13 +21,13 @@
 							
 							
 							
-				    	     $('#cart_data').append(newleads_data);
+				    	     $('#cart_data').html(newleads_data);
 				    	     
 				              },"json");
 
 		                  });
-	  });
+	  }
 
-			              
-		}
+	cart_item();		              
+		
 		

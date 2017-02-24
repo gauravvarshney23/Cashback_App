@@ -7,6 +7,7 @@ $.post('http://yoneak.com/web_services/addToCart.php?id='+productId+'&ip='+ipAdd
 			if(res.result=="success")
 			{
 				alert("Product Successfully Added to Cart");
+				cart_item();	
 				
 			}
 			else
