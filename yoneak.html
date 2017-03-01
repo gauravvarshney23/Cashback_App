@@ -389,8 +389,6 @@ overflow: hidden !important;
 {
 border-radius: 0% !important;
 }
-
-
 		</style>
 		<script src="js/jquery-1.11.2.min.js"></script>
 		<script src="js/jquery.mobile-1.4.5.min.js"></script>
@@ -412,6 +410,7 @@ border-radius: 0% !important;
 		<script src="js/user_detail.js"></script>
 		<script src="js/cart_item.js"></script>
 		<script src="js/cart.js"></script>
+	    <script src="js/logout.js"></script>
 		
 		<script>
 		function yoneak()
@@ -462,12 +461,11 @@ border-radius: 0% !important;
 						
 					</div>
 					<script>
-				$(document).ready(function(){
+				     $(document).ready(function(){
 
 							var login_data1='';
 
 		              	if((localStorage.userID!=null) || (localStorage.userID))
-
 		                {
 
 		                	login_data1='<li id="walletId" style="line-height:3em">'+
@@ -475,7 +473,6 @@ border-radius: 0% !important;
 						    '</li>';
 
                              $('#login_data1').html(login_data1);
-
 		                }
 
 		                else
@@ -635,6 +632,28 @@ border-radius: 0% !important;
 								Share App
 							</a>
 						</li>
+						<li onclick="logout()">
+					    <a href="" style="color:#000;text-decoration:none;">
+						<script>
+						$(document).ready(function()
+						{
+							var login_data3='';
+		              	if((localStorage.userID!=null) || (localStorage.userID))
+		                {
+		                	login_data3='Logout';
+							
+                             $('#login_data').html(login_data3);
+		                }
+		                
+
+						});
+                      </script>
+                      <div id="login_data" style="line-height:3em" ></div>
+					  </a>
+				    </li>
+
+
+
 					</ul>
 				</div>
 			</div>
@@ -785,7 +804,7 @@ border-radius: 0% !important;
 				<a href="http://www.jssor.com" style="display:none">Slideshow Maker</a>
 			</div>
 			
-		<div class="container" style="background-color:#f1f1f1;">
+		<div class="container" style="background-color:#f1f1f1; margin-left:-10px;">
 			<section   class="row owl-carousel sponsor-carousel col-sm-12" style="margin-top: 8px !important;margin-bottom: 8px !important;text-align:center;width:auto;" id="top-categoies" >
 
 			    <div onclick="storehome()" class="active" style="background-color: #080771;outline:none;border-radius:8px;">
@@ -806,22 +825,44 @@ border-radius: 0% !important;
 				</div>
 			</section>
 		</div>
-		<div class="container" style="background-color:#ffffff; height: 170px;">
-			<section id="deal_day"  class="row owl-carousel shhponsor-cddarousel col-sm-12" style="margin-top: 8px !important;margin-bottom: 8px !important;text-align:center;" id="top-categoies" >
-			</section>
-		</div>
 		<div class="col-md-12 col-xs-12 col-sm-12"  style="margin-top: 8px !important;margin-bottom: 8px !important;text-align:center;background-color:#fff;">
 			<div class="row">	
 				<header class="w3-container anchor" style="background-color:#fff;">
 					<div class="row">
 						<div class="col-sm-4 pull-left">					
-							<h5>
+							<h5 style="margin-left:-40px;">
+								Deal Of The Day
+							</h5>												
+						</div>
+						<div style="cursor:pointer;"  class="col-sm-4 pull-right">					
+							<a onclick="deal()">
+							<h6 style="margin-right:-30px;">
+									EXPLORE
+								</h6>												
+							</a>
+						</div>
+					</div> 
+				</header>
+			</div>
+
+			<section id="deal_day"  class="row owl-carousel shhponsor-cddarousel col-sm-12" style="margin-top: 8px !important;margin-bottom: 8px !important;text-align:center;" id="top-categoies" >
+			</section>
+					
+		</div>	
+
+		
+		<div class="col-md-12 col-xs-12 col-sm-12"  style="margin-top: 8px !important;margin-bottom: 8px !important;text-align:center;background-color:#fff;">
+			<div class="row">	
+				<header class="w3-container anchor" style="background-color:#fff;">
+					<div class="row">
+						<div class="col-sm-4 pull-left">					
+							<h5 style="margin-left:-40px;">
 								Top Stores
 							</h5>												
 						</div>
 						<div style="cursor:pointer;"  class="col-sm-4 pull-right">					
 							<a onclick="storetop()">
-							<h6>
+							<h6 style="margin-right:-30px;">
 									EXPLORE
 								</h6>												
 							</a>
@@ -922,7 +963,7 @@ border-radius: 0% !important;
 		<header class="w3-container anchor" style="background-color:#fff;">
 			<div class="row">
 				<div class="col-sm-4 pull-left">					
-					<h5>
+					<h5 style="margin-left:-40px">
 						Top Categories
 					</h5>												
 				</div>
@@ -957,7 +998,8 @@ border-radius: 0% !important;
 			$(document).ready(function()
 		    {	
 		    var  user_id=localStorage.userID;
-		    $.post('http://yoneak.com/web_services/top_website.php',function(res){
+		    $.post('http://yoneak.com/web_services/top_website.php',function(res)
+		    {
 			    var i=0;
 				var web_id="";
 				var website="";
@@ -1239,13 +1281,13 @@ border-radius: 0% !important;
 				    		
 				       case 1:
 				       newleads_div_data+='<a href="#">'+
-						'<img src="http://yoneak.com/admin/external_image/'+value.image+'"  alt="story" style="width:50px;height:50px; margin:0px auto" class="img-circle" />'; 
+						'<img src="http://yoneak.com/admin/external_image/'+value.image+'"  alt="story"  style="max-width:70px; margin:0px auto" />'; 
 
 						
 					        
 				    	break;
 				    	 case 2:
-				       newleads_div_data+='<span style="color:black;font-size:10px;">'+catname
+				       newleads_div_data+='<span style="color:black;font-size:12px;">'+catname
 					        
 				    	break;
 

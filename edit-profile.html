@@ -175,9 +175,9 @@
 					<th width="500px" height="50">
 						<h3 style="font-size:20px">Edit Profile</h3>
 					</th>
-					<th onclick="logout()" width="50px" height="50" style="cursor:pointer;">
+					<!--<th onclick="logout()" width="50px" height="50" style="cursor:pointer;">
 						<i  class="fa fa-power-off"></i>
-					</th>
+					</th>-->
 				</tr>
 			</table>			
 		</div>
@@ -340,7 +340,7 @@
 						{	
 							url:'http://yoneak.com/web_services/profile_detail.php?user_id='+user_id,
 							type:'POST',
-							
+							crossDomain:true,
 							dataType:'json',
 							success:function(res)
 							{

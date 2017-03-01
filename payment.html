@@ -12,9 +12,9 @@
 
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">	
-				<style> 
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
 
+   <style> 
    #nav 
    {
     list-style:none inside;
@@ -66,161 +66,162 @@
    {
     display:block;
    } 
+  #map-page, #map-canvas
+  { 
+	width: 100%; 
+	height: 100%; 
+	padding: 0; 
+  }
+
+	.ui-body-f 
+	{
+	font-weight: bold;
+	padding: 0;
+	background-color: white;
+	}
+	.tr-head 
+	{
+	border-bottom: 1px solid white;
+	background: #ff6666;
+	color: white;
+	}
+	.tr-content 
+	{
+	border-bottom: 1px solid #ff6666;
+	background: white;
+	color: #ff6666;
+	}
+	.has-odd-thumb li a 
+	{
+	padding-left: 50px !important;
+	}
+	.thumbContainer 
+	{
+	position: absolute;
+	left: 0; top: 0; bottom: 0;
+	width: 50px;
+	}
+	button.accordion.active, button.accordion:hover 
+	{
+	background-color: #ddd;
+	}
+
+	div.panel 
+	{
+		background-color: white;
+		max-height: 0;
+		overflow: hidden;
+		transition: 0.6s ease-in-out;
+	    opacity: 0;
+	}
+
+	div.panel.show 
+	{
+		opacity: 1;
+		max-height: 500px;  
+    }
+								
+								
+		.dropdown-content 
+	{
+	   display: none;
+	   z-index:6;
+	   position: absolute;
+	  min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);		
+	}
+
+	.dropdown-content a 
+	{
+      color: light-grey;
+	  padding: 12px;
+	  text-decoration: none;
+	  display: block;
+	}
+
+	.dropdown-content a:hover 
+	{
+	background-color: #ff6666;
+	}
+
+    .dropdown:hover .dropdown-content 
+	{
+	display: block;
+	}							
+								.activeN 
+								{
+									background-color: #fff;
+									outline:none;
+									padding-right: 54%;
+									width: 250px !important;
+								}
+								.activeC
+								{
+									background-color: #ffffff!important;
+									width:50px !important;
+								}
+								ul.tab 
+								{
+									list-style-type: none;
+									margin: 0;
+									padding: 0;
+									overflow: hidden;
+									background-color: #f1f1f1;
+								}
+
+								ul.tab li 
+								{
+									float: left;
+								}
+
+								ul.tab li a 
+								{
+									display: inline-block;
+									color: black;
+									text-align: center;
+									padding: 14px 16px;
+									text-decoration: none;
+									transition: 0.3s;
+									font-size: 16px;
+								}
+						
+								ul.tab li a:hover 
+								{
+									background-color: #29b0e2;
+									border-radius:15px;
+									height:120px;
+								}
+
+								ul.tab li a:focus, .active 
+								{
+									
+									
+								}
+
+								.tabcontent 
+								{
+									display: none;
+									padding: 6px 12px;
+									-webkit-animation: fadeEffect 1s;
+									animation: fadeEffect 1s;
+								}
+								
+								
+								@-webkit-keyframes fadeEffect 
+								{
+									from {opacity: 0;}
+									to {opacity: 1;}
+								}
+
+								@keyframes fadeEffect 
+								{
+									from {opacity: 0;}
+									to {opacity: 1;}
+								}
+
+							</style>
  
-			#map-page, #map-canvas
-			{ 
-				width: 100%; 
-				height: 100%; 
-				padding: 0; 
-			}
-
-			.ui-body-f 
-			{
-				font-weight: bold;
-				padding: 0;
-				background-color: white;
-			}
-			.tr-head 
-			{
-				border-bottom: 1px solid white;
-				background: #ff6666;
-				color: white;
-			}
-			.tr-content 
-			{
-				border-bottom: 1px solid #ff6666;
-				background: white;
-				color: #ff6666;
-			}
-			.has-odd-thumb li a 
-			{
-				padding-left: 50px !important;
-			}
-			.thumbContainer 
-			{
-				position: absolute;
-				left: 0; top: 0; bottom: 0;
-				width: 50px;
-			}
-			button.accordion.active, button.accordion:hover 
-			{
-				background-color: #ddd;
-			}
-
-			div.panel 
-			{
-				background-color: white;
-				max-height: 0;
-				overflow: hidden;
-				transition: 0.6s ease-in-out;
-				opacity: 0;
-			}
-
-			div.panel.show 
-			{
-				opacity: 1;
-				max-height: 500px;  
-			}
-			
-			
-			.dropdown-content 
-			{
-				display: none;
-				z-index:6;
-				position: absolute;
-				min-width: 160px;
-				box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);		
-			}
-
-			.dropdown-content a 
-			{
-				color: light-grey;
-				padding: 12px;
-				text-decoration: none;
-				display: block;
-			}
-
-			.dropdown-content a:hover 
-			{
-				background-color: #ff6666;
-			}
-
-			.dropdown:hover .dropdown-content 
-			{
-				display: block;
-			}
-			.activeN 
-			{
-				background-color: #fff;
-				outline:none;
-				padding-right: 54%;
-				width: 250px !important;
-			}
-			.activeC
-			{
-				background-color: #ffffff!important;
-				width:50px !important;
-			}
-			ul.tab 
-			{
-				list-style-type: none;
-				margin: 0;
-				padding: 0;
-				overflow: hidden;
-				background-color: #f1f1f1;
-			}
-
-			ul.tab li 
-			{
-				float: left;
-			}
-
-			ul.tab li a 
-			{
-				display: inline-block;
-				color: black;
-				text-align: center;
-				padding: 14px 16px;
-				text-decoration: none;
-				transition: 0.3s;
-				font-size: 16px;
-			}
-	
-			ul.tab li a:hover 
-			{
-				background-color: #29b0e2;
-				border-radius:15px;
-				height:120px;
-			}
-
-			ul.tab li a:focus, .active 
-			{
-				
-				
-			}
-
-			.tabcontent 
-			{
-				display: none;
-				padding: 6px 12px;
-				-webkit-animation: fadeEffect 1s;
-				animation: fadeEffect 1s;
-			}
-			
-			
-			@-webkit-keyframes fadeEffect 
-			{
-				from {opacity: 0;}
-				to {opacity: 1;}
-			}
-
-			@keyframes fadeEffect 
-			{
-				from {opacity: 0;}
-				to {opacity: 1;}
-			}
-
-		</style>
+								
 		<style>
 			.owl-controls
 			{
@@ -765,10 +766,12 @@ if(searchKey!="")
 
 						});
 
-                     </script>		
+                     </script>
+
 					<th id="login_data1"  width="50" height="50">
 						
 					</th>
+
 					<div class="col-md-2 col-sm-2 col-xs-2">
 					<th width="550" height="50" style="font-size:15px; text-align: center;">
 						<h6 style="color:#fff;">Copyright &copy; 
@@ -785,7 +788,7 @@ if(searchKey!="")
 
 							   totalwalletAmount();
 
-							var login_div_data='';
+							//var login_div_data='';
 		              	//if((localStorage.userID===null) || !(localStorage.userID))
 		                //{
 		                	//login_div_data='<a href="login.html"><i class="fa fa-sign-in w3-xxlarge" aria-hidden="true" style="cursor:pointer;"></i>'+
@@ -802,7 +805,7 @@ if(searchKey!="")
 		                //}
 		                
 
-						});
+						//});
 					
                       </script>
                       <div id="login_div_data"></div>
