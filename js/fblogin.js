@@ -102,7 +102,7 @@
 		    		console.log(fbid_val);
 		    		localStorage.setItem("userID",res.user_id);
 		    		
-		    		location.href="http://yoneak.com/Cashback_App/account.html";
+		    		location.href="http://yoneak.com/Cashback_App/yoneak.html";
 		    	}
 		    	else
 		    	{
