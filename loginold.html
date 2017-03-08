@@ -142,6 +142,8 @@
 		<script src="js/jquery.mobile-1.4.5.min.js"></script>
 		<script src="js/login.js"></script>
 		<script src="js/fblogin.js"></script>
+		<script src="js/login.js"></script>
+		<script src="js/glogin.js"></script>
 	</head>
 	<script>
 		if((localStorage.getItem("userID")!=null) || (localStorage.getItem("userID")))
@@ -180,18 +182,35 @@
 					</div>
 					<div class="row">
 						<div class="col-md-12">						
-							<div class="login-box">		
-								<div class="row">
-									<div class="col-md-12 col-sm-12 col-xs-12">
-										<div class="social-login">												
-											<div class="w3-group" style="text-align: center; position: relative; bottom: 18%;">
-					<!--<img src="facebook.jpg"  onlogin="checkLoginState();" style="width:200px;height:45px;cursor:pointer;"></img>-->
-				<fb:login-button size="large" scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button>
-				<img src="google.jpg" id="googleSignInButton" class="googleSignInButtonClass"  onclick="gSignIn()" style="cursor:pointer;width:100px;padding-bottom:0px;margin-top:13px; height:35px;"></img>
-				</div>
-										</div>
-									</div>
-								</div>
+							<div class="login-box">	
+							<div class="row">
+    								<div style="col-sm-4">
+      								<p style="text-align:center !important"><fb:login-button size="xlarge" scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button></p>
+      								</div>
+      								<div style="col-sm-4">
+      								<p id="paint" style="text-align:center !important"><img src="google.jpg" id="googleSignInButton" class="googleSignInButtonClass"  onclick="gSignIn()" style="cursor:pointer; padding: 0px !important; height: 39px; margin-top: -20px; width: 125px;" /></p>
+      								</div>
+      							</div>	
+      								
+
+<script>
+$(document).ready(function () {
+setTimeout(function(){
+$('#paint').fadeIn(200);
+}, 1000);
+});
+
+</script>
+<style>
+#paint {
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    display: none;
+}
+</style>      								
+								
 								<div class="row">
 									<div class="col-md-12 col-sm-12 col-xs-12">
 										<form class="email-login">
@@ -229,7 +248,7 @@
 											<p style="color:red;" id="emaill_error_msg"></p>
 										</div>
 										<div class="u-form-group">
-											<input placeholder="Password" id="password_id" type="password" required="">
+											<input placeholder="Password" id="password_id" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one Alphanumeric letter,one numeric,one special character and at least 8 or more characters" type="password" required="">
 											<p style="color:red;" id="passwordd_error_msg"></p>
 										</div>
 										<div class="u-form-group">
@@ -237,7 +256,7 @@
 										<p style="color:red;" id="referral_error_msg"></p>
 										</div>
 										<div class="u-form-group" >
-											<button  onclick="submit_detail()"   type="button">SIGN UP</button>
+											<button  id="registerData"  type="button">SIGN UP</button>
 										</div>
 									</form>
 									</div>
@@ -268,153 +287,95 @@
 		</script>
 
 <script>
-
-function submit_detail()
+function validateEmail(email)
 {
-$("#name").keypress(function(){
-$("#name_error_msg").fadeOut();
-});
+	var filter = /^[\w\-\.\+]+\@[a-zA-Z0-9\.\-]+\.[a-zA-z0-9]{2,4}$/;
+	if (filter.test(email)) {
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
 
+$("#name").keypress(function(){
+       $("#name_error_msg").fadeOut();	
+});
 $("#email_id").keypress(function(){
-$("#emaill_error_msg").fadeOut();
+       $("#emaill_error_msg").fadeOut();	
 });
 
 $("#password_id").keypress(function(){
-$("#passwordd_error_msg").fadeOut();         
-}); 
-$("#referral_code").keypress(function(){
-$("#referral_error_msg").fadeOut();
+       $("#passwordd_error_msg").fadeOut();	
 });
 
-			var name=$("#name").val();
-
-            var email=$("#email_id").val();
-              //alert(email);
-            var password=$("#password_id").val();
-             if(name=='')
-               {
-               	 $('#name_error_msg').html('please enter your name');
-               	
-               }
-            
-                if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email))  
-                {  
-                  verify_err=true; 
-                } 
-                else
-                {
-                $('#emaill_error_msg').html('Invalid Email Id.');
-               verify_err=false;
-
-                if(email=='')
-                {
-                    $('#emaill_error_msg').html('please enter your email');
-                }
-                }
-
-               
-                if(password=='')
-                {
-                    $('#passwordd_error_msg').html('please enter your Password');
-                }
-                
-                else
-                {
-
-                $.post('http://yoneak.com/web_services/main_register.php?name='+name+'&email_id='+email+'&password_id='+password+'&referral_code='+referral_code,function(res){
-
-        if(res.code=='0')
+			$("#registerData").click(function(){
+				var name=$("#name").val();
+				var email =$("#email_id").val();
+				var password=$("#password_id").val();
+				var referral_code=$("#referral_code").val();
+				
+				
+				var checkvalidate=true;
+				
+				 if(name=='')
+				{
+					$('#name_error_msg').html('*Please enter your Name').fadeIn();
+					checkvalidate=false;
+				}
+			    
+				
+				if(password=='')
+				{
+					$('#passwordd_error_msg').html('*Please enter your Password').fadeIn();
+					checkvalidate=false;
+				}
+				
+				if(email=='')
+	              {
+					$('#emaill_error_msg').html('*Please enter Email Id').fadeIn();
+					checkvalidate=false;
+				  }
+	
+				else if (validateEmail(email)) 
+				{
+         
+    			}
+     			else {
+           		$('#emaill_error_msg').html('*Invalid Email Id').fadeIn(); 
+            	checkvalidate=false; 
+          		} 
+          		
+	if(checkvalidate)
+	{
+				$.ajax({
+					url:"http://yoneak.com/web_services/main_register.php",
+					type:"POST",
+					dataType:"json",
+					data:{email_id:email,name:name,password_id:password,referral_code:referral_code},
+				    beforeSend: function()
+                   {
+                   // alert("Processing...");
+                   }
+                  }).done(function(result)
+                    	{
+                 	  //  var parsedJson = JSON.parse(result);
+                       // console.log(parsedJson);
+                       if(result.code=='0')
                        {
-                       	$("#emaill_error_msg").html("Email has already been taken").fadeIn(); 
-                        //alert('Email has already been taken');
+                       	$("#emaill_error_msg").html("You have already Register this Email..").fadeIn(); 
                        }
-                       else if(res.code == '1')
-                       {
-                       alert("Successfully Resister.."); 
-                        window.location='main_login.html';     
+                       else if(result.code == '1')
+                        {
+                       alert("Successfully Register.."); 
+                        window.location='login.html';     
                         }
-        
-    }, "json").fail(function(){
-        //alert("invalid Email Or Password");
-    });
+                        
+				});
+              }
+              });
 
-   }
- }
-
-
-function login()
-{
-	$("#email").keypress(function(){
-	$("#email_error_msg").fadeOut();
-	});
-	$("#password").keypress(function(){
-	$("#password_error_msg").fadeOut();         
-	});         
-
-            var email =$("#email").val();
-    
-            var password=$("#password").val();
-            
-                if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email))  
-                {  
-                  verify_err=true; 
-                } 
-                else
-                {
-                $('#email_error_msg').html('Invalid Email Id.');
-               verify_err=false;
-                if(email=='')
-                {
-                    $('#email_error_msg').html('please enter your email');
-                }
-                }
-               
-                if(password=='')
-                {
-                    $('#password_error_msg').html('please enter your Password');
-                }
-                
-                else
-                {
-
-                $.post('http://yoneak.com/web_services/login.php?email='+email+'&password='+password,function(res){
-        if(res.message == "Login Success")
-        {  
-            localStorage.setItem("userID",res.user_id);
-            var redirectPage=0;
-            if((localStorage.url===null) || !(localStorage.url))
-            {
-                 if((localStorage.proName===null) || !(localStorage.proName))
-                {
-                     if((localStorage.cart===null) || !(localStorage.cart))
-                     {
-                           redirectPage=0;
-                     }
-                     else{
-                        redirectPage=3;
-                     }
-                }
-                else
-                {
-                    redirectPage=2;
-                }
-                 
-            }
-            else
-            {
-                redirectPage=1;
-            }
-        }
-        if(res.message == "invalid Email Or Password")
-        {
-            $('#email_error_msg').html('invalid Email Or Password');
-        }
-        
-    }, "json").fail(function(){
-    });
-
-   }
- }
 
 
 	function opendata() 

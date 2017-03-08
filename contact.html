@@ -360,6 +360,7 @@
 		<script src="js/user_detail.js"></script>
 		<script src="js/cart_item.js"></script>
 		<script src="js/cart.js"></script>
+		<script src="js/logout.js"></script>
 
 <script>
 		function refer()
@@ -413,7 +414,7 @@
 
 		</script>
 	</head>
-	<body>
+	<body style="font-family: sans-serif;">
 		<div  data-role="panel" id="nmyPanel1" data-display="overlay" style="width:280px; position: fixed;"> 
 			<div class="col-xs-12" style="height:640px;overflow-y:auto;">
 			<div id="ser_valoue">
@@ -599,6 +600,27 @@
 								Share App
 							</a>
 						</li>
+						<li onclick="logout()">
+					    <a href="" style="color:#000;text-decoration:none;">
+						<script>
+						$(document).ready(function()
+						{
+							var login_data3='';
+		              	if((localStorage.userID!=null) || (localStorage.userID))
+		                {
+		                	login_data3='Logout';
+							
+                             $('#login_data').html(login_data3);
+		                }
+		                
+
+						});
+                      </script>
+                      <div id="login_data" style="line-height:3em" ></div>
+					  </a>
+				    </li>
+				    <br>
+
 					</ul>
 				</div>
 			</div>
@@ -707,33 +729,33 @@
 				<tr align="Center">								
 					<script>
 
-				$(document).ready(function(){
+				//$(document).ready(function(){
 
-							var login_data1='';
+							//var login_data1='';
 
-		              	if((localStorage.userID!=null) || (localStorage.userID))
-
-		                {
-
-		                	login_data1='<div  id="walletId" onclick="walletdetail()">'+
-							
-						       '</div>';
-
-							
-
-                             $('#login_data1').html(login_data1);
-
-		                }
-
-		                else
+		              	//if((localStorage.userID!=null) || (localStorage.userID))
 
 		                {
 
-		                }
+		                	//login_data1='<div  id="walletId" onclick="walletdetail()">'+
+							
+						       //'</div>';
+
+							
+
+                            // $('#login_data1').html(login_data1);
+
+		               // }
+
+		               // else
+
+		                //{
+
+		               // }
 
 
 
-						});
+						//});
 
                      </script>		
 					<th id="login_data1"  width="50" height="50">

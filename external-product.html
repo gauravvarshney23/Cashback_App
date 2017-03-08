@@ -421,7 +421,7 @@
 
 		</script>
 	</head>
-	<body>
+	<body style="font-family: sans-serif;">
 			<div  data-role="panel" id="nmyPanel1" data-display="overlay" style="width:280px; position: fixed;"> 
 			<div class="col-xs-12" style="height:640px;overflow-y:auto;">
 			<div id="ser_valoue">
@@ -607,6 +607,27 @@
 								Share App
 							</a>
 						</li>
+						<li onclick="logout()">
+					    <a href="" style="color:#000;text-decoration:none;">
+						<script>
+						$(document).ready(function()
+						{
+							var login_data3='';
+		              	if((localStorage.userID!=null) || (localStorage.userID))
+		                {
+		                	login_data3='Logout';
+							
+                             $('#login_data').html(login_data3);
+		                }
+		                
+
+						});
+                      </script>
+                      <div id="login_data" style="line-height:3em" ></div>
+					  </a>
+				    </li>
+				    <br>
+
 					</ul>
 				</div>
 			</div>
@@ -838,32 +859,32 @@ if(searchKey!="")
 				<tr align="Center">								
 					<script>
 
-				$(document).ready(function(){
+				//$(document).ready(function(){
 
-							var login_data1='';
+							//var login_data1='';
 
-		              	if((localStorage.userID!=null) || (localStorage.userID))
+		              	//if((localStorage.userID!=null) || (localStorage.userID))
 
-		                {
+		                //{
 
-		                	login_data1='<div  id="walletId" onclick="walletdetail()">'+
+		                	//login_data1='<div  id="walletId" onclick="walletdetail()">'+
 							
-						       '</div>';
+						       //'</div>';
 
 							
 
-                             $('#login_data1').html(login_data1);
+                            // $('#login_data1').html(login_data1);
 
-		                }
+		                //}
 
-		                else
+		               // else
 
-		                {
+		               // {
 
-		                }
+		               // }
 
 
-						});
+						//});
 
                      </script>		
 					<th id="login_data1"  width="50" height="50">
@@ -968,7 +989,7 @@ if(searchKey!="")
 				 '<a onclick="trackOffer('+countid+');" href="javascript:void(0);">'+				
 					'<i class="fa fa-shopping-cart w3-xlarge w3-center" style="cursor:pointer;"></i>'+
 
-				          '</a>'+
+				          '</a><br><br><a href="whatsapp://send?text='+encodeURI(url)+'"><i class="fa fa-share-alt" style="color:lightgrey;font-size:16px" aria-hidden="true"></i></a>'+
 
 			              '</div> </div>';
 			              	

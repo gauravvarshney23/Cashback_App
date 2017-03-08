@@ -419,7 +419,7 @@
 
 		</script>
 	</head>
-	<body>
+	<body style="font-family: sans-serif;">
 		<div  data-role="panel" id="nmyPanel1" data-display="overlay" style="width:280px; position: fixed;"> 
 			<div class="col-xs-12" style="height:640px;overflow-y:auto;">
 			<div id="ser_valoue">
@@ -605,6 +605,27 @@
 								Share App
 							</a>
 						</li>
+						<li onclick="logout()">
+					    <a href="" style="color:#000;text-decoration:none;">
+						<script>
+						$(document).ready(function()
+						{
+							var login_data3='';
+		              	if((localStorage.userID!=null) || (localStorage.userID))
+		                {
+		                	login_data3='Logout';
+							
+                             $('#login_data').html(login_data3);
+		                }
+		                
+
+						});
+                      </script>
+                      <div id="login_data" style="line-height:3em" ></div>
+					  </a>
+				    </li>
+				    <br>
+
 					</ul>
 				</div>
 			</div>
@@ -704,6 +725,11 @@ if(searchKey!="")
 		<div class="row" id="wallet_history">
 		</div>	
 		</header>
+		<br>
+		<br>
+		<br>
+		<br>
+		<br>
 <header class="navbar-fixed-bottom" style="border-radius:0px; background-color: #080771 !important;z-index: 1 !important;">
 		<div class="w3-card-4" style="">
 				<div style="text-align: center; padding:5px;text-shadow: 0 0px 0 !important;">
@@ -728,7 +754,7 @@ if(searchKey!="")
 					<script>
 						$(document).ready(function(){
 
-							   totalwalletAmount();
+							 //  totalwalletAmount();
 
 							//var login_div_data='';
 		              //	if((localStorage.userID===null) || !(localStorage.userID))
