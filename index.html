@@ -1,9 +1,17 @@
 <!doctype html>
 <html>
   <head>
-   <script>
-     window.location='./loading.html';
-   </script>
   <body>
+    <div class="app">
+            <h1>PhoneGap</h1>
+            <div id="deviceready" class="blink">
+            </div>
+    </div>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript">
+       app.initialize();
+       window.location='./loading.html';
+    </script>
   </body>
 </html>
