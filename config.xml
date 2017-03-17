@@ -20,10 +20,11 @@
   <preference name="android-minSdkVersion" value="7"/>
   <preference name="android-installLocation" value="auto"/>
   <preference name="loadUrlTimeoutValue" value="700000" />
-  <plugin name="cordova-plugin-splashscreen" source="npm"/>
-  <plugin name="cordova-plugin-geolocation" source="npm"/>
-  <plugin name="cordova-plugin-inappbrowser" source="npm"/>
-  <plugin name="cordova-plugin-x-socialsharing" source="npm" />
+  <plugin name="cordova-plugin-splashscreen" />
+  <plugin name="cordova-plugin-camera" />
+  <plugin name="cordova-plugin-file-transfer" />
+  <plugin name="cordova-plugin-inappbrowser" />
+  <plugin name="cordova-plugin-x-socialsharing" />
   <icon src="logo.png"/>
   <icon src="img/icon.png" gap:platform="android" gap:qualifier="ldpi"/>
   <icon src="img/icon.png" gap:platform="android" gap:qualifier="mdpi"/>
